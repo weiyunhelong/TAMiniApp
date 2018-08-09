@@ -1,0 +1,261 @@
+/**index.wxss**/
+
+/*顶部的图片*/
+
+.backgroundv {
+  width: 100%;
+  background-image: url('http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg');
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 20s linear infinite;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  height: 500rpx;
+  background-color: #ccc;
+}
+
+/*背景动画部分*/
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/*搜索按钮*/
+
+.searchv {
+  position: relative;
+  left: 90%;
+  top: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/*地址信息*/
+
+.toptxtinfo {
+  position: relative;
+  left: 0rpx;
+  top: 250rpx;
+  display: flex;
+  margin: 0 30rpx;
+  justify-content: space-between;
+}
+
+/*左侧的名称*/
+
+.topleftv {
+  display: flex;
+  flex-direction: column;
+}
+
+.topcnname {
+  font-size: 60rpx;
+  color: #fff;
+}
+
+.topenname {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/*右侧的天气*/
+
+.toprightv {
+  display: flex;
+  flex-direction: column;
+}
+
+.topwenduv {
+  display: flex;
+}
+
+.topwendu {
+  font-size: 60rpx;
+  color: #fff;
+}
+
+.weatherico {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+}
+
+.topweather {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/*隔断层*/
+
+.geduanv {
+  width: 100%;
+  height: 20rpx;
+  clear: both;
+}
+
+/*菜单部分*/
+
+.tabview {
+  width: 100%;
+  height: 420rpx;
+}
+
+.menutitle {
+  width: 94%;
+  margin: 20rpx 3%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+
+.tabmenuv {
+  width: 94%;
+  margin: -50rpx 3%;
+  height: 400rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding-top: 20rpx;
+}
+
+.menuv {
+  width: 20%;
+  height: 150rpx;
+  text-align: center;
+  display: table-column;
+  padding-top: 20rpx;
+}
+
+.menuico {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.menutxt {
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 25rpx;
+}
+
+/*标题部分*/
+
+.titlev {
+  margin: 0rpx 3%;
+  height: 120rpx;
+  line-height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titlev .titletxt {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.titlev .moretxt {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/*景点部分*/
+
+.jingdianv {
+  height: 500rpx;
+  background-color: #fff;
+  padding: 0rpx 20rpx;
+}
+
+.tab-jingdianv {
+  height: 370rpx;
+  width: 100%;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.tabyitem {
+  height: 370rpx;
+  padding: 0rpx 20rpx;
+  font-size: 30rpx;
+  display: inline-block;
+  width: 500rpx;
+}
+
+/*大图部分*/
+
+.citybigv {
+  float: left;
+  height: 320rpx;
+  width: 320rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10rpx;
+}
+
+.tourbigtu {
+  width: 55%;
+  height: 150rpx;
+  margin-right: 5%;
+  float: left;
+  margin-top: 10rpx;
+}
+
+/*小图部分*/
+
+.citysmv {
+  height: 150rpx;
+  width: 150rpx;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+
+.tourmdtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  font-size: 28rpx;
+  clear: both;
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top:220rpx;
+}
+
+.toursmdtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  font-size: 28rpx;
+  clear: both;
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top:80rpx;
+}
+.toursmtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  font-size: 24rpx;
+  clear: both;
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top:220rpx;
+}

@@ -1,0 +1,171 @@
+<!--pages/search/index.wxml-->
+<!--搜索层-->
+<view class='searchv'>
+  <view class='searchview'>
+    <icon type="search" size="16" color="#ccc" class='searchicon' />
+    <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+    <icon type="clear" size="16" color="#ccc" class='clearicon' />
+  </view>
+  <view class='cleartxt'>取消</view>
+</view>
+
+<!--tab层-->
+<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+  <block wx:for="{{tablist}}" wx:key="item" wx:for-index="x">
+    <view class="tabitem" data-current="{{x}}" data-id="{{item.name}}" bindtap="switchNav">
+      <view class="{{currentTab==x?'chktabitem':'nochktabitem'}}" data-current="{{x}}" data-id="{{item.id}}" bindtap="swichNav">{{item.name}}</view>
+    </view>
+  </block>
+</scroll-view>
+
+<!--目的地-->
+<view class='gogalv'>
+  <view class='titlev'>
+    <view class='titletxt'>目的地</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-g">
+    <block wx:for="{{gogallist}}" wx:key="item" wx:for-index="x">
+      <view class="tabgitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="gogalswitchNav">
+        <image src='{{item.imgpath}}' class='gogaltu'></image>
+        <view class="gogaltxt">{{item.name}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--景点推荐-->
+<view class='scenev'>
+  <view class='titlev'>
+    <view class='titletxt'>景点推荐</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-s">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabsitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="sceneswitchNav">
+        <image src='{{item.imgpath}}' class='scenetu'></image>
+        <view class="scenetxt">{{item.name}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--游记层-->
+<view class='youjiv'>
+  <view class='titlev'>
+    <view class='titletxt'>游记</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-youjiv">
+    <block wx:for="{{tourlist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="youjiswitchNav">
+
+        <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
+          <image src='{{yitem}}' class='tourbigtu' wx:if="{{y==0}}"></image>
+          <image src='{{yitem}}' class='tourtu' wx:else></image>
+        </block>
+        <view class='tourtxt'>{{item.name}}</view>
+
+      </view>
+    </block>
+  </scroll-view>
+
+</view>
+
+<!--攻略层-->
+<view class='gonglvev'>
+  <view class='titlev'>
+    <view class='titletxt'>攻略</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+   <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-gl">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabglitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="gonglveswitchNav">
+        <view class='infov'>
+          <view class='infotitle'>皮特街购物中心超实用购物解读！</view>
+          <view class='infotxt'>平时玩手机是不难发现,生活在澳村的红薯们时不时就会吐槽一番澳大利亚“地方人稀”,顺带PO了</view>
+          <view class='infomore'>阅读更多</view>
+        </view>
+        <image src='{{item.imgpath}}' class='gletu'></image>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--线路层-->
+<view class='xianluv'>
+   <view class='titlev'>
+    <view class='titletxt'>线路</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+   <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-xl">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabglitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="routeswitchNav">       
+        <image src='{{item.imgpath}}' class='gletu'></image>
+        <view class='infov'>
+          <view class='infotitle'>悉尼四日游，吃喝全攻略！</view>
+          <view class='infotxt'>悉尼比想象中的好玩太多！简直就是好看，好吃，好住。在这里见过最美的海滩，吃过最好吃的料理，住过最有趣的太空舱胶囊旅店，这四</view>
+          <view class='infomore'>阅读更多</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--购物层-->
+<view class='shopv'>
+   <view class='titlev'>
+    <view class='titletxt'>购物</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-s">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabsitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="shopswitchNav">
+        <image src='{{item.imgpath}}' class='scenetu'></image>
+        <view class="scenetxt">{{item.name}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--美食层-->
+<view class='foodv'>
+ <view class='titlev'>
+    <view class='titletxt'>美食</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-f">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabfitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="foodswitchNav">
+        <image src='{{item.imgpath}}' class='scenetu'></image>
+        <view class="foodtxt">{{item.name}}</view>
+        <view class="foodtype">亚洲料理，泰国菜</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!--酒店层-->
+<view class='hotelv'>
+ <view class='titlev'>
+    <view class='titletxt'>酒店</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-hotel">
+    <block wx:for="{{scenelist}}" wx:key="item" wx:for-index="x">
+      <view class="tabhitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="hotelswitchNav">
+        <image src='{{item.imgpath}}' class='scenetu'></image>
+        <view class="hoteltxt">{{item.name}}</view>
+        <view class="hoteltip">￥993起</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

@@ -1,0 +1,100 @@
+<!--index.wxml-->
+
+<!--搜索行-->
+<view class='searchv'>
+  <icon type='search' size='16' color='#cccccc' class='searchicon'> </icon>
+  <input type='text' class='searchtxt' placeholder='搜索' placeholder-class='searchtip' value='{{searchtxt}}' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+</view>
+
+<!--左右的联动-->
+<view class='server'>
+  <!--左侧的列表-->
+  <view class='left'>
+    <view wx:for="{{tablist}}" wx:key="{{index}}" class='menuv'>
+      <!--选中的状态-->
+      <view class='chkleftbody' wx:if="{{chkid==item.id}}" bindtap='gorighttype' data-id='{{item.id}}' data-name='{{item.name}}'>
+        <view class='chktxt'>{{item.name}}</view>
+      </view>
+      <!--未选中的状态-->
+      <view class='leftbody' wx:else bindtap='gorighttype' data-id='{{item.id}}' data-name='{{item.name}}'>
+        <view class='txt'>{{item.name}}</view>
+      </view>
+
+      <view>
+      </view>
+    </view>
+  </view>
+  <view class='right'>
+    <!--推荐部分-->
+    <view class='tuijianv' wx:if="{{chkid==1}}">
+      <!--gps层-->
+      <view class='gpsv'>
+        <view class='titletxt'>GPS定位</view>
+        <view class='gpsceng'>
+          <image src='/resources/weizhi.png' class='weizhiico'></image>
+          <view class='gpstxt'>悉尼</view>
+        </view>
+      </view>
+      <!--最近浏览层-->
+      <view class='historyv'>
+        <view class='titletxt'>最近浏览</view>
+        <view class='historyceng'>
+          <view class='historyitem'>悉尼</view>
+          <view class='historyitem'>墨尔本</view>
+          <view class='historyitem'>昆士兰</view>
+        </view>
+      </view>
+
+      <!--当前热门-->
+      <view class='historyv'>
+        <view class='titletxt'>当前热门</view>
+        <view class='hotceng'>
+          <view class='hotitem'>墨尔本</view>
+          <view class='hotitem'>昆士兰</view>
+          <view class='hotitem'>黄金海岸</view>
+          <view class='hotitem'>布里斯班</view>
+          <view class='hotitem'>凯恩斯</view>
+          <view class='hotitem'>圣灵群岛</view>
+        </view>
+      </view>
+
+      <!--推荐城市-->
+      <view class='tjcityv'>
+        <view class='titletxt'>推荐城市</view>
+        <view class='tjcityceng'>
+          <view class='tjcityitem'>
+            <image src='/resources/tu1.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>悉尼</view>
+          </view>
+          <view class='tjcityitem'>
+            <image src='/resources/tu2.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>墨尔本</view>
+          </view>
+          <view class='tjcityitem'>
+            <image src='/resources/tu3.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>昆士兰</view>
+          </view>
+          <view class='tjcityitem'>
+            <image src='/resources/tu1.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>黄金海岸</view>
+          </view>
+          <view class='tjcityitem'>
+            <image src='/resources/tu2.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>布里斯班</view>
+          </view>
+          <view class='tjcityitem'>
+            <image src='/resources/tu3.jpg' class='tjcityimg'></image>
+            <view class='tjcitytxt'>凯恩斯</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <!--大洲部分-->
+    <view class='tuijianv' wx:if="{{chkid==2}}"></view>
+
+    <!--城市部分-->
+    <view class='tuijianv' wx:if="{{chkid==3}}"></view>
+  </view>
+</view>

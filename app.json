@@ -1,0 +1,108 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/search/index",
+    "pages/termini/index",
+    "pages/info/index",
+    "pages/chatbot/index",
+    "pages/my/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "澳洲旅游局",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#87d0e3",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "resources/home.png",
+        "selectedIconPath": "resources/homeh.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/termini/index",
+        "iconPath": "resources/termini.png",
+        "selectedIconPath": "resources/terminih.png",
+        "text": "目的地"
+      },
+      {
+        "pagePath": "pages/chatbot/index",
+        "iconPath": "resources/kefu.png",
+        "selectedIconPath": "resources/kefuh.png",
+        "text": "客服"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "resources/my.png",
+        "selectedIconPath": "resources/myh.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "citys/",
+      "pages": [
+        "pages/index/index",
+        "pages/weather/index",
+        "pages/map/index"
+      ]
+    },
+    {
+      "root": "scenics/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "mys/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "routes/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "foods/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "hotels/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "gonglves/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "others/",
+      "pages": [
+        "pages/index/index"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

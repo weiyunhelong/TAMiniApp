@@ -1,0 +1,429 @@
+/* pages/search/index.wxss */
+
+/*搜索层*/
+
+.searchv {
+  width: 96%;
+  height: 80rpx;
+  margin: 2%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchview {
+  width: 90%;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15rpx;
+}
+
+.searchicon {
+  margin: 18rpx 15rpx;
+}
+
+.txtcss {
+  width: 82%;
+  height: 60rpx;
+  font-size: 25rpx;
+  line-height: 60rpx;
+}
+
+.clearicon {
+  margin: 18rpx 15rpx;
+}
+
+.cleartxt {
+  width: 15%;
+  font-size: 35rpx;
+  color: #ccc;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+/*菜单部分*/
+
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+/*菜单*/
+
+.tabitem {
+  width: 120rpx;
+  text-align: center;
+  height: 80rpx;
+  margin: 0rpx 15rpx;
+  display: inline-block;
+}
+
+/*选中的菜单*/
+
+.chktabitem {
+  text-align: center;
+  height: 77rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #87d0e3;
+  font-weight: 600;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+/*未选中的菜单*/
+
+.nochktabitem {
+  text-align: center;
+  margin: 0 15rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #333;
+  display: inline-block;
+  font-size: 28rpx;
+}
+
+/*目的地*/
+
+.gogalv {
+  height: 350rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+.titlev {
+  width: 94%;
+  height: 80rpx;
+  margin: 0rpx 3%;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titletxt {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.moretxt {
+  font-size: 22rpx;
+}
+
+.tab-g {
+  height: 250rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+.tabgitem {
+  width: 680rpx;
+  text-align: center;
+  height: 230rpx;
+  margin: 0rpx 15rpx;
+  display: inline-block;
+}
+
+.gogaltu {
+  width: 100%;
+  height: 230rpx;
+}
+
+.gogaltxt {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: -65rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #fff;
+}
+
+/*景点推荐*/
+
+.scenev {
+  height: 350rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+.tab-s {
+  height: 250rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+
+.tabsitem {
+  width: 220rpx;
+  text-align: center;
+  height: 220rpx;
+  margin: 10rpx 15rpx 10rpx 0;
+  display: inline-block;
+}
+
+.scenetu {
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+}
+
+.scenetxt {
+  text-align: center;
+  height: 60rpx;
+  color: #fff;
+  font-size: 25rpx;
+  margin-top: -50rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 10rpx;
+}
+
+/*游记部分*/
+
+.youjiv {
+  height: 500rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+.tab-youjiv {
+  height: 450rpx;
+  width: 100%;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+
+.tabyitem {
+  height: 380rpx;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+  font-size: 30rpx;
+  display: inline-block;
+  width: 100%;
+}
+
+.tourbigtu {
+  width: 60%;
+  height: 150rpx;
+  margin-right: 5%;
+  float: left;
+  margin-top: 10rpx;
+}
+
+.tourtu {
+  width: 30%;
+  height: 150rpx;
+  margin-right: 2.5%;
+  float: left;
+  margin-top: 10rpx;
+}
+
+.tourtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  height: 50rpx;
+  font-size: 28rpx;
+  clear: both;
+  line-height: 50rpx;
+}
+
+/*攻略层*/
+
+.gonglvev {
+  height: 350rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+.tab-gl {
+  height: 250rpx;
+  width: 100%;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+
+.tabglitem {
+  height: 250rpx;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+  font-size: 30rpx;
+  display: inline-block;
+}
+
+.infov {
+  width: 58%;
+  height: 230rpx;
+  float: left;
+}
+
+.infotitle {
+  width: 100%;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.infotxt {
+  width: 100%;
+  font-size: 23rpx;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  float: left;
+}
+
+.infomore {
+  float: right;
+  font-size: 23rpx;
+  color: #87d0e3;
+  margin-top: -25rpx;
+  margin-right: 15rpx;
+}
+
+.gletu {
+  width: 200rpx;
+  height: 160rpx;
+  margin-left: 12%;
+}
+
+/*线路部分*/
+.xianluv{  
+  height: 350rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+.tab-xl{
+  height: 250rpx;
+  width: 100%;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+
+/*购物层*/
+.shopv{  
+  height: 350rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+
+
+/*美食层*/
+.foodv{  
+  height: 400rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+.tab-f{  
+  height: 350rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+.tabfitem{  
+  height:300rpx;
+  width: 35%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+  display: inline-block;
+}
+.foodtxt{
+  font-size: 25rpx;
+  font-weight: 600;
+  padding:  0 10rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width:180rpx;
+  text-align: center;
+}
+.foodtype{
+  height: 50rpx;
+  font-size: 20rpx;
+  padding:  0 10rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #ccc;
+  width:180rpx;
+  text-align: center;
+}
+/*酒店层*/
+.hotelv{
+  height: 400rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0rpx 20rpx;
+}
+.tab-hotel{  
+  height: 350rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+}
+.tabhitem{  
+  height:300rpx;
+  width: 35%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 10rpx;
+  display: inline-block;
+}
+.hoteltxt{
+  font-size: 25rpx;
+  font-weight: 600;
+  padding:  0 10rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width:180rpx;
+  text-align: center;
+}
+.hoteltip{
+  height: 50rpx;
+  font-size: 20rpx;
+  padding:  0 10rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #ccc;
+  width:180rpx;
+  text-align: center;
+}

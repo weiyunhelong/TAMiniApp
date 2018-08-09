@@ -1,0 +1,22 @@
+/**app.wxss**/
+
+/*组件样式*/
+@import '/styles/weui.wxss';
+/*icon样式*/
+@import '/styles/icon.wxss';
+/*引入字体*/
+@import '/styles/font.wxss';
+
+/*背景样式*/
+page {
+  background-color: #f1f1f1;
+  font-family: "Montserrat";
+}
+
+/*滚动条隐藏*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}

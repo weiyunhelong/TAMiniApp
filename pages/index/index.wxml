@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<!--顶部图片-->
+<view class='backgroundv'>
+
+  <!--搜索层-->
+  <view class='searchv' bindtap='getsearch'>
+    <icon type='search' size='30' color='#fff' class='searchico'></icon>
+  </view>
+
+  <!--底部的文字-->
+  <view class='toptxtinfo'>
+    <view class='topleftv'>
+      <view class='topcnname'>黄金海岸</view>
+      <view class='topenname'>Gold Coast</view>
+    </view>
+    <view class='toprightv'>
+      <view class='topwenduv'>
+        <view class='topwendu'>25℃</view>
+        <image src='/resources/sun.png' class='weatherico'></image>
+      </view>
+      <view class='topweather'>未来一周的天气</view>
+    </view>
+  </view>
+
+</view>
+
+<!--隔断-->
+<view class='geduanv'></view>
+
+<!--menu部分-->
+<view class='tabview'>
+  <view class='tabmenuv'>
+    <block wx:for="{{menulist}}" wx:key="item">
+      <view class='menuv' bindtap='gomenu' data-url='{{item.url}}' data-id='{{item.id}}'>
+        <image src='{{item.icon}}' class='menuico'></image>
+        <view class='menutxt'>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<!--隔断-->
+<view class='geduanv'></view>
+
+<!--标志景点部分-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt'>标志景点</view>
+    <view class='moretxt'>查看全部></view>
+  </view>
+
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv" scroll-left="{{cityscrollLeft}}">
+    <block wx:for="{{citylist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="youjiswitchNav">
+
+        <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
+          <view class='citybigv' wx:if="{{y==0}}" style='background-image: url("/resources/tu1.jpg");'>
+            <view class='tourmdtxt'>{{yitem.name}}</view>
+            <view class='toursmtxt'>{{yitem.desc}}</view>
+          </view>
+          <view class='citysmv' wx:if="{{y==1}}" style='background-image: url("/resources/tu1.jpg");'>
+            <view class='toursmdtxt'>{{yitem.name}}</view>
+          </view>
+          <view class='citysmv' wx:if="{{y==2}}" style='background-image: url("/resources/tu1.jpg");margin-top:20rpx;'>
+            <view class='toursmdtxt'>{{yitem.name}}</view>
+          </view>
+        </block>
+
+      </view>
+    </block>
+
+  </scroll-view>
+</view>
+
+<!--隔断-->
+<view class='geduanv'></view>
+
+<!--购物推荐部分-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt'>购物推荐</view>
+    <view class='moretxt'>查看全部></view>
+  </view>
+
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv" scroll-left="{{cityscrollLeft}}">
+    <block wx:for="{{citylist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="youjiswitchNav">
+
+        <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
+          <view class='citybigv' wx:if="{{y==0}}" style='background-image: url("/resources/tu1.jpg");'>
+            <view class='tourmdtxt'>{{yitem.name}}</view>
+            <view class='toursmtxt'>{{yitem.desc}}</view>
+          </view>
+          <view class='citysmv' wx:if="{{y==1}}" style='background-image: url("/resources/tu1.jpg");'>
+            <view class='toursmdtxt'>{{yitem.name}}</view>
+          </view>
+          <view class='citysmv' wx:if="{{y==2}}" style='background-image: url("/resources/tu1.jpg");margin-top:20rpx;'>
+            <view class='toursmdtxt'>{{yitem.name}}</view>
+          </view>
+        </block>
+
+      </view>
+    </block>
+
+  </scroll-view>
+</view>
+
+<!--隔断-->
+<view class='geduanv'></view>
