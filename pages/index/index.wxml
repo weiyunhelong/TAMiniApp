@@ -1,12 +1,11 @@
 <!--index.wxml-->
+
 <!--顶部图片-->
 <view class='backgroundv'>
-
   <!--搜索层-->
   <view class='searchv' bindtap='getsearch'>
     <icon type='search' size='30' color='#fff' class='searchico'></icon>
   </view>
-
   <!--底部的文字-->
   <view class='toptxtinfo'>
     <view class='topleftv'>
@@ -21,7 +20,6 @@
       <view class='topweather'>未来一周的天气</view>
     </view>
   </view>
-
 </view>
 
 <!--隔断-->
@@ -31,7 +29,11 @@
 <view class='tabview'>
   <view class='tabmenuv'>
     <block wx:for="{{menulist}}" wx:key="item">
-      <view class='menuv' bindtap='gomenu' data-url='{{item.url}}' data-id='{{item.id}}'>
+      <view class='menuv' bindtap='gomenu' data-url='{{item.url}}' data-id='{{item.id}}' wx:if="{{item.id<5}}">
+        <image src='{{item.icon}}' class='menuico'></image>
+        <view class='menutxt'>{{item.name}}</view>
+      </view>
+      <view class='omenuv' bindtap='gomenu' data-url='{{item.url}}' data-id='{{item.id}}' wx:else>
         <image src='{{item.icon}}' class='menuico'></image>
         <view class='menutxt'>{{item.name}}</view>
       </view>
@@ -49,23 +51,43 @@
   </view>
 
   <!--滑动部分-->
-  <scroll-view scroll-x="true" class="tab-jingdianv" scroll-left="{{cityscrollLeft}}">
-    <block wx:for="{{citylist}}" wx:key="item" wx:for-index="x">
-      <view class="tabyitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="youjiswitchNav">
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{seniclist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem">
 
         <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
-          <view class='citybigv' wx:if="{{y==0}}" style='background-image: url("/resources/tu1.jpg");'>
-            <view class='tourmdtxt'>{{yitem.name}}</view>
-            <view class='toursmtxt'>{{yitem.desc}}</view>
+          <!--大图-->
+          <view class='citybigv' wx:if="{{y==0}}" bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv'>
+              <image src='{{yitem.pic}}'></image>
+            </view>
+            <view class='tabfinfov'>
+              <view class='tourmdtxt'>{{yitem.name}}</view>
+              <view class='toursmtxt'>{{yitem.desc}}</view>
+            </view>
           </view>
-          <view class='citysmv' wx:if="{{y==1}}" style='background-image: url("/resources/tu1.jpg");'>
-            <view class='toursmdtxt'>{{yitem.name}}</view>
+          <!--小图1-->
+          <view class='citysmv' wx:if="{{y==1}}" bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-280rpx;'>
+              <view class='tourmdtxt'>{{yitem.name}}</view>
+              <view class='toursmtxt'>{{yitem.desc}}</view>
+            </view>
           </view>
-          <view class='citysmv' wx:if="{{y==2}}" style='background-image: url("/resources/tu1.jpg");margin-top:20rpx;'>
-            <view class='toursmdtxt'>{{yitem.name}}</view>
+          <!--小图2-->
+          <view class='citysmv' wx:if="{{y==2}}" style='margin-top:20rpx;' bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-280rpx;'>
+              <view class='tourmdtxt'>{{yitem.name}}</view>
+              <view class='toursmtxt'>{{yitem.desc}}</view>
+            </view>
           </view>
         </block>
-
+        <view class="tabfitem" style='width:0;height:0rpx;'></view>
       </view>
     </block>
 
@@ -83,28 +105,190 @@
   </view>
 
   <!--滑动部分-->
-  <scroll-view scroll-x="true" class="tab-jingdianv" scroll-left="{{cityscrollLeft}}">
-    <block wx:for="{{citylist}}" wx:key="item" wx:for-index="x">
-      <view class="tabyitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="youjiswitchNav">
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{shoplist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem">
 
         <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
-          <view class='citybigv' wx:if="{{y==0}}" style='background-image: url("/resources/tu1.jpg");'>
-            <view class='tourmdtxt'>{{yitem.name}}</view>
-            <view class='toursmtxt'>{{yitem.desc}}</view>
+          <!--大图-->
+          <view class='citybigv' wx:if="{{y==0}}" bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv'>
+              <image src='{{yitem.pic}}'></image>
+            </view>
+            <view class='tabfinfov'>
+              <view class='shopmdtxt'>{{yitem.name}}</view>
+            </view>
           </view>
-          <view class='citysmv' wx:if="{{y==1}}" style='background-image: url("/resources/tu1.jpg");'>
-            <view class='toursmdtxt'>{{yitem.name}}</view>
+          <!--小图1-->
+          <view class='citysmv' wx:if="{{y==1}}" bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-280rpx;'>
+              <view class='shoptxt'>{{yitem.name}}</view>
+            </view>
           </view>
-          <view class='citysmv' wx:if="{{y==2}}" style='background-image: url("/resources/tu1.jpg");margin-top:20rpx;'>
-            <view class='toursmdtxt'>{{yitem.name}}</view>
+          <!--小图2-->
+          <view class='citysmv' wx:if="{{y==2}}" style='margin-top:20rpx;' bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-280rpx;'>
+              <view class='shoptxt'>{{yitem.name}}</view>
+            </view>
           </view>
         </block>
-
       </view>
     </block>
-
+    <view class="tabfitem" style='width:0;height:0rpx;'></view>
   </scroll-view>
 </view>
 
 <!--隔断-->
 <view class='geduanv'></view>
+
+<!--美食推荐-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt'>美食推荐</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{foodlist}}" wx:key="item" wx:for-item="item">
+      <view class="tabfitem" bindtap='gofood' data-id='{{item.id}}'>
+        <view class='backimgv'>
+          <image src='{{item.pic}}'></image>
+        </view>
+        <view class='tabfinfov'>
+          <view class="foodtxt">{{item.name}}</view>
+          <view class='foodtipv'>
+            <block wx:for="{{item.tips}}" wx:key="titem" wx:for-item="titem">
+              <view class='tipv'>{{titem}}</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="tabfitem" style='width:0;height:0rpx;'></view>
+  </scroll-view>
+</view>
+
+<!--隔断-->
+<view class='geduanv'></view>
+
+<!--酒店推荐-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt'>酒店推荐</view>
+    <view class="moretxt">探索更多></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{hotellist}}" wx:key="item" wx:for-item="item">
+      <view class="tabhitem" bindtap='gohotel' data-id='{{item.id}}'>
+        <view class='backimgv'>
+          <image src='{{item.pic}}'></image>
+        </view>
+        <view class='tabfinfov' style='margin-top:-290rpx;'>
+          <view class="hoteltxt">{{item.name}}</view>
+        </view>
+      </view>
+    </block>
+    <view class="tabhitem" style='width:0;height:0rpx;'></view>
+  </scroll-view>
+</view>
+<!--隔断-->
+<view class='geduanv'></view>
+
+<!--文章菜单部分-->
+<view class="{{iswenmenu?'fixpostion':''}}"></view>
+<view class="wmenuv">
+  <view class="{{wenchkid==1?'wmenuchk':'wmenunochk'}}" data-id='1' bindtap='chkwmenu'>推荐</view>
+  <view class="{{wenchkid==2?'wmenuchk':'wmenunochk'}}" data-id='2' bindtap='chkwmenu'>攻略</view>
+  <view class="{{wenchkid==3?'wmenuchk':'wmenunochk'}}" data-id='3' bindtap='chkwmenu'>游记</view>
+  <view class="{{wenchkid==4?'wmenuchk':'wmenunochk'}}" data-id='4' bindtap='chkwmenu'>线路</view>
+</view>
+<view class="geduanv"></view>
+
+<!--推荐和线路内容部分-->
+<view class="recommentv {{iswenmenu?'wenzhangfix':''}}" wx:if="{{wenchkid==1||wenchkid==4}}">
+  <!--左侧瀑布流布局-->
+  <view class='leftv'>
+    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
+      <!--列表-->
+      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goinfo' data-id='{{item.id}}'>
+        <!--顶部的图片-->
+        <view class='wenimgv'>
+          <image src='{{item.imgpath}}' class='wenimg'></image>
+        </view>
+        <!--类型按钮-->
+        <view class='wengtype' wx:if="{{item.typeval==1}}">{{item.typename}}</view>
+        <view class='wenrtype' wx:if="{{item.typeval==2}}">{{item.typename}}</view>
+        <view class='wenytype' wx:if="{{item.typeval==3}}">{{item.typename}}</view>
+        <!--文字介绍-->
+        <view class='wentitle'>{{item.title}}</view>
+        <view class='weninfov'>
+          <view class='weninfo'>
+            {{item.instrduce}}
+          </view>
+        </view>
+        <!--结束标识符-->
+      </view>
+    </block>
+  </view>
+
+  <!--右侧瀑布流布局-->
+  <view class='rightv'>
+    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
+      <!--列表-->
+      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goinfo' data-id='{{item.id}}'>
+        <!--顶部的图片-->
+        <view class='wenimgv'>
+          <image src='{{item.imgpath}}' class='wenimg'></image>
+        </view>
+        <!--类型按钮-->
+        <view class='wengtype' wx:if="{{item.typeval==1}}">{{item.typename}}</view>
+        <view class='wenrtype' wx:if="{{item.typeval==2}}">{{item.typename}}</view>
+        <view class='wenytype' wx:if="{{item.typeval==3}}">{{item.typename}}</view>
+        <!--文字介绍-->
+        <view class='wentitle'>{{item.title}}</view>
+        <view class='weninfov'>
+          <view class='weninfo'>
+            {{item.instrduce}}
+          </view>
+        </view>
+        <!--结束标识符-->
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--攻略游记部分-->
+<view class="orecommentv {{iswenmenu?'wenzhangfix':''}}" wx:if="{{wenchkid==2||wenchkid==3}}">
+  <block wx:for="{{wenlist}}" wx:key="item">
+    <view class='wenzhangv' bindtap='go'>
+      <!--图片部分-->
+      <view class='wenzhangtuv'>
+        <image src='{{item.imgpath}}' class='wenzhangtu'></image>
+      </view>
+      <!--按钮类型-->      
+      <view class='wenzhanggbtn' wx:if="{{item.typeval==1}}">{{item.typename}}</view>
+      <view class='wenzhangrbtn' wx:if="{{item.typeval==2}}">{{item.typename}}</view>
+      <view class='wenzhangybtn' wx:if="{{item.typeval==3}}">{{item.typename}}</view>
+      <!--文字标题-->
+      <view class='wenzhangtitle'>{{item.title}}</view>
+      <!--简介文字-->
+      <view class='wenzhangdesc'>
+         {{item.instrduce}}
+      </view>
+    </view>
+  </block>
+</view>
+
+<!--分段结束-->
+<view class="geduanv"></view>
+
+
+<!--到达顶部-->
+<image src='/resources/gotop.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

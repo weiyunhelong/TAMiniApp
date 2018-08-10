@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/search/index",
     "pages/termini/index",
@@ -8,11 +8,11 @@
     "pages/my/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "澳洲旅游局",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#707070",
@@ -24,19 +24,19 @@
         "pagePath": "pages/index/index",
         "iconPath": "resources/home.png",
         "selectedIconPath": "resources/homeh.png",
-        "text": "首页"
+        "text": "城市首页"
       },
       {
         "pagePath": "pages/termini/index",
         "iconPath": "resources/termini.png",
         "selectedIconPath": "resources/terminih.png",
-        "text": "目的地"
+        "text": "城市地图"
       },
       {
         "pagePath": "pages/chatbot/index",
         "iconPath": "resources/kefu.png",
         "selectedIconPath": "resources/kefuh.png",
-        "text": "客服"
+        "text": "智能助理"
       },
       {
         "pagePath": "pages/my/index",
@@ -68,12 +68,6 @@
       ]
     },
     {
-      "root": "routes/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
       "root": "foods/",
       "pages": [
         "pages/index/index"
@@ -86,7 +80,13 @@
       ]
     },
     {
-      "root": "gonglves/",
+      "root": "shoppings/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "arctiles/",
       "pages": [
         "pages/index/index"
       ]

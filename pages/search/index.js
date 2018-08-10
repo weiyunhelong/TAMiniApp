@@ -6,6 +6,7 @@ Page({
    */
   data: {
     searchtxt: "", //搜索的值
+    issearchfocus:false,//是否聚焦
     tablist: [], //菜单部分
     currentTab: 0, //预设当前项的值
     typename: '综合', //菜单名称
@@ -59,6 +60,22 @@ Page({
 
     //初始化酒店部分
     that.initHotel();
+  },
+  //搜索框聚焦
+  searchfopt:function(){
+    this.setData({
+      issearchfocus:true
+    })
+  },
+  //获取搜索框的值
+  getsearchtxt:function(e){
+     var that=this;
+     //参数部分
+     var txtval=e.detail.value;
+    this.setData({
+      searchtxt:txtval,
+      issearchfocus: false
+    })
   },
   //菜单部分
   getmenu: function() {
@@ -245,6 +262,12 @@ Page({
   //初始化酒店部分
   initHotel: function() {
 
+  },
+  //取消按钮
+  goback:function(){
+    wx.navigateBack({
+      delta:1
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
