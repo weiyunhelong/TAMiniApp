@@ -94,7 +94,8 @@
     {
       "root": "others/",
       "pages": [
-        "pages/index/index"
+        "pages/index/index",
+        "pages/translate/index"
       ]
     }
   ],

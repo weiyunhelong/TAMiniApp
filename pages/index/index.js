@@ -44,25 +44,25 @@ Page({
       id: 0,
       icon: '/resources/qianzheng.png',
       name: '景点',
-      url: '../../others/index/index'
+      url: '../../others/pages/index/index?id=0'
     },
     {
       id: 1,
       icon: '/resources/qianzheng.png',
       name: '酒店',
-      url: '../../others/index/index'
+      url: '../../others/pages/index/index?id=1'
     },
     {
       id: 2,
       icon: '/resources/hangban.png',
       name: '美食',
-      url: '../../others/index/index'
+      url: '../../others/pages/index/index?id=2'
     },
     {
       id: 3,
       icon: '/resources/chanpin.png',
       name: '常见问题',
-      url: '../../others/index/index'
+      url: '../../others/pages/index/index?id=0'
     },
     {
       id: 4,
@@ -80,7 +80,7 @@ Page({
       id: 6,
       icon: '/resources/gonglve.png',
       name: '翻译',
-      url: '../../others/index/index'
+      url: ''
     },
     {
       id: 7,
@@ -98,7 +98,7 @@ Page({
       id: 9,
       icon: '/resources/helpphone.png',
       name: '一键求助',
-      url: '../../others/index/index'
+      url: ''
     }
     ];
     that.setData({
@@ -109,9 +109,38 @@ Page({
   gomenu: function (e) {
     var id = e.currentTarget.dataset.id;
     var url = e.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: url,
-    })
+
+    if (url!=''){
+
+      wx.navigateTo({
+        url: url,
+      })
+    }else if(id==9){//一键求助
+      wx.showActionSheet({
+        itemList: ["119","120","114"],
+        itemColor: '#007aff',
+        success(res) {
+          console.log(res.tapIndex);
+          if (res.tapIndex === 0) {
+            wx.makePhoneCall({
+              phoneNumber: '119',
+            })
+          } else if (res.tapIndex === 1) {
+            wx.makePhoneCall({
+              phoneNumber: '120',
+            })
+          } else if (res.tapIndex === 2) {
+            wx.makePhoneCall({
+              phoneNumber: '114',
+            })
+          }
+        }
+      })
+    }else if(id==6){
+      wx.navigateTo({
+        url: '../../others/pages/translate/index',
+      })
+    }
   },
   //获取标志景点部分
   initSenic: function() {
@@ -434,7 +463,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     //跳转到详情
     wx.navigateTo({
-      url: '../info/index?id=' + id,
+      url: '../../arctiles/pages/index/index?id=' + id,
     })
   },
   // 获取滚动条当前位置

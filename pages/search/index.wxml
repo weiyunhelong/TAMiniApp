@@ -1,9 +1,9 @@
 <!--pages/search/index.wxml-->
 <!--搜索层-->
 <view class='searchv'>
-  <view class="searchview searchborder">
-    <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
-    <icon type="search" size="20" color="#0074C8" class='searchicon' />
+  <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+    <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
+    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
   </view>
   <view class='cleartxt' bindtap='goback'>取消</view>
 </view>
@@ -37,14 +37,11 @@
 
 <view class='hotsearchlist'>
  <view class='hotsearchitem'>昆士兰</view>
- <view class='hotsearchhitem'>黄金海岸</view>
+ <view class='hotsearchitem'>黄金海岸</view>
  
- <view class='hotsearchitem'>昆士兰</view>
- <view class='hotsearchhitem'>黄金海岸</view>
+ <view class='hotsearchhitem'>最好的酒店</view>
+ <view class='hotsearchhitem'>去哪里冲浪</view>
  
- <view class='hotsearchitem'>昆士兰</view>
- <view class='hotsearchhitem'>黄金海岸</view>
- 
- <view class='hotsearchitem'>昆士兰</view>
- <view class='hotsearchhitem'>黄金海岸</view>
+ <view class='hotsearchitem'>浮潜</view>
+ <view class='hotsearchitem'>不可错过的美食</view>
 </view>

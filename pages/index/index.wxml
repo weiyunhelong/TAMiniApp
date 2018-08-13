@@ -4,7 +4,7 @@
 <view class='backgroundv'>
   <!--搜索层-->
   <view class='searchv' bindtap='getsearch'>
-    <icon type='search' size='30' color='#fff' class='searchico'></icon>
+    <icon type='search' size='33' color='#fff' class='searchico'></icon>
   </view>
   <!--底部的文字-->
   <view class='toptxtinfo'>
@@ -124,7 +124,7 @@
             <view class='backimgv' style='height:150rpx;'>
               <image src='{{yitem.pic}}' style='height:150rpx;'></image>
             </view>
-            <view class='tabfinfov' style='margin-top:-280rpx;'>
+            <view class='tabfinfov' style='margin-top:-270rpx;'>
               <view class='shoptxt'>{{yitem.name}}</view>
             </view>
           </view>
@@ -133,7 +133,7 @@
             <view class='backimgv' style='height:150rpx;'>
               <image src='{{yitem.pic}}' style='height:150rpx;'></image>
             </view>
-            <view class='tabfinfov' style='margin-top:-280rpx;'>
+            <view class='tabfinfov' style='margin-top:-270rpx;'>
               <view class='shoptxt'>{{yitem.name}}</view>
             </view>
           </view>

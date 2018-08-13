@@ -1,13 +1,69 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--scenics/pages/index/index.wxml-->
+
+<!--顶部的标签内容部分-->
+<view class='topv' style='background-image: url("/resources/tu1.jpg");'>
+
+  <view class='typev'>问路卡</view>
+
+  <view class='introv'>
+
+    <view class='leftinfo'>
+      <view class='enname'>12 Apostles</view>
+      <view class='cnname'>十二门徒岩</view>
+      <view class='xingv'>
+        <image src='/resources/xingicoh.png' class='xingico'></image>
+        <image src='/resources/xingicoh.png' class='xingico'></image>
+        <image src='/resources/xingicoh.png' class='xingico'></image>
+        <image src='/resources/xingicoh.png' class='xingico'></image>
+        <image src='/resources/xingico.png' class='xingico'></image>
+      </view>
+    </view>
+
+    <view class='rightinfo'>
+      <image src='/resources/diqiu.png' class='rightico'></image>
+      <image src='/resources/phone.png' class='rightico'></image>
+      <image src='/resources/share.png' class='rightico'></image>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+</view>
+
+
+<!--基本信息-->
+<view class='basetxt'>基础信息</view>
+<view class='baseinfo'>
+  <text decode='true'>
+  到维多利亚周壮丽的海岸线观赏从南大洋（Southern Ocean）中高耸出还没而又巍峨的奇石，勤力已气势磅礴而著称的十二门徒岩(12 Apostles). \n
+  从一、两千万年前开始，大陆架上质地较软的石灰岩峭壁受到波涛汹涌的南大洋和狂风
+  </text>
+  <view class='moretxt'>阅读更多</view>
+</view>
+
+<view class='hangv'>
+  <view class='titlev'>门票</view>
+  <view class='infotxt'>不需要门票</view>
+</view>
+
+<view class='hangv'>
+  <view class='titlev'>时间</view>
+  <view class='infotxt'>9:100-17:00</view>
+</view>
+
+<view class='hangv'>
+  <view class='titlev'>地址</view>
+  <view class='infotxt' style='line-height:60rpx;paddin-top:20rpx;'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
+</view>
+
+<view style='width:100%;height:130rpx;'></view>
+
+<!--底部的操作按钮-->
+<view class='bottomv'>
+ <view class='btnv'>
+   <image src='/resources/xin.png' class='btnico'></image>
+   <view class='btntxt'>加入收藏</view>
+ </view>
+ <view class='xianv'></view>
+ <view class='btnv'>
+   <image src='/resources/dwico.png' class='btnico'></image>
+   <view class='btntxt'>导航去这儿</view>
+ </view>
 </view>

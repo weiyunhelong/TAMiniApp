@@ -1,21 +1,391 @@
-/**index.wxss**/
-.userinfo {
+/* others/pages/index/index.wxss */
+
+/*顶部行*/
+
+.topv {
+  width: 100%;
+  height: 260rpx;
+  background-color: #fff;
+  padding: 25rpx 0;
+  border-top: 2rpx solid #ebebeb;
+}
+
+/*搜索层*/
+
+.searchv {
+  width: 94%;
+  height: 68rpx;
+  margin: 0 3%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.searchview {
+  width: 90%;
+  height: 68rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.searchhborder {
+  border: 1rpx solid #0074c8;
+  box-sizing: content-box;
 }
 
-.usermotto {
-  margin-top: 200px;
+.searchborder {
+  border: 1rpx solid #b2b2b2;
+  box-sizing: content-box;
+}
+
+.searchicon {
+  margin: 18rpx 10rpx;
+}
+
+.txtcss {
+  width: 83%;
+  height: 68rpx;
+  font-size: 26rpx;
+  line-height: 68rpx;
+  padding-left: 5%;
+}
+
+.tipcss {
+  color: #b2b2b2;
+  font-size: 26rpx;
+}
+
+.ftxtcss {
+  width: 83%;
+  height: 68rpx;
+  font-size: 25rpx;
+  line-height: 68rpx;
+  padding-left: 5%;
+}
+
+.clearicon {
+  margin: 15rpx 15rpx;
+}
+
+.cleartxt {
+  width: 15%;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.dituicon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 10rpx 20rpx;
+}
+
+/*菜单部分*/
+
+.tabmenuv {
+  height: 80rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: 20rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.tabitemv {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  width: 20%;
+}
+
+/*选中的菜单*/
+
+.chktabitem {
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #0074c8;
+  color: #0074c8;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+/*未选中的菜单*/
+
+.nochktabitem {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #16191c;
+  display: inline-block;
+  font-size: 24rpx;
+}
+
+.filtericon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 16rpx;
+}
+
+.shadowv {
+  width: 100%;
+  height: 38rpx;
+  background: linear-gradient(180deg, rgba(206, 206, 206, 0), rgba(216, 216, 216, 1));
+}
+
+/*排序部分*/
+
+.filterv {
+  height: 100rpx;
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  margin-top: -18rpx;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 2px solid rgba(233, 233, 233, 1);
+}
+
+.filteritem {
+  width: 33%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #909599;
+  font-size: 24rpx;
+  justify-content: center;
+  display: flex;
+}
+
+.filtersmico {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 34rpx;
+}
+
+/*列表部分*/
+
+.datalist {
+  width: 100%;
+  height: auto;
+  margin-top: 5rpx;
+}
+
+.datav {
+  width: 100%;
+  height: 280rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.dataimgv {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.dataimg {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 40rpx;
+  border-radius: 10rpx;
+}
+
+/*内容部分*/
+
+.datainfov {
+  width: 430rpx;
+  height: 200rpx;
+  margin: 40rpx 40rpx 40rpx 0;
+}
+
+.namexinv {
+  height: 44rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cnnamev {
+  font-size: 32rpx;
+  color: #16191c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xinicon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.ennamev {
+  font-size: 24rpx;
+  color: #101112;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*距离部分*/
+
+.distancev {
+  width: 430rpx;
+  height: 30rpx;
+  display: flex;
+  margin-top: 14rpx;
+}
+
+.distancetip {
+  font-size: 20rpx;
+  color: #007cce;
+  line-height: 30rpx;
+}
+
+.postionico {
+  width: 18rpx;
+  height: 22rpx;
+  margin: 4rpx 10rpx;
+}
+
+.distancetxt {
+  font-size: 20rpx;
+  color: #007cce;
+  line-height: 30rpx;
+}
+
+/*评价价格层*/
+
+.fenpricev {
+  width: 430rpx;
+  height: 30rpx;
+  margin-top: 34rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xingv {
+  display: flex;
+}
+
+.xingico {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.peoplenum {
+  font-size: 20rpx;
+  margin-left: 7rpx;
+  line-height: 40rpx;
+}
+
+.pricev {
+  font-size: 20rpx;
+  line-height: 40rpx;
+}
+
+/*地图显示部分*/
+
+.zhediev {
+  text-align: center;
+  background-color: #fff;
+}
+
+.zhedieico {
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.prolistv {
+  width: 100%;
+  height: 300rpx;
+  background-color: #fff;
+}
+
+/*底部滚动*/
+
+.prolistview {
+  width: 100%;
+  height: 300rpx;
+  white-space: nowrap;
+  display: flex;
+}
+
+.geduan {
+  width: 30rpx;
+  height: 200rpx;
+  display: inline-block;
+}
+
+.scroll-view-item {
+  width: 600rpx;
+  height: 270rpx;
+  display: inline-block;
+}
+
+.protu {
+  width: 258rpx;
+  height: 258rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  float: left;
+}
+
+/*右侧的信息*/
+
+.nonamedaohang {
+  width: 300rpx;
+  height: 225rpx;
+  float: left;
+  padding-left: 20rpx;
+}
+
+.proname {
+  width: 330rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 20rpx;
+}
+
+.proaddr {
+  font-size: 20rpx;
+}
+
+.projuliv {
+  display: flex;
+  font-size: 20rpx;
+  color: #0074c8;
+  margin-top: 10rpx;
+}
+
+/*操作按钮行*/
+
+.lasthangv {
+  display: flex;
+  position: relative;
+  top:40rpx;  
+}
+
+.xinico {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.xianv {
+  width: 2rpx;
+  height: 30rpx;
+  background: #ccc;
+  margin: 10rpx 40rpx;
+}
+
+.daohangico {
+  width: 50rpx;
+  height: 50rpx;
 }

@@ -31,7 +31,7 @@
 
 .searchv {
   position: relative;
-  left: 90%;
+  left: 88%;
   top: 30rpx;
   width: 60rpx;
   height: 60rpx;
@@ -61,7 +61,7 @@
 }
 
 .topenname {
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #fff;
 }
 
@@ -77,18 +77,19 @@
 }
 
 .topwendu {
-  font-size: 60rpx;
+  font-size: 82rpx;
   color: #fff;
+  line-height: 110rpx;
 }
 
 .weatherico {
-  width: 60rpx;
-  height: 60rpx;
-  margin-top: 20rpx;
+  width: 56rpx;
+  height: 56rpx;
+  margin-top: 40rpx;
 }
 
 .topweather {
-  font-size: 24rpx;
+  font-size: 20rpx;
   color: #fff;
 }
 
@@ -124,8 +125,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: #fff;
-  border-radius: 10rpx;
   padding-top: 20rpx;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.11);
+  border-radius: 3px;
 }
 
 .menuv {
@@ -153,7 +155,7 @@
   width: 100%;
   height: 50rpx;
   line-height: 50rpx;
-  font-size: 25rpx;
+  font-size: 24rpx;
 }
 
 /*标题部分*/
@@ -168,12 +170,12 @@
 
 .titlev .titletxt {
   font-size: 32rpx;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .titlev .moretxt {
   font-size: 24rpx;
-  color: #666;
+  color:#909599;
 }
 
 /*景点部分*/
@@ -237,7 +239,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 28rpx;
+  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
@@ -275,7 +277,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 28rpx;
+  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
@@ -287,7 +289,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 28rpx;
+  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
@@ -321,19 +323,19 @@
 }
 
 .tabfinfov {
-  margin-top: -320rpx;
+  margin-top: -310rpx;
 }
 
 .foodtxt {
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 220rpx;
+  top: 200rpx;
 }
 
 .foodtipv {
-  font-size: 28rpx;
+  font-size: 20rpx;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
@@ -384,14 +386,14 @@
 }
 
 .wmenuchk {
-  font-size: 32rpx;
+  font-size: 28rpx;
   border-bottom: 5rpx solid #ea9f10;
   box-sizing: content-box;
   color: #ea9f10;
 }
 
 .wmenunochk {
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 /*线路部分的样式*/
@@ -439,7 +441,7 @@
   width: 100rpx;
   height: 40rpx;
   color: #fff;
-  font-size: 25rpx;
+  font-size: 20rpx;
   text-align: center;
   line-height: 40rpx;
   position: relative;
@@ -494,8 +496,7 @@
 /*标题*/
 
 .wentitle {
-  font-size: 30rpx;
-  font-weight: 600;
+  font-size: 32rpx;
   margin: 50rpx 10rpx 10rpx 10rpx;
 }
 
@@ -506,7 +507,7 @@
 
 .weninfo {
   font-size: 20rpx;
-  color: #999;
+  color: #909599;
   width: 100%;
 }
 
@@ -520,8 +521,8 @@
 /* 返回顶部 */
 
 .goTop {
-  height: 80rpx;
-  width: 80rpx;
+  height: 82rpx;
+  width: 82rpx;
   position: fixed;
   bottom: 230rpx;
   right: 30rpx;
@@ -551,12 +552,14 @@
 }
 
 /*游记攻略部分*/
-.orecommentv{  
+
+.orecommentv {
   width: 100%;
   height: 1000rpx;
   background-color: #fff;
   overflow-y: auto;
 }
+
 .wenzhangv {
   width: 700rpx;
   margin: 20rpx 25rpx;
@@ -576,7 +579,9 @@
   filter: alpha(opacity=80);
   border-radius: 10rpx;
 }
+
 /*按钮部分*/
+
 .wenzhangrbtn {
   width: 100rpx;
   height: 40rpx;
@@ -592,6 +597,7 @@
   margin-top: -80rpx;
   background-color: #ff7b65;
 }
+
 .wenzhangybtn {
   width: 100rpx;
   height: 40rpx;
@@ -605,8 +611,9 @@
   left: 20rpx;
   border-radius: 10rpx;
   margin-top: -80rpx;
-  background-color: #EA9F10;
+  background-color: #ea9f10;
 }
+
 .wenzhanggbtn {
   width: 100rpx;
   height: 40rpx;
@@ -620,8 +627,9 @@
   left: 20rpx;
   border-radius: 10rpx;
   margin-top: -80rpx;
-  background-color: #53C078;
+  background-color: #53c078;
 }
+
 .wenzhangtitle {
   margin-top: 50rpx;
   font-size: 32rpx;
