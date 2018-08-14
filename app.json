@@ -6,6 +6,7 @@
     "pages/info/index",
     "pages/chatbot/index",
     "pages/my/index",
+    "pages/article/index",
     "pages/logs/logs"
   ],
   "window": {
@@ -56,46 +57,13 @@
       ]
     },
     {
-      "root": "scenics/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
-      "root": "mys/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
-      "root": "foods/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
-      "root": "hotels/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
-      "root": "shoppings/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
-      "root": "arctiles/",
-      "pages": [
-        "pages/index/index"
-      ]
-    },
-    {
       "root": "others/",
       "pages": [
         "pages/index/index",
-        "pages/translate/index"
+        "pages/translate/index",
+        "pages/question/index",
+        "pages/guide/index",
+        "pages/guide/detail"
       ]
     }
   ],
@@ -105,5 +73,11 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "debug": false
+  "debug": false,
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.3",
+      "provider": "wx60d306fd175fe556"
+    }
+  }
 }

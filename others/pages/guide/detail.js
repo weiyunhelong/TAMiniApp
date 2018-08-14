@@ -1,11 +1,11 @@
-// arctiles/pages/index/index.js
+// others/pages/guide/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    id:"",//文章的id
+  
   },
 
   /**

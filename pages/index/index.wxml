@@ -12,7 +12,7 @@
       <view class='topcnname'>黄金海岸</view>
       <view class='topenname'>Gold Coast</view>
     </view>
-    <view class='toprightv'>
+    <view class='toprightv' bindtap='goweather'>
       <view class='topwenduv'>
         <view class='topwendu'>25℃</view>
         <image src='/resources/sun.png' class='weatherico'></image>
@@ -94,55 +94,7 @@
   </scroll-view>
 </view>
 
-<!--隔断-->
-<view class='geduanv'></view>
 
-<!--购物推荐部分-->
-<view class='jingdianv'>
-  <view class='titlev'>
-    <view class='titletxt'>购物推荐</view>
-    <view class='moretxt'>查看全部></view>
-  </view>
-
-  <!--滑动部分-->
-  <scroll-view scroll-x="true" class="tab-jingdianv">
-    <block wx:for="{{shoplist}}" wx:key="item" wx:for-index="x">
-      <view class="tabyitem">
-
-        <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
-          <!--大图-->
-          <view class='citybigv' wx:if="{{y==0}}" bindtap='gosenic' data-id='{{yitem.id}}'>
-            <view class='backimgv'>
-              <image src='{{yitem.pic}}'></image>
-            </view>
-            <view class='tabfinfov'>
-              <view class='shopmdtxt'>{{yitem.name}}</view>
-            </view>
-          </view>
-          <!--小图1-->
-          <view class='citysmv' wx:if="{{y==1}}" bindtap='gosenic' data-id='{{yitem.id}}'>
-            <view class='backimgv' style='height:150rpx;'>
-              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
-            </view>
-            <view class='tabfinfov' style='margin-top:-270rpx;'>
-              <view class='shoptxt'>{{yitem.name}}</view>
-            </view>
-          </view>
-          <!--小图2-->
-          <view class='citysmv' wx:if="{{y==2}}" style='margin-top:20rpx;' bindtap='gosenic' data-id='{{yitem.id}}'>
-            <view class='backimgv' style='height:150rpx;'>
-              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
-            </view>
-            <view class='tabfinfov' style='margin-top:-270rpx;'>
-              <view class='shoptxt'>{{yitem.name}}</view>
-            </view>
-          </view>
-        </block>
-      </view>
-    </block>
-    <view class="tabfitem" style='width:0;height:0rpx;'></view>
-  </scroll-view>
-</view>
 
 <!--隔断-->
 <view class='geduanv'></view>
@@ -201,6 +153,55 @@
 <!--隔断-->
 <view class='geduanv'></view>
 
+<!--购物推荐部分-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt'>购物推荐</view>
+    <view class='moretxt'>查看全部></view>
+  </view>
+
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{shoplist}}" wx:key="item" wx:for-index="x">
+      <view class="tabyitem">
+
+        <block wx:for="{{item.imglist}}" wx:key="yitem" wx:for-index="y" wx:for-item="yitem">
+          <!--大图-->
+          <view class='citybigv' wx:if="{{y==0}}" bindtap='goshopping' data-id='{{yitem.id}}'>
+            <view class='backimgv'>
+              <image src='{{yitem.pic}}'></image>
+            </view>
+            <view class='tabfinfov'>
+              <view class='shopmdtxt'>{{yitem.name}}</view>
+            </view>
+          </view>
+          <!--小图1-->
+          <view class='citysmv' wx:if="{{y==1}}" bindtap='goshopping' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-270rpx;'>
+              <view class='shoptxt'>{{yitem.name}}</view>
+            </view>
+          </view>
+          <!--小图2-->
+          <view class='citysmv' wx:if="{{y==2}}" style='margin-top:20rpx;' bindtap='gosenic' data-id='{{yitem.id}}'>
+            <view class='backimgv' style='height:150rpx;'>
+              <image src='{{yitem.pic}}' style='height:150rpx;'></image>
+            </view>
+            <view class='tabfinfov' style='margin-top:-270rpx;'>
+              <view class='shoptxt'>{{yitem.name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view class="tabfitem" style='width:0;height:0rpx;'></view>
+  </scroll-view>
+</view>
+<!--隔断-->
+<view class='geduanv'></view>
+
 <!--文章菜单部分-->
 <view class="{{iswenmenu?'fixpostion':''}}"></view>
 <view class="wmenuv">
@@ -217,7 +218,7 @@
   <view class='leftv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
       <!--列表-->
-      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goinfo' data-id='{{item.id}}'>
+      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
           <image src='{{item.imgpath}}' class='wenimg'></image>
@@ -242,7 +243,7 @@
   <view class='rightv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
       <!--列表-->
-      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goinfo' data-id='{{item.id}}'>
+      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
           <image src='{{item.imgpath}}' class='wenimg'></image>
@@ -267,7 +268,7 @@
 <!--攻略游记部分-->
 <view class="orecommentv {{iswenmenu?'wenzhangfix':''}}" wx:if="{{wenchkid==2||wenchkid==3}}">
   <block wx:for="{{wenlist}}" wx:key="item">
-    <view class='wenzhangv' bindtap='go'>
+    <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
       <!--图片部分-->
       <view class='wenzhangtuv'>
         <image src='{{item.imgpath}}' class='wenzhangtu'></image>

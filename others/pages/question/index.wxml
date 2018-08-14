@@ -1,0 +1,14 @@
+<!--others/pages/question/index.wxml-->
+
+<block wx:for="{{questionlist}}" wx:key="item">
+
+  <view class='questionv'>
+    <!--标题部分-->
+    <view class='title'>{{item.title}}</view>
+    <!--内容部分-->
+    <view class='ininfov'>
+      <rich-text nodes="{{item.content}}"></rich-text>
+    </view>
+  </view>
+
+</block>

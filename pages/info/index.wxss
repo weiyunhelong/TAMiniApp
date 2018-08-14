@@ -10,28 +10,33 @@ page {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 600rpx;
+  height: 500rpx;
 }
 
 .typev {
-  width: 100rpx;
-  height: 40rpx;
-  color: #fff;
-  border: 1rpx solid #fff;
-  font-size: 22rpx;
+  height: 50rpx;
   float: right;
-  margin: 30rpx;
+  margin: 30rpx 0rpx;
+  line-height: 50rpx;
+  width: 100rpx;
   text-align: center;
-  line-height: 40rpx;
-  border-radius: 20rpx;
+}
+
+.xinicon {
+  width: 50rpx;
+  height: 50rpx;
 }
 
 /*内容部分*/
 
 .introv {
-  padding-top: 420rpx;
-  width: 100%;
-  height: 100rpx;
+  width: 94%;
+  height: 250rpx;
+  background: #fff;
+  margin: -135rpx 3% 0 3%;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.11);
+  padding-top: 10rpx;
 }
 
 .leftinfo {
@@ -39,15 +44,44 @@ page {
   height: 100rpx;
 }
 
-.enname {
-  color: #fff;
-  font-size: 20rpx;
+.topinfo {
+  font-size: 24rpx;
+  margin: 36rpx 20rpx 10rpx 20rpx;
+}
+
+/*名称，地图，电话*/
+
+.centerinfo {
+  margin: 10rpx 20rpx;
+  display: flex;
 }
 
 .cnname {
-  color: #fff;
-  font-size: 30rpx;
-  font-weight: 600;
+  width: 470rpx;
+  font-size: 48rpx;
+}
+
+.infoicov {
+  display: flex;
+}
+
+.infoicon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.infoxian {
+  width: 2rpx;
+  height: 36rpx;
+  background: #dbdbdb;
+  margin: 10rpx 40rpx;
+}
+
+/*评价*/
+
+.bottominfo {
+  display: flex;
+  margin: 10rpx 20rpx;
 }
 
 .xingv {
@@ -59,89 +93,301 @@ page {
   height: 40rpx;
 }
 
-.rightinfo {
-  float: right;
-  margin-right: 20rpx;
-}
-
-.rightico {
-  width: 60rpx;
-  height: 60rpx;
-  margin-right: 30rpx;
+.commentnum {
+  font-size: 20rpx;
+  margin-left: 15rpx;
+  line-height: 50rpx;
 }
 
 /*图片介绍部分*/
 
 .basetxt {
-  width: 94%;
   height: 60rpx;
-  margin: 0 3%;
+  margin: 40rpx 40rpx 0 40rpx;
   font-size: 30rpx;
   font-weight: 600;
   line-height: 60rpx;
 }
 
 .baseinfo {
-  width: 94%;
   height: auto;
-  margin: 0 3%;
+  margin: 0 40rpx;
   font-size: 28rpx;
+  color: #909599;
 }
 
-.moretxt {
-  float: right;
-  margin-top: -35rpx;
-  color: #00cf00;
-}
-
-.hangv{
-  clear: both;  
-   width: 94%;
-  height: 80rpx;
-  margin: 0 3%;
+.hangv {
+  clear: both;
+  height: auto;
+  margin: 10rpx 40rpx 0rpx 40rpx;
   display: flex;
+}
+
+.titlev {
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-right: 50rpx;
+  color: #16191c;
+}
+
+.infotxt {
+  font-size: 30rpx;
+  width: 83%;
+  color: #909599;
+}
+
+/**预定列表**/
+
+.bookview {
+  width: 100%;
+  border-bottom: 2rpx solid #dbdbdb;
+  border-top: 2rpx solid #dbdbdb;
+  margin-top: 40rpx;
+}
+
+.booktitle {
+  margin: 30rpx 40rpx 20rpx 40rpx;
+  font-size: 32rpx;
+  color: #16191c;
+}
+
+/*预定的票据*/
+
+.bookitem {
+  border-bottom: 1rpx solid #dbdbdb;
+  margin: 40rpx 40rpx 0 40rpx;
+}
+
+.booknameprice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookname {
+  font-size: 28rpx;
+  color: #0074c8;
+}
+
+.bookprice {
+  font-size: 32rpx;
+  color: #0074c8;
+}
+
+/*预定部分*/
+
+.bookinfobtn {
+  display: flex;
+  margin: 10rpx 0 35rpx 0;
+}
+
+.bookinfov {
+  width: 80%;
+}
+
+.bookinfotxt {
+  font-size: 20rpx;
+  color: #909599;
+}
+
+.booktip {
+  font-size: 20rpx;
+  color: #16191c;
+  margin-top: 5rpx;
+}
+
+.bookbtn {
+  width: 200rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #0074c8;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+/**图库评论tab**/
+
+.tabview {
+  display: flex;
+  justify-content: center;
   line-height: 80rpx;
 }
-.titlev{
-  font-weight: 600;
-  font-size: 30rpx;
-  margin-right: 50rpx;
+
+.yinyingv {
+  height: 20rpx;
+  background: linear-gradient(180deg, rgba(206, 206, 206, 0), rgba(216, 216, 216, 1));
 }
 
-.infotxt{
-  font-size: 30rpx;  
-  width:82%; 
+.chktab {
+  text-align: center;
+  color: #007cce;
+  font-size: 28rpx;
+  border-bottom: 5rpx solid #007cce;
+  box-sizing: content-box;
+  font-weight: bold;
+}
+
+.nochktab {
+  text-align: center;
+  color: #16191c;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/*图库列表*/
+
+.tukucss {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tulistv {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 20rpx 15rpx 0 0;
+}
+
+.tucss {
+  width: 100%;
+  height: 100%;
+}
+
+.etulistv {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 20rpx 0rpx 0 0;
+}
+
+/*评论列表*/
+
+.clickv {
+  margin: 10rpx 40rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.clicktxt {
+  color: #16191c;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.xingv {
+  display: flex;
+}
+
+.mdxingico {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 15rpx;
+}
+
+/*评论行*/
+
+.commentv {
+  margin: 0rpx 40rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+  display: flex;
+  padding: 30rpx 0;
+}
+
+.clefttu {
+  margin-right: 50rpx;
+  text-align: center;
+}
+
+.touxiang {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.wxname {
+  font-size: 20rpx;
+  color: #000;
+}
+
+/*评价右侧内容*/
+
+.crightv {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.crtopv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.crtname {
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.crtdate {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.crtxingv {
+  display: flex;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.smxingico {
+  width: 22rpx;
+  height: 22rpx;
+  margin-top: 4rpx;
+}
+
+.crtinfo {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.crtmore {
+  color: #000;
+  float: right;
 }
 
 /*底部的按钮*/
-.bottomv{
-  width: 100%;
-  height:100rpx;
-  background-color:#009CE9; 
-  display: flex;
+
+.bottomv {
+  height: 100rpx;
+  background-color: #009ce9;
+  bottom: 50rpx;
+  left: 25%;
+  border-radius: 50rpx;
+  width: 50%;
   position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
-.btnv{
-  width: 374rpx;
+.btnv {
+  width: 375rpx;
   height: 100rpx;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
 
-.btnico{
-  width:40rpx;
-height:40rpx;
-margin:30rpx 10rpx;
+.btnico {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 30rpx 10rpx;
 }
-.btntxt{
+
+.btntxt {
   color: #fff;
   font-size: 28rpx;
-  line-height:100rpx;
+  line-height: 100rpx;
 }
-.xianv{
+
+.xianv {
   width: 2rpx;
   height: 60rpx;
   margin: 20rpx 0;

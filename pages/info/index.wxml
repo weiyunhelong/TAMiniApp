@@ -2,68 +2,152 @@
 
 <!--顶部的标签内容部分-->
 <view class='topv' style='background-image: url("/resources/tu1.jpg");'>
-
-  <view class='typev'>问路卡</view>
-
-  <view class='introv'>
-
-    <view class='leftinfo'>
-      <view class='enname'>12 Apostles</view>
-      <view class='cnname'>十二门徒岩</view>
-      <view class='xingv'>
-        <image src='/resources/xingicoh.png' class='xingico'></image>
-        <image src='/resources/xingicoh.png' class='xingico'></image>
-        <image src='/resources/xingicoh.png' class='xingico'></image>
-        <image src='/resources/xingicoh.png' class='xingico'></image>
-        <image src='/resources/xingico.png' class='xingico'></image>
-      </view>
-    </view>
-
-    <view class='rightinfo'>
-      <image src='/resources/diqiu.png' class='rightico'></image>
-      <image src='/resources/phone.png' class='rightico'></image>
-      <image src='/resources/share.png' class='rightico'></image>
-    </view>
+  <!--收藏-->
+  <view class='typev' bindtap='collectopt'>
+    <image src='/resources/xinico.png' class='xinicon' wx:if="{{!iscollect}}"></image>
+    <image src='/resources/xinicoh.png' class='xinicon' wx:if="{{iscollect}}"></image>
   </view>
 </view>
+<!--名称，信息部分-->
+<view class='introv'>
 
+  <view class='topinfo'>{{enname}}</view>
+  <view class='centerinfo'>
+    <view class='cnname'>{{cnname}}</view>
+    <view class='infoicov'>
+      <image src='/resources/tel.png' class='infoicon' bindtap='makephonecall'></image>
+      <view class='infoxian'></view>
+      <image src='/resources/maplist.png' class='infoicon' bindtap='gomap'></image>
+    </view>
+  </view>
+  <view class='bottominfo'>
+    <image src='/resources/xingicoh.png' class='xingico'></image>
+    <image src='/resources/xingicoh.png' class='xingico'></image>
+    <image src='/resources/xingicoh.png' class='xingico'></image>
+    <image src='/resources/xingicoh.png' class='xingico'></image>
+    <image src='/resources/xingicoh.png' class='xingico'></image>
+    <view class='commentnum'>{{commentnum}}个评论</view>
+  </view>
+</view>
 
 <!--基本信息-->
 <view class='basetxt'>基础信息</view>
 <view class='baseinfo'>
-  <text decode='true'>
-  到维多利亚周壮丽的海岸线观赏从南大洋（Southern Ocean）中高耸出还没而又巍峨的奇石，勤力已气势磅礴而著称的十二门徒岩(12 Apostles). \n
-  从一、两千万年前开始，大陆架上质地较软的石灰岩峭壁受到波涛汹涌的南大洋和狂风
-  </text>
-  <view class='moretxt'>阅读更多</view>
+  <rich-text nodes="{{introduce}}"></rich-text>
 </view>
-
-<view class='hangv'>
+<view class='hangv' style='margin-top:35rpx;'>
   <view class='titlev'>门票</view>
-  <view class='infotxt'>不需要门票</view>
+  <view class='infotxt'>{{ticket}}</view>
 </view>
-
 <view class='hangv'>
   <view class='titlev'>时间</view>
-  <view class='infotxt'>9:100-17:00</view>
+  <view class='infotxt'>{{start_time}}-{{end_time}}</view>
 </view>
-
 <view class='hangv'>
   <view class='titlev'>地址</view>
-  <view class='infotxt' style='line-height:60rpx;paddin-top:20rpx;'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
+  <view class='infotxt'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
 </view>
 
-<view style='width:100%;height:130rpx;'></view>
+<!--预定部分-->
+<view class='bookview'>
+  <view class='booktitle'>选择票种</view>
+  <!--列表部分-->
+  <view class='booklist'>
+    <block wx:for="{{ticketlist}}" wx:key="item">
+      <view class='bookitem'>
+        <!--类别价格-->
+        <view class='booknameprice'>
+          <view class='bookname'>{{item.title}}</view>
+          <view class='bookprice'>￥{{item.price}}</view>
+        </view>
+        <!--介绍文字-->
+        <view class='bookinfobtn'>
+          <view class='bookinfov'>
+            <view class='bookinfotxt'>{{item.info}}</view>
+            <view class='booktip' bindtap="showtip" data-tip='{{item.tip}}'>预订须知></view>
+          </view>
+          <view class='bookbtn' bindtap='bookopt' data-id='{{item.tip}}'>立即预订</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--图库评价tab部分-->
+<view class='tabview'>
+  <view class="{{chktab?'chktab':'nochktab'}}" bindtap='showtabopt'>图库</view>
+  <view style='width:150rpx;height:100%;'></view>
+  <view class="{{!chktab?'chktab':'nochktab'}}" bindtap='showtabopt'>评论</view>
+</view>
+<view class='yinyingv'></view>
+
+
+<!--图库部分-->
+<view wx:if="{{chktab}}" class='tukucss'>
+
+  <block wx:for="{{tusku}}" wx:key="item" wx:for-index="x">
+
+    <view class='tulistv' wx:if="{{x%3!=2}}" data-imgpath='{{item}}' bindtap='previewtu'>
+      <image src='{{item}}' class='tucss'></image>
+    </view>
+    <view class='etulistv' wx:else data-imgpath='{{item}}' bindtap='previewtu'>
+      <image src='{{item}}' class='tucss'></image>
+    </view>
+  </block>
+</view>
+
+<!--评价部分-->
+<view wx:if="{{!chktab}}">
+  <!--评价按钮层-->
+  <view class='clickv'>
+    <view class='clicktxt'>点击评价</view>
+    <view class='xingv'>
+      <image src='/resources/xingico.png' class='mdxingico'></image>
+      <image src='/resources/xingico.png' class='mdxingico'></image>
+      <image src='/resources/xingico.png' class='mdxingico'></image>
+      <image src='/resources/xingico.png' class='mdxingico'></image>
+      <image src='/resources/xingico.png' class='mdxingico'></image>
+    </view>
+  </view>
+
+  <!--评价列表-->
+  <block wx:for="{{commentlist}}" wx:key="{{item}}">
+    <view class='commentv'>
+      <view class='clefttu'>
+        <image class='touxiang' src='{{item.touxiang}}'></image>
+        <view class='wxname'>{{item.wxname}}</view>
+      </view>
+      <view class='crightv'>
+        <!--用户时间信息-->
+        <view class='crtopv'>
+          <view class='crtname'>{{item.title}}</view>
+          <view class='crtdate'>{{item.time}}点评</view>
+        </view>
+        <!--评价打分-->
+        <view class='crtxingv'>
+          <block wx:for="{{xinglist}}" wx:key="xitem" wx:for-index="x">
+            <image src='/resources/xingicoh.png' class='smxingico' wx:if="{{item.fen>=x}}"></image>
+            <image src='/resources/xingico.png' class='smxingico' wx:else></image>
+          </block>
+        </view>
+        <!--评价内容部分-->
+        <view class='crtinfov'>
+          <view class='crtinfo'>
+            <text decode='true'>{{item.info}}</text>
+            <view class='crtmore'>阅读更多></view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </block>
+</view>
 
 <!--底部的操作按钮-->
-<view class='bottomv'>
- <view class='btnv'>
-   <image src='/resources/xin.png' class='btnico'></image>
-   <view class='btntxt'>加入收藏</view>
- </view>
- <view class='xianv'></view>
- <view class='btnv'>
-   <image src='/resources/dwico.png' class='btnico'></image>
-   <view class='btntxt'>导航去这儿</view>
- </view>
+<view style='width:100%;height:200rpx;'></view>
+<view class='bottomv' bindtap='daohangopt'>
+  <view class='btnv'>
+    <image src='/resources/daohang.png' class='btnico'></image>
+    <view class='btntxt'>导航去这儿</view>
+  </view>
 </view>

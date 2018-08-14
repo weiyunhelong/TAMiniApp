@@ -6,10 +6,10 @@
       <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
-    <view class='cleartxt' bindtap='changeshow' wx:if="{{!item.isshowmap}}">
+    <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
       <image src='/resources/maplist.png' class='dituicon'></image>
     </view>
-    <view class='cleartxt' bindtap='changeshow' wx:if="{{item.isshowmap}}">
+    <view class='cleartxt' bindtap='changeshow' wx:if="{{isshowmap}}">
       <image src='/resources/list.png' class='dituicon'></image>
     </view>
   </view>
@@ -32,10 +32,10 @@
     </view>
   </view>
   <!--渐变行-->
-  <view class='shadowv'></view>
+  <view class='shadowv'  wx:if="{{!isshowmap}}"></view>
 
   <!--筛选的条件-->
-  <view class='filterv'>
+  <view class='filterv'  wx:if="{{!isshowmap}}">
     <view class='filteritem' bindtap='scoreopt'>
       <view class='filtertxt'>评分排序</view>
       <image src='/resources/shang.png' class='filtersmico' wx:if="{{!sorder}}"></image>

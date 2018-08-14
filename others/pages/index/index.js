@@ -88,7 +88,7 @@ Page({
       success: function(res) {
         that.setData({
           winheight: res.screenHeight,
-          mapheight: res.screenHeight*0.4
+          mapheight: res.screenHeight*0.5
         })
       }
     })
@@ -265,15 +265,73 @@ Page({
 
     if (iszhediemap){
       that.setData({
-        mapheight: that.data.winheight * 0.4,
+        mapheight: that.data.winheight * 0.5,
         iszhediemap:false
       })
     }else{
       that.setData({
-        mapheight: that.data.winheight * 0.63,
+        mapheight: that.data.winheight * 0.723,
         iszhediemap:true
       })
     }
+  },
+  //收藏操作
+  collectopt: function (e) {
+    var that = this;
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    //循环重置数据
+    var prolist = that.data.prolist;
+    var txtarry = [];
+
+    for (var i = 0; i < prolist.length; i++) {
+      if (prolist[i].id == id) {
+        txtarry[i] = {
+          id: prolist[i].id,
+          name: prolist[i].name,
+          imgpath: prolist[i].imgpath,
+          address: prolist[i].address,
+          distance: prolist[i].distance,
+          ischk: prolist[i].ischk,
+          iscollect: !prolist[i].iscollect,
+          latitude: prolist[i].latitude,
+          longitude: prolist[i].longitude,
+          no: prolist[i].no,
+        }
+      } else {
+        txtarry[i] = {
+          id: prolist[i].id,
+          name: prolist[i].name,
+          imgpath: prolist[i].imgpath,
+          address: prolist[i].address,
+          distance: prolist[i].distance,
+          ischk: prolist[i].ischk,
+          iscollect: prolist[i].iscollect,
+          latitude: prolist[i].latitude,
+          longitude: prolist[i].longitude,
+          no: prolist[i].no,
+        }
+      }
+    }
+    console.log("重置数据:");
+    console.log(txtarry);
+
+    that.setData({
+      prolist: txtarry
+    })
+  },
+  //导航操作
+  daohangopt: function (e) {
+    var lat = e.currentTarget.dataset.lat;
+    var lng = e.currentTarget.dataset.lng;
+    var name = e.currentTarget.dataset.name;
+    console.log("经纬度:" + lat + "," + lng + ",名称:" + name);
+    //打开地图定位
+    wx.openLocation({
+      latitude: lat,
+      longitude: lng,
+      name: name
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

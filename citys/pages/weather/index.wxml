@@ -1,2 +1,2 @@
 <!--index.wxml-->
-<view class=''>天气页面</view>
+<weathlist/>

@@ -54,7 +54,7 @@ page {
   height: 400rpx;
   margin: 40rpx;
   font-size: 28rpx;
-  color: #000000;
+  color: #000;
 }
 
 .otipcss {
@@ -63,6 +63,7 @@ page {
 }
 
 /*实时翻译*/
+
 .tiptxt {
   font-size: 24rpx;
   color: #0074c8;
@@ -70,14 +71,25 @@ page {
 }
 
 /*翻译结果*/
-.gogalv{
+
+.gogalv {
   margin-top: 15rpx;
-  width: 100%;  
+  width: 100%;
 }
-.gtxtcss{  
+
+.gtxtcss {
   width: 670rpx;
   height: 400rpx;
   margin: 40rpx;
   font-size: 28rpx;
-  color: #000000;
+  color: #000;
+}
+
+/*清除操作*/
+
+.cleartxt {
+  text-align: right;
+  margin-right: 30rpx;
+  font-size: 24rpx;
+  color: #0074C8;
 }

@@ -1,0 +1,95 @@
+/* pages/article/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+/*顶层的部分*/
+
+.topv {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 500rpx;
+}
+
+.typev {
+  height: 50rpx;
+  float: right;
+  margin: 30rpx 0rpx;
+  line-height: 50rpx;
+  width: 100rpx;
+  text-align: center;
+}
+
+.xinicon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/*按钮部分*/
+
+.wenzhangrbtn {
+  width: 100rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 40rpx;
+  float: left;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  margin-top: 30rpx;
+  background-color: #ff7b65;
+}
+
+.wenzhangybtn {
+  width: 100rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 40rpx;
+  float: left;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  margin-top: 30rpx;
+  background-color: #ea9f10;
+}
+
+.wenzhanggbtn {
+  width: 100rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 40rpx;
+  float: left;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  margin-top: 30rpx;
+  background-color: #53c078;
+}
+
+.titlev {
+  width: 350rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 32rpx;
+  float: left;
+  margin-top: 370rpx;
+  margin-left: -60rpx;
+}
+
+.otherv {
+  float: right;
+  margin-top: 432rpx;
+  display: flex;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: -60rpx;
+}
+
+.shoucangv {
+  margin-right: 20rpx;
+}

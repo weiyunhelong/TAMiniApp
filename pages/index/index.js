@@ -62,19 +62,19 @@ Page({
       id: 3,
       icon: '/resources/chanpin.png',
       name: '常见问题',
-      url: '../../others/pages/index/index?id=0'
+      url: '../../others/pages/question/index'
     },
     {
       id: 4,
       icon: '/resources/huobi.png',
       name: '游玩指南',
-      url: '../../others/index/index'
+      url: '../../others/pages/guide/index'
     },
     {
       id: 5,
       icon: '/resources/youji.png',
       name: '签证',
-      url: '../../others/index/index'
+      url: '../../others/visa/index/index'
     },
     {
       id: 6,
@@ -86,7 +86,7 @@ Page({
       id: 7,
       icon: '/resources/xianlu.png',
       name: '货币兑换',
-      url: '../../others/index/index'
+      url: '../../others/coin/index/index'
     },
     {
       id: 8,
@@ -103,6 +103,12 @@ Page({
     ];
     that.setData({
       menulist: menulist
+    })
+  },
+  //天气预报
+  goweather:function(){
+    wx.navigateTo({
+      url: '../../citys/pages/weather/index',
     })
   },
   //菜单连接的跳转
@@ -216,7 +222,7 @@ Page({
   gosenic:function(e){
     var id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../scenics/pages/index/index?id='+id,
+      url: '../info/index?id='+id+"&type=1",
     })
   }, 
   //获取购物推荐部分
@@ -281,10 +287,10 @@ Page({
     })
   },
   //调整到购物中心
-  goshop:function(e){
+  goshopping:function(e){
     var id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../shoppings/pages/index/index?id=' + id,
+      url: '../info/index?id=' + id+"&type=2",
     })
   },
   //获取推荐美食
@@ -319,9 +325,9 @@ Page({
   //跳转到美食详情
   gofood:function(e){
     var id=e.currentTarget.dataset.id;
-
+    
     wx.navigateTo({
-      url: '../../foods/pages/index/index?id='+id,
+      url: '../info/index?id='+id+"&type=3",
     })
   },
   //获取酒店推荐
@@ -354,7 +360,7 @@ Page({
   gohotel:function(e){
     var id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../hotels/pages/index/index?id=' + id,
+      url: '../info/index?id=' + id + "&type=4",
     })
   },
   //文章菜单的选择
@@ -451,19 +457,22 @@ Page({
       wenlist: wenlist
     })
   },
+
   //获取搜索的值
   getsearch: function () {
     wx.navigateTo({
       url: '../search/index',
     })
   },
-  //跳转大屏详情页面
-  goinfo: function(e) {
+  //跳转文章详情页面
+  goarticle: function(e) {
     var that = this;
     var id = e.currentTarget.dataset.id;
+    var typeval = e.currentTarget.dataset.type;
+    var title = e.currentTarget.dataset.title;
     //跳转到详情
     wx.navigateTo({
-      url: '../../arctiles/pages/index/index?id=' + id,
+      url: '../article/index?id=' + id + "&type=" + typeval + "&title=" + title,
     })
   },
   // 获取滚动条当前位置

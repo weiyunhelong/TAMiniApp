@@ -80,6 +80,15 @@ Page({
       }
     })
   },
+  //清除操作
+  clearopt:function(){
+    var that=this;
+
+    that.setData({
+      origintxt: "",//翻译的内容
+      gogaltxt: "",//翻译的结果
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,4 +1,4 @@
-// shopping/pages/index.js
+// others/pages/coin/index.js
 Page({
 
   /**

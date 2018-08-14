@@ -1,0 +1,20 @@
+/* others/pages/question/index.wxss */
+page{
+  background-color: #fff;
+}
+
+
+.questionv{
+  margin-bottom: 50rpx;
+}
+.title{
+  margin:10rpx 40rpx;
+  font-size: 32rpx;
+  color: #0074C8;
+}
+
+.ininfov{  
+  margin:10rpx 40rpx;
+  font-size: 24rpx;
+  color:  #333333;
+}

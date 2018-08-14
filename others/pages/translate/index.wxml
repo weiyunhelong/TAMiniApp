@@ -11,6 +11,7 @@
 <!--输入源语言-->
 <view class='originv'>
   <textarea class='otxtcss' placeholder-class='otipcss' placeholder='请输入翻译的内容' value='{{origintxt}}' bindblur='getorigintxt' bindconfirm='getorigintxt' maxlength='-1'></textarea>
+  <view class='cleartxt' bindtap='clearopt'>清除</view>
 </view>
 
 <view class='tiptxt'>实时译文</view>
