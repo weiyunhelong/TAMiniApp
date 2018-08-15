@@ -29,11 +29,6 @@ Page({
   onLoad: function(options) {
     var that = this;
 
-    //接受参数
-    that.setData({
-      searchtxt: options.searchtxt
-    })
-
     //菜单部分
     that.getmenu();
 

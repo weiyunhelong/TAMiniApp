@@ -28,7 +28,7 @@
       <view class="{{chktabid==3?'chktabitem':'nochktabitem'}}">酒店</view>
     </view>
     <view class="tabitemv" data-id="4" bindtap="menuopt">
-      <image src='/resources/filter.png' class='filtericon'></image>
+      <image src='/resources/icon/filter.png' class='filtericon'></image>
     </view>
   </view>
 
@@ -58,7 +58,7 @@
 <!--列表部分-->
 <view class='datalist' wx:if="{{!isshowmap}}">
   <block wx:for="{{datalist}}" wx:key="item">
-    <view class='datav'>
+    <view class='datav' data-id='{{item.id}}' bindtap='godetail'>
       <!--图片部分-->
       <view class='dataimgv'>
         <image src='{{item.imgpath}}' class='dataimg'></image>
@@ -68,25 +68,25 @@
         <!--中文名称收藏-->
         <view class='namexinv'>
           <view class='cnnamev'>{{item.cnname}}</view>
-          <image src='/resources/xinico.png' class='xinicon' wx:if="{{!item.iscollect}}"></image>
-          <image src='/resources/xinicoh.png' class='xinicon' wx:if="{{item.iscollect}}"></image>
+          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
         <view class='ennamev'>{{item.enname}}</view>
         <!--距离-->
         <view class='distancev'>
           <view class='distancetip'>距离您约</view>
-          <image src='/resources/postionico.png' class='postionico'></image>
+          <image src='/resources/icon/dituico.png' class='postionico'></image>
           <view class='distancetxt'>{{item.distance}}</view>
         </view>
         <!--评价价格-->
         <view class='fenpricev'>
           <view class='xingv'>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <view class='peoplenum'>{{item.commentnum}}人评论</view>
           </view>
           <view class='pricev'>￥{{item.price}}/人</view>
@@ -105,8 +105,8 @@
 
   <!--底部的折叠-->
   <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:300rpx;'}}">
-    <image src='/resources/zhedied.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
-    <image src='/resources/zhedieu.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/upico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/downico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
   </view>
 
   <!--底部的数据-->
@@ -114,7 +114,7 @@
     <scroll-view scroll-x="true" scroll-into-view="{{toView}}" class='prolistview'>
 
       <block wx:for="{{prolist}}" wx:key="item">
-        <view id="{{item.id}}" class="scroll-view-item" bindtap='godetail'>
+        <view data-id="{{item.id}}" class="scroll-view-item" bindtap='godetail'>
           <!--图片-->
           <image src='{{item.imgpath}}' class='protu'></image>
           <!--介绍部分-->
@@ -124,15 +124,15 @@
             <!--距离部分-->
             <view class='projuliv'>
               <view class='julitip'>距离您约</view>
-              <image src='/resources/postionico.png' class='postionico'></image>
+              <image src='/resources/icon/dituico.png' class='postionico'></image>
               <view class='distancetxt'>{{item.distance}}</view>
             </view>
             <!--操作按钮部分-->
             <view class='lasthangv'>
-              <image src='/resources/xinico.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
-              <image src='/resources/xinicoh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxin.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxinh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
               <view class='xianv'></view>
-              <image src='/resources/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
+              <image src='/resources/icon/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
             </view>
           </view>
         </view>

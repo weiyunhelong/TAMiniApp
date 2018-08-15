@@ -23,8 +23,8 @@ page {
 }
 
 .xinicon {
-  width: 50rpx;
-  height: 50rpx;
+  width: 38rpx;
+  height: 36rpx;
 }
 
 /*内容部分*/
@@ -66,8 +66,9 @@ page {
 }
 
 .infoicon {
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 5rpx;
 }
 
 .infoxian {
@@ -89,8 +90,9 @@ page {
 }
 
 .xingico {
-  width: 40rpx;
-  height: 40rpx;
+  width: 22rpx;
+  height: 22rpx;
+  margin-top: 12rpx;
 }
 
 .commentnum {
@@ -341,9 +343,9 @@ page {
 }
 
 .smxingico {
-  width: 22rpx;
-  height: 22rpx;
-  margin-top: 4rpx;
+  width: 20rpx;
+  height: 20rpx;
+  margin-top: 5rpx;
 }
 
 .crtinfo {
@@ -376,9 +378,9 @@ page {
 }
 
 .btnico {
-  width: 40rpx;
-  height: 40rpx;
-  margin: 30rpx 10rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin: 38rpx 10rpx;
 }
 
 .btntxt {

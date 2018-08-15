@@ -3,11 +3,11 @@
   <!--搜索层-->
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
-      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
+      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
-      <image src='/resources/maplist.png' class='dituicon'></image>
+      <image src='/resources/icon/dingtu.png' class='dituicon'></image>
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{isshowmap}}">
       <image src='/resources/list.png' class='dituicon'></image>
@@ -28,14 +28,14 @@
       <view class="{{chktabid==3?'chktabitem':'nochktabitem'}}">酒店</view>
     </view>
     <view class="tabitemv" data-id="4" bindtap="menuopt">
-      <image src='/resources/filter.png' class='filtericon'></image>
+      <image src='/resources/icon/filter.png' class='filtericon'></image>
     </view>
   </view>
   <!--渐变行-->
-  <view class='shadowv'  wx:if="{{!isshowmap}}"></view>
+  <view class='shadowv' wx:if="{{!isshowmap}}"></view>
 
   <!--筛选的条件-->
-  <view class='filterv'  wx:if="{{!isshowmap}}">
+  <view class='filterv' wx:if="{{!isshowmap}}">
     <view class='filteritem' bindtap='scoreopt'>
       <view class='filtertxt'>评分排序</view>
       <image src='/resources/shang.png' class='filtersmico' wx:if="{{!sorder}}"></image>
@@ -57,7 +57,7 @@
 <!--列表部分-->
 <view class='datalist' wx:if="{{!isshowmap}}">
   <block wx:for="{{datalist}}" wx:key="item">
-    <view class='datav'>
+    <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
       <!--图片部分-->
       <view class='dataimgv'>
         <image src='{{item.imgpath}}' class='dataimg'></image>
@@ -67,8 +67,8 @@
         <!--中文名称收藏-->
         <view class='namexinv'>
           <view class='cnnamev'>{{item.cnname}}</view>
-          <image src='/resources/xinico.png' class='xinicon' wx:if="{{!item.iscollect}}"></image>
-          <image src='/resources/xinicoh.png' class='xinicon' wx:if="{{item.iscollect}}"></image>
+          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" bindtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" bindtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
         <view class='ennamev'>{{item.enname}}</view>
@@ -81,11 +81,11 @@
         <!--评价价格-->
         <view class='fenpricev'>
           <view class='xingv'>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
-            <image src='/resources/xingicoh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <view class='peoplenum'>{{item.commentnum}}人评论</view>
           </view>
           <view class='pricev'>￥{{item.price}}/人</view>
@@ -99,20 +99,20 @@
 <view class='mapv' wx:if="{{isshowmap}}">
 
   <!--地图部分-->
-  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap"
-    bindregionchange='mapregion' show-location='true'></map>
+  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregion'
+    show-location='true'></map>
 
   <!--底部的折叠-->
   <view class='zhediev' bindtap='zhedieopt'>
-    <image src='/resources/zhedied.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
-    <image src='/resources/zhedieu.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/upico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/downico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
   </view>
   <!--底部的数据-->
   <view class='prolistv' wx:if="{{!iszhediemap}}">
     <scroll-view scroll-x="true" scroll-into-view="{{toView}}" class='prolistview'>
-      
+
       <block wx:for="{{prolist}}" wx:key="item">
-        <view id="{{item.id}}" class="scroll-view-item" bindtap='godetail'>
+        <view data-id="{{item.id}}" class="scroll-view-item" bindtap='godetail'>
           <!--图片-->
           <image src='{{item.imgpath}}' class='protu'></image>
           <!--介绍部分-->
@@ -127,10 +127,10 @@
             </view>
             <!--操作按钮部分-->
             <view class='lasthangv'>
-              <image src='/resources/xinico.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
-              <image src='/resources/xinicoh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxin.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxinh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
               <view class='xianv'></view>
-              <image src='/resources/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
+              <image src='/resources/icon/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
             </view>
           </view>
         </view>

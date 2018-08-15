@@ -127,9 +127,9 @@
 }
 
 .filtericon {
-  width: 48rpx;
-  height: 48rpx;
-  margin-top: 16rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
 }
 
 .shadowv {
@@ -220,8 +220,9 @@
 }
 
 .xinicon {
-  width: 40rpx;
-  height: 40rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 4rpx;
 }
 
 .ennamev {
@@ -274,13 +275,14 @@
 }
 
 .xingico {
-  width: 40rpx;
-  height: 40rpx;
+  width: 22rpx;
+  height: 22rpx;
+  margin: 10rpx 0;
 }
 
 .peoplenum {
   font-size: 20rpx;
-  margin-left: 7rpx;
+  margin-left: 15rpx;
   line-height: 40rpx;
 }
 
@@ -296,11 +298,13 @@
   background-color: #fff;
   position: fixed;
   width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 
 .zhedieico {
-  height: 30rpx;
-  width: 30rpx;
+  height: 18rpx;
+  width: 38rpx;
 }
 
 .prolistv {
@@ -308,7 +312,7 @@
   height: 300rpx;
   background-color: #fff;
   position: fixed;
-  bottom:0rpx;
+  bottom: 0rpx;
 }
 
 /*底部滚动*/
@@ -374,12 +378,13 @@
 .lasthangv {
   display: flex;
   position: relative;
-  top:40rpx;  
+  top: 40rpx;
 }
 
 .xinico {
-  width: 50rpx;
-  height: 50rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 8rpx;
 }
 
 .xianv {
@@ -390,6 +395,7 @@
 }
 
 .daohangico {
-  width: 50rpx;
-  height: 50rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 8rpx;
 }

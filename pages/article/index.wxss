@@ -23,8 +23,8 @@ page {
 }
 
 .xinicon {
-  width: 50rpx;
-  height: 50rpx;
+  width: 38rpx;
+  height: 36rpx;
 }
 
 /*按钮部分*/
@@ -71,6 +71,7 @@ page {
   background-color: #53c078;
 }
 
+/*标题文字*/
 .titlev {
   width: 350rpx;
   height: 40rpx;
@@ -78,9 +79,10 @@ page {
   font-size: 32rpx;
   float: left;
   margin-top: 370rpx;
-  margin-left: -60rpx;
+  margin-left: -70rpx;
 }
 
+/*收藏浏览*/
 .otherv {
   float: right;
   margin-top: 432rpx;
@@ -92,4 +94,18 @@ page {
 
 .shoucangv {
   margin-right: 20rpx;
+}
+
+
+.instrov{
+  margin: 20rpx 40rpx;font-size: 20rpx;width:670rpx;
+
+}
+
+.instrov rich-text{
+  width:670rpx;
+  white-space: normal;
+}
+.instrov rich-text img{
+  float: left;
 }

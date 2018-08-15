@@ -1,1 +1,113 @@
 /* others/pages/coin/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+/*原来的钱*/
+
+.originv {
+  margin: 0rpx 40rpx;
+  border-bottom: 1rpx solid #dbdbdb;
+  display: flex;
+  padding: 90rpx 0;
+}
+
+.oflagtu {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+/*中文名*/
+
+.oqiancntxt {
+  text-align: left;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  color: #909599;
+  margin-left: 30rpx;
+}
+
+/*英文名*/
+
+.oqianentxt {
+  font-size: 32rpx;
+  line-height: 70rpx;
+  width: 100rpx;
+  text-align: center;
+  color: #909599;
+}
+
+/*下图标*/
+
+.odownicon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 19rpx;
+}
+
+.otxtcss {
+  text-align: right;
+  color: #000;
+  font-size: 48rpx;
+  width: 260rpx;
+}
+
+/****目标钱****/
+
+.griginv {
+  margin: 0rpx 40rpx;
+  display: flex;
+  padding: 90rpx 0;
+  clear: both;
+}
+
+.gflagtu {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+/*中文名*/
+
+.gqiancntxt {
+  text-align: left;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  color: #909599;
+  margin-left: 30rpx;
+}
+
+/*英文名*/
+
+.gqianentxt {
+  font-size: 32rpx;
+  line-height: 70rpx;
+  width: 100rpx;
+  text-align: center;
+  color: #909599;
+  margin: 0 20rpx;
+}
+
+/*下图标*/
+
+.gdownicon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 19rpx;
+}
+
+.gtxtcss {
+  text-align: right;
+  color: #000;
+  font-size: 48rpx;
+  width: 260rpx;
+}
+
+/*切换按钮*/
+.changeicon {
+  float: right;
+  width: 48rpx;
+  height: 46rpx;
+  margin-right: 80rpx;
+  margin-top: -23rpx;
+}

@@ -2,21 +2,34 @@
 
 <!--顶部的翻译类型-->
 <view class='topv'>
-  <view class='origintxt'>{{origintype}}</view>
-  <image src='/resources/change.png' class='changeico' bindtap='changeopt'></image>
-  <view class='gogaltxt'>{{gogaltype}}</view>
-  <image src='/resources/xiangji.png' class='xiangjiico' bindtap='chkimgopt'></image>
+  <picker bindchange="bindOriginChange" value="{{oindex}}" range="{{Originarray}}" class='originpickerv'>
+    <image src='/resources/icon/downw.png' class='odownicon'></image>
+    <view class='origintxt'>{{Originarray[oindex]}}</view>
+  </picker>
+  <image src='/resources/icon/change.png' class='changeico' bindtap='changeopt'></image>
+  <picker bindchange="bindGogalChange" value="{{gindex}}" range="{{Gogalarray}}" class='gogalpickerv'>
+    <view class='gogaltxt'>{{Gogalarray[gindex]}}</view>
+    <image src='/resources/icon/downw.png' class='gdownicon'></image>
+  </picker>
+  <image src='/resources/icon/xiangji.png' class='xiangjiico' bindtap='chkimgopt'></image>
 </view>
 
 <!--输入源语言-->
-<view class='originv'>
-  <textarea class='otxtcss' placeholder-class='otipcss' placeholder='请输入翻译的内容' value='{{origintxt}}' bindblur='getorigintxt' bindconfirm='getorigintxt' maxlength='-1'></textarea>
-  <view class='cleartxt' bindtap='clearopt'>清除</view>
+<view class='origintipv'>
+  <view class='tiptxt'>{{Originarray[oindex]}}</view>
+  <image src='/resources/icon/close.png' class='closeicon' bindtap='clearopt'></image>
 </view>
 
-<view class='tiptxt'>实时译文</view>
+<view class='originv'>
+  <textarea class='otxtcss' placeholder-class='otipcss' placeholder='请输入翻译的内容' value='{{origintxt}}' bindblur='getorigintxt' bindconfirm='getorigintxt' maxlength='-1'></textarea>
+</view>
+
+<!--实时翻译-->
+<view class='tbtn' bindtap='translateopt'>翻译</view>
+<view class='xianv'></view>
 
 <!--输出结果-->
+<view class='tiptxt'>{{Gogalarray[gindex]}}</view>
 <view class='gogalv'>
   <textarea class='gtxtcss' value='{{gogaltxt}}' maxlength='-1' disabled='true'></textarea>
 </view>

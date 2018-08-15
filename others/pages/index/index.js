@@ -140,7 +140,7 @@ Page({
           width: 30,
           height: 30
         },
-        iconPath: '/resources/dingwei.png',
+        iconPath: '/resources/icon/dingwei.png',
         clickable: true
       }], //线路部分
     })
@@ -197,6 +197,44 @@ Page({
     //赋值部分
     that.setData({
       datalist: datalist
+    })
+  },
+  //列表的收藏
+  listcollectopt:function(e){
+    var that = this;
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    var datalist = that.data.datalist;
+    //循环遍历
+    var txtarry = [];
+    for (var i = 0; i < datalist.length; i++) {
+      if (id == datalist[i].id) {
+        txtarry[i] = {
+          id: datalist[i].id,
+          imgpath: datalist[i].imgpath,
+          cnname: datalist[i].cnname,
+          enname: datalist[i].enname,
+          distance: datalist[i].distance,
+          commentnum: datalist[i].commentnum,
+          price: datalist[i].price,
+          iscollect: !datalist[i].iscollect
+        }
+      } else {
+        txtarry[i] = {
+          id: datalist[i].id,
+          imgpath: datalist[i].imgpath,
+          cnname: datalist[i].cnname,
+          enname: datalist[i].enname,
+          distance: datalist[i].distance,
+          commentnum: datalist[i].commentnum,
+          price: datalist[i].price,
+          iscollect: datalist[i].iscollect
+        }
+      }
+    }
+    //赋值
+    that.setData({
+      datalist: txtarry
     })
   },
   //获取到搜索值
@@ -331,6 +369,13 @@ Page({
       latitude: lat,
       longitude: lng,
       name: name
+    })
+  },
+  //跳转到详情页
+  godetail:function(e){
+    var id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../../pages/info/index?id='+id,
     })
   },
   /**

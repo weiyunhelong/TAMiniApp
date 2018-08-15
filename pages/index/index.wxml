@@ -4,7 +4,7 @@
 <view class='backgroundv'>
   <!--搜索层-->
   <view class='searchv' bindtap='getsearch'>
-    <icon type='search' size='33' color='#fff' class='searchico'></icon>
+    <image src='/resources/icon/homesearch.png' class='searchico'></image>
   </view>
   <!--底部的文字-->
   <view class='toptxtinfo'>
@@ -15,7 +15,7 @@
     <view class='toprightv' bindtap='goweather'>
       <view class='topwenduv'>
         <view class='topwendu'>25℃</view>
-        <image src='/resources/sun.png' class='weatherico'></image>
+        <image src='/resources/weather/sun.png' class='weatherico'></image>
       </view>
       <view class='topweather'>未来一周的天气</view>
     </view>
@@ -47,7 +47,7 @@
 <view class='jingdianv'>
   <view class='titlev'>
     <view class='titletxt'>标志景点</view>
-    <view class='moretxt'>查看全部></view>
+    <view class='moretxt' bindtap='gomore' data-id='0'>查看全部></view>
   </view>
 
   <!--滑动部分-->
@@ -103,7 +103,7 @@
 <view class='jingdianv'>
   <view class='titlev'>
     <view class='titletxt'>美食推荐</view>
-    <view class="moretxt">探索更多></view>
+    <view class="moretxt" bindtap='gomore' data-id='1'>查看全部></view>
   </view>
   <!--滑动部分-->
   <scroll-view scroll-x="true" class="tab-jingdianv">
@@ -133,7 +133,7 @@
 <view class='jingdianv'>
   <view class='titlev'>
     <view class='titletxt'>酒店推荐</view>
-    <view class="moretxt">探索更多></view>
+    <view class="moretxt" bindtap='gomore' data-id='3'>查看全部></view>
   </view>
   <!--滑动部分-->
   <scroll-view scroll-x="true" class="tab-jingdianv">
@@ -157,7 +157,7 @@
 <view class='jingdianv'>
   <view class='titlev'>
     <view class='titletxt'>购物推荐</view>
-    <view class='moretxt'>查看全部></view>
+    <view class='moretxt' bindtap='gomore' data-id='2'>查看全部></view>
   </view>
 
   <!--滑动部分-->
@@ -292,4 +292,4 @@
 
 
 <!--到达顶部-->
-<image src='/resources/gotop.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+<image src='/resources/icon/zhiding.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

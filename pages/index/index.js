@@ -42,61 +42,61 @@ Page({
 
     var menulist = [{
       id: 0,
-      icon: '/resources/qianzheng.png',
+      icon: '/resources/menu/jingdian.png',
       name: '景点',
       url: '../../others/pages/index/index?id=0'
     },
     {
       id: 1,
-      icon: '/resources/qianzheng.png',
+      icon: '/resources/menu/jiudian.png',
       name: '酒店',
-      url: '../../others/pages/index/index?id=1'
+      url: '../../others/pages/index/index?id=3'
     },
     {
       id: 2,
-      icon: '/resources/hangban.png',
+      icon: '/resources/menu/meishi.png',
       name: '美食',
-      url: '../../others/pages/index/index?id=2'
+      url: '../../others/pages/index/index?id=1'
     },
     {
       id: 3,
-      icon: '/resources/chanpin.png',
+      icon: '/resources/menu/wenti.png',
       name: '常见问题',
       url: '../../others/pages/question/index'
     },
     {
       id: 4,
-      icon: '/resources/huobi.png',
+      icon: '/resources/menu/youwan.png',
       name: '游玩指南',
       url: '../../others/pages/guide/index'
     },
     {
       id: 5,
-      icon: '/resources/youji.png',
+      icon: '/resources/menu/qianzheng.png',
       name: '签证',
-      url: '../../others/visa/index/index'
+      url: '../../others/pages/visa/index'
     },
     {
       id: 6,
-      icon: '/resources/gonglve.png',
+      icon: '/resources/menu/fanyi.png',
       name: '翻译',
-      url: ''
+      url: '../../others/pages/translate/home'
     },
     {
       id: 7,
-      icon: '/resources/xianlu.png',
+      icon: '/resources/menu/duihuan.png',
       name: '货币兑换',
-      url: '../../others/coin/index/index'
+      url: '../../others/pages/coin/index'
     },
     {
       id: 8,
-      icon: '/resources/helpphone.png',
+      icon: '/resources/menu/hangban.png',
       name: '航班查询',
-      url: '../../others/index/index'
+      url: '../../others/pages/airline/index'
     },
     {
       id: 9,
-      icon: '/resources/helpphone.png',
+      icon: '/resources/menu/phone.png',
       name: '一键求助',
       url: ''
     }
@@ -141,10 +141,6 @@ Page({
             })
           }
         }
-      })
-    }else if(id==6){
-      wx.navigateTo({
-        url: '../../others/pages/translate/index',
       })
     }
   },
@@ -512,5 +508,12 @@ Page({
         content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
       })
     }
+  },
+  //探索更多
+  gomore:function(e){
+    var id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../others/pages/index/index?id='+id,
+    })
   },
 })

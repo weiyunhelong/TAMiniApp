@@ -1,17 +1,17 @@
 <!--pages/article/index.wxml-->
 
 <!--顶部的标签内容部分-->
-<view class='topv' style='background-image: url("/resources/tu1.jpg");'>
+<view class='topv' style='background-image: url("http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg");'>
   
   <!--类型按钮-->
-  <view class='wenzhanggbtn' wx:if="{{typeval==1}}">线路</view>
-  <view class='wenzhangrbtn' wx:if="{{typeval==2}}">游记</view>
-  <view class='wenzhangybtn' wx:if="{{typeval==3}}">攻略</view>
+  <view class='wenzhangybtn' wx:if="{{typeval==1}}">线路</view>
+  <view class='wenzhanggbtn' wx:if="{{typeval==2}}">游记</view>
+  <view class='wenzhangrbtn' wx:if="{{typeval==3}}">攻略</view>
   
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
-    <image src='/resources/xinico.png' class='xinicon' wx:if="{{!iscollect}}"></image>
-    <image src='/resources/xinicoh.png' class='xinicon' wx:if="{{iscollect}}"></image>
+    <image src='/resources/icon/detailxin.png' class='xinicon' wx:if="{{!iscollect}}"></image>
+    <image src='/resources/icon/detailxinh.png' class='xinicon' wx:if="{{iscollect}}"></image>
   </view>
   
   <!--标题部分-->
@@ -20,7 +20,12 @@
   </view>
   <!--收藏浏览-->
   <view class='otherv'>
-    <view class='shoucangv'>40收藏</view>
-    <view class='liulanv'>1159收藏</view>
+    <view class='shoucangv'>{{collectnum}}收藏</view>
+    <view class='liulanv'>{{viewnum}}浏览</view>
   </view>
+</view>
+
+<!--图文简介-->
+<view class='instrov'>
+  <rich-text nodes="{{info}}"></rich-text>
 </view>

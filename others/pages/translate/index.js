@@ -5,9 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    origintype:"中文",//源语言
-    gogaltype:"英文",//目标语言
-    origintxt:"",//翻译的内容
+    Originarray: ["中文", "英文", "西班牙语", "阿拉伯语", "孟加拉语", "葡萄牙语", "俄语", "日语", "德语", "韩语", "法语", "印地语"],//语言列表
+    oindex: 0,//源语言下标
+    Gogalarray: ["英文", "中文", "西班牙语", "阿拉伯语", "孟加拉语", "葡萄牙语", "俄语", "日语", "德语", "韩语", "法语", "印地语"],//语言列表
+    gindex: 0,//目标下标
+    origintxt: "",//翻译的内容
     gogaltxt:"",//翻译的结果
   },
 
@@ -15,18 +17,70 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //顶部的文字
     wx.setNavigationBarTitle({
       title: '翻译',
     })
-  },
-  //切换语言
-  changeopt:function(){
+    
+    //翻译的内容
+    var origintxt = wx.getStorageSync("origintxt");
+    //接受参数
     var that=this;
-    var temp = that.data.origintype;
+    
     that.setData({
-      origintype: that.data.gogaltype,
-      gogaltype: temp
+      oindex:parseInt(options.oindex),
+      gindex: parseInt(options.gindex),
+      origintxt: origintxt
     })
+    //获取翻译的值
+    that.GetTranslate();
+  },
+  //修改源头语言类型
+  bindOriginChange: function (e) {
+    var that = this;
+
+    that.setData({
+      oindex: e.detail.value
+    })
+  },
+  //修改目标语言类型
+  bindGogalChange: function (e) {
+    var that = this;
+
+    that.setData({
+      gindex: e.detail.value
+    })
+  },
+  //互换语言类型
+  changeopt: function () {
+    var that = this;
+    //参数部分
+    var Originarray = that.data.Originarray,//语言列表
+      oindex = that.data.oindex,//源语言下标
+      Gogalarray = that.data.Gogalarray,//语言列表
+      gindex = that.data.gindex;
+    //查询条件
+    var otxt = Originarray[oindex];
+    var gtxt = Gogalarray[gindex];
+
+    //获取下标的值
+    var oxiabiao = that.getIndexByArr(otxt, Gogalarray);
+    var gxiabiao = that.getIndexByArr(gtxt, Originarray);
+
+    that.setData({
+      oindex: oxiabiao,
+      gindex: gxiabiao
+    })
+  },
+  //获取下标的值
+  getIndexByArr: function (val, arry) {
+
+    var index = 0;
+    for (var i = 0; i < arry.length; i++) {
+      if (arry[i] == val) {
+        return i;
+      }
+    }
   },
   //获取需要翻译的值
   getorigintxt:function(e){
@@ -37,8 +91,6 @@ Page({
      that.setData({
        origintxt: txtval
      })
-     //获取翻译的值
-     that.GetTranslate();
   },
   //获取翻译的值
   GetTranslate:function(){
@@ -88,6 +140,31 @@ Page({
       origintxt: "",//翻译的内容
       gogaltxt: "",//翻译的结果
     })
+  },
+  //翻译部分
+  translateopt: function () {
+    var that = this;
+
+    //获取参数部分
+    var Originarray = that.data.Originarray,//语言列表
+      oindex = that.data.oindex,//源语言下标
+      origintxt = Originarray[oindex],//源语言类型
+      Gogalarray = that.data.Gogalarray,//语言列表
+      gindex = that.data.gindex,//目标下标
+      gogaltxt = Gogalarray[gindex],//目标语言类型
+      origintxt = that.data.origintxt;//翻译的内容
+
+    if (origintxt == "") {
+      wx.showToast({
+        title: '请输入翻译内容',
+        mask: true,
+        icon: "none",
+        duration: 2000
+      })
+    } else {
+      //获取翻译的值
+      that.GetTranslate();
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

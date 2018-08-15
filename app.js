@@ -10,6 +10,14 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        
+        //授权登录
+        wx.getUserInfo({
+          success: res => {
+            // 可以将 res 发送给后台解码出 unionId
+            this.globalData.userInfo = res.userInfo;
+          }
+        })
       }
     })
     // 获取用户信息
@@ -34,6 +42,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,//用户信息
+    openid:"",//OPENID
+    requesturl:"",//后台API请求的url
   }
 })

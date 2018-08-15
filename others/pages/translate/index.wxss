@@ -13,12 +13,28 @@ page {
   line-height: 90rpx;
 }
 
+/*源语言类型*/
+
+.originpickerv {
+  height: 90rpx;
+  margin-left: 17%;
+  float: left;
+  width: 165rpx;
+}
+
 .origintxt {
   height: 90rpx;
   color: #fff;
   font-size: 32rpx;
-  margin-left: 30%;
-  float: left;
+  float: right;
+}
+
+.odownicon {
+  width: 22rpx;
+  height: 12rpx;
+  float: right;
+  margin-top: 40rpx;
+  margin-left: 20rpx;
 }
 
 .changeico {
@@ -28,6 +44,14 @@ page {
   margin: 29rpx 68rpx;
 }
 
+/*目标语言类型*/
+
+.gogalpickerv {
+  height: 90rpx;
+  float: left;
+  width: 165rpx;
+}
+
 .gogaltxt {
   height: 90rpx;
   color: #fff;
@@ -35,23 +59,50 @@ page {
   float: left;
 }
 
+.gdownicon {
+  width: 22rpx;
+  height: 12rpx;
+  float: left;
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+}
+
+/*相机*/
+
 .xiangjiico {
-  width: 50rpx;
-  height: 50rpx;
+  width: 44rpx;
+  height: 36rpx;
   float: right;
-  margin: 20rpx 30rpx;
+  margin: 26rpx 30rpx;
+}
+
+/*原文提示部分*/
+
+.origintipv {
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx;
+}
+
+.origintipv .tiptxt {
+  font-size: 24rpx;
+  color: #0074c8;
+  margin-left: 0;
+}
+
+.closeicon {
+  width: 50rpx;
+  height: 48rpx;
 }
 
 /*原文部分*/
 
 .originv {
-  margin: 15rpx 0;
   width: 100%;
 }
 
 .otxtcss {
   width: 670rpx;
-  height: 400rpx;
   margin: 40rpx;
   font-size: 28rpx;
   color: #000;
@@ -79,7 +130,6 @@ page {
 
 .gtxtcss {
   width: 670rpx;
-  height: 400rpx;
   margin: 40rpx;
   font-size: 28rpx;
   color: #000;
@@ -91,5 +141,28 @@ page {
   text-align: right;
   margin-right: 30rpx;
   font-size: 24rpx;
-  color: #0074C8;
+  color: #0074c8;
+}
+
+/*翻译按钮*/
+
+.tbtn {
+  width: 25%;
+  height: 60rpx;
+  margin: 0 37.5%;
+  background-color: #0074c8;
+  color: #fff;
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+/*底部的线*/
+
+.xianv {
+  width: 670rpx;
+  height: 2rpx;
+  margin: 40rpx 40rpx;
+  border-bottom: 1rpx solid #f2f2f2;
 }
