@@ -1,2 +1,142 @@
 <!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+
+<!--顶部行-->
+<view class='topv' style='background-image: url("http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg");'>
+
+  <view class='baseinfov'>
+    <!--编辑图标-->
+    <image src='/resources/icon/edit.png' class='editicon' bindtap='goeditopt'></image>
+
+    <!--用户头像-->
+    <view class='wxtxv' wx:if="{{islogin}}">
+      <!--用户头像-->
+      <image src='{{touxiang}}' class='wxtxcss'></image>
+    </view>
+    <!--微信昵称-->
+    <view class='wxnickname' wx:if="{{islogin}}">{{nickName}}</view>
+
+    <!--获取用户信息-->
+    <button wx:if="{{!islogin}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class='loginbtn'>登录</button>
+
+  </view>
+</view>
+
+<!--三个菜单-->
+<view class='tabmenuv'>
+  <view class="{{tabmenuid==1?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='1'>我的订单</view>
+  <view class="{{tabmenuid==2?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='2'>我的收藏</view>
+  <view class="{{tabmenuid==3?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='3'>我的点评</view>
+</view>
+<view class='geduanv'></view>
+
+<!--订单部分-->
+<view class='orderlistv' wx:if="{{tabmenuid==1}}">
+  <block wx:for="{{orderlist}}" wx:key="item">
+    <!--订单列表-->
+    <view class='orderv'>
+      <view class='ordertuv'>
+        <image src='{{item.imgpath}}' class='ordertu'></image>
+      </view>
+      <!--订单信息-->
+      <view class='orderinfov'>
+        <view class='ordercnname'>{{item.cnname}}</view>
+        <view class='orderenname'>{{item.enname}}</view>
+        <view class='orderaddress'>{{item.address}}</view>
+      </view>
+      <!--订单状态-->
+      <view class='usedorderstatus'   wx:if="{{item.status==1}}">已使用</view>
+      <view class='useingorderstatus' wx:if="{{item.status==0}}">未使用</view>
+    </view>
+  </block>
+</view>
+
+<!--收藏部分-->
+<view class='collectlistv' wx:if="{{tabmenuid==2}}">  
+
+  <!--顶部的switch按钮-->
+  <view class='switchv'>
+    <view class="{{collecttab==1?'chkswitchv':'nochkswitchv'}}" data-id='1' bindtap='collecttabopt'>内容</view>
+    <view class="{{collecttab==2?'chkswitchv':'nochkswitchv'}}" data-id='2' bindtap='collecttabopt'>地点</view>
+  </view>
+
+  <!--内容列表部分-->
+  <view class='listv' wx:if="{{collecttab==1}}">
+    <block wx:for="{{guidelist}}" wx:key="item" wx:for-index="index">
+      <view class='guidev' data-index="{{index}}" data-id="{{id}}" bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
+        <!--内容部分列表-->
+        <view class='glistitemv' style="margin-left:{{item.isTouchMove?-300:0}}rpx;">
+          <!--图片部分-->
+          <view class='listtuv'>
+            <image src='{{item.imgpath}}' class='listtu'></image>
+            <view class='listtypev1' wx:if="{{item.typeval==1}}">线路</view>
+            <view class='listtypev2' wx:if="{{item.typeval==2}}">游记</view>
+            <view class='listtypev3' wx:if="{{item.typeval==3}}">攻略</view>
+          </view>
+          <!--文字介绍-->
+          <view class='listinfov'>
+            <view class='listtitle'>{{item.title}}</view>
+            <view class='listinfo'>{{item.instro}}</view>
+            <view class='numv'>
+              <view class='collectnum'>{{item.collectnum}}收藏</view>
+              <view class='collectnum'>{{item.viewnum}}浏览</view>
+            </view>
+          </view>
+        </view>
+
+        <!--删除按钮-->
+        <view class="del" catchtap="ndel" data-index="{{index}}" data-id="{{id}}">删除</view>
+      </view>
+    </block>
+  </view>
+
+
+  <!--列表部分-->
+  <view class='listv' wx:if="{{collecttab==2}}">
+    <block wx:for="{{sceniclist}}" wx:key="item" wx:for-index="index">
+      <view class='scenicv' data-index="{{index}}" data-id="{{id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
+        <!--内容部分列表-->
+        <view class='slistitemv' style="margin-left:{{item.isTouchMove?-340:0}}rpx;">
+          <!--图片部分-->
+          <view class='dataimgv'>
+            <image src='{{item.imgpath}}' class='dataimg'></image>
+          </view>
+          <!--简介部分-->
+          <view class='datainfov'>
+            <!--中文名称收藏-->
+            <view class='namexinv'>
+              <view class='cnnamev'>{{item.cnname}}</view>
+            </view>
+            <!--英文-->
+            <view class='ennamev'>{{item.enname}}</view>
+            <!--距离-->
+            <view class='distancev'>
+              <view class='distancetip'>距离您约</view>
+              <image src='/resources/icon/dituico.png' class='postionico'></image>
+              <view class='distancetxt'>{{item.distance}}</view>
+            </view>
+            <!--评价价格-->
+            <view class='fenpricev'>
+              <view class='xingv'>
+                <image src='/resources/icon/smxingh.png' class='xingico'></image>
+                <image src='/resources/icon/smxingh.png' class='xingico'></image>
+                <image src='/resources/icon/smxingh.png' class='xingico'></image>
+                <image src='/resources/icon/smxingh.png' class='xingico'></image>
+                <image src='/resources/icon/smxingh.png' class='xingico'></image>
+                <view class='peoplenum'>{{item.commentnum}}人评论</view>
+              </view>
+              <view class='pricev'>￥{{item.price}}/人</view>
+            </view>
+          </view>
+        </view>
+        <!--删除-->
+        <view class="del" catchtap="jdel" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
+      </view>
+    </block>
+  </view>
+
+</view>
+
+<!--收藏部分-->
+<view class='commentlistv' wx:if="{{tabmenuid==3}}"></view>
+
+<view class='lastgeduanv'></view>

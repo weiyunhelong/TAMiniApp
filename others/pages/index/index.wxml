@@ -75,7 +75,7 @@
         <!--距离-->
         <view class='distancev'>
           <view class='distancetip'>距离您约</view>
-          <image src='/resources/postionico.png' class='postionico'></image>
+          <image src='/resources/icon/dituico.png' class='postionico'></image>
           <view class='distancetxt'>{{item.distance}}</view>
         </view>
         <!--评价价格-->
@@ -101,9 +101,10 @@
   <!--地图部分-->
   <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregion'
     show-location='true'></map>
-
+     
+  
   <!--底部的折叠-->
-  <view class='zhediev' bindtap='zhedieopt'>
+  <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:300rpx;'}}">
     <image src='/resources/icon/upico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
     <image src='/resources/icon/downico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
   </view>
@@ -122,7 +123,7 @@
             <!--距离部分-->
             <view class='projuliv'>
               <view class='julitip'>距离您约</view>
-              <image src='/resources/postionico.png' class='postionico'></image>
+              <image src='/resources/icon/dituico.png' class='postionico'></image>
               <view class='distancetxt'>{{item.distance}}</view>
             </view>
             <!--操作按钮部分-->

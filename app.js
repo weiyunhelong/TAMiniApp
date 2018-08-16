@@ -45,5 +45,7 @@ App({
     userInfo: null,//用户信息
     openid:"",//OPENID
     requesturl:"",//后台API请求的url
+    ocoinid:0,//中国货币
+    gcoinid:1,//目标货币
   }
 })

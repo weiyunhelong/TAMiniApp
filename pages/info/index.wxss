@@ -147,12 +147,19 @@ page {
   margin-top: 40rpx;
 }
 
-.booktitle {
+.booktitlev {
   margin: 30rpx 40rpx 20rpx 40rpx;
+  display: flex;
+}
+.booktitle {
   font-size: 32rpx;
   color: #16191c;
 }
-
+.quanicon{
+  width: 48rpx;
+  height: 32rpx;
+  margin:10rpx;
+}
 /*预定的票据*/
 
 .bookitem {

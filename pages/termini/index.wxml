@@ -7,7 +7,7 @@
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
-      <image src='/resources/maplist.png' class='dituicon'></image>
+      <image src='/resources/icon/dingtu.png' class='dituicon'></image>
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{isshowmap}}">
       <image src='/resources/list.png' class='dituicon'></image>

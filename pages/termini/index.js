@@ -133,7 +133,7 @@ Page({
       controls: [{
         id: 1,
         position: {
-          left: 340,
+          left: 320,
           top: that.data.mapheight - 100,
           width: 50,
           height: 50
@@ -307,7 +307,7 @@ Page({
         controls: [{
           id: 1,
           position: {
-            left: 340,
+            left: 320,
             top: that.data.winheight * 0.43 - 100,
             width: 50,
             height: 50
@@ -323,8 +323,8 @@ Page({
         controls: [{
           id: 1,
           position: {
-            left: 340,
-            top: that.data.winheight * 0.66- 50,
+            left: 320,
+            top: that.data.winheight * 0.66- 100,
             width: 50,
             height: 50
           },

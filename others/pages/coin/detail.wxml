@@ -1,0 +1,22 @@
+<!--others/pages/coin/detail.wxml-->
+
+<!--货币列表-->
+<block wx:for="{{coinlist}}" wx:key="item">
+  <!--已选中-->
+  <view class="coinh" wx:if="{{item.ischk}}">
+    <view class='leftv'>
+      <view class='cnname'>{{item.cnname}}</view>
+      <view class='enname'>{{item.enname}}</view>
+    </view>
+    <view class='rightv'>{{item.typeval}}</view>
+  </view>
+  <!--未选中-->
+  <view class="coin" bindtap='chkopt' data-id='{{item.id}}' wx:else>
+    <view class='leftv'>
+      <view class='cnname'>{{item.cnname}}</view>
+      <view class='enname'>{{item.enname}}</view>
+    </view>
+    <view class='rightv'>{{item.typeval}}</view>
+  </view>
+  <!--结束-->
+</block>

@@ -22,11 +22,6 @@ Page({
     longitude: 116.307520, //经度
     markers: [], //坐标
     controls: [], //控件部分
-
-    nlat: 0,
-    nlng: 0,
-    slat: 0,
-    slng: 0,
     prolist: [{
         id: "pro1",
         name: '华纳电影世界',
@@ -135,10 +130,10 @@ Page({
       controls: [{
         id: 1,
         position: {
-          left: 350,
-          top: that.data.mapheight-50,
-          width: 30,
-          height: 30
+          left: 320,
+          top: that.data.mapheight-100,
+          width: 50,
+          height: 50
         },
         iconPath: '/resources/icon/dingwei.png',
         clickable: true
@@ -304,12 +299,34 @@ Page({
     if (iszhediemap){
       that.setData({
         mapheight: that.data.winheight * 0.5,
-        iszhediemap:false
+        iszhediemap:false,
+        controls: [{
+          id: 1,
+          position: {
+            left: 320,
+            top: that.data.winheight * 0.5 - 100,
+            width: 50,
+            height: 50
+          },
+          iconPath: '/resources/icon/dingwei.png',
+          clickable: true
+        }]
       })
     }else{
       that.setData({
-        mapheight: that.data.winheight * 0.723,
-        iszhediemap:true
+        mapheight: that.data.winheight * 0.7,
+        iszhediemap:true,
+        controls: [{
+          id: 1,
+          position: {
+            left: 320,
+            top: that.data.winheight * 0.7- 100,
+            width: 50,
+            height: 50
+          },
+          iconPath: '/resources/icon/dingwei.png',
+          clickable: true
+        }]
       })
     }
   },

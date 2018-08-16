@@ -65,6 +65,7 @@
         "pages/question/index",
         "pages/guide/index",
         "pages/coin/index",
+        "pages/coin/detail",
         "pages/visa/index",
         "pages/airline/index"
       ]

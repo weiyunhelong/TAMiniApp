@@ -2,31 +2,31 @@
 
 <!--源类型-->
 <view class='originv'>
-  <view class='oflagv'>
+  <view class='originleftv' bindtap='changecoinopt' data-type='1'>
     <image src='{{oflag}}' class='oflagtu'></image>
+    <view class='oqiancntxt'>{{ocountry}}</view>
+    <view class='oqianentxt'>{{oenname}}</view>
+    <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
   </view>
-  <view class='oqiancntxt'>{{ocountry}}</view>
-  <view class='oqianentxt'>{{oenname}}</view>
-  <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
   <!--输入钱-->
   <view class='oinputv'>
-    <input type='number' class='otxtcss' value='{{omoney}}' bindblur='getomoney' bindconfirm='getomoney'></input>
+    <input type='number' class='otxtcss' value='{{omoney}}' bindblur='getomoney' bindconfirm='getomoney' focus='true'></input>
   </view>
 </view>
 
 <!--互换-->
 <view class='changev'>
-  <image src='/resources/icon/coinchange.png' class='changeicon'></image>
+  <image src='/resources/icon/coinchange.png' class='changeicon' bindtap='changeopt'></image>
 </view>
 
 <!--目标类型-->
 <view class='griginv'>
-  <view class='gflagv'>
+  <view class='originleftv' bindtap='changecoinopt' data-type='2'>
     <image src='{{gflag}}' class='gflagtu'></image>
+    <view class='gqiancntxt'>{{gcountry}}</view>
+    <view class='gqianentxt'>{{genname}}</view>
+    <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
   </view>
-  <view class='gqiancntxt'>{{gcountry}}</view>
-  <view class='gqianentxt'>{{genname}}</view>
-  <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
   <!--输入钱-->
   <view class='ginputv'>
     <input type='number' value='{{gmoney}}' disabled='true' class='gtxtcss'></input>

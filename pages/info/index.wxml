@@ -50,7 +50,10 @@
 
 <!--预定部分-->
 <view class='bookview'>
-  <view class='booktitle'>选择票种</view>
+  <view class='booktitlev'>    
+    <view class='booktitle'>选择票种</view>
+    <image src='/resources/icon/quan.png' class='quanicon'></image>
+  </view>
   <!--列表部分-->
   <view class='booklist'>
     <block wx:for="{{ticketlist}}" wx:key="item">
