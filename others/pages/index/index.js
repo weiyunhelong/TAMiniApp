@@ -1,4 +1,6 @@
 // others/pages/index/index.js
+var markertool = require('../../../utils/marker.js');
+
 Page({
 
   /**
@@ -7,19 +9,20 @@ Page({
   data: {
     issearchfocus: false, //搜索框
     searchtxt: "", //搜索值
-    isshowmap: false, //是否显示地图
-    chktabid: 1, //选中的菜单
+    isshowmap: true, //是否显示地图
+    chktabid: 0, //选中的菜单
     datalist: [], //列表数据
     sorder: false, //评分排序
     porder: false, //价格排序
     dorder: false, //距离排序
     iszhediemap: false, //是否折叠
     /*地图部分*/
-    winheight: 0, //地图的高度
+    winwidth: 0, //手机的宽度
+    winheight: 0, //手机的高度
     mapheight: 0, //地图的高度
-    scale: 16, //地图的缩放比例
-    latitude: 39.984060, //纬度
-    longitude: 116.307520, //经度
+    scale: 14, //地图的缩放比例
+    latitude: 31.230416, //纬度
+    longitude: 121.473701, //经度
     markers: [], //坐标
     controls: [], //控件部分
     prolist: [{
@@ -30,8 +33,8 @@ Page({
         distance: "1.5km",
         ischk: false,
         iscollect: true,
-        latitude: 39.984060, //纬度
-        longitude: 116.307520, //经度
+        latitude: 31.330416, //纬度
+        longitude: 121.373701, //经度
         no: 1
       },
       {
@@ -42,8 +45,8 @@ Page({
         distance: "1.5km",
         ischk: false,
         iscollect: true,
-        latitude: 39.984060, //纬度
-        longitude: 116.307520, //经度
+        latitude: 31.130416, //纬度
+        longitude: 121.453701, //经度
         no: 2
       },
       {
@@ -54,8 +57,8 @@ Page({
         distance: "1.5km",
         ischk: false,
         iscollect: false,
-        latitude: 39.984060, //纬度
-        longitude: 116.307520, //经度
+        latitude: 31.250416, //纬度
+        longitude: 121.493701, //经度
         no: 3
       }
     ], //底部的滑动列表
@@ -66,6 +69,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    //接受参数
     that.setData({
       chktabid: parseInt(options.id)
     })
@@ -83,11 +87,11 @@ Page({
       success: function(res) {
         that.setData({
           winheight: res.screenHeight,
-          mapheight: res.screenHeight*0.5
+          winwidth:res.screenWidth,
+          mapheight: res.screenHeight * 0.482
         })
       }
     })
-
     //获取定位
     wx.getLocation({
       success: function(res) {
@@ -101,48 +105,92 @@ Page({
         that.GetMapData();
       },
     })
-
   },
   //获取地图的其他值
   GetMapData: function() {
     var that = this;
+    //参数部分
+    var chktabid = that.data.chktabid;
 
+    var markers = markertool.GetTypeMarker(chktabid + 1);
     that.setData({
-      markers: [{
-          id: 1,
-          latitude: 31.984060,
-          longitude: 121.307420,
-          iconPath: '/resources/dituh.png'
-        },
-        {
-          id: 2,
-          latitude: 31.184060,
-          longitude: 121.207420,
-          iconPath: '/resources/dituh.png'
-        },
-        {
-          id: 3,
-          latitude: 31.684060,
-          longitude: 121.407420,
-          iconPath: '/resources/dituh.png'
-        }
-      ],
+      markers: markers,
       controls: [{
         id: 1,
         position: {
-          left: 320,
-          top: that.data.mapheight-100,
+          left: that.data.winwidth-50,
+          top: that.data.mapheight - 100,
           width: 50,
           height: 50
         },
         iconPath: '/resources/icon/dingwei.png',
         clickable: true
-      }], //线路部分
+      }],
     })
   },
-  //地图显示范围的修改
-  mapregion: function() {
+  //点击地图Icon
+  getpro: function(e) {
+    var that = this;
+    //参数部分
+    var id = e.markerId;
+    that.setData({
+      iszhediemap: false,
+      toView: "pro" + id
+    })
 
+    //重置地图Markers
+    that.UpdateMarker(id);
+  },
+  //重置地图Markers
+  UpdateMarker: function(id) {
+    var that = this;
+    //参数部分
+    var markers = that.data.markers;
+    var txtarry = [];
+    //循环赋值数据
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i].id == id) {
+        txtarry[i] = {
+          id: markers[i].id,
+          latitude: markers[i].latitude, //纬度
+          longitude: markers[i].longitude, //经度
+          iconPath: markers[i].iconPath,
+          width: 40,
+          height: 40
+        }
+      } else {
+        txtarry[i] = {
+          id: markers[i].id,
+          latitude: markers[i].latitude, //纬度
+          longitude: markers[i].longitude, //经度
+          iconPath: markers[i].iconPath,
+          width: 25,
+          height: 25,
+        }
+      }
+    }
+    //赋值数据
+    that.setData({
+      markers: txtarry
+    })
+  },
+  //地图范围的改变
+  mapregionopt: function(e) {
+    var that = this;
+    //获取地图的范围
+    /*
+      that.mapCtx.getCenterLocation({
+        success: function (res) {
+          console.log("获取地图的范围改变");
+          console.log(res);
+          that.setData({
+            longitude: res.longitude, //经度
+            latitude: res.latitude, //纬度
+          })        
+          that.mapCtx.moveToLocation();
+        }
+      })
+    */
   },
   //初始化列表数据
   InitList: function() {
@@ -193,9 +241,11 @@ Page({
     that.setData({
       datalist: datalist
     })
+
+
   },
   //列表的收藏
-  listcollectopt:function(e){
+  listcollectopt: function(e) {
     var that = this;
     //参数部分
     var id = e.currentTarget.dataset.id;
@@ -253,8 +303,9 @@ Page({
   changeshow: function() {
     var that = this;
 
+    var isshowmap = !that.data.isshowmap;
     that.setData({
-      isshowmap: !that.data.isshowmap
+      isshowmap: isshowmap
     })
   },
   //菜单的切换
@@ -267,6 +318,8 @@ Page({
     })
     //初始化列表数据
     that.InitList();
+    //初始化地图Marker
+    that.GetMapData();
   },
   //评分排序
   scoreopt: function() {
@@ -290,48 +343,48 @@ Page({
     })
   },
   //折叠
-  zhedieopt:function(){
-    var that=this;
+  zhedieopt: function() {
+    var that = this;
 
     //参数部分
     var iszhediemap = that.data.iszhediemap;
 
-    if (iszhediemap){
+    if (iszhediemap) {
       that.setData({
-        mapheight: that.data.winheight * 0.5,
-        iszhediemap:false,
+        mapheight: that.data.winheight * 0.482,
+        iszhediemap: false,
         controls: [{
           id: 1,
           position: {
             left: 320,
-            top: that.data.winheight * 0.5 - 100,
+            top: that.data.winheight * 0.482 - 100,
             width: 50,
             height: 50
           },
           iconPath: '/resources/icon/dingwei.png',
           clickable: true
-        }]
+        }],
       })
-    }else{
+    } else {
       that.setData({
-        mapheight: that.data.winheight * 0.7,
-        iszhediemap:true,
+        mapheight: that.data.winheight * 0.72,
+        iszhediemap: true,
         controls: [{
           id: 1,
           position: {
             left: 320,
-            top: that.data.winheight * 0.7- 100,
+            top: that.data.winheight * 0.72 - 100,
             width: 50,
             height: 50
           },
           iconPath: '/resources/icon/dingwei.png',
           clickable: true
-        }]
+        }],
       })
     }
   },
   //收藏操作
-  collectopt: function (e) {
+  collectopt: function(e) {
     var that = this;
     //参数部分
     var id = e.currentTarget.dataset.id;
@@ -376,7 +429,7 @@ Page({
     })
   },
   //导航操作
-  daohangopt: function (e) {
+  daohangopt: function(e) {
     var lat = e.currentTarget.dataset.lat;
     var lng = e.currentTarget.dataset.lng;
     var name = e.currentTarget.dataset.name;
@@ -388,11 +441,11 @@ Page({
       name: name
     })
   },
-  //跳转到详情页
-  godetail:function(e){
-    var id=e.currentTarget.dataset.id;
+  //跳转到详情页面
+  godetail: function(e) {
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../../pages/info/index?id='+id,
+      url: '../../../pages/info/index?id=' + id,
     })
   },
   /**
@@ -400,12 +453,13 @@ Page({
    */
   onReady: function() {
     var that = this;
-
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('myMap');
     setTimeout(function() {
       that.mapCtx.getCenterLocation({
         success: function(res) {
+          console.log("地图中心点的值:");
+          console.log(res);
           that.setData({
             longitude: res.longitude, //经度
             latitude: res.latitude, //纬度

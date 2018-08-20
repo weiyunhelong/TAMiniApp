@@ -12,9 +12,9 @@
 /*搜索层*/
 
 .searchv {
-  width: 94%;
+  width: 97%;
   height: 68rpx;
-  margin: 0 3%;
+  margin-left:3%;
   display: flex;
   justify-content: flex-start;
 }
@@ -80,6 +80,11 @@
   margin: 20rpx 20rpx;
 }
 
+.listicon {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 16rpx 20rpx;
+}
 /*菜单部分*/
 
 .tabmenuv {

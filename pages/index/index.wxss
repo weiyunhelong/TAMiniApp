@@ -4,7 +4,7 @@
 
 .backgroundv {
   width: 100%;
-  background-image: url('http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg');
+  background-image: url('http://youimg1.c-ctrip.com/target/tg/437/403/707/7be917b91e5c4b74bfffdb70379da3f5.jpg');
   background-position: 0px 0px;
   background-repeat: repeat-x;
   animation: animatedBackground 20s linear infinite;

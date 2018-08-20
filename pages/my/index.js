@@ -9,9 +9,8 @@ Page({
     nickName: "", //昵称
     islogin: false, //是否授权登录
     tabmenuid: 2, //菜单部分;1->我的订单，2->我的收藏,3->我的点评
-    orderlist:[
-      {
-        id:1,
+    orderlist: [{
+        id: 1,
         imgpath: "/resources/tu1.jpg",
         status: 1,
         cnname: "12门徒岩",
@@ -26,7 +25,7 @@ Page({
         enname: "Sydney Opera House",
         address: " Macquarie Street, Sydney CBD NSW 2000"
       },
-    ],//订单列表
+    ], //订单列表
     collecttab: 1, //收藏的类型；1->内容，2->地点
     guidelist: [{
         id: 1,
@@ -180,16 +179,18 @@ Page({
         X: touchMoveX,
         Y: touchMoveY
       });
+    console.log("滑动的距离:" + angle)
     var guidelist = that.data.guidelist;
     guidelist.forEach(function(v, i) {
-      v.isTouchMove = false
-      //滑动超过30度角 return
-      if (Math.abs(angle) > 170) return;
+      v.isTouchMove = false;
+      //滑动距离度角 return
       if (i == index) {
         if (touchMoveX > startX) //右滑
-          v.isTouchMove = false
-        else //左滑
-          v.isTouchMove = true
+        {
+          v.isTouchMove = false;
+        } else if (Math.abs(angle) > 80) { //左滑
+          v.isTouchMove = true;
+        }
       }
     })
     //更新数据
@@ -205,8 +206,8 @@ Page({
   angle: function(start, end) {
     var _X = end.X - start.X,
       _Y = end.Y - start.Y
-    //返回角度 /Math.atan()返回数字的反正切值
-    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+
+    return _X;
   },
   //删除事件
   ndel: function(e) {
@@ -254,13 +255,14 @@ Page({
       });
     that.data.sceniclist.forEach(function(v, i) {
       v.isTouchMove = false
-      //滑动超过30度角 return
-      if (Math.abs(angle) > 170) return;
+      //滑动距离度角 return
       if (i == index) {
         if (touchMoveX > startX) //右滑
-          v.isTouchMove = false
-        else //左滑
-          v.isTouchMove = true
+        {
+          v.isTouchMove = false;
+        } else if (Math.abs(angle) > 80) { //左滑
+          v.isTouchMove = true;
+        }
       }
     })
     //更新数据

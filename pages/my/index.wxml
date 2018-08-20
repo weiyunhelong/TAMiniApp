@@ -1,7 +1,7 @@
 <!--pages/my/index.wxml-->
 
 <!--顶部行-->
-<view class='topv' style='background-image: url("http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg");'>
+<view class='topv' style='background-image: url("http://youimg1.c-ctrip.com/target/tg/437/403/707/7be917b91e5c4b74bfffdb70379da3f5.jpg");'>
 
   <view class='baseinfov'>
     <!--编辑图标-->
@@ -64,7 +64,7 @@
     <block wx:for="{{guidelist}}" wx:key="item" wx:for-index="index">
       <view class='guidev' data-index="{{index}}" data-id="{{id}}" bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
         <!--内容部分列表-->
-        <view class='glistitemv' style="margin-left:{{item.isTouchMove?-300:0}}rpx;">
+        <view class='glistitemv' style="margin-left:{{item.isTouchMove?-155:0}}px;">
           <!--图片部分-->
           <view class='listtuv'>
             <image src='{{item.imgpath}}' class='listtu'></image>

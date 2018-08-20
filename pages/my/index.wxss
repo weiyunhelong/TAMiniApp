@@ -216,7 +216,7 @@ page {
 .listtu {
   width: 300rpx;
   height: 200rpx;
-  margin: 30rpx 34rpx 30rpx 0rpx;
+  margin: 30rpx 40rpx 30rpx 0rpx;
   border-radius: 10rpx;
 }
 
