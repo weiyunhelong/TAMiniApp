@@ -47,5 +47,7 @@ App({
     requesturl:"",//后台API请求的url
     ocoinid:0,//中国货币
     gcoinid:1,//目标货币
+    olangid: 7,//翻译来源语言
+    glangid: 0,//翻译目标语言
   }
 })

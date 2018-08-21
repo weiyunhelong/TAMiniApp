@@ -205,15 +205,15 @@
 <!--文章菜单部分-->
 <view class="{{iswenmenu?'fixpostion':''}}"></view>
 <view class="wmenuv">
-  <view class="{{wenchkid==1?'wmenuchk':'wmenunochk'}}" data-id='1' bindtap='chkwmenu'>推荐</view>
-  <view class="{{wenchkid==2?'wmenuchk':'wmenunochk'}}" data-id='2' bindtap='chkwmenu'>攻略</view>
-  <view class="{{wenchkid==3?'wmenuchk':'wmenunochk'}}" data-id='3' bindtap='chkwmenu'>游记</view>
-  <view class="{{wenchkid==4?'wmenuchk':'wmenunochk'}}" data-id='4' bindtap='chkwmenu'>线路</view>
+  <view class="{{wenchkid==1?'wmenuchk1':'wmenunochk'}}" data-id='1' bindtap='chkwmenu'>推荐</view>
+  <view class="{{wenchkid==2?'wmenuchk2':'wmenunochk'}}" data-id='2' bindtap='chkwmenu'>攻略</view>
+  <view class="{{wenchkid==3?'wmenuchk3':'wmenunochk'}}" data-id='3' bindtap='chkwmenu'>游记</view>
+  <view class="{{wenchkid==4?'wmenuchk4':'wmenunochk'}}" data-id='4' bindtap='chkwmenu'>线路</view>
 </view>
 <view class="geduanv"></view>
 
 <!--推荐和线路内容部分-->
-<view class="recommentv {{iswenmenu?'wenzhangfix':''}}" wx:if="{{wenchkid==1||wenchkid==4}}">
+<view class="recommentv" wx:if="{{wenchkid==1||wenchkid==4}}">
   <!--左侧瀑布流布局-->
   <view class='leftv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">

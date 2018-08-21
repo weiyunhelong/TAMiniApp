@@ -1,4 +1,4 @@
-/* others/pages/coin/detail.wxss */
+/* others/pages/translate/type.wxss */
 
 page {
   background-color: #fff;
@@ -32,24 +32,34 @@ page {
   margin: 0 20rpx;
   color: #909599;
 }
-.leftv{
+
+.leftv {
   font-size: 32rpx;
   display: flex;
 }
 
-.enname{
+.enname {
   margin-left: 20rpx;
 }
 
-.rightv{
-  font-size:32rpx;
+.rightv {
+  font-size: 32rpx;
 }
+
 /*未选中*/
-.coin {  
+
+.coin {
   height: 100rpx;
   display: flex;
   line-height: 100rpx;
   border-bottom: 1rpx solid #f2f2f2;
   justify-content: space-between;
   margin: 0 20rpx;
+}
+
+/*国旗的样式*/
+.flagcss {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 18rpx 0;
 }

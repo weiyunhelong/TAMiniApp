@@ -16,16 +16,16 @@
   <!--菜单部分-->
   <view class="tabmenuv">
     <view class="tabitemv" data-id="0" bindtap="menuopt">
-      <view class="{{chktabid==0?'chktabitem':'nochktabitem'}}">标志景点</view>
-    </view>
+      <view class="{{chktabid==0?'chktabitem1':'nochktabitem'}}">标志景点</view>
+    </view>    
     <view class="tabitemv" data-id="1" bindtap="menuopt">
-      <view class="{{chktabid==1?'chktabitem':'nochktabitem'}}">美食</view>
+      <view class="{{chktabid==1?'chktabitem2':'nochktabitem'}}">购物</view>
     </view>
     <view class="tabitemv" data-id="2" bindtap="menuopt">
-      <view class="{{chktabid==2?'chktabitem':'nochktabitem'}}">购物</view>
+      <view class="{{chktabid==2?'chktabitem3':'nochktabitem'}}">美食</view>
     </view>
     <view class="tabitemv" data-id="3" bindtap="menuopt">
-      <view class="{{chktabid==3?'chktabitem':'nochktabitem'}}">酒店</view>
+      <view class="{{chktabid==3?'chktabitem4':'nochktabitem'}}">酒店</view>
     </view>
     <view class="tabitemv" data-id="4" bindtap="menuopt">
       <image src='/resources/icon/filter.png' class='filtericon'></image>
@@ -100,7 +100,7 @@
 <view class='mapv' wx:if="{{isshowmap}}">
 
   <!--地图部分-->
-  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'   show-location='true'></map>
+  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'  show-location='true'></map>
 
   <!--底部的折叠-->
   <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:300rpx;'}}">

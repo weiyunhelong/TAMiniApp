@@ -62,6 +62,7 @@
         "pages/index/index",
         "pages/translate/home",
         "pages/translate/index",
+        "pages/translate/type",
         "pages/question/index",
         "pages/guide/index",
         "pages/coin/index",
@@ -80,7 +81,7 @@
   "debug": false,
   "plugins": {
     "myPlugin": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "provider": "wx60d306fd175fe556"
     }
   }

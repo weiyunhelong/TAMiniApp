@@ -48,6 +48,9 @@ Page({
     }else{
       wx.showToast({
         title: '请输入',
+        duration:2000,
+        mask:true,
+        icon:"none"
       })
     }
   },

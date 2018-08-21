@@ -17,9 +17,9 @@ page {
 
 .originpickerv {
   height: 90rpx;
-  margin-left: 17%;
+  margin-left: 14%;
   float: left;
-  width: 165rpx;
+  width: 180rpx;
 }
 
 .origintxt {
@@ -49,7 +49,7 @@ page {
 .gogalpickerv {
   height: 90rpx;
   float: left;
-  width: 165rpx;
+  width: 180rpx;
 }
 
 .gogaltxt {

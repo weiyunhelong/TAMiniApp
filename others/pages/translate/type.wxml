@@ -1,11 +1,11 @@
-<!--others/pages/coin/detail.wxml-->
+<!--others/pages/translate/type.wxml-->
 
-<!--货币列表-->
-<block wx:for="{{coinlist}}" wx:key="item">
+<!--语言列表-->
+<block wx:for="{{langlist}}" wx:key="item">
   <!--当前选择-->
   <view class="coinchkh" wx:if="{{item.typeval=='当前选择'}}">
     <view class='leftv'>
-      <view class='cnname'>{{item.cnname}}</view>
+      <image src='{{item.flag}}' class='flagcss'></image>
       <view class='enname'>{{item.enname}}</view>
     </view>
     <view class='rightv'>{{item.typeval}}</view>
@@ -13,15 +13,15 @@
   <!--已选择-->
   <view class="coinh" wx:if="{{item.typeval=='已选择'}}">
     <view class='leftv'>
-      <view class='cnname'>{{item.cnname}}</view>
+      <image src='{{item.flag}}' class='flagcss'></image>
       <view class='enname'>{{item.enname}}</view>
     </view>
     <view class='rightv'>{{item.typeval}}</view>
   </view>
   <!--未选中-->
-  <view class="coin" bindtap='chkopt' data-id='{{item.id}}' wx:if="{{item.typeval==''}}">
+  <view class="coin" bindtap='chkopt' data-id='{{item.id}}'  wx:if="{{item.typeval==''}}">
     <view class='leftv'>
-      <view class='cnname'>{{item.cnname}}</view>
+      <image src='{{item.flag}}' class='flagcss'></image>
       <view class='enname'>{{item.enname}}</view>
     </view>
     <view class='rightv'>{{item.typeval}}</view>

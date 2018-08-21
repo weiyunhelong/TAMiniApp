@@ -2,15 +2,15 @@
 
 <!--顶部的翻译类型-->
 <view class='topv'>
-  <picker bindchange="bindOriginChange" value="{{oindex}}" range="{{Originarray}}" class='originpickerv'>
+  <view class='originpickerv' bindtap='gochklangopt' data-type='1'>
     <image src='/resources/icon/downw.png' class='odownicon'></image>
-    <view class='origintxt'>{{Originarray[oindex]}}</view>
-  </picker>
+    <view class='origintxt'>{{olang}}</view>
+  </view>
   <image src='/resources/icon/change.png' class='changeico' bindtap='changeopt'></image>
-  <picker bindchange="bindGogalChange" value="{{gindex}}" range="{{Gogalarray}}" class='gogalpickerv'>
-    <view class='gogaltxt'>{{Gogalarray[gindex]}}</view>
+  <view class='gogalpickerv' bindtap='gochklangopt' data-type='2'>
+    <view class='gogaltxt'>{{glang}}</view>
     <image src='/resources/icon/downw.png' class='gdownicon'></image>
-  </picker>
+  </view>
   <image src='/resources/icon/xiangji.png' class='xiangjiico' bindtap='chkimgopt'></image>
 </view>
 

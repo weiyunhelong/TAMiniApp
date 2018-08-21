@@ -62,7 +62,6 @@ page {
   border-radius: 75rpx;
   position: relative;
   left: 30px;
-  border: 2rpx solid #fff;
   top: 150rpx;
   line-height: 150rpx;
   background-color: #fff;
@@ -82,6 +81,18 @@ page {
   display: flex;
   margin-top: -70rpx;
   justify-content: space-around;
+}
+
+.fixtabmenuv {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0074c8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
 }
 
 .chkmenuv {
@@ -113,6 +124,17 @@ page {
   display: flex;
 }
 
+.fswitchv {
+  position: fixed;
+  top: 100rpx;
+  left: 0;
+  width: 100%;
+  height: 122rpx;
+  opacity: 0.8;
+  justify-content: center;
+  display: flex;
+}
+
 .chkswitchv {
   width: 140rpx;
   height: 60rpx;
@@ -137,6 +159,20 @@ page {
   font-size: 24rpx;
 }
 
+.collectlistv {
+  width: 100%;
+  height: 1200rpx;
+  overflow-y: auto;
+}
+
+.fcollectlist {
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+  top: 200rpx;
+  height: 910rpx;
+}
+
 /****我的订单部分****/
 
 .orderlistv {
@@ -152,7 +188,7 @@ page {
   width: 150rpx;
   height: 150rpx;
   border-radius: 10rpx;
-  margin:20rpx 20rpx 0rpx 40rpx;
+  margin: 20rpx 20rpx 0rpx 40rpx;
 }
 
 .orderinfov {
@@ -187,7 +223,7 @@ page {
 }
 
 .useingorderstatus {
-  color: #0074C8;
+  color: #0074c8;
   font-size: 28rpx;
   padding-top: 40rpx;
   text-align: center;
@@ -363,7 +399,7 @@ page {
 
 .ennamev {
   font-size: 24rpx;
-  color: #101112;
+  color: #000;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -401,7 +437,7 @@ page {
 .fenpricev {
   width: 430rpx;
   height: 30rpx;
-  margin-top: 34rpx;
+  margin: 24rpx 0;
   display: flex;
   justify-content: space-between;
 }
@@ -413,18 +449,19 @@ page {
 .xingv .xingico {
   width: 22rpx;
   height: 22rpx;
-  margin-top: 10rpx;
+  margin-top: 8rpx;
 }
 
 .peoplenum {
   font-size: 20rpx;
   margin-left: 15rpx;
   line-height: 40rpx;
+  color: #000;
 }
 
 .pricev {
   font-size: 20rpx;
-  line-height: 40rpx;
+  line-height: 60rpx;
 }
 
 /*滑动删除*/
@@ -476,9 +513,11 @@ page {
   transform: translateX(90px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+  height: 200rpx;
+  margin-top: 30rpx;
 }
 
-.del {
+.jdel {
   background-color: orangered;
   width: 180rpx;
   display: flex;
@@ -490,6 +529,8 @@ page {
   transform: translateX(90px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+  height: 200rpx;
+  margin: 40rpx 0;
 }
 
 .lastgeduanv {

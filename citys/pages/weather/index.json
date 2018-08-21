@@ -3,6 +3,7 @@
     "weath": "plugin://myPlugin/weath",
     "weather": "plugin://myPlugin/weather",
     "weathlist": "plugin://myPlugin/weathlist",
-    "weathrow": "plugin://myPlugin/weathrow"
+    "weathrow": "plugin://myPlugin/weathrow",
+    "weathjy": "plugin://myPlugin/weathjy"
   }
 }

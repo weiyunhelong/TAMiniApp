@@ -1,14 +1,16 @@
 // others/pages/translate/index.js
+var langtool=require('../../../utils/language.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    Originarray: ["中文", "英文", "西班牙语", "阿拉伯语", "孟加拉语", "葡萄牙语", "俄语", "日语", "德语", "韩语", "法语", "印地语"],//语言列表
-    oindex: 0,//源语言下标
-    Gogalarray: ["英文", "中文", "西班牙语", "阿拉伯语", "孟加拉语", "葡萄牙语", "俄语", "日语", "德语", "韩语", "法语", "印地语"],//语言列表
-    gindex: 0,//目标下标
+    oindex: 0,//来源语言下标
+    olang: "",
+    gindex: 0,//目标语言下标
+    glang: "",
     origintxt: "",//翻译的内容
     gogaltxt:"",//翻译的结果
   },
@@ -26,51 +28,44 @@ Page({
     var origintxt = wx.getStorageSync("origintxt");
     //接受参数
     var that=this;
-    
     that.setData({
-      oindex:parseInt(options.oindex),
-      gindex: parseInt(options.gindex),
       origintxt: origintxt
     })
     //获取翻译的值
     that.GetTranslate();
   },
-  //修改源头语言类型
-  bindOriginChange: function (e) {
+  //修改语言类型
+  gochklangopt: function (e) {
     var that = this;
-
-    that.setData({
-      oindex: e.detail.value
+    //参数部分
+    var oid = that.data.oindex;
+    var gid = that.data.gindex;
+    var typeval = e.currentTarget.dataset.type;
+    //页面跳转
+    wx.navigateTo({
+      url: '../../pages/translate/type?oid=' + oid + "&gid=" + gid + "&type=" + typeval,
     })
-  },
-  //修改目标语言类型
-  bindGogalChange: function (e) {
-    var that = this;
-
-    that.setData({
-      gindex: e.detail.value
-    })
-  },
+  }, 
   //互换语言类型
   changeopt: function () {
     var that = this;
     //参数部分
-    var Originarray = that.data.Originarray,//语言列表
-      oindex = that.data.oindex,//源语言下标
-      Gogalarray = that.data.Gogalarray,//语言列表
-      gindex = that.data.gindex;
-    //查询条件
-    var otxt = Originarray[oindex];
-    var gtxt = Gogalarray[gindex];
+    var olang = that.data.olang,//来源语言
+      oindex = that.data.oindex,//来源语言下标
+      glang = that.data.glang,//目标语言
+      gindex = that.data.gindex;//目标语言下标
+    var gogaltxt = that.data.gogaltxt;//目标语言内容
+    var origintxt = that.data.origintxt;//源语言内容
 
-    //获取下标的值
-    var oxiabiao = that.getIndexByArr(otxt, Gogalarray);
-    var gxiabiao = that.getIndexByArr(gtxt, Originarray);
-
+    //互换
     that.setData({
-      oindex: oxiabiao,
-      gindex: gxiabiao
-    })
+      olang: glang,
+      oindex: gindex,
+      glang: olang,
+      gindex: oindex,
+      gogaltxt: origintxt,
+      origintxt: gogaltxt
+    })    
   },
   //获取下标的值
   getIndexByArr: function (val, arry) {
@@ -146,12 +141,10 @@ Page({
     var that = this;
 
     //获取参数部分
-    var Originarray = that.data.Originarray,//语言列表
-      oindex = that.data.oindex,//源语言下标
-      origintxt = Originarray[oindex],//源语言类型
-      Gogalarray = that.data.Gogalarray,//语言列表
+    var  oindex = that.data.oindex,//源语言下标
+      origintxt = that.data.olang,//源语言类型
       gindex = that.data.gindex,//目标下标
-      gogaltxt = Gogalarray[gindex],//目标语言类型
+      gogaltxt = that.data.glang,//目标语言类型
       origintxt = that.data.origintxt;//翻译的内容
 
     if (origintxt == "") {
@@ -177,7 +170,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    //赋值数据
+    var olangid = getApp().globalData.olangid;
+    var glangid = getApp().globalData.glangid;
+
+    var olang = langtool.getLangByIndex(olangid);
+    var glang = langtool.getLangByIndex(glangid);
+
+    that.setData({
+      oindex: olangid,//来源语言下标
+      olang: olang,
+      gindex: glangid,//目标语言下标
+      glang: glang
+    })
   },
 
   /**

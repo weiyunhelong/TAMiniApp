@@ -1,2 +1,2 @@
 <!--index.wxml-->
-<weathlist/>
+<weathlist bgcolor="#0074C8" color="#ffffff" />

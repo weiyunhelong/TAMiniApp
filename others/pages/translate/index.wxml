@@ -2,21 +2,21 @@
 
 <!--顶部的翻译类型-->
 <view class='topv'>
-  <picker bindchange="bindOriginChange" value="{{oindex}}" range="{{Originarray}}" class='originpickerv'>
+  <view class='originpickerv' bindtap='gochklangopt' data-type='1'>
     <image src='/resources/icon/downw.png' class='odownicon'></image>
-    <view class='origintxt'>{{Originarray[oindex]}}</view>
-  </picker>
+    <view class='origintxt'>{{olang}}</view>
+  </view>
   <image src='/resources/icon/change.png' class='changeico' bindtap='changeopt'></image>
-  <picker bindchange="bindGogalChange" value="{{gindex}}" range="{{Gogalarray}}" class='gogalpickerv'>
-    <view class='gogaltxt'>{{Gogalarray[gindex]}}</view>
+  <view class='gogalpickerv' bindtap='gochklangopt' data-type='2'>
+    <view class='gogaltxt'>{{glang}}</view>
     <image src='/resources/icon/downw.png' class='gdownicon'></image>
-  </picker>
+  </view>
   <image src='/resources/icon/xiangji.png' class='xiangjiico' bindtap='chkimgopt'></image>
 </view>
 
 <!--输入源语言-->
 <view class='origintipv'>
-  <view class='tiptxt'>{{Originarray[oindex]}}</view>
+  <view class='tiptxt'>{{olang}}</view>
   <image src='/resources/icon/close.png' class='closeicon' bindtap='clearopt'></image>
 </view>
 
@@ -29,7 +29,7 @@
 <view class='xianv'></view>
 
 <!--输出结果-->
-<view class='tiptxt'>{{Gogalarray[gindex]}}</view>
+<view class='tiptxt'>{{glang}}</view>
 <view class='gogalv'>
   <textarea class='gtxtcss' value='{{gogaltxt}}' maxlength='-1' disabled='true'></textarea>
 </view>

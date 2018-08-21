@@ -12,7 +12,7 @@ const markerlist=[
     id: 2,
     latitude: 31.130416, //纬度
     longitude: 121.453701, //经度
-    iconPath: '/resources/icon/bsmpostion.png',
+    iconPath: '/resources/icon/osmpostion.png',
     width: 25,
     height: 25,
     kind: 1
@@ -48,7 +48,7 @@ const markerlist=[
     id: 3,
     latitude: 31.250416, //纬度
     longitude: 121.493701, //经度
-    iconPath: '/resources/icon/ysmpostion.png',
+    iconPath: '/resources/icon/osmpostion.png',
     width: 25,
     height: 25,
     kind: 2
@@ -57,7 +57,7 @@ const markerlist=[
     id: 1,
     latitude: 31.330416, //纬度
     longitude: 121.373701, //经度
-    iconPath: '/resources/icon/osmpostion.png',
+    iconPath: '/resources/icon/gsmpostion.png',
     width: 25,
     height: 25,
     kind: 3
@@ -66,7 +66,7 @@ const markerlist=[
     id: 2,
     latitude: 31.130416, //纬度
     longitude: 121.453701, //经度
-    iconPath: '/resources/icon/osmpostion.png',
+    iconPath: '/resources/icon/gsmpostion.png',
     width: 25,
     height: 25,
     kind: 3
@@ -93,7 +93,7 @@ const markerlist=[
     id: 2,
     latitude: 31.130416, //纬度
     longitude: 121.453701, //经度
-    iconPath: '/resources/icon/psmpostion.png',
+    iconPath: '/resources/icon/osmpostion.png',
     width: 25,
     height: 25,
     kind: 4

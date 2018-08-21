@@ -387,13 +387,34 @@
   background: #fff;
 }
 
-.wmenuchk {
+.wmenuchk1 {
   font-size: 28rpx;
-  border-bottom: 5rpx solid #ea9f10;
+  border-bottom: 5rpx solid#007CCE;
   box-sizing: content-box;
-  color: #ea9f10;
+  color: #007CCE;
 }
 
+.wmenuchk2{
+
+  font-size: 28rpx;
+  border-bottom: 5rpx solid#E36E5B;
+  box-sizing: content-box;
+  color: #E36E5B;
+}
+.wmenuchk3{
+
+  font-size: 28rpx;
+  border-bottom: 5rpx solid#EA9F10;
+  box-sizing: content-box;
+  color: #EA9F10;
+}
+.wmenuchk4{
+
+  font-size: 28rpx;
+  border-bottom: 5rpx solid#53C078;
+  box-sizing: content-box;
+  color: #53C078;
+}
 .wmenunochk {
   font-size: 28rpx;
 }
@@ -538,28 +559,25 @@
   top: 0rpx;
   left: 0;
   margin-bottom: 30rpx;
-  z-index: 0;
+  z-index: 1;
 }
 
 .duanfix {
   position: fixed;
   margin-top: 30rpx;
   top: 100rpx;
-  z-index: 0;
+  z-index: 1;
 }
 
 .wenzhangfix {
-  top: 130rpx;
-  z-index: 0;
+  margin-top: 0rpx;
 }
 
 /*游记攻略部分*/
 
 .orecommentv {
   width: 100%;
-  height: 1000rpx;
   background-color: #fff;
-  overflow-y: auto;
 }
 
 .wenzhangv {

@@ -14,6 +14,7 @@ Page({
     wenchkid:1,//默认推荐
     iswenmenu: false,//是否固定文章菜单
     wenlist: [], //文章列表
+    winheight:0,//屏幕的高度
   },
   //事件处理函数
   bindViewTap: function() {
@@ -35,6 +36,20 @@ Page({
     that.initHotel();
     //获取内容部分
     that.initWen();
+    //获取屏幕的高度
+    that.initHight();
+  },
+  //获取屏幕的高度
+  initHight:function(){
+    var that=this;
+    
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          winheight:res.screenHeight
+        })
+      }
+    })
   },
   //获取菜单部分
   initMenu: function () {
@@ -411,42 +426,6 @@ Page({
         instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
         ismore: true
       },
-      {
-        id: 5,
-        typeval: 1,
-        typename: "线路",
-        imgpath: "/resources/tu1.jpg",
-        title: "七天就能环个洲，大小景点都玩遍",
-        instrduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
-        ismore: true
-      },
-      {
-        id: 6,
-        typeval: 2,
-        typename: "游记",
-        imgpath: "/resources/tu2.jpg",
-        title: "去澳大利亚找冬天",
-        instrduce: "",
-        ismore: false
-      },
-      {
-        id: 7,
-        typeval: 3,
-        typename: "攻略",
-        imgpath: "/resources/tu4.jpg",
-        title: "火车环游，美到炸",
-        instrduce: "",
-        ismore: false
-      },
-      {
-        id: 8,
-        typeval: 3,
-        typename: "攻略",
-        imgpath: "/resources/tu5.jpg",
-        title: "悉尼初体验，最热门的8个地方",
-        instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
-        ismore: true
-      },
     ];
 
     that.setData({
@@ -473,7 +452,10 @@ Page({
   },
   // 获取滚动条当前位置
   onPageScroll: function (e) {
-    console.log(e)
+    console.log(e);
+    var that=this;
+    var winheight = that.data.winheight;
+    console.log("屏幕的高度:" + winheight);
     //是否显示置顶
     if (e.scrollTop > 600) {
       this.setData({
@@ -485,7 +467,7 @@ Page({
       });
     }
     //是否固定文章的顶部
-    if (e.scrollTop > 1400) {
+    if (e.scrollTop > winheight*2) {
       this.setData({
         iswenmenu: true
       });
@@ -514,6 +496,107 @@ Page({
     var id=e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../../others/pages/index/index?id='+id,
+    })
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    var that=this;
+    console.log("顶部加载...");
+    var newwenlist = [
+      {
+        id: 1,
+        typeval: 1,
+        typename: "线路",
+        imgpath: "/resources/tu1.jpg",
+        title: "七天就能环个洲，大小景点都玩遍",
+        instrduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+        ismore: true
+      },
+      {
+        id: 2,
+        typeval: 2,
+        typename: "游记",
+        imgpath: "/resources/tu2.jpg",
+        title: "去澳大利亚找冬天",
+        instrduce: "",
+        ismore: false
+      },
+      {
+        id: 3,
+        typeval: 3,
+        typename: "攻略",
+        imgpath: "/resources/tu4.jpg",
+        title: "火车环游，美到炸",
+        instrduce: "",
+        ismore: false
+      },
+      {
+        id: 4,
+        typeval: 3,
+        typename: "攻略",
+        imgpath: "/resources/tu5.jpg",
+        title: "悉尼初体验，最热门的8个地方",
+        instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
+        ismore: true
+      },
+    ];
+
+    that.setData({
+      wenlist: newwenlist
+    })
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    var that=this;
+    console.log("底部加载...");
+    var wenlist = that.data.wenlist;
+    var newwenlist=[
+      {
+        id: 1,
+        typeval: 1,
+        typename: "线路",
+        imgpath: "/resources/tu1.jpg",
+        title: "七天就能环个洲，大小景点都玩遍",
+        instrduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+        ismore: true
+      },
+      {
+        id: 2,
+        typeval: 2,
+        typename: "游记",
+        imgpath: "/resources/tu2.jpg",
+        title: "去澳大利亚找冬天",
+        instrduce: "",
+        ismore: false
+      },
+      {
+        id: 3,
+        typeval: 3,
+        typename: "攻略",
+        imgpath: "/resources/tu4.jpg",
+        title: "火车环游，美到炸",
+        instrduce: "",
+        ismore: false
+      },
+      {
+        id: 4,
+        typeval: 3,
+        typename: "攻略",
+        imgpath: "/resources/tu5.jpg",
+        title: "悉尼初体验，最热门的8个地方",
+        instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
+        ismore: true
+      },
+    ];
+    wenlist = wenlist.concat(newwenlist);
+
+    that.setData({
+      wenlist: wenlist
     })
   },
 })

@@ -1,1 +1,16 @@
 /**index.wxss**/
+
+.weathlist-index--meiyitian wx-view {
+  width: 30%;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  padding-left: 30rpx;
+}
+
+.weathlist-index--meiyitian .mztri {
+  width: 30%;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+}

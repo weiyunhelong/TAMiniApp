@@ -9,6 +9,7 @@ Page({
     nickName: "", //昵称
     islogin: false, //是否授权登录
     tabmenuid: 2, //菜单部分;1->我的订单，2->我的收藏,3->我的点评
+    isshowtop:false,//是否隐藏顶部
     orderlist: [{
         id: 1,
         imgpath: "/resources/tu1.jpg",
@@ -204,8 +205,8 @@ Page({
    * @param {Object} end 终点坐标
    */
   angle: function(start, end) {
-    var _X = end.X - start.X,
-      _Y = end.Y - start.Y
+    var  _X = end.X - start.X;
+    var  _Y = end.Y - start.Y;
 
     return _X;
   },
@@ -283,13 +284,31 @@ Page({
       mask: true
     })
   },
+  //收藏内容的点击
+  goarticledetail:function(e){
+    var id=e.currentTarget.dataset.id;
+    var title = e.currentTarget.dataset.title;
+    var typeval = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '../article/index?id=' + id + "&type=" + typeval + "&title=" + title,
+    })
+  },
+  //收藏景点的点击
+  goscenicdetail: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var typeval = e.currentTarget.dataset.type;
+    //页面的跳转
+    wx.navigateTo({
+      url: '../info/index?id=' + id + "&type=" + typeval,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
 
   },
-
+ 
   /**
    * 生命周期函数--监听页面显示
    */
@@ -315,7 +334,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    var that=this;
 
+    that.setData({
+      isshowtop:false
+    })
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -330,5 +357,19 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+  // 获取滚动条当前位置
+  onPageScroll: function (e) {
+    console.log(e)
+    //是否显示置顶
+    if (e.scrollTop > 200) {
+      this.setData({
+        isshowtop: true
+      });
+    } else {
+      this.setData({
+        //isshowtop: false
+      });
+    }    
+  },
 })

@@ -16,16 +16,16 @@
   <!--菜单部分-->
   <view class="tabmenuv">
     <view class="tabitemv" data-id="0" bindtap="menuopt">
-      <view class="{{chktabid==0?'chktabitem':'nochktabitem'}}">标志景点</view>
+      <view class="{{chktabid==0?'chktabitem1':'nochktabitem'}}">标志景点</view>
+    </view>    
+    <view class="tabitemv" data-id="2" bindtap="menuopt">
+      <view class="{{chktabid==2?'chktabitem3':'nochktabitem'}}">购物</view>
     </view>
     <view class="tabitemv" data-id="1" bindtap="menuopt">
-      <view class="{{chktabid==1?'chktabitem':'nochktabitem'}}">美食</view>
-    </view>
-    <view class="tabitemv" data-id="2" bindtap="menuopt">
-      <view class="{{chktabid==2?'chktabitem':'nochktabitem'}}">购物</view>
+      <view class="{{chktabid==1?'chktabitem2':'nochktabitem'}}">美食</view>
     </view>
     <view class="tabitemv" data-id="3" bindtap="menuopt">
-      <view class="{{chktabid==3?'chktabitem':'nochktabitem'}}">酒店</view>
+      <view class="{{chktabid==3?'chktabitem4':'nochktabitem'}}">酒店</view>
     </view>
     <view class="tabitemv" data-id="4" bindtap="menuopt">
       <image src='/resources/icon/filter.png' class='filtericon'></image>

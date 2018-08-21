@@ -108,7 +108,7 @@
 
 /*选中的菜单*/
 
-.chktabitem {
+.chktabitem1 {
   text-align: center;
   height: 75rpx;
   display: inline-block;
@@ -120,6 +120,41 @@
   line-height: 80rpx;
 }
 
+.chktabitem2{
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #E9A013;
+  color: #E9A013;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.chktabitem3{ 
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #53C078;
+  color: #53C078;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.chktabitem4{
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #8F53C0;
+  color: #8F53C0;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
 /*未选中的菜单*/
 
 .nochktabitem {
@@ -128,7 +163,7 @@
   line-height: 80rpx;
   color: #16191c;
   display: inline-block;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .filtericon {

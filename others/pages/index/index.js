@@ -192,6 +192,23 @@ Page({
       })
     */
   },
+  //地图范围的改变
+  mapcontroltap :function(){
+    var that=this;
+    //获取定位
+    wx.getLocation({
+      success: function (res) {
+        console.log("获取定位的值:");
+        console.log(res);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        //获取地图的其他值
+        that.GetMapData();
+      },
+    })
+  },
   //初始化列表数据
   InitList: function() {
     var that = this;

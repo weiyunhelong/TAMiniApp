@@ -73,6 +73,8 @@ Page({
     that.InitSysInfo();
     //初始化列表数据
     that.InitList();
+
+    
   },
   //获取系统的数据
   InitSysInfo: function () {
@@ -190,6 +192,23 @@ Page({
       }
     })
 	*/
+  },
+  //定位操作
+  mapcontroltap:function(){
+    var that = this;
+    //获取定位
+    wx.getLocation({
+      success: function (res) {
+        console.log("获取定位的值:");
+        console.log(res);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        //获取地图的其他值
+        that.GetMapData();
+      },
+    })
   },
   //初始化列表数据
   InitList: function () {
@@ -449,7 +468,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var that = this;
+ 
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that=this;
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('myMap');
     setTimeout(function () {
@@ -479,13 +505,6 @@ Page({
         }
       })
     }, 2000)
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
   },
 
   /**
