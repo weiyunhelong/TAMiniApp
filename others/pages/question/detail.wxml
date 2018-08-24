@@ -1,0 +1,18 @@
+<!--others/pages/question/detail.wxml-->
+<view class='bodyinfov'>
+  <!--标题-->
+  <view class='titlev font-t3'>{{title}}</view>
+
+  <!--内容简介-->
+  <view class='tipv font-t5'>{{tip}}</view>
+
+  <view class='fengexian'></view>
+
+  <!--内容介绍-->
+  <block wx:for="{{infodata}}" wx:key="item">
+    <view class='infobodyv'>
+      <view class='infotitlev font-t4'>{{item.subtitle}}</view>
+      <view class='infocontentv font-t7'>{{item.subinfo}}</view>
+    </view>
+  </block>
+</view>

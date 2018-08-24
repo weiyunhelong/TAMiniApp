@@ -43,8 +43,6 @@ Page({
       that.setData({
         omoney: txtval
       })
-      //获取兑换的结果
-      that.exchange();
     }else{
       wx.showToast({
         title: '请输入',
@@ -147,9 +145,8 @@ Page({
       genname: gcoin.enname, //国家缩写
     })
 
-    //获取兑换的结果
-    that.exchange();
   },
+  
   /**
    * 生命周期函数--监听页面隐藏
    */

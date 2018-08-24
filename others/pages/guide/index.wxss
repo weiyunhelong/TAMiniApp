@@ -132,7 +132,7 @@
   height: 100rpx;
   text-align: center;
   line-height: 100rpx;
-  font-size: 32rpx;
+  font-size: 24rpx;
   color: #16191c;
 }
 
@@ -148,7 +148,7 @@
   height: 100rpx;
   text-align: center;
   line-height: 100rpx;
-  font-size: 32rpx;
+  font-size: 24rpx;
   color: #909599;
 }
 
@@ -163,6 +163,7 @@
 .listitemv {
   margin: 0 40rpx 40rpx 40rpx;
   display: flex;
+  height: 220rpx;
 }
 
 .listtu {
@@ -221,7 +222,7 @@
 
 .listtitle {
   font-size: 28rpx;
-  padding-top: 30rpx;
+  padding-top: 45rpx;
   font-weight: bold;
 }
 

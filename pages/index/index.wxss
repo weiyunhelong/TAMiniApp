@@ -11,7 +11,7 @@
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
-  height: 400rpx;
+  height: 438rpx;
   background-color: #f2f2f2;
 }
 
@@ -25,6 +25,10 @@
   to {
     background-position: 100% 0;
   }
+}
+
+.topinfov {
+  margin-top: -438rpx;
 }
 
 /*搜索按钮*/
@@ -47,7 +51,7 @@
 .toptxtinfo {
   position: relative;
   left: 0rpx;
-  top: 150rpx;
+  top: 130rpx;
   display: flex;
   margin: 0 30rpx;
   justify-content: space-between;
@@ -61,13 +65,12 @@
 }
 
 .topcnname {
-  font-size: 60rpx;
   color: #fff;
 }
 
 .topenname {
-  font-size: 28rpx;
   color: #fff;
+  font-weight: bold;
 }
 
 /*右侧的天气*/
@@ -82,7 +85,6 @@
 }
 
 .topwendu {
-  font-size: 82rpx;
   color: #fff;
   line-height: 110rpx;
 }
@@ -94,7 +96,6 @@
 }
 
 .topweather {
-  font-size: 20rpx;
   color: #fff;
 }
 
@@ -110,29 +111,28 @@
 
 .tabview {
   width: 100%;
-  height: 420rpx;
+  height: 440rpx;
 }
 
-.menutitle {
-  width: 94%;
-  margin: 20rpx 3%;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 35rpx;
-  font-weight: 600;
+.tabtopv {
+  width: 100%;
+  height: 20rpx;
 }
 
 .tabmenuv {
   width: 94%;
-  margin: -50rpx 3%;
-  height: 390rpx;
+  margin: 120rpx 3%;
+  height: 380rpx;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+}
+
+.tabcontentv {
+  padding: 20rpx 40rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #fff;
-  padding-top: 20rpx;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.11);
-  border-radius: 3px;
 }
 
 .menuv {
@@ -157,7 +157,7 @@
 
 .menutxt {
   width: 100%;
-  font-size: 24rpx;
+  margin-top: -8rpx;
 }
 
 /*标题部分*/
@@ -171,16 +171,14 @@
 }
 
 .titlev .titletxt {
-  font-size: 32rpx;
   font-weight: bold;
 }
 
 .titlev .moretxt {
-  font-size: 24rpx;
   color: #909599;
 }
 
-/*景点部分*/
+/***景点部分****/
 
 .jingdianv {
   height: 490rpx;
@@ -190,7 +188,6 @@
 .tab-jingdianv {
   height: 320rpx;
   width: 100%;
-  font-size: 30rpx;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -198,10 +195,17 @@
 
 .tabyitem {
   height: 320rpx;
-  font-size: 30rpx;
   display: inline-block;
   width: 490rpx;
   margin-left: 20rpx;
+}
+
+.tabsinfov {
+  margin-top: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
 }
 
 /*大图部分*/
@@ -210,10 +214,7 @@
   float: left;
   height: 320rpx;
   width: 320rpx;
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 10rpx;
-  background-color: #000;
 }
 
 .tourbigtu {
@@ -241,57 +242,40 @@
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 220rpx;
-}
-
-.toursmdtxt {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-spacing: normal;
-  font-size: 28rpx;
-  clear: both;
-  color: #fff;
-  padding: 0 20rpx;
-  position: relative;
-  top: 90rpx;
 }
 
 .toursmtxt {
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 20rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 220rpx;
+  top: 160rpx;
 }
 
-/*购物部分*/
+/****购物部分*****/
 
 .shopmdtxt {
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 250rpx;
+  top: 255rpx;
 }
 
 .shoptxt {
   overflow: hidden;
   text-overflow: ellipsis;
   word-spacing: normal;
-  font-size: 24rpx;
   clear: both;
   color: #fff;
   padding: 0 20rpx;
@@ -299,49 +283,36 @@
   top: 215rpx;
 }
 
-/*美食部分*/
+/****美食部分****/
 
 .tabfitem {
   width: 670rpx;
   height: 320rpx;
-  background-size: cover;
   margin-left: 20rpx;
   border-radius: 10rpx;
-  background-color: #000;
   display: inline-block;
 }
 
-.backimgv {
-  width: 100%;
-  height: 320rpx;
-}
-
-.backimgv image {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-  width: 100%;
-  height: 320rpx;
-  border-radius: 10rpx;
-}
-
 .tabfinfov {
-  margin-top: -310rpx;
+  margin-top: 80rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
 }
 
 .foodtxt {
-  font-size: 24rpx;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 200rpx;
+  top: 126rpx;
 }
 
 .foodtipv {
-  font-size: 20rpx;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 220rpx;
+  top: 142rpx;
   display: flex;
 }
 
@@ -349,7 +320,6 @@
   padding: 0 15rpx;
   border: 1rpx solid #fff;
   border-radius: 10rpx;
-  font-size: 22rpx;
   margin-right: 20rpx;
 }
 
@@ -366,14 +336,21 @@
 }
 
 .hoteltxt {
-  font-size: 24rpx;
   color: #fff;
   padding: 0 20rpx;
   position: relative;
-  top: 220rpx;
+  top: 178rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.tabhinfov {
+  margin-top: 80rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
 }
 
 /*菜单部分*/
@@ -388,35 +365,27 @@
 }
 
 .wmenuchk1 {
-  font-size: 28rpx;
-  border-bottom: 5rpx solid#007CCE;
   box-sizing: content-box;
-  color: #007CCE;
+  color: #007cce;
 }
 
-.wmenuchk2{
-
-  font-size: 28rpx;
-  border-bottom: 5rpx solid#E36E5B;
+.wmenuchk2 {
   box-sizing: content-box;
-  color: #E36E5B;
+  color: #e36e5b;
 }
-.wmenuchk3{
 
-  font-size: 28rpx;
-  border-bottom: 5rpx solid#EA9F10;
+.wmenuchk3 {
   box-sizing: content-box;
-  color: #EA9F10;
+  color: #ea9f10;
 }
-.wmenuchk4{
 
-  font-size: 28rpx;
-  border-bottom: 5rpx solid#53C078;
+.wmenuchk4 {
   box-sizing: content-box;
-  color: #53C078;
+  color: #53c078;
 }
+
 .wmenunochk {
-  font-size: 28rpx;
+  box-sizing: content-box;
 }
 
 /*线路部分的样式*/
@@ -461,49 +430,49 @@
 /*文章类型按钮*/
 
 .wenytype {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 20rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #ea9f10;
 }
 
 .wengtype {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #53c078;
 }
 
 .wenrtype {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #ff7b65;
 }
@@ -511,16 +480,14 @@
 .wenimg {
   width: 100%;
   height: 355rpx;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
   border-radius: 10rpx;
 }
 
 /*标题*/
 
 .wentitle {
-  font-size: 32rpx;
   margin: 50rpx 10rpx 10rpx 10rpx;
+  font-weight: bold;
 }
 
 .weninfov {
@@ -529,16 +496,8 @@
 }
 
 .weninfo {
-  font-size: 20rpx;
   color: #909599;
   width: 100%;
-}
-
-.wenmore {
-  font-size: 23rpx;
-  color: #00cf00;
-  width: 95rpx;
-  float: right;
 }
 
 /* 返回顶部 */
@@ -555,11 +514,18 @@
 /*定位*/
 
 .fixpostion {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  background: #fff;
   position: fixed;
   top: 0rpx;
   left: 0;
-  margin-bottom: 30rpx;
-  z-index: 1;
+  z-index: 2;
+  border-bottom: 2px solid #e5e5e9;
+  box-sizing: content-box;
 }
 
 .duanfix {
@@ -595,71 +561,67 @@
 .wenzhangtu {
   width: 100%;
   height: 100%;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
   border-radius: 10rpx;
 }
 
 /*按钮部分*/
 
 .wenzhangrbtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #ff7b65;
 }
 
 .wenzhangybtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #ea9f10;
 }
 
 .wenzhanggbtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   position: relative;
   z-index: 1;
-  top: 20rpx;
-  left: 20rpx;
-  border-radius: 10rpx;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
   margin-top: -80rpx;
   background-color: #53c078;
 }
 
 .wenzhangtitle {
   margin-top: 50rpx;
-  font-size: 32rpx;
-  font-weight: 600;
+  font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .wenzhangdesc {
-  font-size: 20rpx;
   color: #909599;
 }

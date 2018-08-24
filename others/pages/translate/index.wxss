@@ -81,7 +81,7 @@ page {
 .origintipv {
   display: flex;
   justify-content: space-between;
-  margin: 40rpx;
+  margin: 40rpx 40rpx 0 40rpx;
 }
 
 .origintipv .tiptxt {
@@ -103,7 +103,7 @@ page {
 
 .otxtcss {
   width: 670rpx;
-  margin: 40rpx;
+  margin: 0 40rpx;
   font-size: 28rpx;
   color: #000;
 }
@@ -130,7 +130,7 @@ page {
 
 .gtxtcss {
   width: 670rpx;
-  margin: 40rpx;
+  margin: 0 40rpx;
   font-size: 28rpx;
   color: #000;
 }

@@ -102,7 +102,7 @@ Page({
     var guidelist=[
       {
         id:1,
-        imgpath:"/resources/tu1.jpg",
+        imgpath:"http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
         typeval:1,
         title:"黄金海岸初体验，最热门的8个地方",
         instro:"如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -112,7 +112,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
         typeval: 2,
         title: "七天就能环个洲，大小景点都玩遍",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -122,7 +122,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
         typeval: 3,
         title: "五天玩遍澳大利亚的秘密隆重揭晓",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -132,7 +132,7 @@ Page({
       },
       {
         id: 4,
-        imgpath: "/resources/tu4.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",

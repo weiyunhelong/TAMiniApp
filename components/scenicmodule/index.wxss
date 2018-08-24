@@ -1,0 +1,100 @@
+/* components/scenicmodule/index.wxss */
+
+/*标题部分*/
+
+.titlev {
+  margin: 0rpx 3%;
+  height: 120rpx;
+  line-height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titlev .titletxt {
+  font-weight: bold;
+}
+
+.titlev .moretxt {
+  color: #909599;
+}
+
+/***景点部分****/
+
+.jingdianv {
+  height: 490rpx;
+  background-color: #fff;
+}
+
+.tab-jingdianv {
+  height: 320rpx;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.tabyitem {
+  height: 320rpx;
+  display: inline-block;
+  width: 490rpx;
+  margin-left: 20rpx;
+}
+
+.tabsinfov {
+  margin-top: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+/*大图部分*/
+
+.citybigv {
+  float: left;
+  height: 320rpx;
+  width: 320rpx;
+  border-radius: 10rpx;
+}
+
+.tourbigtu {
+  width: 55%;
+  height: 150rpx;
+  margin-right: 5%;
+  float: left;
+  margin-top: 10rpx;
+}
+
+/*小图部分*/
+
+.citysmv {
+  height: 150rpx;
+  width: 150rpx;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  background-color: #000;
+}
+
+.tourmdtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  clear: both;
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+}
+
+.toursmtxt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: normal;
+  clear: both;
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top: 160rpx;
+}

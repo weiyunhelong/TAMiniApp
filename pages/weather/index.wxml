@@ -1,0 +1,2 @@
+<!--pages/weather/index.wxml-->
+<weathlist bgcolor="#0074C8" color="#ffffff" />

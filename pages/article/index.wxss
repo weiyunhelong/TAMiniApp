@@ -13,13 +13,16 @@ page {
   height: 500rpx;
 }
 
+.topinfov {
+  margin-top: -500rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+}
+
 .typev {
   height: 50rpx;
   float: right;
-  margin: 30rpx 0rpx;
+  margin: 50rpx 42rpx;
   line-height: 50rpx;
-  width: 100rpx;
-  text-align: center;
 }
 
 .xinicon {
@@ -30,82 +33,79 @@ page {
 /*按钮部分*/
 
 .wenzhangrbtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   float: left;
-  border-top-right-radius: 10rpx;
-  border-bottom-right-radius: 10rpx;
-  margin-top: 30rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: 50rpx;
   background-color: #ff7b65;
 }
 
 .wenzhangybtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   float: left;
-  border-top-right-radius: 10rpx;
-  border-bottom-right-radius: 10rpx;
-  margin-top: 30rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: 50rpx;
   background-color: #ea9f10;
 }
 
 .wenzhanggbtn {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   color: #fff;
-  font-size: 25rpx;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   float: left;
-  border-top-right-radius: 10rpx;
-  border-bottom-right-radius: 10rpx;
-  margin-top: 30rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: 50rpx;
   background-color: #53c078;
 }
 
 /*标题文字*/
+
 .titlev {
-  width: 350rpx;
-  height: 40rpx;
+  width: 410rpx;
+  height: 96rpx;
   color: #fff;
-  font-size: 32rpx;
-  float: left;
-  margin-top: 370rpx;
-  margin-left: -70rpx;
+  font-size: 48rpx;
+  position: absolute;
+  left: 38rpx;
 }
 
 /*收藏浏览*/
+
 .otherv {
   float: right;
-  margin-top: 432rpx;
+  margin-top: 422rpx;
   display: flex;
-  font-size: 24rpx;
   color: #fff;
-  margin-right: -60rpx;
+  margin-right: -85rpx;
 }
 
 .shoucangv {
   margin-right: 20rpx;
 }
 
-
-.instrov{
-  margin: 20rpx 40rpx;font-size: 20rpx;width:670rpx;
-
+.instrov {
+  margin: 590rpx 40rpx 40rpx 40rpx;
+  width: 670rpx;
 }
 
-.instrov rich-text{
-  width:670rpx;
+.instrov rich-text {
+  width: 670rpx;
   white-space: normal;
 }
-.instrov rich-text img{
+
+.instrov rich-text img {
   float: left;
 }

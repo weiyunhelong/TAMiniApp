@@ -83,28 +83,20 @@ Page({
       },
       {
         id: 1,
-        name: '攻略',
+        name: '商品',
       },
       {
         id: 2,
-        name: '游记',
+        name: '酒店',
       },
       {
         id: 3,
-        name: '线路',
-      },
-      {
-        id: 4,
-        name: '购物',
-      },
-      {
-        id: 5,
         name: '美食',
       },
       {
-        id: 6,
-        name: '酒店',
-      },
+        id: 4,
+        name: '游玩指南',
+      }
     ];
     that.setData({
       tablist: tablist

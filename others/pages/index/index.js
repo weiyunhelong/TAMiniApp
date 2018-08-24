@@ -9,7 +9,7 @@ Page({
   data: {
     issearchfocus: false, //搜索框
     searchtxt: "", //搜索值
-    isshowmap: true, //是否显示地图
+    isshowmap: false, //是否显示地图
     chktabid: 0, //选中的菜单
     datalist: [], //列表数据
     sorder: false, //评分排序
@@ -28,7 +28,7 @@ Page({
     prolist: [{
         id: "pro1",
         name: '华纳电影世界',
-        imgpath: '/resources/tu1.jpg',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%202.png',
         address: "Warner Bros. Movie World",
         distance: "1.5km",
         ischk: false,
@@ -40,7 +40,7 @@ Page({
       {
         id: "pro2",
         name: '可伦宾野生动物园',
-        imgpath: '/resources/tu2.jpg',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%203.png',
         address: "Currumbin Wildlife Sanctuary",
         distance: "1.5km",
         ischk: false,
@@ -52,7 +52,7 @@ Page({
       {
         id: "pro3",
         name: '春溪国家公园',
-        imgpath: '/resources/tu3.jpg',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%204.png',
         address: "Warner Bros. Movie World",
         distance: "1.5km",
         ischk: false,
@@ -60,6 +60,42 @@ Page({
         latitude: 31.250416, //纬度
         longitude: 121.493701, //经度
         no: 3
+      }, 
+      {
+        id: "pro4",
+        name: '华纳电影世界',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%202.png',
+        address: "Warner Bros. Movie World",
+        distance: "1.5km",
+        ischk: false,
+        iscollect: true,
+        latitude: 31.330416, //纬度
+        longitude: 121.373701, //经度
+        no: 4
+      }, 
+      {
+        id: "pro5",
+        name: '可伦宾野生动物园',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%203.png',
+        address: "Currumbin Wildlife Sanctuary",
+        distance: "1.5km",
+        ischk: false,
+        iscollect: true,
+        latitude: 31.130416, //纬度
+        longitude: 121.453701, //经度
+        no: 5
+      },
+      {
+        id: "pro6",
+        name: '春溪国家公园',
+        imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%204.png',
+        address: "Warner Bros. Movie World",
+        distance: "1.5km",
+        ischk: false,
+        iscollect: false,
+        latitude: 31.250416, //纬度
+        longitude: 121.493701, //经度
+        no: 6
       }
     ], //底部的滑动列表
   },
@@ -87,7 +123,7 @@ Page({
       success: function(res) {
         that.setData({
           winheight: res.screenHeight,
-          winwidth:res.screenWidth,
+          winwidth: res.screenWidth,
           mapheight: res.screenHeight * 0.482
         })
       }
@@ -118,7 +154,7 @@ Page({
       controls: [{
         id: 1,
         position: {
-          left: that.data.winwidth-50,
+          left: that.data.winwidth - 50,
           top: that.data.mapheight - 100,
           width: 50,
           height: 50
@@ -193,11 +229,11 @@ Page({
     */
   },
   //地图范围的改变
-  mapcontroltap :function(){
-    var that=this;
+  mapcontroltap: function() {
+    var that = this;
     //获取定位
     wx.getLocation({
-      success: function (res) {
+      success: function(res) {
         console.log("获取定位的值:");
         console.log(res);
         that.setData({
@@ -222,9 +258,10 @@ Page({
       dorder = that.data.dorder; //距离排序;
 
     //列表数据  
-    var datalist = [{
+    var datalist = [
+      {
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         cnname: "华纳电影世界",
         enname: "Warner Bros. Movie World",
         distance: "1.5km",
@@ -234,7 +271,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         cnname: "可伦宾野生动物园",
         enname: "Currumbin Wildlife Sanctuary",
         distance: "1.8km",
@@ -244,7 +281,37 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        cnname: "春溪国家公园",
+        enname: "Warner Bros. Movie World",
+        distance: "2.0km",
+        commentnum: 1332,
+        price: 281,
+        iscollect: false
+      },
+      {
+        id: 4,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+        cnname: "华纳电影世界",
+        enname: "Warner Bros. Movie World",
+        distance: "1.5km",
+        commentnum: 2331,
+        price: 281,
+        iscollect: true
+      },
+      {
+        id: 5,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        cnname: "可伦宾野生动物园",
+        enname: "Currumbin Wildlife Sanctuary",
+        distance: "1.8km",
+        commentnum: 1332,
+        price: 281,
+        iscollect: true
+      },
+      {
+        id: 6,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
         cnname: "春溪国家公园",
         enname: "Warner Bros. Movie World",
         distance: "2.0km",
@@ -373,7 +440,7 @@ Page({
         controls: [{
           id: 1,
           position: {
-            left: 320,
+            left: that.data.winwidth - 50,
             top: that.data.winheight * 0.482 - 100,
             width: 50,
             height: 50
@@ -384,13 +451,13 @@ Page({
       })
     } else {
       that.setData({
-        mapheight: that.data.winheight * 0.72,
+        mapheight: that.data.winheight * 0.70,
         iszhediemap: true,
         controls: [{
           id: 1,
           position: {
-            left: 320,
-            top: that.data.winheight * 0.72 - 100,
+            left: that.data.winwidth - 50,
+            top: that.data.winheight * 0.70 - 100,
             width: 50,
             height: 50
           },

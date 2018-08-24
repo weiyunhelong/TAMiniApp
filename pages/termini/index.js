@@ -11,7 +11,7 @@ Page({
     isshowmap: true, //是否显示地图
     chktabid: 0, //选中的菜单
     datalist: [], //列表数据
-    sorder: false, //评分排序
+    sorder: true, //评分排序
     porder: false, //价格排序
     dorder: false, //距离排序
     iszhediemap: false, //是否折叠
@@ -27,7 +27,7 @@ Page({
     prolist: [{
       id: "pro1",
       name: '华纳电影世界',
-      imgpath: '/resources/tu1.jpg',
+      imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%202.png',
       address: "Warner Bros. Movie World",
       distance: "1.5km",
       ischk: false,
@@ -39,8 +39,8 @@ Page({
     {
       id: "pro2",
       name: '可伦宾野生动物园',
-      imgpath: '/resources/tu2.jpg',
-      address: "Currumbin Wildlife Sanctuary",
+      imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%203.png',
+      address: "Currumbin Wildlife Sanctuary Currumbin Wildlife Sanctuary",
       distance: "1.5km",
       ischk: false,
       iscollect: true,
@@ -51,7 +51,7 @@ Page({
     {
       id: "pro3",
       name: '春溪国家公园',
-      imgpath: '/resources/tu3.jpg',
+      imgpath: 'http://zhuweis.com/index/Attractions/Bitmap%204.png',
       address: "Warner Bros. Movie World",
       distance: "1.5km",
       ischk: false,
@@ -72,9 +72,7 @@ Page({
     //获取系统的数据
     that.InitSysInfo();
     //初始化列表数据
-    that.InitList();
-
-    
+    that.InitList();    
   },
   //获取系统的数据
   InitSysInfo: function () {
@@ -225,7 +223,7 @@ Page({
     //列表数据  
     var datalist = [{
       id: 1,
-      imgpath: "/resources/tu1.jpg",
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
       cnname: "华纳电影世界",
       enname: "Warner Bros. Movie World",
       distance: "1.5km",
@@ -235,9 +233,9 @@ Page({
     },
     {
       id: 2,
-      imgpath: "/resources/tu2.jpg",
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
       cnname: "可伦宾野生动物园",
-      enname: "Currumbin Wildlife Sanctuary",
+      enname: "Currumbin Wildlife Sanctuary Currumbin Wildlife Sanctuary",
       distance: "1.8km",
       commentnum: 1332,
       price: 281,
@@ -245,7 +243,7 @@ Page({
     },
     {
       id: 3,
-      imgpath: "/resources/tu3.jpg",
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
       cnname: "春溪国家公园",
       enname: "Warner Bros. Movie World",
       distance: "2.0km",
@@ -341,21 +339,27 @@ Page({
   scoreopt: function () {
     var that = this;
     that.setData({
-      sorder: !that.data.sorder
+      sorder: true,
+      porder:false,
+      dorder:false
     })
   },
   //价格排序
   prirceopt: function () {
     var that = this;
     that.setData({
-      porder: !that.data.porder
+      sorder: false,
+      porder: true,
+      dorder: false
     })
   },
   //距离排序
   distanceopt: function () {
     var that = this;
     that.setData({
-      dorder: !that.data.dorder
+      sorder: false,
+      porder: false,
+      dorder: true
     })
   },
   //折叠
@@ -383,13 +387,13 @@ Page({
       })
     } else {
       that.setData({
-        mapheight: that.data.winheight * 0.66,
+        mapheight: that.data.winheight * 0.64,
         iszhediemap: true,
         controls: [{
           id: 1,
           position: {
             left: 320,
-            top: that.data.winheight * 0.66- 100,
+            top: that.data.winheight * 0.64- 100,
             width: 50,
             height: 50
           },

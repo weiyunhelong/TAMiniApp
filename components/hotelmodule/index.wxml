@@ -1,0 +1,20 @@
+<!--components/hotelmodule/index.wxml-->
+
+<!--2个半类型的-->
+<view class='jingdianv'>
+  <view class='titlev'>
+    <view class='titletxt' style='font-size:{{fontt1}}rpx;'>{{typename}}</view>
+    <view class="moretxt"  style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看全部></view>
+  </view>
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-jingdianv">
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
+      <view class="tabhitem" bindtap='godetail' data-id='{{item.id}}' style='background:url({{item.pic}}) no-repeat;background-size:100% 100%;'>
+        <view class='tabhinfov'>
+          <view class="hoteltxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+        </view>
+      </view>
+    </block>
+    <view class="tabhitem" style='width:0;height:0rpx;'></view>
+  </scroll-view>
+</view>

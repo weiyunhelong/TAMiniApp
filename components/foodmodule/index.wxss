@@ -1,0 +1,87 @@
+/* components/foodmodule/index.wxss */
+
+/*标题部分*/
+
+.titlev {
+  margin: 0rpx 3%;
+  height: 120rpx;
+  line-height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titlev .titletxt {
+  font-weight: bold;
+}
+
+.titlev .moretxt {
+  color: #909599;
+}
+
+.jingdianv {
+  height: 490rpx;
+  background-color: #fff;
+}
+
+.tab-jingdianv {
+  height: 320rpx;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.tabyitem {
+  height: 320rpx;
+  display: inline-block;
+  width: 490rpx;
+  margin-left: 20rpx;
+}
+
+.tabsinfov {
+  margin-top: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+/****美食部分****/
+
+.tabfitem {
+  width: 670rpx;
+  height: 320rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.tabfinfov {
+  margin-top: 80rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 30, 52, 1));
+  height: 75%;
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+.foodtxt {
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top: 126rpx;
+}
+
+.foodtipv {
+  color: #fff;
+  padding: 0 20rpx;
+  position: relative;
+  top: 142rpx;
+  display: flex;
+}
+
+.tipv {
+  padding: 0 15rpx;
+  border: 1rpx solid #fff;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}

@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/test/index",
     "pages/index/index",
-    "pages/search/index",
     "pages/termini/index",
-    "pages/info/index",
     "pages/chatbot/index",
     "pages/my/index",
+    "pages/info/index",
+    "pages/search/index",
     "pages/article/index",
-    "pages/logs/logs"
+    "pages/weather/index",
+    "components/scenicmodule/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,14 +51,6 @@
   },
   "subPackages": [
     {
-      "root": "citys/",
-      "pages": [
-        "pages/index/index",
-        "pages/weather/index",
-        "pages/map/index"
-      ]
-    },
-    {
       "root": "others/",
       "pages": [
         "pages/index/index",
@@ -64,6 +58,7 @@
         "pages/translate/index",
         "pages/translate/type",
         "pages/question/index",
+        "pages/question/detail",
         "pages/guide/index",
         "pages/coin/index",
         "pages/coin/detail",

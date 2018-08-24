@@ -23,16 +23,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '翻译',
     })
-    
-    //翻译的内容
-    var origintxt = wx.getStorageSync("origintxt");
-    //接受参数
-    var that=this;
-    that.setData({
-      origintxt: origintxt
-    })
-    //获取翻译的值
-    that.GetTranslate();
   },
   //修改语言类型
   gochklangopt: function (e) {

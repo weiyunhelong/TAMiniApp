@@ -9,10 +9,10 @@ Page({
     nickName: "", //昵称
     islogin: false, //是否授权登录
     tabmenuid: 2, //菜单部分;1->我的订单，2->我的收藏,3->我的点评
-    isshowtop:false,//是否隐藏顶部
+    isshowtop: false, //是否隐藏顶部
     orderlist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         status: 1,
         cnname: "12门徒岩",
         enname: "12 Apostles",
@@ -20,7 +20,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         status: 0,
         cnname: "悉尼歌剧院",
         enname: "Sydney Opera House",
@@ -30,7 +30,7 @@ Page({
     collecttab: 1, //收藏的类型；1->内容，2->地点
     guidelist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -40,7 +40,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         typeval: 2,
         title: "七天就能环个洲，大小景点都玩遍",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -50,7 +50,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
         typeval: 3,
         title: "五天玩遍澳大利亚的秘密隆重揭晓",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -60,7 +60,7 @@ Page({
       },
       {
         id: 4,
-        imgpath: "/resources/tu4.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%205.png",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -71,7 +71,7 @@ Page({
     ], //收藏文字列表
     sceniclist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         cnname: "华纳电影世界",
         enname: "Warner Bros. Movie World",
         distance: "1.5km",
@@ -81,7 +81,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         cnname: "可伦宾野生动物园",
         enname: "Currumbin Wildlife Sanctuary",
         distance: "1.8km",
@@ -91,7 +91,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
         cnname: "春溪国家公园",
         enname: "Warner Bros. Movie World",
         distance: "2.0km",
@@ -145,6 +145,8 @@ Page({
   //收藏的类型
   collecttabopt: function(e) {
     var that = this;
+    console.log("switch切换:");
+    console.log(e);
     //参数部分
     var id = e.currentTarget.dataset.id;
     that.setData({
@@ -205,8 +207,8 @@ Page({
    * @param {Object} end 终点坐标
    */
   angle: function(start, end) {
-    var  _X = end.X - start.X;
-    var  _Y = end.Y - start.Y;
+    var _X = end.X - start.X;
+    var _Y = end.Y - start.Y;
 
     return _X;
   },
@@ -285,8 +287,8 @@ Page({
     })
   },
   //收藏内容的点击
-  goarticledetail:function(e){
-    var id=e.currentTarget.dataset.id;
+  goarticledetail: function(e) {
+    var id = e.currentTarget.dataset.id;
     var title = e.currentTarget.dataset.title;
     var typeval = e.currentTarget.dataset.type;
     wx.navigateTo({
@@ -294,7 +296,7 @@ Page({
     })
   },
   //收藏景点的点击
-  goscenicdetail: function (e) {
+  goscenicdetail: function(e) {
     var id = e.currentTarget.dataset.id;
     var typeval = e.currentTarget.dataset.type;
     //页面的跳转
@@ -308,7 +310,7 @@ Page({
   onReady: function() {
 
   },
- 
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -334,10 +336,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    var that=this;
+    var that = this;
 
     that.setData({
-      isshowtop:false
+      isshowtop: false
     })
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
@@ -359,7 +361,7 @@ Page({
 
   },
   // 获取滚动条当前位置
-  onPageScroll: function (e) {
+  onPageScroll: function(e) {
     console.log(e)
     //是否显示置顶
     if (e.scrollTop > 200) {
@@ -370,6 +372,6 @@ Page({
       this.setData({
         //isshowtop: false
       });
-    }    
+    }
   },
 })

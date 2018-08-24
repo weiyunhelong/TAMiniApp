@@ -1,0 +1,10 @@
+/* pages/test/index.wxss */
+page{
+  background-color: #fff;
+}
+
+.geduanv{  
+  width: 100%;
+  clear: both;
+  background-color: #F7F7F7;
+}

@@ -3,7 +3,7 @@
   <!--搜索层-->
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
-      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+      <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
@@ -13,21 +13,22 @@
       <image src='/resources/list.png' class='dituicon'></image>
     </view>
   </view>
+  
   <!--菜单部分-->
-  <view class="tabmenuv">
-    <view class="tabitemv" data-id="0" bindtap="menuopt">
+  <view class="tabmenuv font-t5">
+    <view class="ttabitemv" data-id="0" bindtap="menuopt">
       <view class="{{chktabid==0?'chktabitem1':'nochktabitem'}}">标志景点</view>
-    </view>    
-    <view class="tabitemv" data-id="2" bindtap="menuopt">
+    </view>
+    <view class="ttabitemv" data-id="2" bindtap="menuopt">
       <view class="{{chktabid==2?'chktabitem3':'nochktabitem'}}">购物</view>
     </view>
-    <view class="tabitemv" data-id="1" bindtap="menuopt">
+    <view class="ttabitemv" data-id="1" bindtap="menuopt">
       <view class="{{chktabid==1?'chktabitem2':'nochktabitem'}}">美食</view>
     </view>
-    <view class="tabitemv" data-id="3" bindtap="menuopt">
+    <view class="ttabitemv" data-id="3" bindtap="menuopt">
       <view class="{{chktabid==3?'chktabitem4':'nochktabitem'}}">酒店</view>
     </view>
-    <view class="tabitemv" data-id="4" bindtap="menuopt">
+    <view class="ftabitemv" data-id="4" bindtap="menuopt">
       <image src='/resources/icon/filter.png' class='filtericon'></image>
     </view>
   </view>
@@ -35,21 +36,17 @@
   <view class='shadowv' wx:if="{{!isshowmap}}"></view>
 
   <!--筛选的条件-->
-  <view class='filterv' wx:if="{{!isshowmap}}">
+  <view class='filterv font-t7' wx:if="{{!isshowmap}}">
     <view class='filteritem' bindtap='scoreopt'>
       <view class='filtertxt'>评分排序</view>
-      <image src='/resources/shang.png' class='filtersmico' wx:if="{{!sorder}}"></image>
-      <image src='/resources/xia.png' class='filtersmico' wx:if="{{sorder}}"></image>
     </view>
+    <view class='filterxian'></view>
     <view class='filteritem' bindtap='prirceopt'>
       <view class='filtertxt'>价格排序</view>
-      <image src='/resources/shang.png' class='filtersmico' wx:if="{{!porder}}"></image>
-      <image src='/resources/xia.png' class='filtersmico' wx:if="{{porder}}"></image>
     </view>
+    <view class='filterxian'></view>
     <view class='filteritem' bindtap='distanceopt'>
       <view class='filtertxt'>距离排序</view>
-      <image src='/resources/shang.png' class='filtersmico' wx:if="{{!dorder}}"></image>
-      <image src='/resources/xia.png' class='filtersmico' wx:if="{{dorder}}"></image>
     </view>
   </view>
 </view>
@@ -66,14 +63,14 @@
       <view class='datainfov'>
         <!--中文名称收藏-->
         <view class='namexinv'>
-          <view class='cnnamev'>{{item.cnname}}</view>
-          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" bindtap='listcollectopt' data-id='{{item.id}}'></image>
-          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" bindtap='listcollectopt' data-id='{{item.id}}'></image>
+          <view class='cnnamev font-t4'>{{item.cnname}}</view>
+          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
-        <view class='ennamev'>{{item.enname}}</view>
+        <view class='ennamev font-t7'>{{item.enname}}</view>
         <!--距离-->
-        <view class='distancev'>
+        <view class='distancev font-t7'>
           <view class='distancetip'>距离您约</view>
           <image src='/resources/icon/dituico.png' class='postionico'></image>
           <view class='distancetxt'>{{item.distance}}</view>
@@ -86,9 +83,9 @@
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
-            <view class='peoplenum'>{{item.commentnum}}人评论</view>
+            <view class='peoplenum font-t7'>{{item.commentnum}}人评论</view>
           </view>
-          <view class='pricev'>￥{{item.price}}/人</view>
+          <view class='pricev font-t7'>￥{{item.price}}/人</view>
         </view>
       </view>
     </view>
@@ -96,15 +93,16 @@
 </view>
 
 <!--地图显示部分-->
+<view class='shadowv' wx:if="{{isshowmap}}" style='margin:0rpx;'></view>
 <view class='mapv' wx:if="{{isshowmap}}">
 
   <!--地图部分-->
-  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'
+  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'
     show-location='true'></map>
-     
-  
+
+
   <!--底部的折叠-->
-  <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:300rpx;'}}">
+  <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:280rpx;'}}">
     <image src='/resources/icon/downico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
     <image src='/resources/icon/upico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
   </view>
@@ -118,10 +116,10 @@
           <image src='{{item.imgpath}}' class='protu'></image>
           <!--介绍部分-->
           <view class="{{item.ischk?'namedaohang':'nonamedaohang'}}">
-            <view class='proname'>{{item.name}}</view>
-            <view class='proaddr'>{{item.address}}</view>
+            <view class='proname font-t4'>{{item.name}}</view>
+            <view class='proaddr font-t7'>{{item.address}}</view>
             <!--距离部分-->
-            <view class='projuliv'>
+            <view class='projuliv font-t7'>
               <view class='julitip'>距离您约</view>
               <image src='/resources/icon/dituico.png' class='postionico'></image>
               <view class='distancetxt'>{{item.distance}}</view>

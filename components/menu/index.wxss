@@ -1,0 +1,37 @@
+/* components/homes/menu/index.wxss */
+
+/*第一行菜单*/
+.onemenutabv {
+  margin:0rpx 40rpx;
+  height: 150rpx;
+  margin-top: 180rpx;
+  display: flex;
+  justify-content: center;
+}
+
+/*菜单部分*/
+
+.menuv {
+  height: 190rpx;
+  text-align: center;
+  display: table-column;
+  padding-top: 20rpx;
+  margin: 0 10rpx;
+}
+.menuico {
+  width: 110rpx;
+  height: 110rpx;
+}
+.menutxt {
+  width: 100%;
+  margin-top: -8rpx;
+}
+
+/*第二行菜单*/
+.twomenutabv {
+  margin:10rpx 40rpx;
+  height: 190rpx;
+  display: flex;
+  justify-content: center;
+}
+

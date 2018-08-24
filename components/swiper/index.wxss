@@ -1,0 +1,153 @@
+/* components/homes/swiper/index.wxss */
+
+/*顶部的图片*/
+
+.backgroundv {
+  width: 100%;
+  background-image: url('http://youimg1.c-ctrip.com/target/tg/437/403/707/7be917b91e5c4b74bfffdb70379da3f5.jpg');
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 20s linear infinite;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  height: 438rpx;
+  background-color: #f2f2f2;
+}
+
+/*背景动画部分*/
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.topinfov {
+  margin-top: -438rpx;
+}
+
+/*搜索按钮*/
+
+.searchv {
+  position: relative;
+  left: 88%;
+  top: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.searchico {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/*地址信息*/
+
+.toptxtinfo {
+  position: relative;
+  left: 0rpx;
+  top: 220rpx;
+  display: flex;
+  margin: 0 30rpx;
+  justify-content: space-between;
+}
+
+/*左侧的名称*/
+
+.topleftv {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25rpx;
+}
+
+.topcnname {
+  color: #fff;
+}
+
+.topenname {
+  color: #fff;
+  font-weight: bold;
+}
+
+/*右侧的天气*/
+
+.toprightv {
+  display: flex;
+  flex-direction: column;
+}
+
+.topwenduv {
+  display: flex;
+}
+
+.topwendu {
+  color: #fff;
+  line-height: 110rpx;
+}
+
+.weatherico {
+  width: 56rpx;
+  height: 56rpx;
+  margin-top: 40rpx;
+}
+
+.topweather {
+  color: #fff;
+}
+
+/*隔断层*/
+
+.geduanv {
+  width: 100%;
+  height: 30rpx;
+  clear: both;
+}
+
+/*轮播图底部的点转变为线*/
+
+.swiperitem {
+  width: 100%;
+  height: 438rpx;
+}
+
+.slideimage {
+  width: 100%;
+  height: 100%;
+}
+
+.swiperitem .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 2rpx;
+}
+
+.swiperitem .wx-swiper-dot {
+  width: 120rpx;
+  display: inline-flex;
+  height: 1rpx;
+  margin-left: 5rpx;
+  justify-content: space-between;
+}
+
+.swiperitem .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8rpx;
+}
+
+.swiperitem .wx-swiper-dot-active::before {
+  background: #fff;
+}
+
+.toptxtinfo {
+  position: relative;
+  left: 0rpx;
+  top: 220rpx;
+  display: flex;
+  margin: 0 30rpx;
+  justify-content: 
+}

@@ -1,0 +1,15 @@
+<!--pages/test/index.wxml-->
+
+<!--轮播图部分-->
+<swiper receiveData='{{swiperdata}}'/>
+
+<!--menu部分-->
+<menu receiveData='{{menudata}}'/>
+
+<!--隔断-->
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
+
+<!--美食类型组件部分-->
+<module receiveData='{{moduledata}}'/>
+<!--隔断-->
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>

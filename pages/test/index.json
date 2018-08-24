@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "swiper": "../../components/swiper/index",
+    "menu": "../../components/menu/index",
+    "module": "../../components/module/index"
+  }
+}

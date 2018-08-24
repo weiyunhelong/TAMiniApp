@@ -5,7 +5,7 @@ const markerlist=[
     longitude: 121.373701, //经度
     iconPath: '/resources/icon/bsmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind:1
   },
   {
@@ -14,7 +14,7 @@ const markerlist=[
     longitude: 121.453701, //经度
     iconPath: '/resources/icon/osmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 1
   },
   {
@@ -23,7 +23,7 @@ const markerlist=[
     longitude: 121.493701, //经度
     iconPath: '/resources/icon/bsmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 1
   },
   {
@@ -32,7 +32,7 @@ const markerlist=[
     longitude: 121.373701, //经度
     iconPath: '/resources/icon/ysmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 2
   },
   {
@@ -41,7 +41,7 @@ const markerlist=[
     longitude: 121.453701, //经度
     iconPath: '/resources/icon/ysmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 2
   },
   {
@@ -50,7 +50,7 @@ const markerlist=[
     longitude: 121.493701, //经度
     iconPath: '/resources/icon/osmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 2
   },
   {
@@ -59,7 +59,7 @@ const markerlist=[
     longitude: 121.373701, //经度
     iconPath: '/resources/icon/gsmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 3
   },
   {
@@ -68,7 +68,7 @@ const markerlist=[
     longitude: 121.453701, //经度
     iconPath: '/resources/icon/gsmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 3
   },
   {
@@ -77,7 +77,7 @@ const markerlist=[
     longitude: 121.493701, //经度
     iconPath: '/resources/icon/osmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 3
   },
   {
@@ -86,7 +86,7 @@ const markerlist=[
     longitude: 121.373701, //经度
     iconPath: '/resources/icon/psmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 4
   },
   {
@@ -95,7 +95,7 @@ const markerlist=[
     longitude: 121.453701, //经度
     iconPath: '/resources/icon/osmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 4
   },
   {
@@ -104,7 +104,7 @@ const markerlist=[
     longitude: 121.493701, //经度
     iconPath: '/resources/icon/psmpostion.png',
     width: 25,
-    height: 25,
+    height: 30,
     kind: 4
   },
 ];

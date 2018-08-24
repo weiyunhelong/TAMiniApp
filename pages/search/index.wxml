@@ -16,8 +16,9 @@
     </view>
   </block>
 </scroll-view>
-
-
+<!--阴影层-->
+<view class='shadowv'></view>
+<view class='shaovb'></view>
 <!--历史记录-->
 <view class='historyv'>
  <view class='titlev'>历史记录</view>

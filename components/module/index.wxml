@@ -1,0 +1,50 @@
+<!--components/foodmodule/index.wxml-->
+
+<!--1个半类型-->
+<view class='contentv'>
+  <view class='titlev'>
+    <view class='titletxt' style='font-size:{{fontt1}}rpx;'>{{typename}}</view>
+    <view class="moretxt" style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看全部></view>
+  </view>
+
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-contentv">
+    <!--显示2个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==1}}">
+      <view class="taboneitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabonetucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="taboneitem" wx:if="{{showtype==1}}" style='width:10rpx;'></view> 
+
+    <!--显示3个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==2}}">
+      <view class="tabtwoitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabtwotucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabtwoitem" wx:if="{{showtype==2}}" style='width:10rpx;'></view> 
+
+    <!--显示4个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==3}}">
+      <view class="tabthreeitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabthreetucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabthreeitem" wx:if="{{showtype==3}}" style='width:10rpx;'></view> 
+
+    <!--显示5个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==4}}">
+      <view class="tabfouritem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabfourtucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabfouritem" wx:if="{{showtype==4}}" style='width:10rpx;'></view> 
+
+  </scroll-view>
+
+</view>

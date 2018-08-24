@@ -32,8 +32,9 @@ page {
   border: 1rpx solid #b2b2b2;
   box-sizing: content-box;
 }
+
 .searchicon {
-  margin: 18rpx 10rpx;
+  margin: 15rpx 10rpx;
 }
 
 .txtcss {
@@ -44,15 +45,16 @@ page {
   padding-left: 5%;
 }
 
-.tipcss{
+.tipcss {
   color: #b2b2b2;
   font-size: 26rpx;
 }
+
 .ftxtcss {
   width: 83%;
   height: 68rpx;
   font-size: 25rpx;
-  line-height:68rpx;
+  line-height: 68rpx;
   padding-left: 5%;
 }
 
@@ -64,7 +66,7 @@ page {
   width: 15%;
   font-size: 26rpx;
   text-align: center;
-  line-height:80rpx;
+  line-height: 80rpx;
 }
 
 /*菜单部分*/
@@ -116,6 +118,18 @@ page {
   font-size: 24rpx;
 }
 
+.shadowv {
+  width: 100%;
+  height: 38rpx;
+  background: linear-gradient(180deg, rgba(238, 238, 238, 0), rgba(216, 216, 216, 1));
+}
+
+.shaovb {
+  width: 100%;
+  height: 2rpx;
+  margin-top: -50rpx;
+}
+
 /*历史记录*/
 
 .historyv {
@@ -132,13 +146,13 @@ page {
   margin-left: 30rpx;
   font-size: 32rpx;
   font-weight: bold;
-  color: #16191C;
+  color: #16191c;
 }
 
 .clearv {
   font-size: 24rpx;
   margin-right: 30rpx;
-  color:#909599;
+  color: #909599;
 }
 
 .historylist {
@@ -151,9 +165,9 @@ page {
 .historyitem {
   padding: 0 30rpx;
   border-radius: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   line-height: 68rpx;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   color: #0074c8;
   margin-right: 30rpx;
   margin-top: 20rpx;
@@ -183,7 +197,7 @@ page {
   border-radius: 30rpx;
   font-size: 28rpx;
   line-height: 68rpx;
-  background-color:#F4F4F4;
+  background-color: #f4f4f4;
   color: #0074c8;
   margin-right: 30rpx;
   margin-top: 20rpx;
@@ -192,7 +206,7 @@ page {
 .hotsearchhitem {
   padding: 0 30rpx;
   border-radius: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   line-height: 68rpx;
   background-color: #0074c8;
   color: #fff;

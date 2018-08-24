@@ -1,7 +1,7 @@
 <!--pages/info/index.wxml-->
 
 <!--顶部的标签内容部分-->
-<view class='topv' style='background-image: url("http://old.bz55.com/uploads/allimg/140820/138-140R0142240.jpg");'>
+<view class='topv' style='background-image: url("http://zhuweis.com/index/Header.png");'>
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
     <image src='/resources/icon/detailxin.png' class='xinicon' wx:if="{{!iscollect}}"></image>
@@ -10,14 +10,12 @@
 </view>
 <!--名称，信息部分-->
 <view class='introv'>
-
-  <view class='topinfo'>{{enname}}</view>
+  <view class='topinfo font-t3'>{{cnname}}</view>
   <view class='centerinfo'>
-    <view class='cnname'>{{cnname}}</view>
+    <view class='cnname font-t7'>{{enname}}</view>
     <view class='infoicov'>
-      <image src='/resources/icon/phone.png' class='infoicon' bindtap='makephonecall'></image>
-      <view class='infoxian'></view>
-      <image src='/resources/icon/dingtu.png' class='infoicon' bindtap='gomap'></image>
+      <image src='/resources/icon/phone.png' class='infoicon' bindtap='makephonecall'></image> 
+      <image src='/resources/icon/dingtu.png' class='infoicon' bindtap='gomap' style='margin-left:78rpx;'></image>
     </view>
   </view>
   <view class='bottominfo'>
@@ -26,50 +24,50 @@
     <image src='/resources/icon/smxingh.png' class='xingico'></image>
     <image src='/resources/icon/smxingh.png' class='xingico'></image>
     <image src='/resources/icon/smxingh.png' class='xingico'></image>
-    <view class='commentnum'>{{commentnum}}个评论</view>
+    <view class='commentnum font-t8'>{{commentnum}}个评论</view>
   </view>
 </view>
 
 <!--基本信息-->
-<view class='basetxt'>基础信息</view>
-<view class='baseinfo'>
+<view class='basetxt font-t4'>基础信息</view>
+<view class='baseinfo font-t5'>
   <rich-text nodes="{{introduce}}"></rich-text>
 </view>
 <view class='hangv' style='margin-top:35rpx;'>
-  <view class='titlev'>门票</view>
-  <view class='infotxt'>{{ticket}}</view>
+  <view class='titlev font-t4'>门票</view>
+  <view class='infotxt font-t5'>{{ticket}}</view>
 </view>
 <view class='hangv'>
-  <view class='titlev'>时间</view>
-  <view class='infotxt'>{{start_time}}-{{end_time}}</view>
+  <view class='titlev font-t4'>时间</view>
+  <view class='infotxt font-t5' style='line-height:50rpx;'>{{start_time}}-{{end_time}}</view>
 </view>
 <view class='hangv'>
-  <view class='titlev'>地址</view>
-  <view class='infotxt'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
+  <view class='titlev font-t4'>地址</view>
+  <view class='infotxt font-t5'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
 </view>
 
 <!--预定部分-->
 <view class='bookview'>
   <view class='booktitlev'>    
-    <view class='booktitle'>选择票种</view>
+    <view class='booktitle font-t4'>选择票种</view>
     <image src='/resources/icon/quan.png' class='quanicon'></image>
   </view>
   <!--列表部分-->
   <view class='booklist'>
-    <block wx:for="{{ticketlist}}" wx:key="item">
-      <view class='bookitem'>
+    <block wx:for="{{ticketlist}}" wx:key="item" wx:for-index="x">
+      <view class='bookitem' style="{{x==ticketlist.length-1?'border:none;':'border-bottom: 1rpx solid #dbdbdb;'}}">
         <!--类别价格-->
-        <view class='booknameprice'>
+        <view class='booknameprice font-t5'>
           <view class='bookname'>{{item.title}}</view>
           <view class='bookprice'>￥{{item.price}}</view>
         </view>
         <!--介绍文字-->
         <view class='bookinfobtn'>
           <view class='bookinfov'>
-            <view class='bookinfotxt'>{{item.info}}</view>
-            <view class='booktip' bindtap="showtip" data-tip='{{item.tip}}'>预订须知></view>
+            <view class='bookinfotxt font-t8'>{{item.info}}</view>
+            <view class='booktip font-t8' bindtap="showtip" data-tip='{{item.tip}}'>预订须知></view>
           </view>
-          <view class='bookbtn' bindtap='bookopt' data-id='{{item.tip}}'>立即预订</view>
+          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.tip}}'>立即预订</view>
         </view>
       </view>
     </block>
@@ -77,16 +75,15 @@
 </view>
 
 <!--图库评价tab部分-->
-<view class='tabview'>
+<view class="{{isshowmenu?'fixtabview':'tabview'}} font-t5">
   <view class="{{chktab?'chktab':'nochktab'}}" bindtap='showtabopt'>图库</view>
   <view style='width:150rpx;height:100%;'></view>
   <view class="{{!chktab?'chktab':'nochktab'}}" bindtap='showtabopt'>评论</view>
 </view>
-<view class='yinyingv'></view>
-
+<view class="yinyingv"></view>
 
 <!--图库部分-->
-<view wx:if="{{chktab}}" class='tukucss'>
+<view wx:if="{{chktab}}" class="tukucss">
 
   <block wx:for="{{tusku}}" wx:key="item" wx:for-index="x">
 
@@ -100,9 +97,9 @@
 </view>
 
 <!--评价部分-->
-<view wx:if="{{!chktab}}">
+<view wx:if="{{!chktab}}"  class="tukucss">
   <!--评价按钮层-->
-  <view class='clickv'>
+  <view class='clickv font-t5'>
     <view class='clicktxt'>点击评价</view>
     <view class='xingv'>
       <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
@@ -118,11 +115,11 @@
     <view class='commentv'>
       <view class='clefttu'>
         <image class='touxiang' src='{{item.touxiang}}'></image>
-        <view class='wxname'>{{item.wxname}}</view>
+        <view class='wxname font-t8'>{{item.wxname}}</view>
       </view>
       <view class='crightv'>
         <!--用户时间信息-->
-        <view class='crtopv'>
+        <view class='crtopv font-t8'>
           <view class='crtname'>{{item.title}}</view>
           <view class='crtdate'>{{item.time}}点评</view>
         </view>
@@ -135,12 +132,11 @@
         </view>
         <!--评价内容部分-->
         <view class='crtinfov'>
-          <view class='crtinfo'>
+          <view class='crtinfo font-t8'>
             <text decode='true'>{{item.info}}</text>
-            <view class='crtmore'>阅读更多></view>
+            <view class='crtmore font-t8'>阅读更多></view>
           </view>
         </view>
-
       </view>
     </view>
   </block>
@@ -151,6 +147,9 @@
 <view class='bottomv' bindtap='daohangopt'>
   <view class='btnv'>
     <image src='/resources/icon/daohangw.png' class='btnico'></image>
-    <view class='btntxt'>导航去这儿</view>
+    <view class='btntxt font-t4'>导航去这儿</view>
   </view>
 </view>
+
+<!--到达顶部-->
+<image src='/resources/icon/zhiding.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

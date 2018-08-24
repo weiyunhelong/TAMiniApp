@@ -45,7 +45,7 @@ var coinlist=[
     id: 7,
     cnname: "港元",
     enname: "HKD",
-    flag: "/resources/flag/xiangguang.png" 
+    flag: "/resources/flag/xianggang.png" 
   },
   {
     id: 8,

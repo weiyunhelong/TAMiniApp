@@ -1,0 +1,68 @@
+<!--components/homes/swiper/index.wxml-->
+
+<!--一张图片-->
+<view class='backgroundv' style='background-image: url({{imglist[0].imgpath}})' wx:if="{{isshowop}}"></view>
+
+<!--内容部分-->
+<view class='topinfov' style='background-image: url("/resources/toptuback.png")' wx:if="{{isshowop}}">
+  <!--搜索层-->
+  <view class='searchv' bindtap='getsearch' wx:if="{{issearch}}">
+    <image src='/resources/icon/homesearch.png' class='searchico'></image>
+  </view>
+  <!--底部的文字-->
+  <view class='toptxtinfo'>
+    <view class='topleftv'>
+      <view class='topcnname' style="font-size:{{fontt1}}rpx;">{{imglist[0].cnname}}</view>
+      <view class='topenname' style="font-size:{{fontt2}}rpx;">{{imglist[0].enname}}</view>
+    </view>
+    <view class='toprightv' bindtap='goweather' wx:if="{{isweather}}">
+      <view class='topwenduv'>
+        <view class='topwendu' style="font-size:{{fontt3}}rpx;">{{weatherdata.wendu}}°</view>
+        <image src='{{weatherdata.icon}}' class='weatherico'></image>
+      </view>
+      <view class='topweather' style="font-size:{{fontt4}}rpx;">未来一周的天气</view>
+    </view>
+  </view>
+</view>
+
+
+<!--多张图片，轮播图-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class="swiperitem" wx:if="{{!isshowop}}">
+  <block wx:for="{{imglist}}" wx:key="item">
+    <swiper-item>
+      <image src="{{item.imgpath}}" class="slideimage" bindtap='gointro' data-id='{{item.id}}'></image>
+
+      <!--内容部分-->
+      <view class='topinfov' style='background-image: url("/resources/toptuback.png")'>
+        
+        <!--底部的文字-->
+        <view class='toptxtinfo'>
+          <view class='topleftv'>
+            <view class='topcnname' style="font-size:{{fontt1}}rpx;">{{imglist[0].cnname}}</view>
+            <view class='topenname' style="font-size:{{fontt2}}rpx;">{{imglist[0].enname}}</view>
+          </view>          
+        </view>
+      </view>
+
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--内容部分-->
+<view class='topinfov' style='background-image: url("/resources/toptuback.png")' wx:if="{{!isshowop}}">
+  <!--搜索层-->
+  <view class='searchv' bindtap='getsearch' wx:if="{{issearch}}">
+    <image src='/resources/icon/homesearch.png' class='searchico'></image>
+  </view>
+  <!--底部的文字-->
+  <view class='toptxtinfo' style="top: 170rpx;">
+    <view class='topleftv'></view>
+    <view class='toprightv' bindtap='goweather' wx:if="{{isweather}}">
+      <view class='topwenduv'>
+        <view class='topwendu' style="font-size:{{fontt3}}rpx;">{{weatherdata.wendu}}°</view>
+        <image src='{{weatherdata.icon}}' class='weatherico'></image>
+      </view>
+      <view class='topweather' style="font-size:{{fontt4}}rpx;">未来一周的天气</view>
+    </view>
+  </view>
+</view>

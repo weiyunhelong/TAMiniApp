@@ -2,7 +2,7 @@
 
 <block wx:for="{{questionlist}}" wx:key="item">
 
-  <view class='questionv'>
+  <view class='questionv' bindtap='godetail' data-id='{{item.id}}'>
     <!--标题部分-->
     <view class='title'>{{item.title}}</view>
     <!--内容部分-->

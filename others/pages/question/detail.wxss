@@ -1,0 +1,31 @@
+/* others/pages/question/detail.wxss */
+page{
+  background-color: #fff;
+}
+.bodyinfov{
+   margin: 42rpx 40rpx 0rpx 40rpx; 
+}
+.titlev {
+  color: #0074c8;
+}
+
+.tipv {
+  margin-top:20rpx;
+  color: #0074c8;
+}
+
+.fengexian {
+  height: 1rpx;
+  background-color: #e5e5e9;
+  margin: 38rpx 0;
+}
+
+.infobodyv{
+  margin: 40rpx 0;
+}
+.infotitlev{
+  color: #0074c8;
+}
+.infocontentv{
+  margin-top: 15rpx;  
+}
