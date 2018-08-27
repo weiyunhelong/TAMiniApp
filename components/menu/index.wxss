@@ -1,10 +1,11 @@
 /* components/homes/menu/index.wxss */
-
+page{
+  background-color: #fff;
+}
 /*第一行菜单*/
 .onemenutabv {
-  margin:0rpx 40rpx;
+  margin:0rpx 40rpx 0 40rpx;
   height: 150rpx;
-  margin-top: 180rpx;
   display: flex;
   justify-content: center;
 }

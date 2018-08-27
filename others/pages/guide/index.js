@@ -1,4 +1,5 @@
 // others/pages/guide/index.js
+var guidetool=require('../../../utils/guidedata.js');
 Page({
 
   /**
@@ -7,7 +8,6 @@ Page({
   data: {
     searchtxt: "", //搜索的值
     issearchfocus: false,//是否聚焦
-    tablist: [], //菜单部分
     currentTab: 0, //预设当前项的值
     filterchk:1,//排序的筛选
     guidelist:[],//游玩指南
@@ -18,9 +18,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    //菜单部分
-    that.getmenu();
     
     //获取指南列表
     that.getGuide();
@@ -41,32 +38,6 @@ Page({
       issearchfocus: false
     })
   },
-  //菜单部分
-  getmenu: function () {
-    var that = this;
-
-    //请求得到菜单
-    var tablist = [{
-      id: 0,
-      name: '推荐',
-    },
-    {
-      id: 1,
-      name: '攻略',
-    },
-    {
-      id: 2,
-      name: '游记',
-    },
-    {
-      id: 3,
-      name: '线路',
-    }
-    ];
-    that.setData({
-      tablist: tablist
-    })
-  },
   // 点击标题切换当前页时改变样式
   switchNav: function (e) {
     var that = this;
@@ -78,6 +49,8 @@ Page({
       that.setData({
         currentTab: parseInt(id)
       })
+      //获取指南列表
+      that.getGuide();
     }
   },
   //筛选
@@ -99,6 +72,8 @@ Page({
       filterchk = that.data.filterchk;//排序的筛选,1->热门；2->时间
 
     //获取列表
+    var guidelist = guidetool.pagedatalist(1,currentTab);
+    /*
     var guidelist=[
       {
         id:1,
@@ -141,6 +116,7 @@ Page({
         viewnum: 1159
       },
     ];
+    */
     that.setData({
       guidelist: guidelist
     })

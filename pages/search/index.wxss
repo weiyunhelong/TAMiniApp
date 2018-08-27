@@ -4,12 +4,24 @@ page {
   background-color: #fff;
 }
 
+/*顶部搜索部分*/
+
+.topv {
+  width: 100%;
+  height: 250rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
 /*搜索层*/
 
 .searchv {
   width: 94%;
   height: 68rpx;
-  margin: 25rpx 3%;
+  margin: 42rpx 3% 25rpx 3%;
   display: flex;
   justify-content: flex-start;
 }
@@ -75,11 +87,9 @@ page {
   height: 80rpx;
   width: 100%;
   overflow: hidden;
-  font-size: 30rpx;
   white-space: nowrap;
-  margin-top: 10rpx;
+  margin-top: 52rpx;
   background-color: #fff;
-  box-shadow: 2rpx 2rpx 2px #e5e5e9;
 }
 
 /*菜单*/
@@ -113,15 +123,16 @@ page {
   margin: 0 15rpx;
   height: 80rpx;
   line-height: 80rpx;
-  color: #909599;
+  color: #16191C;
   display: inline-block;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .shadowv {
   width: 100%;
-  height: 38rpx;
-  background: linear-gradient(180deg, rgba(238, 238, 238, 0), rgba(216, 216, 216, 1));
+  height: 20rpx;
+  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
+  opacity: 0.8;
 }
 
 .shaovb {

@@ -2,10 +2,12 @@ var datalist = [{
     id: 1,
     typeval: 1,
     typename: "线路",
-  imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
     title: "七天就能环个洲，大小景点都玩遍",
-    instrduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
-    ismore: true
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+  collectnum:40,
+  viewnum: 1159
   },
   {
     id: 2,
@@ -13,8 +15,10 @@ var datalist = [{
     typename: "游记",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
     title: "去澳大利亚找冬天",
-    instrduce: "",
-    ismore: false
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 3,
@@ -22,8 +26,10 @@ var datalist = [{
     typename: "攻略",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
     title: "火车环游，美到炸",
-    instrduce: "",
-    ismore: false
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 4,
@@ -31,8 +37,10 @@ var datalist = [{
     typename: "攻略",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
     title: "悉尼初体验，最热门的8个地方",
-    instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
-    ismore: true
+    instroduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 5,
@@ -40,8 +48,10 @@ var datalist = [{
     typename: "线路",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/meb.png",
     title: "七天就能环个洲，大小景点都玩遍",
-    instrduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
-    ismore: true
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 6,
@@ -49,8 +59,10 @@ var datalist = [{
     typename: "游记",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
     title: "去澳大利亚找冬天",
-    instrduce: "",
-    ismore: false
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 7,
@@ -58,8 +70,10 @@ var datalist = [{
     typename: "攻略",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
     title: "火车环游，美到炸",
-    instrduce: "",
-    ismore: false
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
   },
   {
     id: 8,
@@ -67,8 +81,98 @@ var datalist = [{
     typename: "攻略",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
     title: "悉尼初体验，最热门的8个地方",
-    instrduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
-    ismore: true
+    instroduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 9,
+    typeval: 1,
+    typename: "线路",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/meb.png",
+    title: "七天就能环个洲，大小景点都玩遍",
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 10,
+    typeval: 2,
+    typename: "游记",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+    title: "去澳大利亚找冬天",
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 11,
+    typeval: 1,
+    typename: "线路",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/meb.png",
+    title: "七天就能环个洲，大小景点都玩遍",
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 12,
+    typeval: 2,
+    typename: "游记",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+    title: "去澳大利亚找冬天",
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 13,
+    typeval: 1,
+    typename: "线路",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/meb.png",
+    title: "七天就能环个洲，大小景点都玩遍",
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 14,
+    typeval: 2,
+    typename: "游记",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+    title: "去澳大利亚找冬天",
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 15,
+    typeval: 1,
+    typename: "线路",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/meb.png",
+    title: "七天就能环个洲，大小景点都玩遍",
+    instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
+    ismore: true,
+    collectnum: 40,
+    viewnum: 1159
+  },
+  {
+    id: 16,
+    typeval: 2,
+    typename: "游记",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+    title: "去澳大利亚找冬天",
+    instroduce: "",
+    ismore: false,
+    collectnum: 40,
+    viewnum: 1159
   },
 ];
 
@@ -102,8 +206,10 @@ const searchlist = n => {
           typename: datalist[i].typename,
           imgpath: datalist[i].imgpath,
           title: datalist[i].title,
-          instrduce: datalist[i].instrduce,
-          ismore: datalist[i].ismore
+          instroduce: datalist[i].instroduce,
+          ismore: datalist[i].ismore,
+          collectnum: datalist[i].collectnum,
+          viewnum: datalist[i].viewnum
         };
         index++;
       }
@@ -117,8 +223,10 @@ const searchlist = n => {
           typename: datalist[i].typename,
           imgpath: datalist[i].imgpath,
           title: datalist[i].title,
-          instrduce: datalist[i].instrduce,
-          ismore: datalist[i].ismore
+          instroduce: datalist[i].instroduce,
+          ismore: datalist[i].ismore,
+          collectnum: datalist[i].collectnum,
+          viewnum: datalist[i].viewnum
         };
         index++;
       }
@@ -131,31 +239,33 @@ const searchlist = n => {
 const pagedatalist = (n, kind) => {
   var txtarry = [];
   var index = 0;
-  var pagesize = 4;
+  var pagesize = 6;
 
-  for (var i = 0; i < datalist.length; i++) 
-  {
-    if (kind == 0 && index < n * pagesize){
+  for (var i = 0; i < datalist.length; i++) {
+    if (kind == 0 && index < n * pagesize) {
       txtarry[index] = {
         id: datalist[i].id,
         typeval: datalist[i].typeval,
         typename: datalist[i].typename,
         imgpath: datalist[i].imgpath,
         title: datalist[i].title,
-        instrduce: datalist[i].instrduce,
-        ismore: datalist[i].ismore
+        instroduce: datalist[i].instroduce,
+        ismore: datalist[i].ismore,
+        collectnum: datalist[i].collectnum,
+        viewnum: datalist[i].viewnum
       };
       index++;
-    }
-    else if (kind == datalist[i].typeval && index < n * pagesize) {
+    } else if (kind == datalist[i].typeval && index < n * pagesize) {
       txtarry[index] = {
         id: datalist[i].id,
         typeval: datalist[i].typeval,
         typename: datalist[i].typename,
         imgpath: datalist[i].imgpath,
         title: datalist[i].title,
-        instrduce: datalist[i].instrduce,
-        ismore: datalist[i].ismore
+        instroduce: datalist[i].instroduce,
+        ismore: datalist[i].ismore,
+        collectnum: datalist[i].collectnum,
+        viewnum: datalist[i].viewnum
       };
       index++;
     }

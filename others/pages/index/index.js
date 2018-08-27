@@ -12,7 +12,7 @@ Page({
     isshowmap: false, //是否显示地图
     chktabid: 0, //选中的菜单
     datalist: [], //列表数据
-    sorder: false, //评分排序
+    sorder: true, //评分排序
     porder: false, //价格排序
     dorder: false, //距离排序
     iszhediemap: false, //是否折叠
@@ -409,20 +409,26 @@ Page({
   scoreopt: function() {
     var that = this;
     that.setData({
-      sorder: !that.data.sorder
+      sorder: !that.data.sorder,
+      porder: false,
+      dorder: false
     })
   },
   //价格排序
   prirceopt: function() {
     var that = this;
     that.setData({
-      porder: !that.data.porder
+      sorder: false,
+      porder: !that.data.porder,
+      dorder: false
     })
   },
   //距离排序
   distanceopt: function() {
     var that = this;
     that.setData({
+      sorder: false,
+      porder:false,
       dorder: !that.data.dorder
     })
   },

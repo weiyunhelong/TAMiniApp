@@ -1,4 +1,4 @@
-// components/foodmodule/index.js
+// components/swiperlist/index.js
 Component({
   /**
    * 组件的属性列表
@@ -14,6 +14,7 @@ Component({
           fontt3: newVal.fontt3,//小字
           typename: newVal.typename,//类型名称
           typeval: newVal.typeval,//类型值
+          showtype: newVal.showtype,//显示类型
         })
 
       }
@@ -30,6 +31,7 @@ Component({
     fontt3: 0,//小字
     typename: "",//类型名称
     typeval: 0,//类型值
+    showtype: 0,//显示滚动的类型
   },
 
   /**

@@ -14,8 +14,9 @@ page {
 }
 
 .oflagtu {
-  width: 70rpx;
-  height: 70rpx;
+  width: 64rpx;
+  height: 64rpx;
+  margin-top: 3rpx;
 }
 
 /*中文名*/
@@ -77,8 +78,9 @@ page {
 }
 
 .gflagtu {
-  width: 70rpx;
-  height: 70rpx;
+  width: 64rpx;
+  height: 64rpx;
+  margin-top: 3rpx;
 }
 
 /*中文名*/
@@ -134,7 +136,7 @@ page {
 }
 
 .originleftv {
-  width: 520rpx;
+  width: 620rpx;
   display: flex;
 }
 

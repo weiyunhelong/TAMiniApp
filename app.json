@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/test/index",
     "pages/index/index",
     "pages/termini/index",
     "pages/chatbot/index",
@@ -9,7 +8,8 @@
     "pages/search/index",
     "pages/article/index",
     "pages/weather/index",
-    "components/scenicmodule/index"
+    "pages/leftdel/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -4,17 +4,19 @@ const app = getApp()
 var guidetool = require('../../utils/guidedata.js');
 Page({
   data: {
-    topimg: "", //顶部的图片
-    seniclist: [], //标志景点
-    shoppinglist: [], //购物推荐
-    foodlist: [], //美食推荐
-    hotellist: [], //酒店推荐
-    floorstatus: false, //是否显示到达顶部
-    menulist: [], //菜单部分
-    wenchkid: 0, //默认推荐
-    iswenmenu: false, //是否固定文章菜单
-    wenlist: [], //文章列表
-    winheight: 0, //屏幕的高度
+    geduanval: 30, //隔断的高度值
+    swiperdata: {}, //轮播图
+    /**菜单部分**/
+    menudata: {}, //模块测试数据
+    scenicdata: {}, //标志景点
+    fooddata: {}, //美食推荐
+    hoteldata: {}, //购物推荐
+    shoppingdata: {}, //购物推荐
+    /**游玩指南**/
+    wenchkid: 0, //选中菜单id
+    wenlist: [], //游玩指南列表
+    /***底部的tabbar***/
+    tabbardata: {}, //底部的tabbar     
   },
   //事件处理函数
   bindViewTap: function() {
@@ -24,6 +26,10 @@ Page({
   },
   onLoad: function() {
     var that = this;
+    //获取屏幕的高度
+    that.initHight();
+    //轮播图的数据
+    that.initSwiper();
     //初始化菜单
     that.initMenu();
     //获取标志景点
@@ -36,8 +42,6 @@ Page({
     that.initHotel();
     //获取内容部分
     that.initWen();
-    //获取屏幕的高度
-    that.initHight();
   },
   //获取屏幕的高度
   initHight: function() {
@@ -51,73 +55,112 @@ Page({
       }
     })
   },
+  //轮播图的数据
+  initSwiper: function() {
+    var that = this;
+    //获取到轮播图数据
+    var swiperdata = {
+      imglist: [{
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }], //轮播图
+      issearch: true, //搜索按钮
+      isweather: true, //天气预报
+      weatherdata: {
+        wendu: 25,
+        icon: "/resources/weather/sun.png"
+      }, //字体大小
+      fontt1: 60,
+      fontt2: 28,
+      fontt3: 82,
+      fontt4: 20,
+      cnname: "黄金海岸",
+      enname: "Gold Coast",
+      isshowname: true, //是否显示名称
+    }
+    //赋值轮播图
+    that.setData({
+      swiperdata: swiperdata
+    })
+  },
   //获取菜单部分
   initMenu: function() {
     var that = this;
-
-    var menulist = [{
-        id: 0,
-        icon: '/resources/menu/jingdian.png',
-        name: '景点',
-        url: '../../others/pages/index/index?id=0'
-      },
-      {
-        id: 1,
-        icon: '/resources/menu/jiudian.png',
-        name: '酒店',
-        url: '../../others/pages/index/index?id=3'
-      },
-      {
-        id: 2,
-        icon: '/resources/menu/meishi.png',
-        name: '美食',
-        url: '../../others/pages/index/index?id=1'
-      },
-      {
-        id: 3,
-        icon: '/resources/menu/wenti.png',
-        name: '常见问题',
-        url: '../../others/pages/question/index'
-      },
-      {
-        id: 4,
-        icon: '/resources/menu/youwan.png',
-        name: '游玩指南',
-        url: '../../others/pages/guide/index'
-      },
-      {
-        id: 5,
-        icon: '/resources/menu/qianzheng.png',
-        name: '签证',
-        url: '../../others/pages/visa/index'
-      },
-      {
-        id: 6,
-        icon: '/resources/menu/fanyi.png',
-        name: '翻译',
-        url: '../../others/pages/translate/index'
-      },
-      {
-        id: 7,
-        icon: '/resources/menu/duihuan.png',
-        name: '货币兑换',
-        url: '../../others/pages/coin/index'
-      },
-      {
-        id: 8,
-        icon: '/resources/menu/hangban.png',
-        name: '航班查询',
-        url: '../../others/pages/airline/index'
-      },
-      {
-        id: 9,
-        icon: '/resources/menu/phone.png',
-        name: '一键求助',
-        url: ''
-      }
-    ];
+    //菜单处理
+    var menudata = {
+      onemenulist: [{
+          id: 0,
+          icon: '/resources/menu/jingdian.png',
+          name: '景点',
+          url: '../../others/pages/index/index?id=0'
+        },
+        {
+          id: 1,
+          icon: '/resources/menu/jiudian.png',
+          name: '酒店',
+          url: '../../others/pages/index/index?id=3'
+        },
+        {
+          id: 2,
+          icon: '/resources/menu/meishi.png',
+          name: '美食',
+          url: '../../others/pages/index/index?id=1'
+        },
+        {
+          id: 3,
+          icon: '/resources/menu/wenti.png',
+          name: '常见问题',
+          url: '../../others/pages/question/index'
+        },
+        {
+          id: 4,
+          icon: '/resources/menu/youwan.png',
+          name: '游玩指南',
+          url: '../../others/pages/guide/index'
+        },
+      ], //第一行
+      twomenulist: [{
+          id: 5,
+          icon: '/resources/menu/qianzheng.png',
+          name: '签证',
+          url: '../../others/pages/visa/index'
+        },
+        {
+          id: 6,
+          icon: '/resources/menu/fanyi.png',
+          name: '翻译',
+          url: '../../others/pages/translate/index'
+        },
+        {
+          id: 7,
+          icon: '/resources/menu/duihuan.png',
+          name: '货币兑换',
+          url: '../../others/pages/coin/index'
+        },
+        {
+          id: 8,
+          icon: '/resources/menu/hangban.png',
+          name: '航班查询',
+          url: '../../others/pages/airline/index'
+        },
+        {
+          id: 9,
+          icon: '/resources/menu/phone.png',
+          name: '一键求助',
+          url: ''
+        }
+      ], //第二行菜单
+      fontt: 24, //字体大小
+      phonelist: ["110", "120", "119", "114"], //一键求助;
+    }
     that.setData({
-      menulist: menulist
+      menudata: menudata
     })
   },
   //天气预报
@@ -163,66 +206,32 @@ Page({
   initSenic: function() {
     var that = this;
     //标志景点列表
-    var seniclist = [{
-        id: 1,
-        imglist: [{
-            name: "大堡礁",
-            desc: "是世界最大的珊瑚礁群",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
-          },
-          {
-            name: "霍巴特",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
-          },
-          {
-            name: "心形岛",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
-          },
-        ]
-      },
-      {
-        id: 2,
-        imglist: [{
-            name: "黄金海岸",
-            desc: "数十个美丽沙滩组成",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%205.png",
-          },
-          {
-            name: "霍巴特",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
-          },
-          {
-            name: "心形岛",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
-          },
-        ]
-      },
-      {
-        id: 1,
-        imglist: [{
-            name: "大堡礁",
-            desc: "是世界最大最初的珊瑚礁群",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
-          },
-          {
-            name: "霍巴特",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%205.png",
-          },
-          {
-            name: "心形岛",
-            desc: "",
-            pic: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
-          },
-        ]
-      }
-    ];
+    var scenicdata = {
+      datalist: [{
+          id: 1,
+          name: "大堡礁",
+          pic: "http://zhuweis.com/index/Attractions/Bitmap%202.png"
+        },
+        {
+          id: 2,
+          name: "霍巴特",
+          pic: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        },
+        {
+          id: 3,
+          name: "心形岛",
+          pic: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        }
+      ],
+      fontt1: 32,
+      fontt2: 24,
+      fontt3: 24,
+      typename: "标志景点",
+      typeval: 0, //类型值
+      showtype: 1, //显示类型
+    }
     that.setData({
-      seniclist: seniclist
+      scenicdata: scenicdata
     })
   },
   //调整到标志景点的详情
@@ -236,57 +245,44 @@ Page({
   initShopping: function() {
     var that = this;
     //标志景点列表
-    var shoplist = [{
-        id: 1,
-        imglist: [{
-            name: "太平洋购物中心",
+    var shoppingdata = {
+      datalist: [{
+          id: 1,
+          name: "太平洋购物中心",
           pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-          },
-          {
-            name: "海港城A",
-            pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-          },
-          {
-            name: "购物中心A",
-            pic: "http://zhuweis.com/index/shopping/Bitmap.png",
-          },
-        ]
-      },
-      {
-        id: 2,
-        imglist: [{
-            name: "木星赌场",
-          pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-          },
-          {
-            name: "海港城B",
-            pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-          },
-          {
-            name: "购物中心B",
-            pic: "http://zhuweis.com/index/shopping/Bitmap.png",
-          },
-        ]
-      },
-      {
-        id: 1,
-        imglist: [{
-            name: "大堡礁赌场",
+        }, {
+          id: 2,
+          name: "海港城A",
+          pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+        },
+        {
+          id: 3,
+          name: "购物中心A",
           pic: "http://zhuweis.com/index/shopping/Bitmap.png",
-          },
-          {
-            name: "霍巴特Shopping Mall",
-            pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-          },
-          {
-            name: "心形岛Shopping Mall",
-            pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-          },
-        ]
-      }
-    ];
+        }, {
+          id: 4,
+          name: "太平洋购物中心",
+          pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
+        }, {
+          id: 5,
+          name: "海港城A",
+          pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+        },
+        {
+          id: 6,
+          name: "购物中心A",
+          pic: "http://zhuweis.com/index/shopping/Bitmap.png",
+        },
+      ],
+      fontt1: 32,
+      fontt2: 24,
+      fontt3: 24,
+      typename: "购物推荐",
+      typeval: 2, //类型值
+      showtype: 4, //显示类型
+    };
     that.setData({
-      shoplist: shoplist
+      shoppingdata: shoppingdata
     })
   },
   //调整到购物中心
@@ -300,28 +296,33 @@ Page({
   initFood: function() {
     var that = this;
     //美食列表
-    var foodlist = [{
-        id: 1,
-        name: "GEORGE'S STEAK & SEAFOOD RESTAURANT",
-        pic: "http://zhuweis.com/index/Food/Bitmap%206.png",
-        tips: ["综合菜式", "露台"]
-      },
-      {
-        id: 2,
-        name: "黄金酒家",
-        pic: "http://zhuweis.com/index/Food/Bitmap%206.png",
-        tips: ["亚洲菜", "中餐"]
-      },
-      {
-        id: 3,
-        pic: "http://zhuweis.com/index/Food/Bitmap%206.png",
-        name: "潘帕斯雄鹰餐厅",
-        tips: ["南美菜", "阿根廷餐"]
-      }
-    ];
+    var fooddata = {
+      datalist: [{
+          id: 1,
+          name: "GEORGE'S STEAK & SEAFOOD RESTAURANT",
+          pic: "http://zhuweis.com/index/Food/Bitmap%206.png"
+        },
+        {
+          id: 2,
+          name: "黄金酒家",
+          pic: "http://zhuweis.com/index/Food/Bitmap%206.png"
+        },
+        {
+          id: 3,
+          pic: "http://zhuweis.com/index/Food/Bitmap%206.png",
+          name: "潘帕斯雄鹰餐厅"
+        }
+      ],
+      fontt1: 32,
+      fontt2: 24,
+      fontt3: 24,
+      typename: "美食推荐",
+      typeval: 1, //类型值
+      showtype: 2, //显示类型
+    };
 
     that.setData({
-      foodlist: foodlist
+      fooddata: fooddata
     })
   },
   //跳转到美食详情
@@ -336,25 +337,43 @@ Page({
   initHotel: function() {
     var that = this;
     //酒店列表
-    var hotellist = [{
-        id: 1,
-        pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-        name: "派珀斯布罗德海滩度假村"
-      },
-      {
-        id: 2,
-        pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-        name: "芒特拉圈卡维儿酒店"
-      },
-      {
-        id: 3,
-        pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-        name: "大堡礁酒店"
-      }
-    ];
+    var hoteldata = {
+      datalist: [{
+          id: 1,
+          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
+          name: "派珀斯布罗德海滩度假村"
+        },
+        {
+          id: 2,
+          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
+          name: "芒特拉圈卡维儿酒店"
+        },
+        {
+          id: 3,
+          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
+          name: "大堡礁酒店"
+        },
+        {
+          id: 4,
+          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
+          name: "派珀斯布罗德海滩度假村"
+        },
+        {
+          id: 5,
+          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
+          name: "芒特拉圈卡维儿酒店"
+        },
+      ],
+      fontt1: 32,
+      fontt2: 24,
+      fontt3: 24,
+      typename: "酒店推荐",
+      typeval: 3, //类型值
+      showtype: 3, //显示类型
+    };
 
     that.setData({
-      hotellist: hotellist
+      hoteldata: hoteldata
     })
   },
   //跳转到酒店详情
@@ -432,7 +451,7 @@ Page({
       });
     }
     //是否固定文章的顶部
-    if (e.scrollTop > winheight * 2) {
+    if (e.scrollTop > winheight * 2.05) {
       this.setData({
         iswenmenu: true
       });

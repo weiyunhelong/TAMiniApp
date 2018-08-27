@@ -7,9 +7,15 @@ Component({
     receiveData: {
       type: null,
       observer: function (newVal, oldVal) {
+        console.log("轮播图列表的值:");
+        console.log(newVal);
+        //赋值
         this.setData({
           imglist: newVal.imglist,//轮播图
           isshowop: newVal.imglist.length==1?true:false,//是否显示一张图
+          cnname: newVal.cnname,//中文名称
+          enname: newVal.enname,//英文名称
+          isshowname: newVal.isshowname,//显示名称
           issearch: newVal.issearch,//搜索按钮
           isweather: newVal.isweather,//天气预报
           weatherdata: newVal.weatherdata,//天气值
@@ -17,8 +23,7 @@ Component({
           fontt2: newVal.fontt2,//英文字
           fontt3: newVal.fontt3,//温度
           fontt4: newVal.fontt4,//未来一周
-        })
-        
+        })        
       }
     }
   },
@@ -34,6 +39,9 @@ Component({
     duration: 1000,
     imglist: [],//轮播图
     isshowop:true,//一张图
+    cnname: '',//中文名称
+    enname: "",//英文名称
+    isshowname:false,//显示名称
     issearch: true,//搜索按钮
     isweather: true,//天气预报
     weatherdata: {},//天气值

@@ -1,0 +1,11 @@
+<!--components/tabbar/index.wxml-->
+<view class='bottom-barv'></view>
+<view class='bottom-bar'>
+  <block wx:for="{{tabbarlist}}" wx:key="item" wx:for-index="x">
+    <view class='nav-box' bindtap='navTo' data-url='{{item.pagePath}}' data-index='{{x}}'>
+      <image class="icon-square" src="{{item.iconPath}}" mode='scaleToFill' wx:if="{{x!=chktabindex}}"></image>
+      <image class="icon-square" src="{{item.selectedIconPath}}" mode='scaleToFill' wx:if="{{x==chktabindex}}"></image>
+      <text class="text {{x==chktabindex?'chktxt':''}}">{{item.text}}</text>
+    </view>
+  </block>
+</view>

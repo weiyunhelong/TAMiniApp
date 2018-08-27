@@ -87,7 +87,7 @@ page {
 .origintipv .tiptxt {
   font-size: 24rpx;
   color: #0074c8;
-  margin-left: 0;
+  margin-left: 0;  
 }
 
 .closeicon {

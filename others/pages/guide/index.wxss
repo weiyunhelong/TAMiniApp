@@ -85,7 +85,7 @@
 
 /*选中的菜单*/
 
-.chktabitem {
+.chktabitem1 {
   text-align: center;
   height: 77rpx;
   display: inline-block;
@@ -96,7 +96,39 @@
   font-size: 28rpx;
   line-height: 80rpx;
 }
-
+.chktabitem2 {
+  text-align: center;
+  height: 77rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #e36e5b;
+ color: #e36e5b;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.chktabitem3 {
+  text-align: center;
+  height: 77rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #ea9f10;
+  color: #ea9f10;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.chktabitem4 {
+  text-align: center;
+  height: 77rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #53c078;
+  color: #53c078;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
 /*未选中的菜单*/
 
 .nochktabitem {
@@ -104,9 +136,9 @@
   margin: 0 15rpx;
   height: 80rpx;
   line-height: 80rpx;
-  color: #909599;
+  color: #16191C;
   display: inline-block;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 /*过渡行*/
@@ -174,43 +206,43 @@
 }
 
 .listtypev1 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ea9f10;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev2 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color:#53c078;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev3 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 36rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ff7b65;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 36rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }

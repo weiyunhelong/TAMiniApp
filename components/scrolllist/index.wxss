@@ -1,0 +1,320 @@
+/* components/swiperlist/index.wxss */
+
+/*标题部分*/
+.titlev {
+  margin: 0rpx 3%;
+  height: 120rpx;
+  line-height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titlev .titletxt {
+  font-weight: bold;
+}
+
+.titlev .moretxt {
+  color: #909599;
+}
+/*内容部分*/
+.contentv {
+  background-color: #fff;
+}
+
+.tab-contentv {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  padding-bottom: 22rpx;
+}
+
+/****2部分****/
+.taboneitem {
+  width: 670rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+.tabonetucss {
+  width: 670rpx;
+  height: 320rpx;
+  border-radius: 10rpx;
+}
+
+/*文字部分*/
+.tabtxt {
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+/****3部分****/
+.tabtwoitem {
+  width: 320rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.tabtwotucss {
+  width: 320rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+}
+
+/****4部分****/
+.tabthreeitem {
+  width: 200rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.tabthreetucss {
+  width:200rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+
+/****5部分****/
+.tabfouritem {
+  width: 150rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.tabfourtucss {
+  width:150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+
+/*搜索列表结果样式*/
+
+.datav {
+  width: 100%;
+  height: 280rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.dataimgv {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.dataimg {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 40rpx;
+  border-radius: 10rpx;
+}
+
+/*内容部分*/
+
+.datainfov {
+  width: 430rpx;
+  height: 200rpx;
+  margin: 40rpx 40rpx 40rpx 0;
+}
+
+.namexinv {
+  height: 44rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cnnamev {
+  color: #16191c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xinicon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 4rpx;
+}
+
+.ennamev {
+  color: #101112;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*距离部分*/
+
+.distancev {
+  width: 430rpx;
+  height: 30rpx;
+  display: flex;
+  margin-top: 14rpx;
+}
+
+.distancetip {
+  color: #007cce;
+  line-height: 30rpx;
+}
+
+.postionico {
+  width: 18rpx;
+  height: 22rpx;
+  margin: 4rpx 10rpx;
+}
+
+.distancetxt {
+  color: #007cce;
+  line-height: 30rpx;
+}
+
+/*评价价格层*/
+
+.fenpricev {
+  width: 430rpx;
+  height: 30rpx;
+  margin-top: 34rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xingv {
+  display: flex;
+}
+
+.xingico {
+  width: 22rpx;
+  height: 22rpx;
+  margin: 8rpx 6rpx 8rpx 0;
+}
+
+.peoplenum {
+  font-size: 20rpx;
+  margin-left: 15rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+}
+
+.pricev {
+  font-size: 20rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+}
+
+/*地图显示部分*/
+
+.zhediev {
+  text-align: center;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.zhedieico {
+  height: 18rpx;
+  width: 38rpx;
+}
+
+.prolistv {
+  width: 100%;
+  height: 300rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0rpx;
+}
+
+/*底部滚动*/
+
+.prolistview {
+  width: 100%;
+  height: 300rpx;
+  white-space: nowrap;
+  display: flex;
+}
+
+.geduan {
+  width: 30rpx;
+  height: 200rpx;
+  display: inline-block;
+}
+
+.scroll-view-item {
+  width: 600rpx;
+  height: 270rpx;
+  display: inline-block;
+}
+
+.protu {
+  width: 258rpx;
+  height: 258rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  float: left;
+}
+
+/*右侧的信息*/
+
+.nonamedaohang {
+  width: 300rpx;
+  height: 225rpx;
+  float: left;
+  padding-left: 20rpx;
+}
+
+.proname {
+  width: 330rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 20rpx;
+}
+
+.proaddr {
+  margin: 6rpx 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projuliv {
+  display: flex;
+  color: #0074c8;
+  margin-top: 10rpx;
+}
+
+/*操作按钮行*/
+
+.lasthangv {
+  display: flex;
+  position: relative;
+  top: 60rpx;
+}
+
+.xinico {
+  width: 32rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
+}
+
+.xianv {
+  width: 2rpx;
+  height: 30rpx;
+  background: #ccc;
+  margin: 10rpx 40rpx;
+}
+
+.daohangico {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 8rpx;
+}

@@ -38,15 +38,15 @@
   <!--筛选的条件-->
   <view class='filterv font-t7' wx:if="{{!isshowmap}}">
     <view class='filteritem' bindtap='scoreopt'>
-      <view class='filtertxt'>评分排序</view>
+      <view class="{{sorder?'chkfiltertxt':'filtertxt'}}">评分排序</view>
     </view>
     <view class='filterxian'></view>
     <view class='filteritem' bindtap='prirceopt'>
-      <view class='filtertxt'>价格排序</view>
+      <view class="{{porder?'chkfiltertxt':'filtertxt'}}">价格排序</view>
     </view>
     <view class='filterxian'></view>
     <view class='filteritem' bindtap='distanceopt'>
-      <view class='filtertxt'>距离排序</view>
+      <view class="{{dorder?'chkfiltertxt':'filtertxt'}}">距离排序</view>
     </view>
   </view>
 </view>

@@ -8,9 +8,13 @@ Page({
     geduanval: 30, //隔断的高度值
     swiperdata: {
       imglist: [{
-        id: 1,
-        cnname: "黄金海岸A",
-        enname: "Gold Coast",
+        id: 1,      
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 3,
         imgpath: "http://zhuweis.com/index/Header.png",
       }], //轮播图
       issearch: true, //搜索按钮
@@ -23,6 +27,9 @@ Page({
       fontt2: 28,
       fontt3: 82,
       fontt4: 20,
+      cnname: "黄金海岸",
+      enname: "Gold Coast",
+      isshowname:true,//是否显示名称
     },
     /**菜单部分**/
     menudata: {
@@ -128,10 +135,37 @@ Page({
       fontt3: 24,
       typename: "美食推荐",
       typeval: 1, //类型值
-      showtype: 1, //显示类型
+      showtype: 4, //显示类型
     },
-    //购物类型
-
+    //底部的tabbar
+    tabbardata: {
+      tabbarlist: [{
+          "pagePath": "../../pages/index/index",
+          "iconPath": "../../resources/tabbar/home.png",
+          "selectedIconPath": "../../resources/tabbar/homeh.png",
+          "text": "城市首页"
+        },
+        {
+          "pagePath": "../../pages/termini/index",
+          "iconPath": "../../resources/tabbar/ditu.png",
+          "selectedIconPath": "../../resources/tabbar/dituh.png",
+          "text": "城市地图"
+        },
+        {
+          "pagePath": "../../pages/chatbot/index",
+          "iconPath": "../../resources/tabbar/chatbot.png",
+          "selectedIconPath": "../../resources/tabbar/chatboth.png",
+          "text": "智能助理"
+        },
+        {
+          "pagePath": "../../pages/my/index",
+          "iconPath": "../../resources/tabbar/my.png",
+          "selectedIconPath": "../../resources/tabbar/myh.png",
+          "text": "我的"
+        }
+      ],
+      chktabindex: 0
+    }
   },
 
   /**

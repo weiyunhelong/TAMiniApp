@@ -1,7 +1,7 @@
 <!--pages/my/index.wxml-->
 
 <!--顶部行-->
-<view class='topv' wx:if="{{!isshowtop}}"  style='background-image: url("http://zhuweis.com/index/Header.png");'>
+<view class='topv' wx:if="{{!isshowtop}}" style='background-image: url("http://youimg1.c-ctrip.com/target/tg/437/403/707/7be917b91e5c4b74bfffdb70379da3f5.jpg");'>
 
   <view class='baseinfov'>
     <!--编辑图标-->
@@ -13,29 +13,28 @@
       <image src='{{touxiang}}' class='wxtxcss'></image>
     </view>
     <!--微信昵称-->
-    <view class='wxnickname font-t4' wx:if="{{islogin}}">{{nickName}}</view>
+    <view class='wxnickname' wx:if="{{islogin}}">{{nickName}}</view>
 
     <!--获取用户信息-->
-    <button wx:if="{{!islogin}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class='loginbtn font-t4'>登录</button>
+    <button wx:if="{{!islogin}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class='loginbtn'>登录</button>
 
   </view>
 </view>
 
 <!--三个菜单-->
-<view class='tabmenuv font-t5' wx:if="{{!isshowtop}}">
+<view class='tabmenuv' wx:if="{{!isshowtop}}">
   <view class="{{tabmenuid==1?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='1'>我的订单</view>
   <view class="{{tabmenuid==2?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='2'>我的收藏</view>
   <view class="{{tabmenuid==3?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='3'>我的点评</view>
 </view>
 
 <!--三个菜单-->
-<view class='fixtabmenuv font-t5' wx:if="{{isshowtop}}">
+<view class='fixtabmenuv' wx:if="{{isshowtop}}">
   <view class="{{tabmenuid==1?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='1'>我的订单</view>
   <view class="{{tabmenuid==2?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='2'>我的收藏</view>
   <view class="{{tabmenuid==3?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='3'>我的点评</view>
 </view>
 <view class='geduanv'></view>
-<view style=''></view>
 
 <!--订单部分-->
 <view class='orderlistv' wx:if="{{tabmenuid==1}}" style="{{isshowtop?'margin-top:100rpx;':'margin-top:0rpx;'}}">
@@ -47,30 +46,28 @@
       </view>
       <!--订单信息-->
       <view class='orderinfov'>
-        <view class='ordercnname font-t5'>{{item.cnname}}</view>
-        <view class='orderenname font-t8'>{{item.enname}}</view>
-        <view class='orderaddress font-t8'>{{item.address}}</view>
+        <view class='ordercnname'>{{item.cnname}}</view>
+        <view class='orderenname'>{{item.enname}}</view>
+        <view class='orderaddress'>{{item.address}}</view>
       </view>
       <!--订单状态-->
-      <view class='usedorderstatus font-t5' wx:if="{{item.status==1}}">已使用</view>
-      <view class='useingorderstatus font-t5' wx:if="{{item.status==0}}">未使用</view>
+      <view class='usedorderstatus' wx:if="{{item.status==1}}">已使用</view>
+      <view class='useingorderstatus' wx:if="{{item.status==0}}">未使用</view>
     </view>
   </block>
 </view>
 
 <!--收藏部分-->
 <!--顶部的switch按钮-->
-<view class="{{isshowtop?'fswitchv':'switchv'}}" wx:if="{{tabmenuid==2}}">
-  <view style='display: flex;' wx:if="{{collecttab==1}}">
-    <view class="chkswitchv font-t7" data-id='1' bindtap='collecttabopt'>内容</view>
-    <view class="nochkswitchv font-t7" data-id='2' bindtap='collecttabopt' style='margin-left: -30rpx;'>地点</view>
-  </view>
-  <view style='display: flex;' wx:if="{{collecttab==2}}">
-    <view class="nochkswitchv font-t7" data-id='1' bindtap='collecttabopt' style='margin-right: -30rpx;'>内容</view>
-    <view class="chkswitchv font-t7" data-id='2' bindtap='collecttabopt'>地点</view>
-  </view>
+<view class="{{isshowtop?'fswitchv':'switchv'}}" wx:if="{{tabmenuid==2&&collecttab==1}}">
+  <view class="chkswitchv"   data-id='1' bindtap='collecttabopt'>内容</view>
+  <view class="nochkswitchv" style='margin-left: -30rpx;' data-id='2' bindtap='collecttabopt'>地点</view>
 </view>
-
+<!--顶部的switch按钮-->
+<view class="{{isshowtop?'fswitchv':'switchv'}}" wx:if="{{tabmenuid==2&&collecttab==2}}">
+  <view class="nochkswitchv" style='margin-right: -30rpx;' data-id='1' bindtap='collecttabopt'>内容</view>
+  <view class="chkswitchv"   data-id='2' bindtap='collecttabopt'>地点</view>
+</view>
 
 <!--收藏列表部分-->
 <view class="{{isshowtop?'fcollectlist':'collectlistv'}}" wx:if="{{tabmenuid==2}}">
@@ -78,11 +75,11 @@
   <!--内容列表部分-->
   <view class='listv' wx:if="{{collecttab==1}}">
     <block wx:for="{{guidelist}}" wx:key="item" wx:for-index="index">
-      <view class='guidev' data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}" bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
+      <view class='guidev' data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}"  bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
         <!--内容部分列表-->
         <view class='glistitemv' style="margin-left:{{item.isTouchMove?-155:0}}px;">
           <!--图片部分-->
-          <view class='listtuv font-t7'>
+          <view class='listtuv'>
             <image src='{{item.imgpath}}' class='listtu'></image>
             <view class='listtypev1' wx:if="{{item.typeval==1}}">线路</view>
             <view class='listtypev2' wx:if="{{item.typeval==2}}">游记</view>
@@ -90,17 +87,17 @@
           </view>
           <!--文字介绍-->
           <view class='listinfov'>
-            <view class='listtitle font-t5'>{{item.title}}</view>
-            <view class='listinfo font-t7'>{{item.instro}}</view>
+            <view class='listtitle'>{{item.title}}</view>
+            <view class='listinfo'>{{item.instro}}</view>
             <view class='numv'>
-              <view class='collectnum font-t7'>{{item.collectnum}}收藏</view>
-              <view class='collectnum font-t7'>{{item.viewnum}}浏览</view>
+              <view class='collectnum'>{{item.collectnum}}收藏</view>
+              <view class='collectnum'>{{item.viewnum}}浏览</view>
             </view>
           </view>
         </view>
 
         <!--删除按钮-->
-        <view class="ndel font-t5" catchtap="ndel" data-index="{{index}}" data-id="{{id}}">删除</view>
+        <view class="ndel" catchtap="ndel" data-index="{{index}}" data-id="{{id}}">删除</view>
       </view>
     </block>
   </view>
@@ -109,7 +106,7 @@
   <!--地点列表部分-->
   <view class='listv' wx:if="{{collecttab==2}}">
     <block wx:for="{{sceniclist}}" wx:key="item" wx:for-index="index">
-      <view class='scenicv' data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}" data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
+      <view class='scenicv' data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}"  data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
         <!--地点部分列表-->
         <view class='slistitemv' style="margin-left:{{item.isTouchMove?-340:0}}rpx;">
           <!--图片部分-->
@@ -120,10 +117,10 @@
           <view class='datainfov'>
             <!--中文名称收藏-->
             <view class='namexinv'>
-              <view class='cnnamev font-t5'>{{item.cnname}}</view>
+              <view class='cnnamev'>{{item.cnname}}</view>
             </view>
             <!--英文-->
-            <view class='ennamev font-t7'>{{item.enname}}</view>
+            <view class='ennamev'>{{item.enname}}</view>            
             <!--评价部分-->
             <view class='fenpricev'>
               <view class='xingv'>
@@ -132,15 +129,15 @@
                 <image src='/resources/icon/smxingh.png' class='xingico'></image>
                 <image src='/resources/icon/smxingh.png' class='xingico'></image>
                 <image src='/resources/icon/smxingh.png' class='xingico'></image>
-                <view class='peoplenum font-t8'>{{item.commentnum}}人评论</view>
+                <view class='peoplenum'>{{item.commentnum}}人评论</view>
               </view>
             </view>
             <!--价格部分-->
-            <view class='pricev font-t8'>￥{{item.price}}/人</view>
+            <view class='pricev'>￥{{item.price}}/人</view>
           </view>
         </view>
         <!--删除-->
-        <view class="jdel font-t5" catchtap="jdel" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
+        <view class="jdel" catchtap="jdel" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
       </view>
     </block>
   </view>

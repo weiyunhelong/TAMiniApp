@@ -1,7 +1,7 @@
 <!--pages/test/index.wxml-->
 
 <!--轮播图部分-->
-<swiper receiveData='{{swiperdata}}'/>
+<swiper receiveData='{{swiperdata}}' style="height: 438rpx;"/>
 
 <!--menu部分-->
 <menu receiveData='{{menudata}}'/>
@@ -13,3 +13,6 @@
 <module receiveData='{{moduledata}}'/>
 <!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
+
+<!--底部的tabbar-->
+<tabbar receiveData='{{tabbardata}}'/>

@@ -11,11 +11,18 @@
 
   <!--tab层-->
   <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-    <block wx:for="{{tablist}}" wx:key="item" wx:for-index="x">
-      <view class="tabitem">
-        <view class="{{currentTab==x?'chktabitem':'nochktabitem'}}" data-id="{{item.id}}" bindtap="switchNav">{{item.name}}</view>
-      </view>
-    </block>
+    <view class="tabitem">
+      <view class="{{currentTab==0?'chktabitem1':'nochktabitem'}}" data-id="0" bindtap="switchNav">推荐</view>
+    </view>
+    <view class="tabitem">
+      <view class="{{currentTab==3?'chktabitem2':'nochktabitem'}}" data-id="3" bindtap="switchNav">攻略</view>
+    </view>
+    <view class="tabitem">
+      <view class="{{currentTab==2?'chktabitem3':'nochktabitem'}}" data-id="2" bindtap="switchNav">游记</view>
+    </view>
+    <view class="tabitem">
+      <view class="{{currentTab==1?'chktabitem4':'nochktabitem'}}" data-id="1" bindtap="switchNav">线路</view>
+    </view>
   </scroll-view>
 
   <!--过渡行-->
@@ -33,30 +40,30 @@
 <!--列表部分-->
 <view class='listv'>
   <block wx:for="{{guidelist}}" wx:key="item">
-  <!--列表信息-->
-  <view class='listitemv' bindtap='godetail' data-id='{{item.id}}' data-type='{{item.typeval}}' data-title='{{item.title}}'>
-     <!--图片部分-->
-     <view class='listtuv'>
-       <image src='{{item.imgpath}}' class='listtu'></image>
-       <view class='listtypev1' wx:if="{{item.typeval==1}}">线路</view>
-       <view class='listtypev2' wx:if="{{item.typeval==2}}">游记</view>
-       <view class='listtypev3' wx:if="{{item.typeval==3}}">攻略</view>
-     </view>
-     <!--文字介绍-->
-     <view class='listinfov'>
-       <view class='listtitle'>{{item.title}}</view>
-       <view class='listinfo'>{{item.instro}}</view>
-       <view class='numv'>
-         <view class='collectnum'>{{item.collectnum}}收藏</view>
-         <view class='collectnum'>{{item.viewnum}}浏览</view>
-       </view>
-     </view>
-     <!--收藏-->
-     <view class='listxinv' catchtap='collectopt' data-id='{{item.id}}'>
-       <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}"></image>
-       <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}"></image>
-     </view>
-  </view>
-  <view class='geduanv'></view>
-</block>
+    <!--列表信息-->
+    <view class='listitemv' bindtap='godetail' data-id='{{item.id}}' data-type='{{item.typeval}}' data-title='{{item.title}}'>
+      <!--图片部分-->
+      <view class='listtuv'>
+        <image src='{{item.imgpath}}' class='listtu'></image>
+        <view class='listtypev1' wx:if="{{item.typeval==1}}">线路</view>
+        <view class='listtypev2' wx:if="{{item.typeval==2}}">游记</view>
+        <view class='listtypev3' wx:if="{{item.typeval==3}}">攻略</view>
+      </view>
+      <!--文字介绍-->
+      <view class='listinfov' >
+        <view class='listtitle'>{{item.title}}</view>
+        <view class='listinfo' style="{{item.instroduce==''?'height:90rpx;':'height:auto;'}}">{{item.instroduce}}</view>
+        <view class='numv'>
+          <view class='collectnum'>{{item.collectnum}}收藏</view>
+          <view class='collectnum'>{{item.viewnum}}浏览</view>
+        </view>
+      </view>
+      <!--收藏-->
+      <view class='listxinv' catchtap='collectopt' data-id='{{item.id}}'>
+        <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}"></image>
+        <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}"></image>
+      </view>
+    </view>
+    <view class='geduanv'></view>
+  </block>
 </view>

@@ -339,9 +339,9 @@ Page({
   scoreopt: function () {
     var that = this;
     that.setData({
-      sorder: true,
-      porder:false,
-      dorder:false
+      sorder: !that.data.sorder,
+      porder: false,
+      dorder: false
     })
   },
   //价格排序
@@ -349,7 +349,7 @@ Page({
     var that = this;
     that.setData({
       sorder: false,
-      porder: true,
+      porder: !that.data.porder,
       dorder: false
     })
   },
@@ -359,7 +359,7 @@ Page({
     that.setData({
       sorder: false,
       porder: false,
-      dorder: true
+      dorder: !that.data.dorder
     })
   },
   //折叠

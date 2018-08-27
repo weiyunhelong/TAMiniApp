@@ -1,48 +1,54 @@
 <!--pages/search/index.wxml-->
-<!--搜索层-->
-<view class='searchv'>
-  <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
-    <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
-    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
-  </view>
-  <view class='cleartxt' bindtap='goback'>取消</view>
-</view>
-
-<!--tab层-->
-<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-  <block wx:for="{{tablist}}" wx:key="item" wx:for-index="x">
-    <view class="tabitem" data-current="{{x}}" data-id="{{item.name}}" bindtap="switchNav">
-      <view class="{{currentTab==x?'chktabitem':'nochktabitem'}}" data-current="{{x}}" data-id="{{item.id}}" bindtap="swichNav">{{item.name}}</view>
+<view class='topv'>
+  <!--搜索层-->
+  <view class='searchv'>
+    <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
+      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
-  </block>
-</scroll-view>
-<!--阴影层-->
-<view class='shadowv'></view>
-<view class='shaovb'></view>
-<!--历史记录-->
-<view class='historyv'>
- <view class='titlev'>历史记录</view>
- <view class='clearv'>清除</view>
+    <view class='cleartxt' bindtap='goback'>取消</view>
+  </view>
+
+  <!--tab层-->
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{tablist}}" wx:key="item" wx:for-index="x">
+      <view class="tabitem" data-current="{{x}}" data-id="{{item.name}}" bindtap="switchNav">
+        <view class="{{currentTab==x?'chktabitem':'nochktabitem'}}" data-current="{{x}}" data-id="{{item.id}}" bindtap="swichNav">{{item.name}}</view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!--阴影层-->
+  <view class='shadowv'></view>
 </view>
 
-<view class='historylist'>
- <view class='historyitem'>昆士兰</view>
- <view class='historyitem'>黄金海岸</view>
+<view wx:if="{{!isshowcontent}}" style='margin-top: 250rpx;'>
+  <!--历史记录-->
+  <view class='historyv' wx:if="{{isshowhistory}}">
+    <view class='titlev'>历史记录</view>
+    <view class='clearv' bindtap='clearopt'>清除</view>
+  </view>
+
+  <view class='historylist' wx:if="{{isshowhistory}}">
+    <block wx:for="{{historylist}}" wx:key="item">
+      <view class='historyitem' bindtap='gosearch' data-id='{{item.id}}' data-name='{{item.name}}'>{{item.name}}</view>
+    </block>
+  </view>
+
+
+  <!--热门搜索-->
+  <view class='hotsearchv'>
+    <view class='titlev'>热门搜索</view>
+  </view>
+
+  <view class='hotsearchlist'>
+    <block wx:for="{{hotsearchlist}}" wx:key="item">
+      <view class="{{item.ishot?'hotsearchhitem':'hotsearchitem'}}" bindtap='gosearch' data-id='{{item.id}}' data-name='{{item.name}}'>{{item.name}}</view>
+    </block>
+  </view>
 </view>
 
-
-<!--热门搜索-->
-<view class='hotsearchv'>
- <view class='titlev'>热门搜索</view>
-</view>
-
-<view class='hotsearchlist'>
- <view class='hotsearchitem'>昆士兰</view>
- <view class='hotsearchitem'>黄金海岸</view>
- 
- <view class='hotsearchhitem'>最好的酒店</view>
- <view class='hotsearchhitem'>去哪里冲浪</view>
- 
- <view class='hotsearchitem'>浮潜</view>
- <view class='hotsearchitem'>不可错过的美食</view>
+<!--搜索结果-->
+<view wx:if="{{isshowcontent}}" style='margin-top: 250rpx;'>
+  <scrolllist receiveData='{{resultlist}}' />
 </view>

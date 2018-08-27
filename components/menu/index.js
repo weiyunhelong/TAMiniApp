@@ -31,6 +31,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    
     //菜单的点击
     gomenu:function(e){
       var that=this;
