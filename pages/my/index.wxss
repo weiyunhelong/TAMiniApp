@@ -79,7 +79,7 @@ page {
 
 .tabmenuv {
   display: flex;
-  margin-top: -60rpx;
+  margin-top: -65rpx;
   justify-content: space-around;
 }
 
@@ -144,7 +144,7 @@ page {
   text-align: center;
   line-height: 60rpx;
   color: #fff;
-  font-size: 24rpx;  
+  font-size: 24rpx;
   position: relative;
   z-index: 2;
 }
@@ -477,10 +477,19 @@ page {
   padding-bottom: 20rpx;
 }
 
+.donghuaguidev {
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s;  
+}
+
 .glistitemv {
   margin: 0;
   display: flex;
-  transition: left 0.2s ease-in-out;
 }
 
 .scenicv {
@@ -492,7 +501,6 @@ page {
 .slistitemv {
   margin: 0;
   display: flex;
-  transition: left 0.2s ease-in-out;
 }
 
 .content {
@@ -500,11 +508,6 @@ page {
   padding: 10px;
   line-height: 22px;
   margin-right: 0;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  margin-left: -90px;
 }
 
 .ndel {
@@ -515,14 +518,18 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  height: 200rpx;
-  margin-top: 30rpx;
+  margin-left: 50rpx;
 }
 
+.donghuascenicv{
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s; 
+}
 .jdel {
   background-color: orangered;
   width: 180rpx;
@@ -530,13 +537,7 @@ page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  height: 200rpx;
-  margin: 40rpx 0;
+  color: #fff;  
 }
 
 .lastgeduanv {

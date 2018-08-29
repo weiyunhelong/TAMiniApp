@@ -79,5 +79,6 @@
         </view>
       </view>
     </view>
+    <view style='height:{{geduanh}}rpx;' class='geduanv'></view>
   </block>
 </view>

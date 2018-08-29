@@ -4,8 +4,8 @@
 <view class='topv' style='background-image: url("http://zhuweis.com/index/Header.png");'>
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
-    <image src='/resources/icon/detailxin.png' class='xinicon' wx:if="{{!iscollect}}"></image>
-    <image src='/resources/icon/detailxinh.png' class='xinicon' wx:if="{{iscollect}}"></image>
+    <image src='/resources/icon/detailxin.png'  class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{!iscollect}}"></image>
+    <image src='/resources/icon/detailxinh.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{iscollect}}"></image>
   </view>
 </view>
 <!--名称，信息部分-->
@@ -31,7 +31,9 @@
 <!--基本信息-->
 <view class='basetxt font-t4'>基础信息</view>
 <view class='baseinfo font-t5'>
-  <rich-text nodes="{{introduce}}"></rich-text>
+  <rich-text nodes="{{introduce}}" wx:if="{{!isshowmore}}"></rich-text>
+  <rich-text nodes="{{moreintroduce}}" wx:if="{{isshowmore}}"></rich-text>
+  <view class='showmore' bindtap='showmoreinfo'>{{showmore}}</view>
 </view>
 <view class='hangv' style='margin-top:35rpx;'>
   <view class='titlev font-t4'>门票</view>

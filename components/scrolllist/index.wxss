@@ -318,3 +318,10 @@
   height: 32rpx;
   margin-top: 8rpx;
 }
+
+/*隔断行样式*/
+.geduanv{
+  width: 100%;
+  background-color: #f7f7f7;
+  clear: both;
+}

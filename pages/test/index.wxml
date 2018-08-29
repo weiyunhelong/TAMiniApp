@@ -1,18 +1,21 @@
 <!--pages/test/index.wxml-->
 
-<!--轮播图部分-->
-<swiper receiveData='{{swiperdata}}' style="height: 438rpx;"/>
+<!--游玩指南部分-->
+<!--<searchcomponent receiveData='{{searchdata}}' bind:getsearchval="getsearchval"/>-->
 
-<!--menu部分-->
-<menu receiveData='{{menudata}}'/>
-
-<!--隔断-->
-<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
-
-<!--美食类型组件部分-->
-<module receiveData='{{moduledata}}'/>
-<!--隔断-->
-<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
-
-<!--底部的tabbar-->
-<tabbar receiveData='{{tabbardata}}'/>
+<view class="header" hidden="{{hideHeader}}">
+  <view>下拉刷新中……</view>
+  <view>{{refreshTime}}</view>
+</view>
+<scroll-view class="list" style="height: 1208rpx" scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+  <view class="item" wx:for="{{contentlist}}" wx:key="index">
+    <view class="left">
+      <image src="{{item.contentImg}}"></image>
+    </view>
+    <view class="right">{{item.title}}</view>
+  </view>
+</scroll-view>
+<view class="bottom" hidden="{{hideBottom}}">
+  <view>{{loadMoreData}}</view>
+  <view>{{refreshTime}}</view>
+</view>

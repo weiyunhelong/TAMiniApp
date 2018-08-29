@@ -1,0 +1,25 @@
+<!--components/search/index.wxml-->
+
+<!--搜索框后带有图标-->
+<view class='searchv' wx:if="{{showtype==1}}">
+  <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+    <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+  </view>
+  <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowicon}}">
+    <image src='/resources/icon/dingtu.png' class='listicon'></image>
+  </view>
+  <view class='cleartxt' bindtap='changeshow' wx:if="{{isshowicon}}">
+    <image src='/resources/list.png' class='dituicon'></image>
+  </view>
+</view>
+
+
+<!--搜索框后带有文字-->
+<view class='searchv' wx:if="{{showtype==2}}">
+  <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+    <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
+    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+  </view>
+  <view class='cleartxt' bindtap='goback'>取消</view>
+</view>

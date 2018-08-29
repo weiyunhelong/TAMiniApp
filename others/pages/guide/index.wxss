@@ -5,6 +5,10 @@
   height: auto;
   background-color: #fff;
   padding-top: 25rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 /*搜索层*/
@@ -96,17 +100,19 @@
   font-size: 28rpx;
   line-height: 80rpx;
 }
+
 .chktabitem2 {
   text-align: center;
   height: 77rpx;
   display: inline-block;
   border-bottom: 5rpx solid #e36e5b;
- color: #e36e5b;
+  color: #e36e5b;
   font-weight: bold;
   box-sizing: content-box;
   font-size: 28rpx;
   line-height: 80rpx;
 }
+
 .chktabitem3 {
   text-align: center;
   height: 77rpx;
@@ -118,6 +124,7 @@
   font-size: 28rpx;
   line-height: 80rpx;
 }
+
 .chktabitem4 {
   text-align: center;
   height: 77rpx;
@@ -129,6 +136,7 @@
   font-size: 28rpx;
   line-height: 80rpx;
 }
+
 /*未选中的菜单*/
 
 .nochktabitem {
@@ -136,7 +144,7 @@
   margin: 0 15rpx;
   height: 80rpx;
   line-height: 80rpx;
-  color: #16191C;
+  color: #16191c;
   display: inline-block;
   font-size: 28rpx;
 }
@@ -190,6 +198,7 @@
   width: 100%;
   height: auto;
   background-color: #fff;
+  margin-top: 300rpx;
 }
 
 .listitemv {
@@ -211,7 +220,7 @@
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
-  background-color: #ea9f10;
+  background-color: #53c078;
   position: relative;
   text-align: center;
   line-height: 36rpx;
@@ -225,7 +234,7 @@
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
-  background-color:#53c078;
+  background-color: #ea9f10;
   position: relative;
   text-align: center;
   line-height: 36rpx;
@@ -246,6 +255,7 @@
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
+
 /*内容介绍部分*/
 
 .listinfov {
@@ -256,6 +266,11 @@
   font-size: 28rpx;
   padding-top: 45rpx;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .listinfo {
@@ -290,7 +305,8 @@
 }
 
 /*隔断行*/
-.geduanv{
+
+.geduanv {
   width: 100%;
   height: 20rpx;
   background-color: #f2f2f2;

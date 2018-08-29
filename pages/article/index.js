@@ -13,6 +13,7 @@ Page({
     viewnum:1159,//浏览个数
     info:"",//内容简介部分
     islangtxt:false,//是否是长标题
+    datetime:'2018-08-20',//发布日期
   },
 
   /**

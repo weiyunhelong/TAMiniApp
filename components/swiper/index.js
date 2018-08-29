@@ -50,7 +50,52 @@ Component({
     fontt3: 0,
     fontt4: 0,
   },
+  /**
+   * 组件生命周期函数，在组件实例进入页面节点树时执行
+   */
+  attached:function(){
+    var that=this;
+    //获取到轮播图数据
+    var  imglist= [{
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }], //轮播图
+      issearch= true, //搜索按钮
+      isweather= true, //天气预报
+      weatherdata= {
+        wendu: 25,
+        icon: "/resources/weather/sun.png"
+      }, //字体大小
+      fontt1= 60,
+      fontt2= 28,
+      fontt3= 82,
+      fontt4= 20,
+      cnname= "黄金海岸",
+      enname= "Gold Coast",
+      isshowname= true; //是否显示名称
 
+    //赋值部分
+    that.setData({
+      imglist: imglist,//轮播图
+      isshowop: imglist.length>1?true:false,//一张图
+      cnname: cnname,//中文名称
+      enname: enname,//英文名称
+      isshowname: isshowname,//显示名称
+      issearch: issearch,//搜索按钮
+      isweather: isweather,//天气预报
+      weatherdata: weatherdata,//天气值
+      fontt1: fontt1,
+      fontt2: fontt2,
+      fontt3: fontt3,
+      fontt4: fontt4,
+    })
+  },
   /**
    * 组件的方法列表
    */

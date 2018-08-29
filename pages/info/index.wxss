@@ -25,6 +25,35 @@ page {
   height: 36rpx;
 }
 
+.xinanimation {
+  animation: collect 0.5s ease-in-out;
+  -moz-animation: collect 0.5s ease-in-out; /* Firefox */
+  -webkit-animation: collect 0.5s ease-in-out; /* Safari 和 Chrome */
+  animation-delay: 0;
+}
+
+@keyframes collect {
+  0% {
+    transform: scale(1.0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
 /*内容部分*/
 
 .introv {
@@ -102,11 +131,11 @@ page {
   font-weight: bold;
 }
 
-/*图片介绍部分*/
+/*基本信息部分*/
 
 .basetxt {
   height: 60rpx;
-  margin: 40rpx 40rpx 0 40rpx;
+  margin: 40rpx 40rpx 16rpx 40rpx;
   font-weight: 600;
   line-height: 60rpx;
 }
@@ -115,6 +144,13 @@ page {
   height: auto;
   margin: 0 40rpx;
   color: #909599;
+}
+
+.showmore {
+  float: right;
+  margin-top: -35rpx;
+  color: #16191c;
+  margin-right: 40rpx;
 }
 
 .hangv {
@@ -247,6 +283,7 @@ page {
   background: linear-gradient(180deg, rgba(209, 209, 209, 1), rgba(216, 216, 216, 0));
   opacity: 0.8;
 }
+
 .chktab {
   text-align: center;
   color: #007cce;

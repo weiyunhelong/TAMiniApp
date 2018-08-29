@@ -32,6 +32,7 @@ Component({
     typename: "",//类型名称
     typeval: 0,//类型值
     showtype: 0,//显示滚动的类型
+    geduanh:20,//隔断的高度
   },
 
   /**
@@ -57,5 +58,44 @@ Component({
         url: '../../pages/info/index?id=' + id + "&type=" + that.data.typeval,
       })
     },
+    //收藏操作
+    listcollectopt:function(e){
+      var that = this;
+      //参数部分
+      var id = e.currentTarget.dataset.id;
+      var datalist = that.data.datalist;
+      //循环遍历
+      var txtarry = [];
+      for (var i = 0; i < datalist.length; i++) {
+        if (id == datalist[i].id) {
+          txtarry[i] = {
+            id: datalist[i].id,
+            imgpath: datalist[i].imgpath,
+            cnname: datalist[i].cnname,
+            enname: datalist[i].enname,
+            distance: datalist[i].distance,
+            commentnum: datalist[i].commentnum,
+            price: datalist[i].price,
+            iscollect: !datalist[i].iscollect
+          }
+        } else {
+          txtarry[i] = {
+            id: datalist[i].id,
+            imgpath: datalist[i].imgpath,
+            cnname: datalist[i].cnname,
+            enname: datalist[i].enname,
+            distance: datalist[i].distance,
+            commentnum: datalist[i].commentnum,
+            price: datalist[i].price,
+            iscollect: datalist[i].iscollect
+          }
+        }
+      }
+      //赋值
+      that.setData({
+        datalist: txtarry
+      })
+    },
+    /*结束标识符*/
   }
 })

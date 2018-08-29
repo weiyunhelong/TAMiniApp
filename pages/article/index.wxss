@@ -74,30 +74,29 @@ page {
 /*标题文字*/
 
 .titlev {
-  width: 410rpx;
-  height: 96rpx;
-  color: #fff;
+  width: 710rpx;
+  color: #16191c;
   font-size: 48rpx;
-  position: absolute;
-  left: 38rpx;
+  margin: 520rpx 20rpx 20rpx 20rpx;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 /*收藏浏览*/
 
 .otherv {
-  float: right;
-  margin-top: 422rpx;
   display: flex;
-  color: #fff;
-  margin-right: -85rpx;
+  color: #909599;
+  padding-left: 20rpx;
 }
 
 .shoucangv {
   margin-right: 20rpx;
+  margin-left:40rpx;
 }
 
 .instrov {
-  margin: 590rpx 40rpx 40rpx 40rpx;
+  margin: 40rpx 40rpx 40rpx 40rpx;
   width: 670rpx;
 }
 

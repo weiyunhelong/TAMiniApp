@@ -1,10 +1,10 @@
 <!--index.wxml-->
+
 <!--轮播图部分-->
-<swiper receiveData='{{swiperdata}}' style="height: 438rpx;"/>
+<swiper style="height: 438rpx;"/>
 
 <!--menu部分-->
-<menu receiveData='{{menudata}}'/>
-
+<menu />
 <!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
@@ -28,90 +28,8 @@
 <!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
-
-<!--文章菜单部分-->
-<view class="{{iswenmenu?'fixpostion':'wmenuv'}}">
-  <view class="{{wenchkid==0?'wmenuchk1':'wmenunochk'}} font-t5" data-id='0' bindtap='chkwmenu'>推荐</view>
-  <view class="{{wenchkid==3?'wmenuchk2':'wmenunochk'}} font-t5" data-id='3' bindtap='chkwmenu'>攻略</view>
-  <view class="{{wenchkid==2?'wmenuchk3':'wmenunochk'}} font-t5" data-id='2' bindtap='chkwmenu'>游记</view>
-  <view class="{{wenchkid==1?'wmenuchk4':'wmenunochk'}} font-t5" data-id='1' bindtap='chkwmenu'>线路</view>
-</view>
-<view class="{{iswenmenu?'fixshadowv':'shadowv'}}"></view>
-
-<!--推荐和线路内容部分-->
-<view class="recommentv" wx:if="{{wenchkid==0||wenchkid==1}}">
-  <!--左侧瀑布流布局-->
-  <view class='leftv'>
-    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
-      <!--列表-->
-      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
-        <!--顶部的图片-->
-        <view class='wenimgv'>
-          <image src='{{item.imgpath}}' class='wenimg'></image>
-        </view>
-        <!--类型按钮-->
-        <view class='wengtype font-t7' wx:if="{{item.typeval==1}}">线路</view>
-        <view class='wenrtype font-t7' wx:if="{{item.typeval==2}}">游记</view>
-        <view class='wenytype font-t7' wx:if="{{item.typeval==3}}">攻略</view>
-        <!--文字介绍-->
-        <view class='wentitle font-t4'>{{item.title}}</view>
-        <view class='weninfov'>
-          <view class='weninfo font-t8'>
-            {{item.instroduce}}
-          </view>
-        </view>
-        <!--结束标识符-->
-      </view>
-    </block>
-  </view>
-
-  <!--右侧瀑布流布局-->
-  <view class='rightv'>
-    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
-      <!--列表-->
-      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
-        <!--顶部的图片-->
-        <view class='wenimgv'>
-          <image src='{{item.imgpath}}' class='wenimg'></image>
-        </view>
-        <!--类型按钮-->
-        <view class='wengtype font-t7' wx:if="{{item.typeval==1}}">线路</view>
-        <view class='wenrtype font-t7' wx:if="{{item.typeval==2}}">游记</view>
-        <view class='wenytype font-t7' wx:if="{{item.typeval==3}}">攻略</view>
-        <!--文字介绍-->
-        <view class='wentitle font-t4'>{{item.title}}</view>
-        <view class='weninfov'>
-          <view class='weninfo font-t8'>
-            {{item.instroduce}}
-          </view>
-        </view>
-        <!--结束标识符-->
-      </view>
-    </block>
-  </view>
-</view>
-
-<!--攻略游记部分-->
-<view class="orecommentv {{iswenmenu?'wenzhangfix':''}}" wx:if="{{wenchkid==2||wenchkid==3}}">
-  <block wx:for="{{wenlist}}" wx:key="item">
-    <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
-      <!--图片部分-->
-      <view class='wenzhangtuv'>
-        <image src='{{item.imgpath}}' class='wenzhangtu'></image>
-      </view>
-      <!--按钮类型-->
-      <view class='wenzhanggbtn font-t7' wx:if="{{item.typeval==1}}">线路</view>
-      <view class='wenzhangybtn font-t7' wx:if="{{item.typeval==2}}">游记</view>
-      <view class='wenzhangrbtn font-t7' wx:if="{{item.typeval==3}}">攻略</view>
-      <!--文字标题-->
-      <view class='wenzhangtitle font-t4'>{{item.title}}</view>
-      <!--简介文字-->
-      <view class='wenzhangdesc font-t8'>
-        {{item.instroduce}}
-      </view>
-    </view>
-  </block>
-</view>
+<!--游玩指南-->
+<guide receiveData='{{guidedata}}' style='height:{{guideheight}}px;'/>
 
 <!--分段结束-->
 

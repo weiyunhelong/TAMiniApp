@@ -1,0 +1,103 @@
+/* components/search/index.wxss */
+
+/*搜索层*/
+
+.searchv {
+  width: 97%;
+  height: 68rpx;
+  margin-left: 3%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchview {
+  width: 85%;
+  height: 68rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchhborder {
+  border: 1rpx solid #0074c8;
+  box-sizing: content-box;
+}
+
+.searchborder {
+  border: 1rpx solid #b2b2b2;
+  box-sizing: content-box;
+}
+
+.searchicon {
+  margin: 15rpx 10rpx;
+}
+
+.txtcss {
+  width: 83%;
+  height: 68rpx;
+  line-height: 68rpx;
+  padding-left: 5%;
+}
+
+.tipcss {
+  color: #b2b2b2;
+}
+
+.clearicon {
+  margin: 15rpx 15rpx;
+}
+
+.cleartxt {
+  width: 15%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.dituicon {
+  width: 42rpx;
+  height: 34rpx;
+  margin: 20rpx 20rpx;
+}
+
+.listicon {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 16rpx 20rpx;
+}
+
+
+/*文字*/
+.txtcss {
+  width: 83%;
+  height: 68rpx;
+  line-height: 68rpx;
+  padding-left: 5%;
+}
+
+.tipcss {
+  color: #b2b2b2;
+  font-size: 28rpx;
+}
+
+.clearicon {
+  margin: 15rpx 15rpx;
+}
+
+.cleartxt {
+  width: 15%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.dituicon {
+  width: 42rpx;
+  height: 34rpx;
+  margin: 20rpx 20rpx;
+}
+
+.listicon {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 16rpx 20rpx;
+}

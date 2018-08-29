@@ -15,6 +15,7 @@ Page({
     porder: false, //价格排序
     dorder: false, //距离排序
     iszhediemap: false, //是否折叠
+    contenth:0,//列表的高度
     /*地图部分*/
     winwidth: 0, //手机的宽度
     winheight: 0, //手机的高度
@@ -84,7 +85,8 @@ Page({
         that.setData({
           winheight: res.screenHeight,
           winwidth:res.screenWidth,
-          mapheight: res.screenHeight * 0.432
+          mapheight: res.screenHeight * 0.432,
+          contenth: res.screenHeight-120,
         })
       }
     })
@@ -133,10 +135,11 @@ Page({
     //参数部分
     var id = e.markerId;
     that.setData({
-      iszhediemap:false,
-      toView: "pro" + id
+      iszhediemap:true,
+      toView: "pro" + id,
     })
-
+    //折叠
+    that.zhedieopt();
     //重置地图Markers
     that.UpdateMarker(id);
   },

@@ -9,6 +9,7 @@ Page({
     typeval:1,//类型
     topimg: "", //顶部的图片
     iscollect: true, //是否收藏
+    iscollectopt:false,//是否进行收藏点击操作
     cnname: "华纳电影世界", //中文名称
     enname: "Warner Bros. Movie World", //英文名称
     xinglist: [1, 2, 3, 4, 5], //星列表
@@ -17,6 +18,7 @@ Page({
     concatnum: "114", //联系电话
     commentnum: 1322, //评论个数
     introduce: "华纳电影世界是华纳兄弟主题公园的三大主题公园之一，华纳兄弟电影世界主题公园(Warner Bros. Movie World) 位于澳大利亚昆士兰州的黄金海岸冲浪者天堂以北18公里处，是由两大电影公司——美国华纳兄弟电影公司、乡村巡回表演团及澳大利亚首席旅游业促进机构、海洋世界于1981年联合投资兴建。", //门票介绍
+    moreintroduce: "华纳电影世界是华纳兄弟主题公园的三大主题公园之一，华纳兄弟电影世界主题公园(Warner Bros. Movie World) 位于澳大利亚昆士兰州的黄金海岸冲浪者天堂以北18公里处，是由两大电影公司——美国华纳兄弟电影公司、乡村巡回表演团及澳大利亚首席旅游业促进机构、海洋世界于1981年联合投资兴建。华纳电影世界是华纳兄弟主题公园的三大主题公园之一，华纳兄弟电影世界主题公园(Warner Bros. Movie World) 位于澳大利亚昆士兰州的黄金海岸冲浪者天堂以北18公里处，是由两大电影公司——美国华纳兄弟电影公司、乡村巡回表演团及澳大利亚首席旅游业促进机构、海洋世界于1981年联合投资兴建。", //门票介绍
     ticket: "成人13岁以上；儿童价3-13岁；0-2岁儿童免费，儿童需成人陪同入园", //门票
     start_time: "9:30", //开始时间
     end_time: "17:00", //结束时间
@@ -113,6 +115,8 @@ Page({
     floorstatus:false,//是否显示到达顶部
     winheight:0,//屏幕的高度
     isshowmenu:false,//是否将图库和评论置顶
+    showmore:"阅读更多",//基本信息显示更多
+    isshowmore:false,//是否显示更多
   },
 
   /**
@@ -145,8 +149,14 @@ Page({
     var that = this;
 
     that.setData({
-      iscollect: !that.data.iscollect
+      iscollect: !that.data.iscollect,
+      iscollectopt:true
     })
+    setTimeout(function(){
+      that.setData({
+        iscollectopt: false
+      })
+    },500);
   },
   //地图
   gomap: function() {
@@ -165,6 +175,15 @@ Page({
 
     wx.makePhoneCall({
       phoneNumber: that.data.concatnum
+    })
+  },
+  //基本信息显示更多
+  showmoreinfo:function(){
+    var that=this;
+    //显示更多基础信息
+    that.setData({
+      isshowmore: !that.data.isshowmore,
+      showmore: that.data.isshowmore?"阅读更多":"收起内容"
     })
   },
   //预定须知

@@ -52,7 +52,7 @@
 </view>
 
 <!--列表部分-->
-<view class='datalist' wx:if="{{!isshowmap}}">
+<view class='datalist' wx:if="{{!isshowmap}}" style='height:{{contenth}}px;margin-top:315rpx;'>
   <block wx:for="{{datalist}}" wx:key="item">
     <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
       <!--图片部分-->
@@ -94,7 +94,7 @@
 
 <!--地图显示部分-->
 <view class='shadowv' wx:if="{{isshowmap}}" style='margin:0rpx;'></view>
-<view class='mapv' wx:if="{{isshowmap}}">
+<view class='mapv' wx:if="{{isshowmap}}" style='margin-top:195rpx;'>
 
   <!--地图部分-->
   <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'

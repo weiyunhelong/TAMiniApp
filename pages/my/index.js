@@ -67,7 +67,47 @@ Page({
       isTouchMove: false,
       collectnum: 40,
       viewnum: 1159
-    }
+    },
+      {
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+        typeval: 1,
+        title: "黄金海岸初体验，最热门的8个地方",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
+        typeval: 2,
+        title: "七天就能环个洲，大小景点都玩遍",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
+        typeval: 3,
+        title: "五天玩遍澳大利亚的秘密隆重揭晓",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 4,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
+        typeval: 1,
+        title: "黄金海岸初体验，最热门的8个地方",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      }
     ], //收藏文字列表
     sceniclist: [{
       id: 1,
@@ -98,7 +138,37 @@ Page({
       commentnum: 1332,
       price: 281,
       isTouchMove: false
-    }
+    },
+      {
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+        cnname: "华纳电影世界",
+        enname: "Warner Bros. Movie World",
+        distance: "1.5km",
+        commentnum: 2331,
+        price: 281,
+        isTouchMove: false
+      },
+      {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        cnname: "可伦宾野生动物园",
+        enname: "Currumbin Wildlife Sanctuary",
+        distance: "1.8km",
+        commentnum: 1332,
+        price: 281,
+        isTouchMove: false
+      },
+      {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        cnname: "春溪国家公园",
+        enname: "Warner Bros. Movie World",
+        distance: "2.0km",
+        commentnum: 1332,
+        price: 281,
+        isTouchMove: false
+      }
     ], //景点列表
   },
 

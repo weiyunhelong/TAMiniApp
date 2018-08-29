@@ -75,9 +75,9 @@
   <!--内容列表部分-->
   <view class='listv' wx:if="{{collecttab==1}}">
     <block wx:for="{{guidelist}}" wx:key="item" wx:for-index="index">
-      <view class='guidev' data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}"  bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
+      <view  class="{{item.isTouchMove?'donghuaguidev':'guidev'}}" data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}"  bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
         <!--内容部分列表-->
-        <view class='glistitemv' style="margin-left:{{item.isTouchMove?-155:0}}px;">
+        <view class='glistitemv'>
           <!--图片部分-->
           <view class='listtuv'>
             <image src='{{item.imgpath}}' class='listtu'></image>
@@ -94,10 +94,9 @@
               <view class='collectnum'>{{item.viewnum}}浏览</view>
             </view>
           </view>
-        </view>
-
+        </view>          
         <!--删除按钮-->
-        <view class="ndel" catchtap="ndel" data-index="{{index}}" data-id="{{id}}">删除</view>
+        <view class="ndel" catchtap="ndel" data-index="{{index}}" data-id="{{id}}" wx:if="{{item.isTouchMove}}">删除</view>
       </view>
     </block>
   </view>
@@ -106,9 +105,9 @@
   <!--地点列表部分-->
   <view class='listv' wx:if="{{collecttab==2}}">
     <block wx:for="{{sceniclist}}" wx:key="item" wx:for-index="index">
-      <view class='scenicv' data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}"  data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
+      <view class="{{item.isTouchMove?'donghuascenicv':'scenicv'}}" data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}"  data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
         <!--地点部分列表-->
-        <view class='slistitemv' style="margin-left:{{item.isTouchMove?-340:0}}rpx;">
+        <view class='slistitemv' >
           <!--图片部分-->
           <view class='dataimgv'>
             <image src='{{item.imgpath}}' class='dataimg'></image>

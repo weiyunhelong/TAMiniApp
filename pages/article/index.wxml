@@ -13,18 +13,19 @@
   <view class='typev' bindtap='collectopt'>
     <image src='/resources/icon/detailxin.png' class='xinicon' wx:if="{{!iscollect}}"></image>
     <image src='/resources/icon/detailxinh.png' class='xinicon' wx:if="{{iscollect}}"></image>
-  </view>
+  </view> 
+</view>
 
-  <!--标题部分-->
-  <view class='titlev' style="{{islangtxt?'top:328rpx;':'top:390rpx;'}}">
+ <!--标题部分-->
+  <view class='titlev'>
     {{title}}
   </view>
   <!--收藏浏览-->
-  <view class='otherv font-t8'>
+  <view class='otherv font-t7'>
+    <view class='timev'>{{datetime}}</view>
     <view class='shoucangv'>{{collectnum}}收藏</view>
     <view class='liulanv'>{{viewnum}}浏览</view>
   </view>
-</view>
 <!--图文简介-->
 <view class='instrov font-t7'>
   <rich-text nodes="{{info}}"></rich-text>

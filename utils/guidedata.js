@@ -3,11 +3,12 @@ var datalist = [{
     typeval: 1,
     typename: "线路",
     imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
-    title: "七天就能环个洲，大小景点都玩遍",
+    title: "七天就能环个洲，大小景点都玩遍七天就能环个洲，大小景点都玩遍",
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
-  collectnum:40,
-  viewnum: 1159
+    collectnum: 40,
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#E36E5B"
   },
   {
     id: 4,
@@ -40,7 +43,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#E36E5B"
   },
   {
     id: 5,
@@ -51,7 +55,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 6,
@@ -62,7 +67,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
   {
     id: 7,
@@ -73,7 +79,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#E36E5B"
   },
   {
     id: 8,
@@ -84,7 +91,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#E36E5B"
   },
   {
     id: 9,
@@ -95,7 +103,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 10,
@@ -106,7 +115,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
   {
     id: 11,
@@ -117,7 +127,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 12,
@@ -128,7 +139,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
   {
     id: 13,
@@ -139,7 +151,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 14,
@@ -150,7 +163,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
   {
     id: 15,
@@ -161,7 +175,8 @@ var datalist = [{
     instroduce: "悉尼是澳大利亚最大的城市，aaa1234566aa也是澳洲近代文明",
     ismore: true,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#53C078"
   },
   {
     id: 16,
@@ -172,7 +187,8 @@ var datalist = [{
     instroduce: "",
     ismore: false,
     collectnum: 40,
-    viewnum: 1159
+    viewnum: 1159,
+    backcolor: "#EA9F10"
   },
 ];
 
@@ -209,7 +225,8 @@ const searchlist = n => {
           instroduce: datalist[i].instroduce,
           ismore: datalist[i].ismore,
           collectnum: datalist[i].collectnum,
-          viewnum: datalist[i].viewnum
+          viewnum: datalist[i].viewnum,
+          backcolor: datalist[i].backcolor
         };
         index++;
       }
@@ -226,7 +243,8 @@ const searchlist = n => {
           instroduce: datalist[i].instroduce,
           ismore: datalist[i].ismore,
           collectnum: datalist[i].collectnum,
-          viewnum: datalist[i].viewnum
+          viewnum: datalist[i].viewnum,
+          backcolor: datalist[i].backcolor
         };
         index++;
       }
@@ -252,7 +270,8 @@ const pagedatalist = (n, kind) => {
         instroduce: datalist[i].instroduce,
         ismore: datalist[i].ismore,
         collectnum: datalist[i].collectnum,
-        viewnum: datalist[i].viewnum
+        viewnum: datalist[i].viewnum,
+        backcolor: datalist[i].backcolor
       };
       index++;
     } else if (kind == datalist[i].typeval && index < n * pagesize) {
@@ -265,7 +284,48 @@ const pagedatalist = (n, kind) => {
         instroduce: datalist[i].instroduce,
         ismore: datalist[i].ismore,
         collectnum: datalist[i].collectnum,
-        viewnum: datalist[i].viewnum
+        viewnum: datalist[i].viewnum,
+        backcolor: datalist[i].backcolor
+      };
+      index++;
+    }
+  }
+  return txtarry;
+}
+
+//加载分页数据
+const getpagedata = (n, kind, size) => {
+  var txtarry = [];
+  var index = 0;
+  var pagesize = size;
+
+  for (var i = 0; i < datalist.length; i++) {
+    if (kind == 0 && index < n * pagesize) {
+      txtarry[index] = {
+        id: datalist[i].id,
+        typeval: datalist[i].typeval,
+        typename: datalist[i].typename,
+        imgpath: datalist[i].imgpath,
+        title: datalist[i].title,
+        instroduce: datalist[i].instroduce,
+        ismore: datalist[i].ismore,
+        collectnum: datalist[i].collectnum,
+        viewnum: datalist[i].viewnum,
+        backcolor: datalist[i].backcolor
+      };
+      index++;
+    } else if (kind == datalist[i].typeval && index < n * pagesize) {
+      txtarry[index] = {
+        id: datalist[i].id,
+        typeval: datalist[i].typeval,
+        typename: datalist[i].typename,
+        imgpath: datalist[i].imgpath,
+        title: datalist[i].title,
+        instroduce: datalist[i].instroduce,
+        ismore: datalist[i].ismore,
+        collectnum: datalist[i].collectnum,
+        viewnum: datalist[i].viewnum,
+        backcolor: datalist[i].backcolor
       };
       index++;
     }
@@ -278,4 +338,5 @@ module.exports = {
   getGuideByIndex: getGuideByIndex, //根据下标获取指南
   searchlist: searchlist, //根据源和目标下标整理列表
   pagedatalist: pagedatalist, //分页数据
+  getpagedata: getpagedata, //得到分页数据
 }

@@ -1,13 +1,16 @@
 /* components/homes/menu/index.wxss */
-page{
+
+page {
   background-color: #fff;
 }
+
 /*第一行菜单*/
+
 .onemenutabv {
-  margin:0rpx 40rpx 0 40rpx;
+  margin: 40rpx 20rpx 0 20rpx;
   height: 150rpx;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /*菜单部分*/
@@ -19,20 +22,22 @@ page{
   padding-top: 20rpx;
   margin: 0 10rpx;
 }
+
 .menuico {
   width: 110rpx;
   height: 110rpx;
 }
+
 .menutxt {
   width: 100%;
   margin-top: -8rpx;
 }
 
 /*第二行菜单*/
+
 .twomenutabv {
-  margin:10rpx 40rpx;
+  margin: 10rpx 20rpx 40rpx 20rpx;
   height: 190rpx;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
-

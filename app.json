@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/index",
     "pages/termini/index",
     "pages/chatbot/index",
     "pages/my/index",
@@ -8,8 +9,7 @@
     "pages/search/index",
     "pages/article/index",
     "pages/weather/index",
-    "pages/leftdel/index",
-    "pages/test/index"
+    "pages/leftdel/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
