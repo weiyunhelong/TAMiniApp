@@ -170,6 +170,79 @@ Page({
         isTouchMove: false
       }
     ], //景点列表
+    commentlist:[
+      {
+        id: 1,
+        time: "2018-08-31",
+        fen:5,
+        comment:"太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
+        commentobj:{
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id:1
+        },       
+        isTouchMove: false
+      },
+      {
+        id: 2,
+        time: "2018-08-30",
+        fen: 4,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 3,
+        time: "2018-08-29",
+        fen: 3,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 4,
+        time: "2018-08-29",
+        fen: 5,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 4,
+        time: "2018-08-28",
+        fen: 5,
+        comment: "太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr:"￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      }
+    ],//评价列表
+    xinglist:[1,2,3,4,5],//星列表
   },
 
   /**
@@ -370,6 +443,66 @@ Page({
     //页面的跳转
     wx.navigateTo({
       url: '../info/index?id=' + id + "&type=" + typeval,
+    })
+  },
+
+  //手指触摸动作开始 记录起点X坐标
+  ctouchstart: function (e) {
+    //开始触摸时 重置所有删除
+    this.data.commentlist.forEach(function (v, i) {
+      if (v.isTouchMove) //只操作为true的
+        v.isTouchMove = false;
+    })
+    this.setData({
+      jstartX: e.changedTouches[0].clientX,
+      jstartY: e.changedTouches[0].clientY,
+      commentlist: this.data.commentlist
+    })
+  },
+  //滑动事件处理
+  ctouchmove: function (e) {
+    var that = this,
+      index = e.currentTarget.dataset.index, //当前索引
+      startX = that.data.jstartX, //开始X坐标
+      startY = that.data.jstartY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({
+        X: startX,
+        Y: startY
+      }, {
+          X: touchMoveX,
+          Y: touchMoveY
+        });
+    that.data.commentlist.forEach(function (v, i) {
+      v.isTouchMove = false
+      //滑动距离度角 return
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+        {
+          v.isTouchMove = false;
+        } else if (Math.abs(angle) > 80) { //左滑
+          v.isTouchMove = true;
+        }
+      }
+    })
+    //更新数据
+    that.setData({
+      commentlist: that.data.commentlist
+    })
+  },
+  //删除事件
+  cdel: function (e) {
+    this.data.commentlist.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      commentlist: this.data.commentlist
+    })
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    wx.showToast({
+      title: '删除成功',
+      mask: true
     })
   },
   /**

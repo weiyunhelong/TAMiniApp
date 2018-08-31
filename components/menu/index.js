@@ -57,7 +57,7 @@ Component({
         id: 5,
         icon: '/resources/menu/qianzheng.png',
         name: '签证',
-        url: '../../others/pages/visa/index'
+        url: '../../../pages/duiyi/index'
       },
       {
         id: 6,
@@ -129,7 +129,7 @@ Component({
         })
       } else if (id == 5) { //签证
         wx.navigateTo({
-          url: '../../others/pages/visa/index',
+          url: '../../pages/duiyi/index',
         })
       } else if (id == 6) { //翻译
         wx.navigateTo({

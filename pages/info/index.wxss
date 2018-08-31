@@ -25,35 +25,6 @@ page {
   height: 36rpx;
 }
 
-.xinanimation {
-  animation: collect 0.5s ease-in-out;
-  -moz-animation: collect 0.5s ease-in-out; /* Firefox */
-  -webkit-animation: collect 0.5s ease-in-out; /* Safari 和 Chrome */
-  animation-delay: 0;
-}
-
-@keyframes collect {
-  0% {
-    transform: scale(1.0);
-  }
-
-  25% {
-    transform: scale(1.2);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  75% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
 /*内容部分*/
 
 .introv {
@@ -400,6 +371,7 @@ page {
   display: flex;
   height: 30rpx;
   line-height: 30rpx;
+  margin-top: -5rpx;
 }
 
 .smxingico {
@@ -411,6 +383,7 @@ page {
 
 .crtinfo {
   color: #999;
+  margin-top:20rpx;
 }
 
 .crtmore {

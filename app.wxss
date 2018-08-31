@@ -43,6 +43,33 @@ page {
   font-size: 20rpx;
 }
 
-/*按钮*/
 
-/*间隔*/
+/*收藏心的点击动画*/
+.xinanimation {
+  animation: collect 0.5s ease-in-out;
+  -moz-animation: collect 0.5s ease-in-out; /* Firefox */
+  -webkit-animation: collect 0.5s ease-in-out; /* Safari 和 Chrome */
+  animation-delay: 0;
+}
+
+@keyframes collect {
+  0% {
+    transform: scale(1.0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}

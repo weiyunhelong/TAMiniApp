@@ -1,7 +1,7 @@
 /* pages/termini/index.wxss */
 
 page {
-  background-color: #ededed;
+  background-color: #fff;
 }
 
 /*顶部行*/
@@ -448,4 +448,66 @@ page {
   width: 32rpx;
   height: 32rpx;
   margin-top: 8rpx;
+}
+
+/*搜索无果样式*/
+
+.searchiconv {
+  text-align: center;
+  padding-top: 100rpx;
+}
+
+.searchtip {
+  text-align: center;
+  font-size: 28rpx;
+  color: #b2b2b2;
+  margin-top: 20rpx;
+}
+
+.searchtipv {
+  text-align: center;
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+
+/*热门搜索*/
+
+.hotsearchv {
+  width: 94%;
+  margin: 0 3%;
+  height: 100rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  line-height: 100rpx;
+}
+
+.hotsearchlist {
+  width: 94%;
+  margin: 60rpx 3% 0 3%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotsearchitem {
+  padding: 0 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 68rpx;
+  background-color: #f4f4f4;
+  color: #0074c8;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+}
+
+.hotsearchhitem {
+  padding: 0 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 68rpx;
+  background-color: #0074c8;
+  color: #fff;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
 }

@@ -64,8 +64,8 @@
         <!--中文名称收藏-->
         <view class='namexinv'>
           <view class='cnnamev font-t4'>{{item.cnname}}</view>
-          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
-          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxin.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
         <view class='ennamev font-t7'>{{item.enname}}</view>
@@ -126,8 +126,8 @@
             </view>
             <!--操作按钮部分-->
             <view class='lasthangv'>
-              <image src='/resources/icon/hubxin.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
-              <image src='/resources/icon/hubxinh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxin.png'  class="{{item.iscollectopt?'xinanimation':''}} 'xinico'" wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxinh.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinico'" wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
               <view class='xianv'></view>
               <image src='/resources/icon/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
             </view>

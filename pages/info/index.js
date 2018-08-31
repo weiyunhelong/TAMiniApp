@@ -56,7 +56,7 @@ Page({
         title: "很有趣，度过了愉快的一天",
         time: "2018年6月29日",
         fen: 4,
-        info: "我去过2次了，觉得还不错，第一次其实最好的，因为有巡游，现在可能成本问题啦，变成是久不久有人偶或者表演出场一下，就变成没有固定的巡游那种大规模的..."
+        info: "我去过2次了，觉得还不错，第一次其实最好的，因为有巡游，现在可能成本问题啦，变成是久不久有人偶或者表演出场一下，就变成没有固定的巡游那的..."
       },
       {
         id: 3,
@@ -83,7 +83,7 @@ Page({
         title: "很有趣，度过了愉快的一天",
         time: "2018年6月29日",
         fen: 4,
-        info: "我去过2次了，觉得还不错，第一次其实最好的，因为有巡游，现在可能成本问题啦，变成是久不久有人偶或者表演出场一下，就变成没有固定的巡游那种大规模的..."
+        info: "我去过2次了，觉得还不错，第一次其实最好的，因为有巡游，现在可能成本问题啦，变成是久不久有人偶或者表演出场一下，就变成没有固定的巡游那种大..."
       },
       {
         id: 6,
@@ -117,6 +117,8 @@ Page({
     isshowmenu:false,//是否将图库和评论置顶
     showmore:"阅读更多",//基本信息显示更多
     isshowmore:false,//是否显示更多
+    xinglist:[1,2,3,4,5],//星列表
+    fen:0,//评价打分
   },
 
   /**
@@ -232,7 +234,20 @@ Page({
     })
   },
   //去评价
-
+  gocomment:function(e){
+    var that=this;
+    //参数部分
+    var index=e.currentTarget.dataset.index;
+    that.setData({
+      fen:index
+    })
+    //页面的跳转
+    setTimeout(function(){
+      wx.navigateTo({
+        url: '../comment/index?id=' + that.data.id + "&type=" + that.data.typeval + "&title=华纳电影世界" + "&fen=" + index,
+      })
+    },500)    
+  },
   //导航去这儿
   daohangopt: function() {
 

@@ -3,7 +3,7 @@
   <!--搜索层-->
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
-      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
+      <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true' maxlength='10'></input>
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
     <view class='cleartxt' bindtap='goback'>取消</view>
@@ -51,4 +51,25 @@
 <!--搜索结果-->
 <view wx:if="{{isshowcontent}}" style='margin-top: 250rpx;'>
   <scrolllist receiveData='{{resultlist}}' />
+</view>
+
+<!--搜索无结果-->
+<view wx:if="{{isshownocontent}}" style='margin-top: 250rpx;'>
+  <view class='searchiconv'>
+    <icon size='45' type='search' color='#F2F2F2'></icon>
+  </view>
+  <view class='searchtip'>未能找到搜索结果</view>
+  <view class='searchtipv'>请换个词试试!</view>
+
+  <!--热门搜索-->
+  <view class='hotsearchv'>
+    <view class='titlev'>热门搜索</view>
+  </view>
+
+  <!--热门搜索结果-->
+  <view class='hotsearchlist'>
+    <block wx:for="{{hotsearchlist}}" wx:key="item">
+      <view class="{{item.ishot?'hotsearchhitem':'hotsearchitem'}}" bindtap='gosearch' data-id='{{item.id}}' data-name='{{item.name}}'>{{item.name}}</view>
+    </block>
+  </view>
 </view>

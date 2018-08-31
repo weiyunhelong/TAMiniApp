@@ -3,7 +3,7 @@
   <!--搜索层-->
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
-      <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+      <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' maxlength='10'></input>
       <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
@@ -35,7 +35,7 @@
   <view class='shadowv' wx:if="{{!isshowmap}}"></view>
 
   <!--筛选的条件-->
-  <view class='filterv font-t7' wx:if="{{!isshowmap}}">
+  <view class='filterv font-t7' wx:if="{{!isshowmap&&!isshownoresult}}">
     <view class='filteritem' bindtap='scoreopt'>
       <view class="{{sorder?'chkfiltertxt':'filtertxt'}}">评分排序</view>
     </view>
@@ -51,7 +51,7 @@
 </view>
 
 <!--列表部分-->
-<view class='datalist' wx:if="{{!isshowmap}}" style='height:{{contenth}}px;margin-top:315rpx;'>
+<view class='datalist' wx:if="{{!isshowmap&&!isshownoresult}}" style='height:{{contenth}}px;margin-top:315rpx;'>
   <block wx:for="{{datalist}}" wx:key="item">
     <view class='datav' data-id='{{item.id}}' bindtap='godetail'>
       <!--图片部分-->
@@ -63,8 +63,8 @@
         <!--中文名称收藏-->
         <view class='namexinv'>
           <view class='cnnamev font-t4'>{{item.cnname}}</view>
-          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
-          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxin.png'  class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
         <view class='ennamev font-t7'>{{item.enname}}</view>
@@ -90,10 +90,10 @@
     </view>
   </block>
 </view>
-<view class='shadowv' wx:if="{{isshowmap}}" style='margin:0rpx;'></view>
+<view class='shadowv' wx:if="{{isshowmap&&!isshownoresult}}" style='margin:0rpx;'></view>
 
 <!--地图显示部分-->
-<view class='mapv' wx:if="{{isshowmap}}" style='margin-top:195rpx;'>
+<view class='mapv' wx:if="{{isshowmap&&!isshownoresult}}" style='margin-top:195rpx;'>
 
   <!--地图部分-->
   <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap"
@@ -125,8 +125,8 @@
             </view>
             <!--操作按钮部分-->
             <view class='lasthangv'>
-              <image src='/resources/icon/hubxin.png' class='xinico' wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
-              <image src='/resources/icon/hubxinh.png' class='xinico' wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxin.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinico'" wx:if="{{!item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
+              <image src='/resources/icon/hubxinh.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinico'" wx:if="{{item.iscollect}}" catchtap='collectopt' data-id='{{item.id}}'></image>
               <view class='xianv'></view>
               <image src='/resources/icon/daohang.png' class='daohangico' catchtap='daohangopt' data-lat='{{item.latitude}}' data-lng='{{item.longitude}}' data-name='{{item.name}}'></image>
             </view>
@@ -135,5 +135,24 @@
       </block>
 
     </scroll-view>
+  </view>
+</view>
+
+
+
+<!--搜索无结果-->
+<view wx:if="{{isshownoresult}}" style='margin-top: 250rpx;'>
+  <view class='searchiconv'>
+    <icon size='45' type='search' color='#F2F2F2'></icon>
+  </view>
+  <view class='searchtip'>未能找到搜索结果</view>
+  <view class='searchtipv'>看看大家搜在搜什么吧：</view>
+
+
+  <!--热门搜索结果-->
+  <view class='hotsearchlist'>
+    <block wx:for="{{hotsearchlist}}" wx:key="item">
+      <view class="{{item.ishot?'hotsearchhitem':'hotsearchitem'}}" bindtap='gosearch' data-id='{{item.id}}' data-name='{{item.name}}'>{{item.name}}</view>
+    </block>
   </view>
 </view>

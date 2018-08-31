@@ -4,7 +4,7 @@
 <view class='topv' style='background-image: url("http://zhuweis.com/index/Header.png");'>
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
-    <image src='/resources/icon/detailxin.png'  class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{!iscollect}}"></image>
+    <image src='/resources/icon/detailxin.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{!iscollect}}"></image>
     <image src='/resources/icon/detailxinh.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{iscollect}}"></image>
   </view>
 </view>
@@ -14,7 +14,7 @@
   <view class='centerinfo'>
     <view class='cnname font-t7'>{{enname}}</view>
     <view class='infoicov'>
-      <image src='/resources/icon/phone.png' class='infoicon' bindtap='makephonecall'></image> 
+      <image src='/resources/icon/phone.png' class='infoicon' bindtap='makephonecall'></image>
       <image src='/resources/icon/dingtu.png' class='infoicon' bindtap='gomap' style='margin-left:78rpx;'></image>
     </view>
   </view>
@@ -50,7 +50,7 @@
 
 <!--预定部分-->
 <view class='bookview'>
-  <view class='booktitlev'>    
+  <view class='booktitlev'>
     <view class='booktitle font-t4'>选择票种</view>
     <image src='/resources/icon/quan.png' class='quanicon'></image>
   </view>
@@ -99,16 +99,15 @@
 </view>
 
 <!--评价部分-->
-<view wx:if="{{!chktab}}"  class="tukucss">
+<view wx:if="{{!chktab}}" class="tukucss">
   <!--评价按钮层-->
   <view class='clickv font-t5'>
     <view class='clicktxt'>点击评价</view>
     <view class='xingv'>
-      <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
-      <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
-      <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
-      <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
-      <image src='/resources/icon/mdxing.png' class='mdxingico'></image>
+      <block wx:for="{{xinglist}}" wx:key="item">
+        <image src='/resources/icon/mdxingh.png' class='mdxingico' wx:if="{{fen>=item}}"></image>
+        <image src='/resources/icon/mdxing.png' class='mdxingico' wx:else bindtap='gocomment' data-index="{{item}}"></image>
+      </block>
     </view>
   </view>
 
@@ -120,17 +119,18 @@
         <view class='wxname font-t8'>{{item.wxname}}</view>
       </view>
       <view class='crightv'>
-        <!--用户时间信息-->
-        <view class='crtopv font-t8'>
-          <view class='crtname'>{{item.title}}</view>
-          <view class='crtdate'>{{item.time}}点评</view>
-        </view>
-        <!--评价打分-->
-        <view class='crtxingv'>
-          <block wx:for="{{xinglist}}" wx:key="xitem" wx:for-item="xitem">
-            <image src='/resources/icon/smxingh.png'  class='smxingico' wx:if="{{item.fen >= xitem}}"></image>
-            <image src='/resources/icon/smxing.png' class='smxingico' wx:else></image>
-          </block>
+        <view class='crighttopv' style="display: flex;justify-content: space-between;">          
+          <!--评价打分-->
+          <view class='crtxingv'>
+            <block wx:for="{{xinglist}}" wx:key="xitem" wx:for-item="xitem">
+              <image src='/resources/icon/smxingh.png' class='smxingico' wx:if="{{item.fen >= xitem}}"></image>
+              <image src='/resources/icon/smxing.png' class='smxingico' wx:else></image>
+            </block>
+          </view>
+          <!--用户时间信息-->
+          <view class='crtopv font-t8'>
+            <view class='crtdate'>{{item.time}}点评</view>
+          </view>
         </view>
         <!--评价内容部分-->
         <view class='crtinfov'>

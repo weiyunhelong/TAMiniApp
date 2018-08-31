@@ -1,15 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/test/index",
     "pages/termini/index",
     "pages/chatbot/index",
     "pages/my/index",
     "pages/info/index",
+    "pages/comment/index",
     "pages/search/index",
     "pages/article/index",
     "pages/weather/index",
-    "pages/leftdel/index"
+    "pages/duiyi/index",
+    "pages/duiyi/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -54,6 +55,7 @@
       "root": "others/",
       "pages": [
         "pages/index/index",
+        "pages/filter/index",
         "pages/translate/home",
         "pages/translate/index",
         "pages/translate/type",
@@ -78,6 +80,10 @@
     "myPlugin": {
       "version": "1.0.4",
       "provider": "wx60d306fd175fe556"
+    },
+    "WechatSI": {
+      "version": "0.1.0",
+      "provider": "wx069ba97219f66d99"
     }
   }
 }

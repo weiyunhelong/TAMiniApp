@@ -484,7 +484,7 @@ page {
   padding-bottom: 20rpx;
   transform: translate(-90px, 0px);
   transition-delay: 0.05s;
-  transition-duration: 1s;  
+  transition-duration: 1s;
 }
 
 .glistitemv {
@@ -521,15 +521,16 @@ page {
   margin-left: 50rpx;
 }
 
-.donghuascenicv{
+.donghuascenicv {
   display: flex;
   width: 125%;
   overflow: hidden;
   padding-bottom: 20rpx;
   transform: translate(-90px, 0px);
   transition-delay: 0.05s;
-  transition-duration: 1s; 
+  transition-duration: 1s;
 }
+
 .jdel {
   background-color: orangered;
   width: 180rpx;
@@ -537,7 +538,7 @@ page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;  
+  color: #fff;
 }
 
 .lastgeduanv {
@@ -546,4 +547,109 @@ page {
   z-index: 1;
   width: 100%;
   height: 20rpx;
+}
+
+/*评价部分*/
+
+.donghuacommentv {
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+
+.commentv {
+  display: flex;
+  width: 120%;
+  overflow: hidden;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+
+.commentbodyv {
+  width: 100%;
+  height: 100%;
+}
+
+.commenttopv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30rpx;
+}
+
+.commentdate {
+  font-size: 20rpx;
+  color: #909599;
+}
+
+.commentfen {
+  display: flex;
+}
+
+.csmxingico {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 4rpx;
+}
+
+.commentinfo {
+  margin: 20rpx 30rpx;
+  font-size: 24rpx;
+  padding-bottom: 18rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/*评价的对象*/
+
+.commentobjv {
+  display: flex;
+  margin: 0 30rpx;
+  background-color: #f2f2f2;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.commentobjimg {
+  width: 120rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  margin: 15rpx 20rpx;
+}
+
+.commentobjinfov {
+  margin: 15rpx 0;
+}
+
+.cobjcname {
+  font-size: 20rpx;
+  color: #000;
+}
+
+.cobjename {
+  font-size: 20rpx;
+  color: #000;
+}
+
+.cobjprice {
+  font-size: 20rpx;
+  color: #000;
+}
+
+/*删除*/
+
+.cdel {
+  background-color: orangered;
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }

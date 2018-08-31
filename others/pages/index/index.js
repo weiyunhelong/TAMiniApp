@@ -16,7 +16,7 @@ Page({
     porder: false, //价格排序
     dorder: false, //距离排序
     iszhediemap: false, //是否折叠
-    contenth:0,//内容列表的高度
+    contenth: 0, //内容列表的高度
     /*地图部分*/
     winwidth: 0, //手机的宽度
     winheight: 0, //手机的高度
@@ -36,7 +36,8 @@ Page({
         iscollect: true,
         latitude: 31.330416, //纬度
         longitude: 121.373701, //经度
-        no: 1
+        no: 1,
+        iscollectopt: false
       },
       {
         id: "pro2",
@@ -48,7 +49,8 @@ Page({
         iscollect: true,
         latitude: 31.130416, //纬度
         longitude: 121.453701, //经度
-        no: 2
+        no: 2,
+        iscollectopt: false
       },
       {
         id: "pro3",
@@ -60,8 +62,9 @@ Page({
         iscollect: false,
         latitude: 31.250416, //纬度
         longitude: 121.493701, //经度
-        no: 3
-      }, 
+        no: 3,
+        iscollectopt: false
+      },
       {
         id: "pro4",
         name: '华纳电影世界',
@@ -72,8 +75,9 @@ Page({
         iscollect: true,
         latitude: 31.330416, //纬度
         longitude: 121.373701, //经度
-        no: 4
-      }, 
+        no: 4,
+        iscollectopt: false
+      },
       {
         id: "pro5",
         name: '可伦宾野生动物园',
@@ -84,7 +88,8 @@ Page({
         iscollect: true,
         latitude: 31.130416, //纬度
         longitude: 121.453701, //经度
-        no: 5
+        no: 5,
+        iscollectopt: false
       },
       {
         id: "pro6",
@@ -96,7 +101,8 @@ Page({
         iscollect: false,
         latitude: 31.250416, //纬度
         longitude: 121.493701, //经度
-        no: 6
+        no: 6,
+        iscollectopt: false
       }
     ], //底部的滑动列表
   },
@@ -126,7 +132,7 @@ Page({
           winheight: res.screenHeight,
           winwidth: res.screenWidth,
           mapheight: res.screenHeight * 0.482,
-          contenth: res.screenHeight-120
+          contenth: res.screenHeight - 120
         })
       }
     })
@@ -261,8 +267,7 @@ Page({
       dorder = that.data.dorder; //距离排序;
 
     //列表数据  
-    var datalist = [
-      {
+    var datalist = [{
         id: 1,
         imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         cnname: "华纳电影世界",
@@ -270,7 +275,8 @@ Page({
         distance: "1.5km",
         commentnum: 2331,
         price: 281,
-        iscollect: true
+        iscollect: true,
+        iscollectopt: false
       },
       {
         id: 2,
@@ -280,7 +286,8 @@ Page({
         distance: "1.8km",
         commentnum: 1332,
         price: 281,
-        iscollect: true
+        iscollect: true,
+        iscollectopt: false
       },
       {
         id: 3,
@@ -290,7 +297,8 @@ Page({
         distance: "2.0km",
         commentnum: 1332,
         price: 281,
-        iscollect: false
+        iscollect: false,
+        iscollectopt: false
       },
       {
         id: 4,
@@ -310,7 +318,8 @@ Page({
         distance: "1.8km",
         commentnum: 1332,
         price: 281,
-        iscollect: true
+        iscollect: true,
+        iscollectopt: false
       },
       {
         id: 6,
@@ -320,7 +329,8 @@ Page({
         distance: "2.0km",
         commentnum: 1332,
         price: 281,
-        iscollect: false
+        iscollect: false,
+        iscollectopt: false
       },
     ];
 
@@ -349,7 +359,8 @@ Page({
           distance: datalist[i].distance,
           commentnum: datalist[i].commentnum,
           price: datalist[i].price,
-          iscollect: !datalist[i].iscollect
+          iscollect: !datalist[i].iscollect,
+          iscollectopt: true
         }
       } else {
         txtarry[i] = {
@@ -360,7 +371,8 @@ Page({
           distance: datalist[i].distance,
           commentnum: datalist[i].commentnum,
           price: datalist[i].price,
-          iscollect: datalist[i].iscollect
+          iscollect: datalist[i].iscollect,
+          iscollectopt: false
         }
       }
     }
@@ -400,13 +412,20 @@ Page({
     var that = this;
     //参数
     var id = e.currentTarget.dataset.id;
-    that.setData({
-      chktabid: parseInt(id)
-    })
-    //初始化列表数据
-    that.InitList();
-    //初始化地图Marker
-    that.GetMapData();
+    id = parseInt(id);
+    if (id == 4) {
+      wx.navigateTo({
+        url: '../filter/index?id=' + that.data.chktabid,
+      })
+    } else {
+      that.setData({
+        chktabid: parseInt(id)
+      })
+      //初始化列表数据
+      that.InitList();
+      //初始化地图Marker
+      that.GetMapData();
+    }
   },
   //评分排序
   scoreopt: function() {
@@ -431,7 +450,7 @@ Page({
     var that = this;
     that.setData({
       sorder: false,
-      porder:false,
+      porder: false,
       dorder: !that.data.dorder
     })
   },
@@ -498,6 +517,7 @@ Page({
           latitude: prolist[i].latitude,
           longitude: prolist[i].longitude,
           no: prolist[i].no,
+          iscollectopt: true
         }
       } else {
         txtarry[i] = {
@@ -511,6 +531,7 @@ Page({
           latitude: prolist[i].latitude,
           longitude: prolist[i].longitude,
           no: prolist[i].no,
+          iscollectopt: false
         }
       }
     }

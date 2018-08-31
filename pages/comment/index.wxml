@@ -1,0 +1,25 @@
+<!--pages/comment/index.wxml-->
+
+<!--打分部分-->
+<view class='xingv'>
+  <view class='xingtitle'>总体评价</view>
+  <view class='xinginfo'>
+    <block wx:for="{{xinglist}}" wx:key="item" wx:for-index="x">
+      <image src='/resources/icon/smxingh.png' wx:if="{{fen>x}}" class='xingico' bindtap="chkxingopt" data-index="{{x}}"></image>
+      <image src='/resources/icon/smxing.png' wx:else class='xingico' bindtap="chkxingopt" data-index="{{x}}"></image>
+    </block>
+  </view>
+</view>
+
+
+<!--评价内容-->
+<view class='commentv'>
+ <textarea class='txtcss' placeholder='分享一下你对这里的印象吧！' placeholder-class='tipcss' bindinput='getcomment' value='{{comment}}' maxlength='{{maxnum}}'></textarea>
+ <view class='tiptxt'>（{{commentnum}}/{{maxnum}}字）</view>
+</view>
+
+
+<!--发表按钮-->
+<view class='btnv'>
+  <view class='publishbtn' bindtap='publishopt'>发表</view>
+</view>

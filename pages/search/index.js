@@ -17,6 +17,7 @@ Page({
     historylist: [], //热门搜索列表
     hotsearchlist: [], //历史记录
     isshowhistory: true, //是否显示历史记录
+    isshownocontent:false,//搜索无果
   },
 
   /**
@@ -47,6 +48,8 @@ Page({
       searchtxt: txtval,
       issearchfocus: false
     })
+    //搜索结果
+    that.getsearchresult();
   },
   //菜单部分
   getmenu: function() {
@@ -77,6 +80,8 @@ Page({
     that.setData({
       tablist: tablist
     })
+    //搜索结果
+    that.getsearchresult();
   },
   // 点击标题切换当前页时改变样式
   switchNav: function(e) {
@@ -189,9 +194,20 @@ Page({
   //获取搜索结果
   getsearchresult: function() {
     var that = this;
-    //获取搜索的列表值
-    var resultlist = {
-      datalist: [{
+    //参数部分
+    var searchtxt=that.data.searchtxt,
+      isshowcontent = that.data.isshowcontent,
+      isshownocontent = that.data.isshowcontent;
+
+    if (searchtxt==''){
+      that.setData({
+        isshowcontent:false,
+        isshownocontent: false
+      })
+    }else{
+      //获取搜索的列表值
+      var resultlist = {
+        datalist: [{
           id: 1,
           imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
           cnname: "太平洋购物中心",
@@ -209,7 +225,7 @@ Page({
           price: 281
         },
         {
-          id: 3,          
+          id: 3,
           imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
           cnname: "购物中心A",
           enname: "Pacific Fair",
@@ -242,17 +258,21 @@ Page({
           commentnum: 1221,
           price: 281
         },
-      ],
-      fontt1: 32,
-      fontt2: 24,
-      fontt3: 24,
-      showtype: 5, //显示类型
-    };
+        ],
+        fontt1: 32,
+        fontt2: 24,
+        fontt3: 24,
+        showtype: 5, //显示类型
+      };
 
-    //赋值部分
-    that.setData({
-      resultlist: resultlist
-    })
+      //赋值部分
+      that.setData({
+        resultlist: resultlist,
+        isshowcontent:true,
+        isshownocontent:resultlist.length>0?false:true,
+      })
+    }  
+   
   },
   //取消按钮
   goback: function() {

@@ -1,0 +1,62 @@
+<!--others/pages/filter/index.wxml-->
+<view class='topv'>
+  <!--搜索层-->
+  <view class='searchv'>
+    <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+      <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
+      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+    </view>
+    <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
+      <image src='/resources/icon/dingtu.png' class='listicon'></image>
+    </view>
+    <view class='cleartxt' bindtap='changeshow' wx:if="{{isshowmap}}">
+      <image src='/resources/list.png' class='dituicon'></image>
+    </view>
+  </view>
+
+  <!--菜单部分-->
+  <view class="tabmenuv font-t5">
+    <view class="ttabitemv" data-id="0" bindtap="menuopt">
+      <view class="{{chktabid==0?'chktabitem1':'nochktabitem'}}">标志景点</view>
+    </view>
+    <view class="ttabitemv" data-id="2" bindtap="menuopt">
+      <view class="{{chktabid==2?'chktabitem3':'nochktabitem'}}">购物</view>
+    </view>
+    <view class="ttabitemv" data-id="1" bindtap="menuopt">
+      <view class="{{chktabid==1?'chktabitem2':'nochktabitem'}}">美食</view>
+    </view>
+    <view class="ttabitemv" data-id="3" bindtap="menuopt">
+      <view class="{{chktabid==3?'chktabitem4':'nochktabitem'}}">酒店</view>
+    </view>
+    <view class="ftabitemv" data-id="4" bindtap="menuopt">
+      <image src='/resources/icon/filter.png' class='filtericon'></image>
+    </view>
+  </view>
+  <!--渐变行-->
+  <view class='shadowv' wx:if="{{!isshowmap}}"></view>
+</view>
+
+<!--筛选列表部分-->
+<view style='margin-top:240rpx;'>
+
+  <!--筛选条件部分-->
+  <block wx:for="{{filterlist}}" wx:key="item"> 
+  <view class='filterv'>
+    <view class='filtertitle'>{{item.title}}</view>
+    <view class='filterlist'>
+      <block wx:for="{{item.childs}}" wx:key="fitem" wx:for-item="fitem"> 
+      <view class="{{fitem.ischk?'filteritemh':'filteritem'}}" data-pid='{{item.id}}' data-id='{{fitem.id}}' bindtap='chkfilteropt'>{{fitem.name}}</view>
+      </block>
+    </view>
+  </view>
+</block>
+</view>
+
+
+<!--底部的操作按钮-->
+<view class='bottomopv'></view>
+<view class='bottomopt'>
+  <view class='cancel' bindtap='cancelopt'>取消</view>
+  <view class="{{chkfilter.length>0?'reseth':'reset'}}" bindtap='resetopt'>重置</view>
+  <view class="{{chkfilter.length>0?'okbtnh':'okbtn'}}" bindtap='postopt'>确定</view>
+</view>
