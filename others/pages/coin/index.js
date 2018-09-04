@@ -1,5 +1,6 @@
 // others/pages/coin/index.js
 var cointool=require('../../../utils/coin.js');
+var requesturl=getApp().globalData.requesturl;
 
 Page({
 
@@ -20,8 +21,6 @@ Page({
     gcountry: "英国", //国家
     genname: "GBP", //国家缩写
     gmoney: 0, //兑换后的钱
-
-    beilv: 8.7799,//汇率
   },
 
   /**
@@ -57,12 +56,33 @@ Page({
     var that=this;
 
     //参数部分
-    var omoney= that.data.omoney, //被兑换的钱 
-      beilv= that.data.beilv;//汇率
-    
-    var result = parseFloat(omoney * beilv).toFixed(2);
-    that.setData({
-      gmoney: result == 0 ? 0 : result
+    var omoney= that.data.omoney; //被兑换的钱
+    wx.showLoading({
+      title: '换算中....',
+      mask:true
+    })
+    //获取汇率
+    wx.request({
+      url: requesturl+'/currency/exchange/'+that.data.oenname+"/"+that.data.genname,
+      data:'',
+      header: {
+        "Content-Type":"application/json"
+      },
+      method: 'GET',
+      success: function(res) {
+        console.log("获取汇率的值:");
+        console.log(res);
+        var huilv = JSON.parse(res.data);
+        var hlval = huilv.result[0].exchange;
+        console.log("获取汇率的值:");
+        console.log(hlval);
+
+        var result = parseFloat(omoney * hlval).toFixed(4);
+        that.setData({
+          gmoney:  result
+        })
+        wx.hideLoading();
+      }
     })
   },
   //切换操作

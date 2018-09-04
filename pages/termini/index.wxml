@@ -4,7 +4,8 @@
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
       <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' maxlength='10'></input>
-      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' wx:if="{{!isshowclear}}" />
+      <icon type="clear" size="20" color="#B2B2B2" class='searchicon' wx:if="{{isshowclear}}" bindtap='clearsopt' />
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
       <image src='/resources/icon/dingtu.png' class='listicon'></image>
@@ -63,7 +64,7 @@
         <!--中文名称收藏-->
         <view class='namexinv'>
           <view class='cnnamev font-t4'>{{item.cnname}}</view>
-          <image src='/resources/icon/hubxin.png'  class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxin.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
           <image src='/resources/icon/hubxinh.png' class="{{item.iscollectopt?'xinanimation':''}} 'xinicon'" wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
@@ -101,8 +102,8 @@
 
   <!--底部的折叠-->
   <view class='zhediev' bindtap='zhedieopt' style="{{iszhediemap?'bottom:0rpx;':'bottom:280rpx;'}}">
-      <image src='/resources/icon/downico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
-      <image src='/resources/icon/upico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/downico.png' wx:if="{{!iszhediemap}}" class='zhedieico'></image>
+    <image src='/resources/icon/upico.png' wx:if="{{iszhediemap}}" class='zhedieico'></image>
   </view>
 
   <!--底部的数据-->

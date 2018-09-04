@@ -22,6 +22,19 @@ Page({
     //获取筛选的条件
     that.InitFilter();
   },
+  //菜单的点击
+  menuopt: function(e) {
+    var that = this;
+    //获取参数
+    var id = e.currentTarget.dataset.id;
+    id = parseInt(id);
+
+    that.setData({
+      chktabid: id
+    })
+    //获取筛选的条件数据
+    that.InitFilter();
+  },
   //获取筛选的条件
   InitFilter: function() {
     var that = this;

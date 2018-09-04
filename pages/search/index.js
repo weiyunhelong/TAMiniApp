@@ -17,7 +17,7 @@ Page({
     historylist: [], //热门搜索列表
     hotsearchlist: [], //历史记录
     isshowhistory: true, //是否显示历史记录
-    isshownocontent:false,//搜索无果
+    isshownocontent: false, //搜索无果
   },
 
   /**
@@ -46,7 +46,21 @@ Page({
     var txtval = e.detail.value;
     this.setData({
       searchtxt: txtval,
-      issearchfocus: false
+      issearchfocus: true,
+      isshownocontent: true,
+      isshowclear: txtval.length > 0 ? true : false
+    })
+    if (txtval != '') {
+      //搜索结果
+      //that.getsearchresult();
+    }
+  },//清除操作
+  clearsopt: function () {
+    var that = this;
+    that.setData({
+      searchtxt: "",
+      issearchfocus: true,
+      isshowclear: false
     })
     //搜索结果
     that.getsearchresult();
@@ -179,14 +193,14 @@ Page({
       isshowhistory: false
     })
   },
-  //点击搜索
+  //点击热门搜索的值
   gosearch: function(e) {
     var that = this;
     //参数的值
     var searchtxt = e.currentTarget.dataset.name;
     that.setData({
       searchtxt: searchtxt,
-      isshowcontent: true
+      isshowclear: searchtxt.length>0?true:false
     })
     //获取搜索结果
     that.getsearchresult();
@@ -195,84 +209,86 @@ Page({
   getsearchresult: function() {
     var that = this;
     //参数部分
-    var searchtxt=that.data.searchtxt,
+    var searchtxt = that.data.searchtxt,
       isshowcontent = that.data.isshowcontent,
       isshownocontent = that.data.isshowcontent;
 
-    if (searchtxt==''){
+    if (searchtxt == '') {
       that.setData({
-        isshowcontent:false,
+        isshowcontent: false,
         isshownocontent: false
       })
-    }else{
+    } else {
       //获取搜索的列表值
       var resultlist = {
         datalist: [{
-          id: 1,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-          cnname: "太平洋购物中心",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        }, {
-          id: 2,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-          cnname: "海港城A",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        },
-        {
-          id: 3,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
-          cnname: "购物中心A",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        }, {
-          id: 4,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-          cnname: "太平洋购物中心",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        }, {
-          id: 5,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-          cnname: "太平洋购物中心A",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        },
-        {
-          id: 6,
-          imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
-          cnname: "太平洋购物中心B",
-          enname: "Pacific Fair",
-          distance: 1.5,
-          commentnum: 1221,
-          price: 281
-        },
+            id: 1,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
+            cnname: "太平洋购物中心",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 2,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+            cnname: "海港城A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
+          {
+            id: 3,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
+            cnname: "购物中心A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 4,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
+            cnname: "太平洋购物中心",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 5,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+            cnname: "太平洋购物中心A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
+          {
+            id: 6,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
+            cnname: "太平洋购物中心B",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
         ],
         fontt1: 32,
         fontt2: 24,
         fontt3: 24,
         showtype: 5, //显示类型
+        typename: "",//类型名称
+        typeval: "",//类型值
       };
 
       //赋值部分
       that.setData({
         resultlist: resultlist,
-        isshowcontent:true,
-        isshownocontent:resultlist.length>0?false:true,
+        isshowcontent: true,
+        isshownocontent: false,
       })
-    }  
-   
+    }
+
   },
   //取消按钮
   goback: function() {

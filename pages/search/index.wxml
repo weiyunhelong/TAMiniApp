@@ -4,7 +4,8 @@
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
       <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true' maxlength='10'></input>
-      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' wx:if="{{!isshowclear}}" />
+      <icon type="clear" size="20" color="#B2B2B2" class='searchicon' wx:if="{{isshowclear}}" bindtap='clearsopt' />
     </view>
     <view class='cleartxt' bindtap='goback'>取消</view>
   </view>
@@ -12,7 +13,7 @@
   <!--tab层-->
   <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
     <block wx:for="{{tablist}}" wx:key="item" wx:for-index="x">
-      <view class="tabitem" data-current="{{x}}" data-id="{{item.name}}" bindtap="switchNav">
+      <view class="tabitem" data-current="{{x}}" data-id="{{item.name}}" bindtap="switchNav" style="width:{{tablist.length>5?110:120}}rpx;">
         <view class="{{currentTab==x?'chktabitem':'nochktabitem'}}" data-current="{{x}}" data-id="{{item.id}}" bindtap="swichNav">{{item.name}}</view>
       </view>
     </block>
@@ -22,7 +23,7 @@
   <view class='shadowv'></view>
 </view>
 
-<view wx:if="{{!isshowcontent}}" style='margin-top: 250rpx;'>
+<view wx:if="{{!isshowcontent&&!isshownocontent}}" style='margin-top: 250rpx;'>
   <!--历史记录-->
   <view class='historyv' wx:if="{{isshowhistory}}">
     <view class='titlev'>历史记录</view>
@@ -49,12 +50,12 @@
 </view>
 
 <!--搜索结果-->
-<view wx:if="{{isshowcontent}}" style='margin-top: 250rpx;'>
+<view wx:if="{{isshowcontent&&!isshownocontent}}" style='margin-top: 250rpx;'>
   <scrolllist receiveData='{{resultlist}}' />
 </view>
 
 <!--搜索无结果-->
-<view wx:if="{{isshownocontent}}" style='margin-top: 250rpx;'>
+<view wx:if="{{isshownocontent}}" style='margin-top: 430rpx;'>
   <view class='searchiconv'>
     <icon size='45' type='search' color='#F2F2F2'></icon>
   </view>

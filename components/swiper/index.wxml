@@ -8,7 +8,7 @@
 <swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" wx:if="{{isshowop}}">
   <block wx:for="{{imglist}}" wx:key="item">
     <swiper-item>
-      <image class="slide-image" src="{{item.imgpath}}" bindtap='gointro' data-id='{{item.id}}'></image>
+      <image class="slide-image" src="{{item.imgpath}}"></image>
     </swiper-item>
   </block>
 </swiper>

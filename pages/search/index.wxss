@@ -95,7 +95,7 @@ page {
 /*菜单*/
 
 .tabitem {
-  width: 120rpx;
+  width: 110rpx;
   text-align: center;
   height: 80rpx;
   margin: 0rpx 15rpx;

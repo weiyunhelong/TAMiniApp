@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <!--轮播图部分-->
-<swiper style="height: 438rpx;"/>
+<swiper style="height: 438rpx;" class="swiper-box"/>
 
 <!--menu部分-->
 <menu />
@@ -13,19 +13,17 @@
 <!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
+
 <!--美食推荐部分-->
 <module receiveData='{{fooddata}}'/>
-<!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--酒店推荐部分-->
 <module receiveData='{{hoteldata}}'/>
-<!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--购物推荐部分-->
 <module receiveData='{{shoppingdata}}'/>
-<!--隔断-->
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--游玩指南-->

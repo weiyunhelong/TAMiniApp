@@ -342,7 +342,8 @@ Page({
     that.setData({
       searchtxt:name,
       isshownoresult: false,
-      datalist: datalist
+      datalist: datalist,
+      isshowclear: true
     })
   },
   //列表的收藏
@@ -394,7 +395,8 @@ Page({
     that.setData({
       searchtxt: txtval,
       issearchfocus: true,
-      isshownoresult:true
+      isshownoresult: true,
+      isshowclear: txtval.length > 0 ? true : false
     })
     if (txtval!=''){
       //获取搜索结果
@@ -405,6 +407,14 @@ Page({
     var that = this;
     that.setData({
       issearchfocus: true
+    })
+  },//清除操作
+  clearsopt: function () {
+    var that = this;
+    that.setData({
+      searchtxt: "",
+      issearchfocus: true,
+      isshowclear: false
     })
   },
   //地图和列表形式的切换

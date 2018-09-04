@@ -15,7 +15,7 @@ Component({
           typename: newVal.typename,//类型名称
           typeval: newVal.typeval,//类型值
           showtype: newVal.showtype,//显示类型
-        })
+        })      
 
       }
     }

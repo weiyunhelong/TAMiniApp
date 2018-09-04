@@ -9,13 +9,14 @@
     "pages/search/index",
     "pages/article/index",
     "pages/weather/index",
+    "pages/test/index",
     "pages/duiyi/index",
     "pages/duiyi/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "澳洲旅游局",
+    "navigationBarTitleText": "黄金海岸",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

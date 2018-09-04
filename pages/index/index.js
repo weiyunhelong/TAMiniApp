@@ -8,10 +8,42 @@ Page({
     swiperdata: {}, //轮播图
     /**菜单部分**/
     menudata: {}, //模块测试数据
-    scenicdata: {}, //标志景点
-    fooddata: {}, //美食推荐
-    hoteldata: {}, //购物推荐
-    shoppingdata: {}, //购物推荐
+    scenicdata: {
+      datalist: [],//数据列表
+      fontt1: 0,//标题
+      fontt2: 0,//查看全部
+      fontt3: 0,//小字
+      typename: "",//类型名称
+      typeval: "",//类型值
+      showtype: 0,//显示类型
+    }, //标志景点
+    fooddata: {
+      datalist: [],//数据列表
+      fontt1: 0,//标题
+      fontt2: 0,//查看全部
+      fontt3: 0,//小字
+      typename: "",//类型名称
+      typeval: "",//类型值
+      showtype: 0,//显示类型
+    }, //美食推荐
+    hoteldata: {
+      datalist: [],//数据列表
+      fontt1: 0,//标题
+      fontt2: 0,//查看全部
+      fontt3: 0,//小字
+      typename: "",//类型名称
+      typeval: "",//类型值
+      showtype: 0,//显示类型
+    }, //酒店推荐
+    shoppingdata: {
+      datalist: [],//数据列表
+      fontt1: 0,//标题
+      fontt2: 0,//查看全部
+      fontt3: 0,//小字
+      typename: "",//类型名称
+      typeval: "",//类型值
+      showtype: 0,//显示类型
+    }, //购物推荐
     /**游玩指南**/
     iswenmenu: false, //是否显示游玩菜单
     winheight:0,//屏幕的高度
@@ -30,6 +62,25 @@ Page({
    */
   onLoad: function() {
 
+    var that = this;
+
+    //获取屏幕的高度
+    that.initHight();
+
+    //获取标志景点
+    that.initSenic();
+
+    //获取购物推荐
+    that.initShopping();
+
+    //获取美食推荐
+    that.initFood();
+
+    //获取酒店推荐
+    that.initHotel();
+
+    //获取内容部分
+    that.initWen();
   },
   //获取屏幕的高度
   initHight: function() {
@@ -341,21 +392,5 @@ Page({
    */
   onShow: function() {
 
-    var that = this;
-
-    //获取屏幕的高度
-    that.initHight();
-
-    //获取标志景点
-    that.initSenic();
-    //获取购物推荐
-    that.initShopping();
-    //获取美食推荐
-    that.initFood();
-    //获取酒店推荐
-    that.initHotel();
-
-    //获取内容部分
-    that.initWen();
   }
 })

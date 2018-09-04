@@ -4,7 +4,8 @@
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
       <input type='text' placeholder='搜索' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
-      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' wx:if="{{!isshowclear}}"/>
+      <icon type="clear" size="20"  color="#B2B2B2" class='searchicon' wx:if="{{isshowclear}}" bindtap='clearsopt'/>
     </view>
     <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowmap}}">
       <image src='/resources/icon/dingtu.png' class='listicon'></image>
@@ -36,7 +37,7 @@
   <view class='shadowv' wx:if="{{!isshowmap}}"></view>
 
   <!--筛选的条件-->
-  <view class='filterv font-t7' wx:if="{{!isshowmap}}">
+  <view class='filterv font-t7' wx:if="{{!isshowmap&&!isshownoresult}}">
     <view class='filteritem' bindtap='scoreopt'>
       <view class="{{sorder?'chkfiltertxt':'filtertxt'}}">评分排序</view>
     </view>
@@ -52,7 +53,7 @@
 </view>
 
 <!--列表部分-->
-<view class='datalist' wx:if="{{!isshowmap}}" style='height:{{contenth}}px;margin-top:315rpx;'>
+<view class='datalist' wx:if="{{!isshowmap&&!isshownoresult}}" style='height:{{contenth}}px;margin-top:315rpx;'>
   <block wx:for="{{datalist}}" wx:key="item">
     <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
       <!--图片部分-->
@@ -93,8 +94,8 @@
 </view>
 
 <!--地图显示部分-->
-<view class='shadowv' wx:if="{{isshowmap}}" style='margin:0rpx;'></view>
-<view class='mapv' wx:if="{{isshowmap}}" style='margin-top:195rpx;'>
+<view class='shadowv' wx:if="{{isshowmap&&!isshownoresult}}" style='margin:0rpx;'></view>
+<view class='mapv' wx:if="{{isshowmap&&!isshownoresult}}" style='margin-top:195rpx;'>
 
   <!--地图部分-->
   <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'
@@ -136,5 +137,22 @@
       </block>
 
     </scroll-view>
+  </view>
+</view>
+
+<!--搜索无结果-->
+<view wx:if="{{isshownoresult}}" style='margin-top: 250rpx;'>
+  <view class='searchiconv'>
+    <icon size='45' type='search' color='#F2F2F2'></icon>
+  </view>
+  <view class='searchtip'>未能找到搜索结果</view>
+  <view class='searchtipv'>看看大家搜在搜什么吧：</view>
+
+
+  <!--热门搜索结果-->
+  <view class='hotsearchlist'>
+    <block wx:for="{{hotsearchlist}}" wx:key="item">
+      <view class="{{item.ishot?'hotsearchhitem':'hotsearchitem'}}" bindtap='gosearch' data-id='{{item.id}}' data-name='{{item.name}}'>{{item.name}}</view>
+    </block>
   </view>
 </view>

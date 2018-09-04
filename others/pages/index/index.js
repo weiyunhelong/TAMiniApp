@@ -105,6 +105,8 @@ Page({
         iscollectopt: false
       }
     ], //底部的滑动列表
+    hotsearchlist: [], //热门搜索
+    isshownoresult: false,//搜索无果
   },
 
   /**
@@ -120,6 +122,48 @@ Page({
     that.InitSysInfo();
     //初始化列表数据
     that.InitList();
+    //初始化热门搜索部分
+    that.initHotSearch();
+  },
+  //初始化热门搜索部分
+  initHotSearch: function () {
+    var that = this;
+    //历史记录列表
+    var hotsearchlist = [{
+      id: 1,
+      name: '昆士兰',
+      ishot: false
+    },
+    {
+      id: 2,
+      name: '黄金海岸',
+      ishot: false
+    },
+    {
+      id: 3,
+      name: '最好的酒店',
+      ishot: true
+    },
+    {
+      id: 4,
+      name: '去哪里冲浪',
+      ishot: true
+    },
+    {
+      id: 5,
+      name: '浮潜',
+      ishot: false
+    },
+    {
+      id: 5,
+      name: '不可错过的美食',
+      ishot: false
+    },
+    ];
+    //赋值部分
+    that.setData({
+      hotsearchlist: hotsearchlist
+    })
   },
   //获取系统的数据
   InitSysInfo: function() {
@@ -338,8 +382,6 @@ Page({
     that.setData({
       datalist: datalist
     })
-
-
   },
   //列表的收藏
   listcollectopt: function(e) {
@@ -389,14 +431,79 @@ Page({
 
     that.setData({
       searchtxt: txtval,
-      issearchfocus: false
+      issearchfocus: true,
+      isshownoresult: true,
+      isshowclear: txtval.length > 0 ? true : false
     })
+    if (txtval != '') {
+      //获取搜索结果
+      //that.InitList();
+    }
   },
   searchfopt: function() {
     var that = this;
     that.setData({
       issearchfocus: true
     })
+  },//清除操作
+  clearsopt:function(){
+    var that = this;
+    that.setData({
+      searchtxt:"",
+      issearchfocus: true,
+      isshowclear:false
+    })
+    that.InitList();
+  },
+  //点击热门搜索
+  gosearch: function (e) {
+    var that = this;
+    //参数部分
+    var name = e.currentTarget.dataset.name;
+    var id = e.currentTarget.dataset.id;
+    //列表数据  
+    var datalist = [{
+      id: 1,
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+      cnname: "华纳电影世界",
+      enname: "Warner Bros. Movie World",
+      distance: "1.5km",
+      commentnum: 2331,
+      price: 281,
+      iscollect: true,
+      iscollectopt: false,
+    },
+    {
+      id: 2,
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+      cnname: "可伦宾野生动物园",
+      enname: "Currumbin Wildlife Sanctuary Currumbin Wildlife Sanctuary",
+      distance: "1.8km",
+      commentnum: 1332,
+      price: 281,
+      iscollect: true,
+      iscollectopt: false,
+    },
+    {
+      id: 3,
+      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+      cnname: "春溪国家公园",
+      enname: "Warner Bros. Movie World",
+      distance: "2.0km",
+      commentnum: 1332,
+      price: 281,
+      iscollect: false,
+      iscollectopt: false,
+    },
+    ];
+
+    that.setData({
+      searchtxt: name,
+      isshownoresult: false,
+      datalist: datalist,
+      isshowclear: true
+    })
+    //that.InitList();
   },
   //地图和列表形式的切换
   changeshow: function() {

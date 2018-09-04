@@ -518,7 +518,7 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
-  margin-left: 50rpx;
+  margin-left: 40rpx;
 }
 
 .donghuascenicv {
@@ -539,6 +539,7 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-left: 40rpx;
 }
 
 .lastgeduanv {
@@ -652,4 +653,5 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-left:40rpx;
 }

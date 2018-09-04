@@ -21,7 +21,7 @@
 </view>
 
 <view class='originv'>
-  <textarea class='otxtcss' placeholder-class='otipcss' placeholder='请输入翻译的内容' value='{{origintxt}}' bindblur='getorigintxt' bindconfirm='getorigintxt' bindinput='getorigintxt' maxlength='-1'></textarea>
+  <textarea class='otxtcss' placeholder-class='otipcss' placeholder='请输入翻译的内容' value='{{origintxt}}' bindblur='getorigintxt' bindconfirm='getorigintxt' bindinput='getorigintxt' maxlength='-1' style='height:{{winhight*0.3}}px;line-height:40rpx;'></textarea>
 </view>
 
 <!--实时翻译-->
@@ -31,5 +31,5 @@
 <!--输出结果-->
 <view class='tiptxt'>{{glang}}</view>
 <view class='gogalv'>
-  <textarea class='gtxtcss' value='{{gogaltxt}}' maxlength='-1' disabled='true'></textarea>
+  <textarea class='gtxtcss' value='{{gogaltxt}}' maxlength='-1' disabled='true' style='height:{{winhight*0.3}}px;line-height:40rpx;'></textarea>
 </view>

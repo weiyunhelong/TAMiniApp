@@ -133,6 +133,7 @@ page {
   margin: 0 40rpx;
   font-size: 28rpx;
   color: #000;
+  height: 500rpx;
 }
 
 /*清除操作*/

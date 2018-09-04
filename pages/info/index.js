@@ -311,9 +311,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that=this;
+    //设置评价星为0
+    that.setData({
+      fen:0
+    })
+    //获取图库和评价列表
+    that.InitImg();
+    that.InitComment();
+  },
+  //获取图库和评价列表
+  InitImg:function(){
 
   },
+  InitComment: function () {
 
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

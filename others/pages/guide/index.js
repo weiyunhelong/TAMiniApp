@@ -11,6 +11,8 @@ Page({
     currentTab: 0, //预设当前项的值
     filterchk:1,//排序的筛选
     guidelist:[],//游玩指南
+    isshownoresult:false,//搜索无果
+    isshowclear:false,//隐藏搜索清除
   },
 
   /**
@@ -35,8 +37,22 @@ Page({
     var txtval = e.detail.value;
     this.setData({
       searchtxt: txtval,
-      issearchfocus: false
+      issearchfocus: false,
+      isshowclear: txtval.length > 0 ? true : false
     })
+    that.getGuide();
+  },
+  //清除事件
+  clearsopt:function(){
+    var that=this;
+
+    that.setData({
+      searchtxt: "",
+      issearchfocus: false,
+      isshowclear:false,
+      isshownoresult:true
+    })
+    //that.getGuide();
   },
   // 点击标题切换当前页时改变样式
   switchNav: function (e) {
@@ -72,54 +88,12 @@ Page({
       filterchk = that.data.filterchk;//排序的筛选,1->热门；2->时间
 
     //获取列表
-    var guidelist = guidetool.pagedatalist(1,currentTab);
-    /*
-    var guidelist=[
-      {
-        id:1,
-        imgpath:"http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
-        typeval:1,
-        title:"黄金海岸初体验，最热门的8个地方",
-        instro:"如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect:false,
-        collectnum:40,
-        viewnum:1159
-      },
-      {
-        id: 2,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
-        typeval: 2,
-        title: "七天就能环个洲，大小景点都玩遍",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-      {
-        id: 3,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
-        typeval: 3,
-        title: "五天玩遍澳大利亚的秘密隆重揭晓",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-      {
-        id: 4,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
-        typeval: 1,
-        title: "黄金海岸初体验，最热门的8个地方",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-    ];
-    */
+    var guidelist = guidetool.pagedatalist(1, currentTab);
     that.setData({
-      guidelist: guidelist
+      guidelist: guidelist,
+      isshownoresult: guidelist.length > 0 ? false : true
     })
+    
   },
   //点击跳转到详情页面
   godetail:function(e){

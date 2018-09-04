@@ -255,7 +255,7 @@ Page({
   //编辑操作
   goeditopt: function () {
     wx.showToast({
-      title: '编辑操作',
+      title: '记录入口',
       icon: 'none',
       mask: true,
       duration: 2000
