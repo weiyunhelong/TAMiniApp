@@ -45,6 +45,7 @@
   border-radius: 30rpx;
   display: flex;
   line-height: 60rpx;
+  background-color:rgba(255, 255, 255, 0.85);
 }
 
 .searchico {
@@ -54,7 +55,7 @@
 }
 
 .searchtip {
-  color: #ccc;
+  color: #969696;
   font-size: 28rpx;
 }
 .searchtxt{

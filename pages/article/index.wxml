@@ -11,8 +11,8 @@
 
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
-    <image src='/resources/icon/detailxin.png' class='xinicon' wx:if="{{!iscollect}}"></image>
-    <image src='/resources/icon/detailxinh.png' class='xinicon' wx:if="{{iscollect}}"></image>
+     <image src='/resources/icon/detailxin.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{!iscollect}}"></image>
+     <image src='/resources/icon/detailxinh.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{iscollect}}"></image>
   </view> 
 </view>
 

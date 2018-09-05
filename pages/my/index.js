@@ -505,6 +505,17 @@ Page({
       mask: true
     })
   },
+  //点击评论,跳转到对应的页面
+  gocommentdetail:function(e){
+    var that=this;
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    var kind = e.currentTarget.dataset.type;
+    
+    wx.navigateTo({
+      url: '../info/index?id=' + id + "&typeval=" + kind,
+    })
+  }, 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

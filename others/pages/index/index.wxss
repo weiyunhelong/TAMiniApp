@@ -373,7 +373,7 @@ page{
 }
 
 .scroll-view-item {
-  width: 600rpx;
+  width: 625rpx;
   height: 270rpx;
   display: inline-block;
 }
@@ -392,7 +392,7 @@ page{
   width: 300rpx;
   height: 225rpx;
   float: left;
-  padding-left: 20rpx;
+  padding-left: 30rpx;
 }
 
 .proname {

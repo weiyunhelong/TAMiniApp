@@ -14,6 +14,7 @@ Page({
     info:"",//内容简介部分
     islangtxt:false,//是否是长标题
     datetime:'2018-08-20',//发布日期
+    iscollectopt:false,
   },
 
   /**
@@ -85,14 +86,21 @@ Page({
     if (!iscollect){
       that.setData({
         collectnum: that.data.collectnum+1,
-        iscollect: !iscollect
+        iscollect: !iscollect,
+        iscollectopt:true
       })
     }else{
       that.setData({
         collectnum: that.data.collectnum - 1, 
-        iscollect: !iscollect
+        iscollect: !iscollect,
+        iscollectopt: true
       })
     }
+    setTimeout(function () {
+      that.setData({
+        iscollectopt: false
+      })
+    }, 500);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

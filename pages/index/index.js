@@ -439,7 +439,7 @@ Page({
       fontt2: 28,//英文字
       fontt3: 82,//温度
       fontt4: 20,//未来一周
-      searchtip:"请搜索",
+      searchtip:"请搜索...",
     };
 
     that.setData({

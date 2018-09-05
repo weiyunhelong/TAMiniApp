@@ -261,43 +261,43 @@ page {
 }
 
 .listtypev1 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ea9f10;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height:  34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev2 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #53c078;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev3 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ff7b65;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
