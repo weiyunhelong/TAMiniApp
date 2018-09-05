@@ -17,6 +17,7 @@
 <view class='topinfov' style='background-image: url("/resources/toptuback.png")'>
   <!--搜索层-->
   <view class='searchv' bindtap='getsearch' wx:if="{{issearch}}">
+    <input type='text' placeholder='{{searchtip}}' placeholder-class='searchtip' class='searchtxt'></input>    
     <image src='/resources/icon/homesearch.png' class='searchico'></image>
   </view>
   <!--底部的文字-->

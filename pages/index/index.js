@@ -2,10 +2,26 @@
 //获取应用实例
 const app = getApp()
 var guidetool = require('../../utils/guidedata.js');
+var timer="";//计时器
+var requesturl = getApp().globalData.requesturl;
+
 Page({
   data: {
     geduanval: 30, //隔断的高度值
-    swiperdata: {}, //轮播图
+    swiperdata: {
+      imglist: [],//轮播图
+      cnname: "",//中文名称
+      enname: "",//英文名称
+      isshowname: true,//显示名称
+      issearch: true,//搜索按钮
+      isweather: true,//天气预报
+      fontt1: 0,//中文字
+      fontt2: 0,//英文字
+      fontt3: 0,//温度
+      fontt4: 0,//未来一周
+      cityname:"",//城市名称
+      searchtip:"",//搜索提示词
+    }, //轮播图
     /**菜单部分**/
     menudata: {}, //模块测试数据
     scenicdata: {
@@ -62,25 +78,6 @@ Page({
    */
   onLoad: function() {
 
-    var that = this;
-
-    //获取屏幕的高度
-    that.initHight();
-
-    //获取标志景点
-    that.initSenic();
-
-    //获取购物推荐
-    that.initShopping();
-
-    //获取美食推荐
-    that.initFood();
-
-    //获取酒店推荐
-    that.initHotel();
-
-    //获取内容部分
-    that.initWen();
   },
   //获取屏幕的高度
   initHight: function() {
@@ -392,5 +389,61 @@ Page({
    */
   onShow: function() {
 
-  }
+    var that = this;
+
+    //获取屏幕的高度
+    that.initHight();
+
+    //初始化轮播图
+    that.initSwiper();
+
+    //获取标志景点
+    that.initSenic();
+
+    //获取购物推荐
+    that.initShopping();
+
+    //获取美食推荐
+    that.initFood();
+
+    //获取酒店推荐
+    that.initHotel();
+
+    //获取内容部分
+    that.initWen();
+
+
+  },
+  //初始化轮播图
+  initSwiper:function(){
+    var that=this;
+
+    var swiperdata={
+      imglist: [{
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }, {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Header.png",
+      }], //轮播图   
+      cityname:"黄金海岸",//城市名称
+      cnname: "黄金海岸",//中文名称
+      enname: "Gold Coast",//英文名称
+      isshowname: true,//显示名称
+      issearch: true,//搜索按钮
+      isweather: true,//天气预报
+      fontt1: 60,//中文字
+      fontt2: 28,//英文字
+      fontt3: 82,//温度
+      fontt4: 20,//未来一周
+      searchtip:"请搜索",
+    };
+
+    that.setData({
+      swiperdata: swiperdata
+    })
+  },
 })

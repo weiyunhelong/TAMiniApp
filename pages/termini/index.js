@@ -429,15 +429,22 @@ Page({
   //菜单的切换
   menuopt: function (e) {
     var that = this;
-    //参数
     var id = e.currentTarget.dataset.id;
-    that.setData({
-      chktabid: parseInt(id)
-    })
-    //初始化列表数据
-    that.InitList();
-    //初始化地图Marker
-    that.GetMapData();
+    id = parseInt(id);
+    //参数
+    if (id == 4) {
+      wx.navigateTo({
+        url: '../../others/pages/filter/index?id=' + that.data.chktabid,
+      })
+    } else {
+      that.setData({
+        chktabid: parseInt(id)
+      })
+      //初始化列表数据
+      that.InitList();
+      //初始化地图Marker
+      that.GetMapData();
+    }
   },
   //评分排序
   scoreopt: function () {

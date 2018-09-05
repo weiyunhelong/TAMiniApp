@@ -87,10 +87,12 @@ App({
     userInfo: null,//用户信息
     openid:"",//OPENID
     requesturl:"https://dev-api.connectplus.asaplus.com.cn",//后台API请求的url
+    weatherimgurl: "https://dev-api.connectplus.asaplus.com.cn/static/images/weather/",//后台API请求的url
     ocoinid:0,//中国货币
     gcoinid:1,//目标货币
     olangid: 7,//翻译来源语言
     glangid: 0,//翻译目标语言
     history: [],//录音的历史记录
+    timer:"",//计时器
   }
 })

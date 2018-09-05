@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <!--轮播图部分-->
-<swiper style="height: 438rpx;" class="swiper-box"/>
+<swiper style="height: 438rpx;" class="swiper-box" receiveData='{{swiperdata}}'/>
 
 <!--menu部分-->
 <menu />
