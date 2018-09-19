@@ -79,7 +79,7 @@
   "debug": false,
   "plugins": {
     "myPlugin": {
-      "version": "1.0.4",
+      "version": "1.0.6",
       "provider": "wx60d306fd175fe556"
     },
     "WechatSI": {

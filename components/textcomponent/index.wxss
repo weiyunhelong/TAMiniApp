@@ -1,0 +1,6 @@
+/* components/textcomponent/index.wxss */
+
+.inoftxtv{
+  height: 100rpx;
+  line-height: 100rpx; 
+}

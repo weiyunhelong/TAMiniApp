@@ -1,7 +1,7 @@
 <!--pages/article/index.wxml-->
 
 <!--顶部的标签内容部分-->
-<view class='topv' style='background-image: url("http://zhuweis.com/index/Header.png");'></view>
+<view class='topv' style='background-image: url("{{coverimg}}"); background-size: cover;'></view>
 
 <view class='topinfov'>
   <!--类型按钮-->

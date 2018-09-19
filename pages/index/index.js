@@ -64,6 +64,8 @@ Page({
     iswenmenu: false, //是否显示游玩菜单
     winheight:0,//屏幕的高度
     guideheight:800,//游玩指南的高度
+    guidemenuTop:0,//游玩指南tab的位置
+    guipageindex: 1,//游玩指南页数
     /***底部的tabbar***/
     tabbardata: {}, //底部的tabbar     
   },
@@ -278,6 +280,7 @@ Page({
     var guidedata = {
       iswenmenu: that.data.iswenmenu, //是否到达顶部
       guideheight: that.data.guideheight, //分页的页码
+      guipageindex:1
     };
     that.setData({
       guidedata: guidedata
@@ -316,22 +319,6 @@ Page({
         floorstatus: false
       });
     }
-    //是否固定文章的顶部
-    if (e.scrollTop > winheight * 1.9) {      
-      that.setData({
-        iswenmenu: true,
-        guideheight: that.data.winheight-150
-      });
-      that.initWen();
-    } else {
-      this.setData({
-        guidedata: {
-          iswenmenu: false,
-          guideheight: that.data.winheight - 250
-        },
-        iswenmenu: false
-      });
-    }
   },
   //回到顶部
   goTop: function(e) { // 一键回到顶部
@@ -358,14 +345,17 @@ Page({
    */
   onPullDownRefresh: function() {
     var that = this;
-
+    /*
     that.setData({
       guidedata: {
         iswenmenu: false,
-        guideheight:that.data.winheight - 250
+        guideheight:that.data.winheight - 250,
+        guipageindex:1
       },
+      guipageindex: 1,
       iswenmenu:false
     })
+    */
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作
@@ -378,11 +368,14 @@ Page({
   onReachBottom: function() {
     var that = this;
     console.log("底部加载...");
+    
     that.setData({
-      iswenmenu: true,
-      guideheight: that.data.winheight - 150
+      guidedata: {
+        iswenmenu: false,
+        guideheight: that.data.winheight - 150,
+        guipageindex: that.data.guipageindex+1
+      },
     });
-    that.initWen();
   },
   /**
    * 生命周期函数--监听页面显示
@@ -412,7 +405,22 @@ Page({
     //获取内容部分
     that.initWen();
 
-
+    //获取游玩指南的高度
+    that.initguideh();
+  },
+  //获取游玩指南的高度
+  initguideh:function(){
+    var that=this;
+    //得到tab的位置
+    var query = wx.createSelectorQuery()
+    query.select('#guide').boundingClientRect()
+    query.exec(function (res) {
+      console.log("高度值:");
+      console.log(res);
+      that.setData({
+        guidemenuTop: res[0].top
+      })
+    })
   },
   //初始化轮播图
   initSwiper:function(){

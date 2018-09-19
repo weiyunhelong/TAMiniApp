@@ -29,7 +29,7 @@
       <view class="{{chktabid==3?'chktabitem4':'nochktabitem'}}">酒店</view>
     </view>
     <view class="ftabitemv" data-id="4" bindtap="menuopt">
-      <image src='/resources/icon/filter.png' class='filtericon'></image>
+      <image src='/resources/icon/filterh.png' class='filtericon'></image>
     </view>
   </view>
   <!--渐变行-->

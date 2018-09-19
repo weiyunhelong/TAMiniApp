@@ -5,9 +5,9 @@
 .searchv {
   width: 97%;
   height: 68rpx;
-  margin-left: 3%;
   display: flex;
   justify-content: flex-start;
+  margin:20rpx 0 20rpx 3%;
 }
 
 .searchview {
@@ -66,8 +66,8 @@
   margin: 16rpx 20rpx;
 }
 
-
 /*文字*/
+
 .txtcss {
   width: 83%;
   height: 68rpx;
@@ -100,4 +100,45 @@
   width: 42rpx;
   height: 42rpx;
   margin: 16rpx 20rpx;
+}
+
+/*只搜索框不固定位置*/
+.searchviewv {
+  width: 95%;
+  height: 68rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 40rpx;
+}
+
+/*只搜索框固定位置*/
+.searchpv {
+  position: relative;
+  left: 10%;
+  top: 30rpx;
+  width: 80%;
+  height: 60rpx;
+  border: 1rpx solid #fff;
+  border-radius: 30rpx;
+  display: flex;
+  line-height: 60rpx;
+  background-color:rgba(255, 255, 255, 0.85);
+}
+
+.searchico {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 10rpx;
+}
+
+.searchtip {
+  color: #969696;
+  font-size: 28rpx;
+}
+.searchtxt{
+  width: 83%;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 5%;
 }

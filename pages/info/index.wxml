@@ -1,7 +1,7 @@
 <!--pages/info/index.wxml-->
 
 <!--顶部的标签内容部分-->
-<view class='topv' style='background-image: url("http://zhuweis.com/index/Header.png");'>
+<view class='topv' style='background-image: url("{{topimg}}");'>
   <!--收藏-->
   <view class='typev' bindtap='collectopt'>
     <image src='/resources/icon/detailxin.png' class="xinicon {{iscollectopt?'xinanimation':''}}" wx:if="{{!iscollect}}"></image>
@@ -41,11 +41,11 @@
 </view>
 <view class='hangv'>
   <view class='titlev font-t4'>时间</view>
-  <view class='infotxt font-t5' style='line-height:50rpx;'>{{start_time}}-{{end_time}}</view>
+  <view class='infotxt font-t5' style='line-height:50rpx;'>{{datetime}}</view>
 </view>
 <view class='hangv'>
   <view class='titlev font-t4'>地址</view>
-  <view class='infotxt font-t5'>Great Ocean Rd and Booringa Rd,Princetown,Victoria,3269</view>
+  <view class='infotxt font-t5'>{{address}}</view>
 </view>
 
 <!--预定部分-->
@@ -60,16 +60,16 @@
       <view class='bookitem' style="{{x==ticketlist.length-1?'border:none;':'border-bottom: 1rpx solid #dbdbdb;'}}">
         <!--类别价格-->
         <view class='booknameprice font-t5'>
-          <view class='bookname'>{{item.title}}</view>
-          <view class='bookprice'>￥{{item.price}}</view>
+          <view class='bookname'>{{item.product.title}}</view>
+          <view class='bookprice'>￥{{item.product.price}}</view>
         </view>
         <!--介绍文字-->
         <view class='bookinfobtn'>
           <view class='bookinfov'>
-            <view class='bookinfotxt font-t8'>{{item.info}}</view>
-            <view class='booktip font-t8' bindtap="showtip" data-tip='{{item.tip}}'>预订须知></view>
+            <view class='bookinfotxt font-t8'>{{item.product.description}}</view>
+            <view class='booktip font-t8' bindtap="showtip" data-tip='{{item.product.notice}}'>预订须知></view>
           </view>
-          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.tip}}'>立即预订</view>
+          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.product.id}}'>立即预订</view>
         </view>
       </view>
     </block>
@@ -90,10 +90,10 @@
   <block wx:for="{{tusku}}" wx:key="item" wx:for-index="x">
 
     <view class='tulistv' wx:if="{{x%3!=2}}" data-imgpath='{{item}}' bindtap='previewtu'>
-      <image src='{{item}}' class='tucss'></image>
+      <image src='{{item}}' class='tucss' lazy-load='true'></image>
     </view>
     <view class='etulistv' wx:else data-imgpath='{{item}}' bindtap='previewtu'>
-      <image src='{{item}}' class='tucss'></image>
+      <image src='{{item}}' class='tucss' lazy-load='true'></image>
     </view>
   </block>
 </view>
@@ -115,28 +115,30 @@
   <block wx:for="{{commentlist}}" wx:key="{{item}}">
     <view class='commentv'>
       <view class='clefttu'>
-        <image class='touxiang' src='{{item.touxiang}}'></image>
-        <view class='wxname font-t8'>{{item.wxname}}</view>
+        <image class='touxiang' src='{{item.image}}'></image>
+        <view class='wxname font-t8'>{{item.nickname}}</view>
       </view>
       <view class='crightv'>
-        <view class='crighttopv' style="display: flex;justify-content: space-between;">          
+        <view class='crighttopv' style="display: flex;justify-content: space-between;">
           <!--评价打分-->
           <view class='crtxingv'>
             <block wx:for="{{xinglist}}" wx:key="xitem" wx:for-item="xitem">
-              <image src='/resources/icon/smxingh.png' class='smxingico' wx:if="{{item.fen >= xitem}}"></image>
+              <image src='/resources/icon/smxingh.png' class='smxingico' wx:if="{{item.star >= xitem}}"></image>
               <image src='/resources/icon/smxing.png' class='smxingico' wx:else></image>
             </block>
           </view>
           <!--用户时间信息-->
           <view class='crtopv font-t8'>
-            <view class='crtdate'>{{item.time}}点评</view>
+            <view class='crtdate'>{{item.create_date}}点评</view>
           </view>
         </view>
         <!--评价内容部分-->
         <view class='crtinfov'>
           <view class='crtinfo font-t8'>
-            <text decode='true'>{{item.info}}</text>
-            <view class='crtmore font-t8'>阅读更多></view>
+            <view class='crtinfotxt'>
+              <text decode='true'>{{item.content}}</text>
+            </view>
+            <!--<view class='crtmore font-t8'>阅读更多></view>-->
           </view>
         </view>
       </view>

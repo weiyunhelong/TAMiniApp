@@ -18,7 +18,7 @@
   <!--搜索层-->
   <view class='searchv' bindtap='getsearch' wx:if="{{issearch}}">
     <input type='text' placeholder='{{searchtip}}' placeholder-class='searchtip' class='searchtxt' disabled='true'></input>    
-    <image src='/resources/icon/homesearch.png' class='searchico'></image>
+    <image src='/resources/icon/searchhome.png' class='searchico'></image>
   </view>
   <!--底部的文字-->
   <view class='toptxtinfo' style="top: 200rpx;">

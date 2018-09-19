@@ -1,0 +1,6 @@
+<!--components/textcomponent/index.wxml-->
+
+
+<view class='inoftxtv' style='font-size:{{fontsize}}rpx;color:{{fontcolor}};background-color:{{backcolor}};'>
+  <view class='inoftxt' style='text-align:{{aligntxt}};margin:0 30rpx;'>{{infotxt}}</view>
+</view>

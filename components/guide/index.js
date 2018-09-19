@@ -15,6 +15,7 @@ Component({
         this.setData({
           iswenmenu: newVal.iswenmenu, //是否到达顶部
           guideheight: newVal.guideheight, //内容的高度
+          pageindex: newVal.guipageindex
         })
         //初始化数据
         this.InitData();
@@ -58,6 +59,7 @@ Component({
       ], //菜单列表数据
       fontt = 28, //字体大小
       showtype = datalist[0].showtype, //展示方式 1:瀑布类型 2:列表展示
+      chkmenuid = datalist[0].id, //选中菜单id
       fontt1 = 32, //标题字体大小
       fontt2 = 20; //内容文字大小
 
@@ -69,9 +71,9 @@ Component({
       showtype: showtype, //展示方式 1:瀑布类型 2:列表展示
       fontt1: fontt1, //标题字体大小
       fontt2: fontt2, //内容文字大小
+      chkmenuid: chkmenuid,//选中菜单id
     })
-    //初始化数据
-    this.InitData();
+     that.InitData();
   },
   /**
    * 组件的初始数据
@@ -94,6 +96,26 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //初始化菜单值
+    initMenu:function(menulist){
+      var that=this;
+      //菜单的值
+      var datalist = menulist.datalist;
+      
+
+      that.setData({
+        datalist: datalist, //菜单列表数据
+        iswenmenu: false, //是否到达顶部
+        fontt: fontt, //字体大小
+        showtype: showtype, //展示方式 1:瀑布类型 2:列表展示
+        fontt1: fontt1, //标题字体大小
+        fontt2: fontt2, //内容文字大小
+        chkmenuid: chkmenuid,//选中菜单id
+      })
+
+      //初始化数据
+      this.InitData();
+    },
     // 点击标题切换当前页时改变样式
     switchNav: function(e) {
       var that = this;
@@ -111,7 +133,7 @@ Component({
           currentTab: parseInt(cur),
           chkmenuid: parseInt(id),
           showtype: parseInt(typeval),
-          pageindex:1,
+          pageindex: 1,
           pagesize: parseInt(pagesize)
         })
         //初始化数据
@@ -143,19 +165,28 @@ Component({
       var id = that.data.chkmenuid;
       var pageindex = that.data.pageindex;
       var pagesize = that.data.pagesize;
+      console.log("参数的值:");
+      console.log(that.data);
+      if (pagesize > 1) {
+        wx.showLoading({
+          title: '数据加载中...',
+          mask: true
+        })
+      }
       //查询数据
-      var wenlist =[];
-      if (pageindex==1){
-        wenlist=guidetool.getpagedata(pageindex, id, pagesize);
-      }else{
+      var wenlist = [];
+      if (pageindex == 1) {
+        wenlist = guidetool.getpagedata(pageindex, id, pagesize);
+      } else {
         var newwenlist = guidetool.getpagedata(pageindex, id, pagesize);
         wenlist = wenlist.concat(newwenlist);
-      }     
+      }
       //赋值数据
       that.setData({
         wenlist: wenlist
       })
-    },    
+      wx.hideLoading();
+    },
     //跳转到详情页面
     goarticle: function(e) {
       var that = this;
@@ -168,21 +199,47 @@ Component({
         url: '../../pages/article/index?id=' + id + "&title=" + title + "&type=" + typeval
       })
     },
-    //上拉加载
-    refresh:function(){
-      console.log("上拉加载>>>");
-    },
-    //加载更多
-    loadMore:function(){
-      console.log("加载更多>>>");
-      var that=this;
+    //获取文章列表数据
+    getarticle: function(typeval) {
+      var result = [];
+      //参数部分
+      var id = that.data.chkmenuid;
       var pageindex = that.data.pageindex;
+      var pagesize = that.data.pagesize;
+      var wenlist = that.data.wenlist;
+      
+      //请求接口获取数据
+      wx.request({
+        url: getApp().globalData.url + '/article/list',
+        data: {
+          page: pageindex,
+          limit: pagesize,
+          status_id: 1,
+          category_id: chkmenuid,
+          resource_id:""
+        },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: 'POST',
+        success: function(res) {
+          console.log("获取文章列表的数据:");
+          console.log(res);
 
-      that.setData({
-        pageindex: pageindex+1
+          var datalist = res.data.data;
+          if (typeval != 1) {
+            wenlist = wenlist.concat(datalist);
+          } else {
+            wenlist = datalist;
+          }
+
+          that.setData({
+            wenlist: wenlist
+          })
+        }
       })
-      //加载列表数据
-      that.InitData();
+
+      return result;
     },
   }
 })

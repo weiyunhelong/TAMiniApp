@@ -217,7 +217,6 @@ page{
 
 .datalist {
   width: 100%;
-  height: 920rpx;
   overflow-y: auto;
 }
 

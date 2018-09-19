@@ -13,6 +13,7 @@ Component({
           isshowicon: newVal.isshowicon,//是否显示
           fontt: newVal.fontt,//字体大小
           showtype: newVal.showtype, //显示搜索的类型
+          placeholder: newVal.placeholder
         })
       }
     }
@@ -27,6 +28,7 @@ Component({
     isshowicon: false,//是否显示列表
     fontt:28,//字体大小
     showtype: 1, //显示搜索的类型
+    placeholder:""
   },
 
   /**

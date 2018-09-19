@@ -100,7 +100,7 @@ Component({
           that.setData({
             weatherdata:{
               wendu: nowweatherdata.tmp,
-              icon:getApp().globalData.weatherimgurl+ nowweatherdata.cond_code + "_W.png",
+              icon: getApp().globalData.globalimgurl +"/weather/"+ nowweatherdata.cond_code + "_W.png",
             }
           })
         }

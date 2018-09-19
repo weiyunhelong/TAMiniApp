@@ -1,0 +1,17 @@
+<!--components/tab/index.wxml-->
+
+<!--菜单部分-->
+<view class="wmenuv">
+  <!--tab层-->
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
+    <view class='menuv'>
+      <block wx:for="{{datalist}}" wx:key="item" wx:for-index="x">
+        <view class="tabitem" style="font-size:{{fontt}}rpx;">
+          <view wx:if="{{currentTab==x}}" class="chktabitem" style='color:{{item.fontcolor}};border-bottom:5rpx solid {{item.fontcolor}};' data-current="{{x}}">{{item.name}}</view>
+          <view wx:else class="nochktabitem" data-type='{{item.showtype}}' data-pagesize='{{item.pagesize}}' data-current="{{x}}" data-id="{{item.id}}" bindtap="switchNav">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+

@@ -27,7 +27,7 @@
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--游玩指南-->
-<guide receiveData='{{guidedata}}' style='height:{{guideheight}}px;'/>
+<guide receiveData='{{guidedata}}' id="guide"/>
 
 <!--分段结束-->
 

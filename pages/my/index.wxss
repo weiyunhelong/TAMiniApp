@@ -79,8 +79,13 @@ page {
 
 .tabmenuv {
   display: flex;
-  margin-top: -65rpx;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top:-90rpx;
+  background-color: #005DA0;
 }
 
 .fixtabmenuv {
@@ -122,6 +127,7 @@ page {
   opacity: 0.8;
   justify-content: center;
   display: flex;
+  background-color: #fff;
 }
 
 .fswitchv {
@@ -165,8 +171,7 @@ page {
 
 .collectlistv {
   width: 100%;
-  height: 1200rpx;
-  overflow-y: auto;
+  margin-bottom: 20rpx;
 }
 
 .fcollectlist {
@@ -269,7 +274,7 @@ page {
   background-color: #ea9f10;
   position: relative;
   text-align: center;
-  line-height:  34rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
@@ -653,5 +658,5 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
-  margin-left:40rpx;
+  margin-left: 40rpx;
 }

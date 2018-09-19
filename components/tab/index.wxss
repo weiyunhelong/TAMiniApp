@@ -1,0 +1,71 @@
+/* components/tab/index.wxss */
+
+/*定位到顶部*/
+
+.fixpostion {
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 110rpx;
+  background: #fff;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  z-index: 2;
+  box-sizing: content-box;
+}
+
+.wmenuv {
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  background: #fff;
+  box-sizing: content-box;
+}
+
+/*菜单部分*/
+
+.tab-h {
+  height: 110rpx;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+.menuv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*菜单*/
+
+.tabitem {
+  height: 100rpx;
+  display: inline-block;
+  flex: none;  
+}
+
+/*选中的菜单*/
+
+.chktabitem {
+  text-align: center;
+  height: 80rpx;
+  display: inline-block;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+/*未选中的菜单*/
+
+.nochktabitem {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #16191c;
+  display: inline-block;
+  font-size: 28rpx;
+}

@@ -1,6 +1,3 @@
 <!--pages/test/index.wxml-->
 
-<!--轮播图部分-->
-<swiper class="swiper-box">
-   
-</swiper>
+<searchtxt receiveData='{{searchtxtdata}}' />

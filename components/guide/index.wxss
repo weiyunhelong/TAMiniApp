@@ -10,7 +10,7 @@
   line-height: 110rpx;
   background: #fff;
   position: fixed;
-  top: 0rpx;
+  top: 20rpx;
   left: 0;
   z-index: 2;
   box-sizing: content-box;
@@ -22,6 +22,8 @@
   line-height: 110rpx;
   background: #fff;
   box-sizing: content-box;
+  position: sticky;
+  top: 0;
 }
 
 /*菜单部分*/
@@ -78,19 +80,8 @@
   clear: both;
   background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
   margin-top: -10rpx;
-}
-
-.fixshadowv {
-  width: 100%;
-  height: 20rpx;
-  clear: both;
-  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
-  margin-top: -10rpx;
-  position: fixed;  
-  top: 110rpx;
-  left: 0;
-  z-index: 2;
-  box-sizing: content-box;
+  position: sticky;
+  top: 100rpx;
 }
 
 /*线路部分的样式*/
@@ -101,7 +92,6 @@
   display: flex;
   justify-content: flex-start;
   background-color: #fff;
-  overflow-y: auto;
 }
 
 .leftv {
@@ -205,6 +195,7 @@
 .orecommentv {
   width: 100%;
   background-color: #fff;
+  margin-bottom: 20rpx;
 }
 
 .wenzhangv {
