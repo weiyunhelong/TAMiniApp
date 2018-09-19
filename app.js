@@ -7,19 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
     var that=this;
-
-    //获取录音的缓存
-    wx.getStorage({
-      key: 'history',
-      success: (res) => {
-        this.globalData.history = res.data
-      },
-      fail: (res) => {
-        console.log("get storage failed")
-        console.log(res)
-        this.globalData.history = []
-      }
-    })
+ 
     // 登录
     wx.login({
       success: res => {

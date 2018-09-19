@@ -9,9 +9,7 @@
     "pages/search/index",
     "pages/article/index",
     "pages/weather/index",
-    "pages/test/index",
-    "pages/duiyi/index",
-    "pages/duiyi/edit"
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -81,10 +79,6 @@
     "myPlugin": {
       "version": "1.0.6",
       "provider": "wx60d306fd175fe556"
-    },
-    "WechatSI": {
-      "version": "0.1.0",
-      "provider": "wx069ba97219f66d99"
     }
   }
 }
