@@ -1,7 +1,7 @@
 <!--pages/my/index.wxml-->
 
 <!--顶部行-->
-<view class='topv' wx:if="{{!isshowtop}}" style='background-image: url("http://youimg1.c-ctrip.com/target/tg/437/403/707/7be917b91e5c4b74bfffdb70379da3f5.jpg");'>
+<view class='topv' wx:if="{{!isshowtop}}" style='background-image: url("https://dev-api.connectplus.asaplus.com.cn/static/images/background/my.jpg");'>
 
   <view class='baseinfov'>
     <!--编辑图标-->
@@ -22,18 +22,13 @@
 </view>
 
 <!--三个菜单-->
-<view class='tabmenuv' wx:if="{{!isshowtop}}">
+<!--<view class="{{isshowtop?'fixtabmenuv':'tabmenuv'}}" id="tabv">-->
+<view class="tabmenuv" id="tabv">
   <view class="{{tabmenuid==1?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='1'>我的订单</view>
   <view class="{{tabmenuid==2?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='2'>我的收藏</view>
   <view class="{{tabmenuid==3?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='3'>我的点评</view>
 </view>
 
-<!--三个菜单-->
-<view class='fixtabmenuv' wx:if="{{isshowtop}}">
-  <view class="{{tabmenuid==1?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='1'>我的订单</view>
-  <view class="{{tabmenuid==2?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='2'>我的收藏</view>
-  <view class="{{tabmenuid==3?'chkmenuv':'nochkmenuv'}}" bindtap='menuchkopt' data-id='3'>我的点评</view>
-</view>
 <view class='geduanv'></view>
 
 <!--订单部分-->
@@ -59,19 +54,25 @@
 
 <!--收藏部分-->
 <!--顶部的switch按钮-->
-<view class="{{isshowtop?'fswitchv':'switchv'}}" wx:if="{{tabmenuid==2}}">
-  <view class="{{collecttab==1?'chkswitchv':'nochkswitchv'}}" data-id='1' bindtap='collecttabopt'>内容</view>
-  <view class="{{collecttab==2?'chkswitchv':'nochkswitchv'}}" data-id='2' bindtap='collecttabopt'>地点</view>
+<view class="switchv" wx:if="{{tabmenuid==2&&collecttab==1}}">
+  <view class="chkswitchv" data-id='1' bindtap='collecttabopt'>内容</view>
+  <view class="nochkswitchv" style='margin-left: -30rpx;' data-id='2' bindtap='collecttabopt'>地点</view>
 </view>
+<!--顶部的switch按钮-->
+<view class="switchv" wx:if="{{tabmenuid==2&&collecttab==2}}">
+  <view class="nochkswitchv" style='margin-right: -30rpx;' data-id='1' bindtap='collecttabopt'>内容</view>
+  <view class="chkswitchv" data-id='2' bindtap='collecttabopt'>地点</view>
+</view>
+
 <!--收藏列表部分-->
 <view class="{{isshowtop?'fcollectlist':'collectlistv'}}" wx:if="{{tabmenuid==2}}">
 
   <!--内容列表部分-->
   <view class='listv' wx:if="{{collecttab==1}}">
     <block wx:for="{{guidelist}}" wx:key="item" wx:for-index="index">
-      <view class='guidev' data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}"  bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
+      <view class="{{item.isTouchMove?'donghuaguidev':'guidev'}}" data-index="{{index}}" bindtap='goarticledetail' data-id="{{item.id}}" data-title="{{item.title}}" data-type="{{item.typeval}}" bindtouchstart="ntouchstart" bindtouchmove="ntouchmove">
         <!--内容部分列表-->
-        <view class='glistitemv' style="margin-left:{{item.isTouchMove?-155:0}}px;">
+        <view class='glistitemv'>
           <!--图片部分-->
           <view class='listtuv'>
             <image src='{{item.imgpath}}' class='listtu'></image>
@@ -89,9 +90,8 @@
             </view>
           </view>
         </view>
-
         <!--删除按钮-->
-        <view class="ndel" catchtap="ndel" data-index="{{index}}" data-id="{{id}}">删除</view>
+        <view class="ndel" catchtap="ndel" data-index="{{index}}" data-id="{{id}}" wx:if="{{item.isTouchMove}}">删除</view>
       </view>
     </block>
   </view>
@@ -100,9 +100,9 @@
   <!--地点列表部分-->
   <view class='listv' wx:if="{{collecttab==2}}">
     <block wx:for="{{sceniclist}}" wx:key="item" wx:for-index="index">
-      <view class='scenicv' data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}"  data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
+      <view class="{{item.isTouchMove?'donghuascenicv':'scenicv'}}" data-index="{{index}}" bindtap='goscenicdetail' data-id="{{item.id}}" data-type="{{item.id}}" bindtouchstart="jtouchstart" bindtouchmove="jtouchmove">
         <!--地点部分列表-->
-        <view class='slistitemv' style="margin-left:{{item.isTouchMove?-340:0}}rpx;">
+        <view class='slistitemv'>
           <!--图片部分-->
           <view class='dataimgv'>
             <image src='{{item.imgpath}}' class='dataimg'></image>
@@ -114,7 +114,7 @@
               <view class='cnnamev'>{{item.cnname}}</view>
             </view>
             <!--英文-->
-            <view class='ennamev'>{{item.enname}}</view>            
+            <view class='ennamev'>{{item.enname}}</view>
             <!--评价部分-->
             <view class='fenpricev'>
               <view class='xingv'>
@@ -139,6 +139,42 @@
 </view>
 
 <!--点评部分-->
-<view class='commentlistv' wx:if="{{tabmenuid==3}}" style="{{isshowtop?'margin-top:100rpx;':'margin-top:0rpx;'}}"></view>
+<view class='commentlistv' wx:if="{{tabmenuid==3}}" style="{{isshowtop?'margin-top:100rpx;':'margin-top:0rpx;'}} overflow:hidden;">
+  <block wx:for="{{commentlist}}" wx:key="item" wx:for-index="index">
+    <view class="{{item.isTouchMove?'donghuacommentv':'commentv'}}" data-index="{{index}}" bindtap='gocommentdetail' data-id="{{item.id}}" data-type="{{item.id}}" bindtouchstart="ctouchstart" bindtouchmove="ctouchmove">
+      <view class='commentbodyv'>
+        <!--评价的时间打分-->
+        <view class='commenttopv'>
+          <!--打分-->
+          <view class='commentfen'>
+            <block wx:for="{{xinglist}}" wx:key="xitem" wx:for-item="xitem">
+              <image src='/resources/icon/smxingh.png' class='csmxingico' wx:if="{{item.fen>=xitem}}"></image>
+              <image src='/resources/icon/smxing.png' class='csmxingico' wx:else></image>
+            </block>
+          </view>
+          <!--发布时间-->
+           <view class='commentdate'>{{item.time}}发布</view>
+        </view>
+        <!--评价的内容-->
+        <view class='commentinfo'>
+          {{item.comment}}
+        </view>
+        <!--评价的商品-->
+        <view class='commentobjv'>
+          <view class='commentobjimgv'>
+            <image src='{{item.commentobj.imgpath}}' class='commentobjimg'></image>
+          </view>
+          <view class='commentobjinfov'>
+            <view class='cobjcname'>{{item.commentobj.cnname}}</view>
+            <view class='cobjename'>{{item.commentobj.enname}}</view>
+            <view class='cobjprice'>{{item.commentobj.attr}}</view>
+          </view>
+        </view>
+      </view>
+      <!--评价的结束-->
+      <!--删除-->
+      <view class="cdel" catchtap="cdel" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
+    </view>
+  </block>
+</view>
 
-<view class='lastgeduanv'></view>

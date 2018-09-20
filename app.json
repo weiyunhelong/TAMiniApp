@@ -1,18 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/search/index",
     "pages/termini/index",
-    "pages/info/index",
     "pages/chatbot/index",
     "pages/my/index",
+    "pages/info/index",
+    "pages/comment/index",
+    "pages/search/index",
     "pages/article/index",
-    "pages/logs/logs"
+    "pages/weather/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "澳洲旅游局",
+    "navigationBarTitleText": "黄金海岸",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -49,21 +51,15 @@
   },
   "subPackages": [
     {
-      "root": "citys/",
-      "pages": [
-        "pages/index/index",
-        "pages/weather/index",
-        "pages/map/index"
-      ]
-    },
-    {
       "root": "others/",
       "pages": [
         "pages/index/index",
+        "pages/filter/index",
         "pages/translate/home",
         "pages/translate/index",
         "pages/translate/type",
         "pages/question/index",
+        "pages/question/detail",
         "pages/guide/index",
         "pages/coin/index",
         "pages/coin/detail",
@@ -81,7 +77,7 @@
   "debug": false,
   "plugins": {
     "myPlugin": {
-      "version": "1.0.4",
+      "version": "1.0.6",
       "provider": "wx60d306fd175fe556"
     }
   }

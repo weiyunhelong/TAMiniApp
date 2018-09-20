@@ -1,0 +1,19 @@
+/* pages/weather/index.wxss */
+
+.weathlist-index--meiyitian {
+  height: 49px;
+  line-height: 49px;
+  border-bottom: 1px solid #64c1e4;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding-left: 13px;
+}
+
+.weathlist-index--meiyitian wx-view {
+  width: 30%;
+  text-align: center;
+  overflow: 11px;
+  display: flex;
+}

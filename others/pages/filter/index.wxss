@@ -1,0 +1,253 @@
+/* others/pages/filter/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+/*顶部行*/
+
+.topv {
+  width: 100%;
+  background-color: #fff;
+  padding: 25rpx 0 0 0;
+  border-top: 2rpx solid #ebebeb;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+}
+
+/*搜索层*/
+
+.searchv {
+  width: 97%;
+  height: 68rpx;
+  margin-left: 3%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchview {
+  width: 90%;
+  height: 68rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchhborder {
+  border: 1rpx solid #0074c8;
+  box-sizing: content-box;
+}
+
+.searchborder {
+  border: 1rpx solid #b2b2b2;
+  box-sizing: content-box;
+}
+
+.searchicon {
+  margin: 18rpx 10rpx;
+}
+
+.txtcss {
+  width: 83%;
+  height: 68rpx;
+  line-height: 68rpx;
+  padding-left: 5%;
+}
+
+.tipcss {
+  color: #b2b2b2;
+}
+
+.clearicon {
+  margin: 15rpx 15rpx;
+}
+
+.cleartxt {
+  width: 15%;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.dituicon {
+  width: 42rpx;
+  height: 34rpx;
+  margin: 20rpx 20rpx;
+}
+
+.listicon {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 16rpx 20rpx;
+}
+
+/*菜单部分*/
+
+.tabmenuv {
+  height: 80rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fff;
+  display: flex;
+  margin: 20rpx 20rpx 0rpx 20rpx;
+  justify-content: space-between;
+  box-sizing: content-box;
+  line-height: 100rpx;
+}
+
+.ttabitemv {
+  text-align: center;
+  height: 80rpx;
+  line-height: 85rpx;
+  display: inline-block;
+  width: 22%;
+}
+
+.ftabitemv {
+  width: 7%;
+}
+
+/*选中的菜单*/
+
+.chktabitem1 {
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #0074c8;
+  color: #0074c8;
+  font-weight: bold;
+  box-sizing: content-box;
+  line-height: 80rpx;
+}
+
+.chktabitem2 {
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #e9a013;
+  color: #e9a013;
+  font-weight: bold;
+  box-sizing: content-box;
+  line-height: 80rpx;
+}
+
+.chktabitem3 {
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #53c078;
+  color: #53c078;
+  font-weight: bold;
+  box-sizing: content-box;
+  line-height: 80rpx;
+}
+
+.chktabitem4 {
+  text-align: center;
+  height: 75rpx;
+  display: inline-block;
+  border-bottom: 5rpx solid #8f53c0;
+  color: #8f53c0;
+  font-weight: bold;
+  box-sizing: content-box;
+  line-height: 80rpx;
+}
+
+/*未选中的菜单*/
+
+.nochktabitem {
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #16191c;
+  display: inline-block;
+}
+
+.filtericon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+}
+
+.shadowv {
+  width: 100%;
+  height: 20rpx;
+  background: linear-gradient(180deg, rgba(209, 209, 209, 1), rgba(216, 216, 216, 0));
+  opacity: 0.8;
+}
+
+/*筛选部分*/
+
+.filterv {
+  margin: 0 38rpx 50rpx 38rpx;
+}
+
+.filtertitle {
+  font-size: 26rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.filterlist {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filteritem {
+  padding: 5rpx 30rpx;
+  background-color: #f2f2f2;
+  color: #000;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin: 20rpx 20rpx 0 0;
+  border-radius: 4rpx;
+}
+
+.filteritemh {
+  padding: 5rpx 30rpx;
+  background-color: #0074c8;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin: 20rpx 20rpx 0 0;
+  border-radius: 4rpx;
+}
+
+/*底部的操作按钮*/
+.bottomopv{
+  width: 100%;
+  height: 100rpx;
+}
+.bottomopt {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 1rpx solid #f2f2f2;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+
+.reset{
+  color: #b2b2b2;
+}
+.reseth{
+  color: #333;
+}
+
+.okbtnh{
+  color: #0074c8;
+}
+
+.okbtn{
+  color: #b2b2b2;
+}

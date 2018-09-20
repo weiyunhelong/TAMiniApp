@@ -52,6 +52,15 @@ Page({
       questionlist: questionlist
     })
   },
+  //跳转到详情
+  godetail:function(e){
+    var that=this;
+    //参数部分
+    var id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../question/detail?id='+id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

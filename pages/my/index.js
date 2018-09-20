@@ -9,10 +9,11 @@ Page({
     nickName: "", //昵称
     islogin: false, //是否授权登录
     tabmenuid: 2, //菜单部分;1->我的订单，2->我的收藏,3->我的点评
-    isshowtop:false,//是否隐藏顶部
+    isshowtop: false, //是否隐藏顶部
+    menuTop: 0, //tab的高度
     orderlist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         status: 1,
         cnname: "12门徒岩",
         enname: "12 Apostles",
@@ -20,7 +21,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         status: 0,
         cnname: "悉尼歌剧院",
         enname: "Sydney Opera House",
@@ -30,7 +31,7 @@ Page({
     collecttab: 1, //收藏的类型；1->内容，2->地点
     guidelist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -40,7 +41,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
         typeval: 2,
         title: "七天就能环个洲，大小景点都玩遍",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -50,7 +51,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
         typeval: 3,
         title: "五天玩遍澳大利亚的秘密隆重揭晓",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -60,7 +61,47 @@ Page({
       },
       {
         id: 4,
-        imgpath: "/resources/tu4.jpg",
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
+        typeval: 1,
+        title: "黄金海岸初体验，最热门的8个地方",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+        typeval: 1,
+        title: "黄金海岸初体验，最热门的8个地方",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
+        typeval: 2,
+        title: "七天就能环个洲，大小景点都玩遍",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
+        typeval: 3,
+        title: "五天玩遍澳大利亚的秘密隆重揭晓",
+        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
+        isTouchMove: false,
+        collectnum: 40,
+        viewnum: 1159
+      },
+      {
+        id: 4,
+        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -71,7 +112,7 @@ Page({
     ], //收藏文字列表
     sceniclist: [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
         cnname: "华纳电影世界",
         enname: "Warner Bros. Movie World",
         distance: "1.5km",
@@ -81,7 +122,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
         cnname: "可伦宾野生动物园",
         enname: "Currumbin Wildlife Sanctuary",
         distance: "1.8km",
@@ -91,7 +132,37 @@ Page({
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        cnname: "春溪国家公园",
+        enname: "Warner Bros. Movie World",
+        distance: "2.0km",
+        commentnum: 1332,
+        price: 281,
+        isTouchMove: false
+      },
+      {
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+        cnname: "华纳电影世界",
+        enname: "Warner Bros. Movie World",
+        distance: "1.5km",
+        commentnum: 2331,
+        price: 281,
+        isTouchMove: false
+      },
+      {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        cnname: "可伦宾野生动物园",
+        enname: "Currumbin Wildlife Sanctuary",
+        distance: "1.8km",
+        commentnum: 1332,
+        price: 281,
+        isTouchMove: false
+      },
+      {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
         cnname: "春溪国家公园",
         enname: "Warner Bros. Movie World",
         distance: "2.0km",
@@ -100,6 +171,78 @@ Page({
         isTouchMove: false
       }
     ], //景点列表
+    commentlist: [{
+        id: 1,
+        time: "2018-08-31",
+        fen: 5,
+        comment: "太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 2,
+        time: "2018-08-30",
+        fen: 4,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 3,
+        time: "2018-08-29",
+        fen: 3,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 4,
+        time: "2018-08-29",
+        fen: 5,
+        comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      },
+      {
+        id: 4,
+        time: "2018-08-28",
+        fen: 5,
+        comment: "太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
+        commentobj: {
+          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          cnname: "春溪国家公园",
+          enname: "Warner Bros. Movie World",
+          attr: "￥281/人",
+          id: 1
+        },
+        isTouchMove: false
+      }
+    ], //评价列表
+    xinglist: [1, 2, 3, 4, 5], //星列表
   },
 
   /**
@@ -112,7 +255,7 @@ Page({
   //编辑操作
   goeditopt: function() {
     wx.showToast({
-      title: '编辑操作',
+      title: '记录入口',
       icon: 'none',
       mask: true,
       duration: 2000
@@ -130,6 +273,23 @@ Page({
       islogin: true, //是否授权登录
     })
     getApp().globalData.userInfo = userInfo;
+
+    //保存用户信息
+    wx.request({
+      url: getApp().globalData.requesturl + '/wechat/user',
+      data: {
+        userInfo: JSON.stringify(userInfo),
+        openid: getApp().globalData.openid
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (jieguo) {
+        console.log("保存用户信息的结果:");
+        console.log(jieguo);
+      }
+    })
   },
   //菜单的切换
   menuchkopt: function(e) {
@@ -205,8 +365,8 @@ Page({
    * @param {Object} end 终点坐标
    */
   angle: function(start, end) {
-    var  _X = end.X - start.X;
-    var  _Y = end.Y - start.Y;
+    var _X = end.X - start.X;
+    var _Y = end.Y - start.Y;
 
     return _X;
   },
@@ -285,8 +445,8 @@ Page({
     })
   },
   //收藏内容的点击
-  goarticledetail:function(e){
-    var id=e.currentTarget.dataset.id;
+  goarticledetail: function(e) {
+    var id = e.currentTarget.dataset.id;
     var title = e.currentTarget.dataset.title;
     var typeval = e.currentTarget.dataset.type;
     wx.navigateTo({
@@ -294,12 +454,83 @@ Page({
     })
   },
   //收藏景点的点击
-  goscenicdetail: function (e) {
+  goscenicdetail: function(e) {
     var id = e.currentTarget.dataset.id;
     var typeval = e.currentTarget.dataset.type;
     //页面的跳转
     wx.navigateTo({
       url: '../info/index?id=' + id + "&type=" + typeval,
+    })
+  },
+
+  //手指触摸动作开始 记录起点X坐标
+  ctouchstart: function(e) {
+    //开始触摸时 重置所有删除
+    this.data.commentlist.forEach(function(v, i) {
+      if (v.isTouchMove) //只操作为true的
+        v.isTouchMove = false;
+    })
+    this.setData({
+      jstartX: e.changedTouches[0].clientX,
+      jstartY: e.changedTouches[0].clientY,
+      commentlist: this.data.commentlist
+    })
+  },
+  //滑动事件处理
+  ctouchmove: function(e) {
+    var that = this,
+      index = e.currentTarget.dataset.index, //当前索引
+      startX = that.data.jstartX, //开始X坐标
+      startY = that.data.jstartY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({
+        X: startX,
+        Y: startY
+      }, {
+        X: touchMoveX,
+        Y: touchMoveY
+      });
+    that.data.commentlist.forEach(function(v, i) {
+      v.isTouchMove = false
+      //滑动距离度角 return
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+        {
+          v.isTouchMove = false;
+        } else if (Math.abs(angle) > 80) { //左滑
+          v.isTouchMove = true;
+        }
+      }
+    })
+    //更新数据
+    that.setData({
+      commentlist: that.data.commentlist
+    })
+  },
+  //删除事件
+  cdel: function(e) {
+    this.data.commentlist.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      commentlist: this.data.commentlist
+    })
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    wx.showToast({
+      title: '删除成功',
+      mask: true
+    })
+  },
+  //点击评论,跳转到对应的页面
+  gocommentdetail: function(e) {
+    var that = this;
+    //参数部分
+    var id = e.currentTarget.dataset.id;
+    var kind = e.currentTarget.dataset.type;
+
+    wx.navigateTo({
+      url: '../info/index?id=' + id + "&typeval=" + kind,
     })
   },
   /**
@@ -308,12 +539,31 @@ Page({
   onReady: function() {
 
   },
- 
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that = this;
+    //得到tab的位置
+    var query = wx.createSelectorQuery()
+    query.select('#tabv').boundingClientRect()
+    query.exec(function(res) {
+      console.log("高度值:");
+      console.log(res);
+      that.setData({
+        menuTop: res[0].top
+      })
+    })
 
+    //判断用户是否登录
+    if(getApp().globalData.userInfo!=null){
+      that.setData({
+        touxiang: getApp().globalData.userInfo.avatarUrl, //头像
+        nickName: getApp().globalData.userInfo.nickName, //昵称
+        islogin: true, //是否授权登录
+      })
+    }
   },
 
   /**
@@ -334,10 +584,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    var that=this;
+    var that = this;
 
     that.setData({
-      isshowtop:false
+      isshowtop: false
     })
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
@@ -359,17 +609,21 @@ Page({
 
   },
   // 获取滚动条当前位置
-  onPageScroll: function (e) {
+  onPageScroll: function(e) {
     console.log(e)
+    var that = this;
+
     //是否显示置顶
-    if (e.scrollTop > 200) {
-      this.setData({
+    /*
+    if (e.scrollTop > that.data.menuTop) {
+      that.setData({
         isshowtop: true
-      });
-    } else {
-      this.setData({
-        //isshowtop: false
-      });
-    }    
-  },
+      })
+    }else{
+      that.setData({
+        isshowtop: false
+      })
+    }
+    */
+  }
 })

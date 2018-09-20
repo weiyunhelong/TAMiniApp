@@ -1,0 +1,84 @@
+<!--components/swiperlist/index.wxml-->
+<view class='contentv'>
+
+  <!--滑动部分-->
+  <scroll-view scroll-x="true" class="tab-contentv">
+    <!--显示2个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==1}}">
+      <view class="taboneitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabonetucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="taboneitem" wx:if="{{showtype==1}}" style='width:10rpx;'></view>
+
+    <!--显示3个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==2}}">
+      <view class="tabtwoitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabtwotucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabtwoitem" wx:if="{{showtype==2}}" style='width:10rpx;'></view>
+
+    <!--显示4个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==3}}">
+      <view class="tabthreeitem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabthreetucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabthreeitem" wx:if="{{showtype==3}}" style='width:10rpx;'></view>
+
+    <!--显示5个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==4}}">
+      <view class="tabfouritem" bindtap='godetail' data-id='{{item.id}}'>
+        <image src='{{item.pic}}' class='tabfourtucss'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+    <view class="tabfouritem" wx:if="{{showtype==4}}" style='width:10rpx;'></view>
+
+  </scroll-view>
+
+
+  <!--列表-->
+  <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==5}}">
+    <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
+      <!--图片部分-->
+      <view class='dataimgv'>
+        <image src='{{item.imgpath}}' class='dataimg'></image>
+      </view>
+      <!--简介部分-->
+      <view class='datainfov'>
+        <!--中文名称收藏-->
+        <view class='namexinv'>
+          <view class='cnnamev' style='font-size:{{fontt1}}rpx;'>{{item.cnname}}</view>
+          <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+          <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
+        </view>
+        <!--英文-->
+        <view class='ennamev'  style='font-size:{{fontt3}}rpx;'>{{item.enname}}</view>
+        <!--距离-->
+        <view class='distancev'  style='font-size:{{fontt3}}rpx;'>
+          <view class='distancetip'>距离您约</view>
+          <image src='/resources/icon/dituico.png' class='postionico'></image>
+          <view class='distancetxt'>{{item.distance}}km</view>
+        </view>
+        <!--评价价格-->
+        <view class='fenpricev'>
+          <view class='xingv'>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <image src='/resources/icon/smxingh.png' class='xingico'></image>
+            <view class='peoplenum'  style='font-size:{{fontt3}}rpx;'>{{item.commentnum}}人评论</view>
+          </view>
+          <view class='pricev'  style='font-size:{{fontt3}}rpx;'>￥{{item.price}}/人</view>
+        </view>
+      </view>
+    </view>
+    <view style='height:{{geduanh}}rpx;' class='geduanv'></view>
+  </block>
+</view>

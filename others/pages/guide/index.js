@@ -1,4 +1,5 @@
 // others/pages/guide/index.js
+var guidetool=require('../../../utils/guidedata.js');
 Page({
 
   /**
@@ -7,10 +8,11 @@ Page({
   data: {
     searchtxt: "", //搜索的值
     issearchfocus: false,//是否聚焦
-    tablist: [], //菜单部分
     currentTab: 0, //预设当前项的值
     filterchk:1,//排序的筛选
     guidelist:[],//游玩指南
+    isshownoresult:false,//搜索无果
+    isshowclear:false,//隐藏搜索清除
   },
 
   /**
@@ -18,9 +20,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
-    //菜单部分
-    that.getmenu();
     
     //获取指南列表
     that.getGuide();
@@ -38,34 +37,22 @@ Page({
     var txtval = e.detail.value;
     this.setData({
       searchtxt: txtval,
-      issearchfocus: false
+      issearchfocus: false,
+      isshowclear: txtval.length > 0 ? true : false
     })
+    that.getGuide();
   },
-  //菜单部分
-  getmenu: function () {
-    var that = this;
+  //清除事件
+  clearsopt:function(){
+    var that=this;
 
-    //请求得到菜单
-    var tablist = [{
-      id: 0,
-      name: '推荐',
-    },
-    {
-      id: 1,
-      name: '攻略',
-    },
-    {
-      id: 2,
-      name: '游记',
-    },
-    {
-      id: 3,
-      name: '线路',
-    }
-    ];
     that.setData({
-      tablist: tablist
+      searchtxt: "",
+      issearchfocus: false,
+      isshowclear:false,
+      isshownoresult:true
     })
+    //that.getGuide();
   },
   // 点击标题切换当前页时改变样式
   switchNav: function (e) {
@@ -78,6 +65,8 @@ Page({
       that.setData({
         currentTab: parseInt(id)
       })
+      //获取指南列表
+      that.getGuide();
     }
   },
   //筛选
@@ -99,51 +88,12 @@ Page({
       filterchk = that.data.filterchk;//排序的筛选,1->热门；2->时间
 
     //获取列表
-    var guidelist=[
-      {
-        id:1,
-        imgpath:"/resources/tu1.jpg",
-        typeval:1,
-        title:"黄金海岸初体验，最热门的8个地方",
-        instro:"如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect:false,
-        collectnum:40,
-        viewnum:1159
-      },
-      {
-        id: 2,
-        imgpath: "/resources/tu2.jpg",
-        typeval: 2,
-        title: "七天就能环个洲，大小景点都玩遍",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-      {
-        id: 3,
-        imgpath: "/resources/tu3.jpg",
-        typeval: 3,
-        title: "五天玩遍澳大利亚的秘密隆重揭晓",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-      {
-        id: 4,
-        imgpath: "/resources/tu4.jpg",
-        typeval: 1,
-        title: "黄金海岸初体验，最热门的8个地方",
-        instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
-        iscollect: true,
-        collectnum: 40,
-        viewnum: 1159
-      },
-    ];
+    var guidelist = guidetool.pagedatalist(1, currentTab);
     that.setData({
-      guidelist: guidelist
+      guidelist: guidelist,
+      isshownoresult: guidelist.length > 0 ? false : true
     })
+    
   },
   //点击跳转到详情页面
   godetail:function(e){

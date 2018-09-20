@@ -1,3 +1,10 @@
 {
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "swiper": "../../components/swiper/index",
+    "menu": "../../components/menu/index",
+    "module": "../../components/module/index",
+    "tabbar": "../../components/tabbar/index",
+    "guide": "../../components/guide/index"
+  }
 }

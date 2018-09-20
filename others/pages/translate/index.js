@@ -1,5 +1,6 @@
 // others/pages/translate/index.js
 var langtool=require('../../../utils/language.js');
+var requesturl = getApp().globalData.requesturl;
 
 Page({
 
@@ -8,31 +9,34 @@ Page({
    */
   data: {
     oindex: 0,//来源语言下标
-    olang: "",
+    olang: "", 
+    origintype:"",//来源语言的缩写
     gindex: 0,//目标语言下标
     glang: "",
+    gogaltype:"",//目标语言的缩写
     origintxt: "",//翻译的内容
     gogaltxt:"",//翻译的结果
+    winhight:0,//屏幕的高度
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
+
     //顶部的文字
     wx.setNavigationBarTitle({
       title: '翻译',
     })
-    
-    //翻译的内容
-    var origintxt = wx.getStorageSync("origintxt");
-    //接受参数
-    var that=this;
-    that.setData({
-      origintxt: origintxt
+    //获取屏幕的高度
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          winhight:res.screenHeight
+        })
+      },
     })
-    //获取翻译的值
-    that.GetTranslate();
   },
   //修改语言类型
   gochklangopt: function (e) {
@@ -90,13 +94,37 @@ Page({
   //获取翻译的值
   GetTranslate:function(){
     var that=this;
+    wx.showLoading({
+      title: '翻译中请耐心...',
+      mask:true
+    })
     //获取参数
     var origintxt = that.data.origintxt;//翻译的内容
-    var origintype = that.data.origintype;//源语言
-    var gogaltype = that.data.gogaltype;//目标语言
+    var origintype = langtool.getLangTipByIndex(that.data.oindex);//源语言
+    var gogaltype = langtool.getLangTipByIndex(that.data.gindex);//目标语言
+    
+    //请求接口，获取翻译的内容
+    wx.request({
+      url: requesturl +'/translation/character',
+      data: {
+        q: decodeURIComponent(origintxt),
+        to: gogaltype,
+        from: origintype
+      },
+      header: {
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log("翻译的结果:");
+        console.log(res);
+        var jieguo = JSON.parse(res.data);
 
-    that.setData({
-      gogaltxt:"The Gold Coast is a Pacific coast city inQueensland, Australia with a population of 638,000. It borders Brisbane in the north and Tweed in New South Wales. Bond University, located in the city, is the only private university in Queensland; and one of the campuses on the Gold Coast is the largest campus of the public Griffith University."
+        that.setData({
+          gogaltxt: jieguo.trans_result[0].dst
+        })
+        wx.hideLoading();
+      }
     })
   },
   //上传图片
@@ -111,19 +139,65 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
-
+        var tempFiles = res.tempFiles;
+        console.log("文件名:" + tempFilePaths[0]);
         wx.showLoading({
           title: '正在上传中...',
         })
 
-        //请求接口获取到图片中的文字 
-        that.setData({
-          origintxt: "图片中的文字"
+        //获取图片信息
+        wx.getImageInfo({
+          src: tempFilePaths[0],
+          success: function (res) {
+            console.log(res.width)
+            console.log(res.height)
+            var width=res.width;
+            var height = res.height;
+
+            if (width>4096||height<15){
+             wx.showModal({
+               title: '提示',
+               content: '上传图片的尺寸宽度不大于4096px，高度不小于15px',
+               showCancel:false,               
+             })
+            } else if (tempFiles[0].size<4*1024){
+              wx.showModal({
+                title: '提示',
+                content: '上传图片的尺寸不大于4M',
+                showCancel: false,
+              })
+            }else{
+              
+              //上传图片，识别图片中的文字
+              wx.uploadFile({
+                url: requesturl +'/translation/picture',
+                filePath: tempFilePaths[0],
+                name: 'image',
+                header: { 'Content-Type': 'multipart/form-data' },   
+                success:function(res){
+                   console.log("上传图片识别的结果:");
+                   console.log(res);
+                  var result=JSON.parse(res.data);
+
+                  var stringval="";
+                  for (var i = 0; i < result.words_result_num;i++){
+                    stringval += result.words_result[i].words;
+                  }
+                  //请求接口获取到图片中的文字 
+                  that.setData({
+                    origintxt: stringval
+                  })
+                  //获取翻译的值
+                  that.GetTranslate();
+                  //隐藏
+                  wx.hideLoading();
+                }
+              })
+              
+            }
+          }
         })
-        //获取翻译的值
-        that.GetTranslate();
-        //隐藏
-        wx.hideLoading();
+        //结束标识符 
       }
     })
   },
@@ -182,7 +256,9 @@ Page({
       oindex: olangid,//来源语言下标
       olang: olang,
       gindex: glangid,//目标语言下标
-      glang: glang
+      glang: glang,
+      origintxt:"",
+      gogaltxt:""
     })
   },
 

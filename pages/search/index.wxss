@@ -4,12 +4,24 @@ page {
   background-color: #fff;
 }
 
+/*顶部搜索部分*/
+
+.topv {
+  width: 100%;
+  height: 250rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
 /*搜索层*/
 
 .searchv {
   width: 94%;
   height: 68rpx;
-  margin: 25rpx 3%;
+  margin: 42rpx 3% 25rpx 3%;
   display: flex;
   justify-content: flex-start;
 }
@@ -32,8 +44,9 @@ page {
   border: 1rpx solid #b2b2b2;
   box-sizing: content-box;
 }
+
 .searchicon {
-  margin: 18rpx 10rpx;
+  margin: 15rpx 10rpx;
 }
 
 .txtcss {
@@ -44,15 +57,16 @@ page {
   padding-left: 5%;
 }
 
-.tipcss{
+.tipcss {
   color: #b2b2b2;
   font-size: 26rpx;
 }
+
 .ftxtcss {
   width: 83%;
   height: 68rpx;
   font-size: 25rpx;
-  line-height:68rpx;
+  line-height: 68rpx;
   padding-left: 5%;
 }
 
@@ -64,7 +78,7 @@ page {
   width: 15%;
   font-size: 26rpx;
   text-align: center;
-  line-height:80rpx;
+  line-height: 80rpx;
 }
 
 /*菜单部分*/
@@ -73,17 +87,15 @@ page {
   height: 80rpx;
   width: 100%;
   overflow: hidden;
-  font-size: 30rpx;
   white-space: nowrap;
-  margin-top: 10rpx;
+  margin-top: 52rpx;
   background-color: #fff;
-  box-shadow: 2rpx 2rpx 2px #e5e5e9;
 }
 
 /*菜单*/
 
 .tabitem {
-  width: 120rpx;
+  width: 110rpx;
   text-align: center;
   height: 80rpx;
   margin: 0rpx 15rpx;
@@ -111,9 +123,22 @@ page {
   margin: 0 15rpx;
   height: 80rpx;
   line-height: 80rpx;
-  color: #909599;
+  color: #16191c;
   display: inline-block;
-  font-size: 24rpx;
+  font-size: 28rpx;
+}
+
+.shadowv {
+  width: 100%;
+  height: 20rpx;
+  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
+  opacity: 0.8;
+}
+
+.shaovb {
+  width: 100%;
+  height: 2rpx;
+  margin-top: -50rpx;
 }
 
 /*历史记录*/
@@ -132,13 +157,13 @@ page {
   margin-left: 30rpx;
   font-size: 32rpx;
   font-weight: bold;
-  color: #16191C;
+  color: #16191c;
 }
 
 .clearv {
   font-size: 24rpx;
   margin-right: 30rpx;
-  color:#909599;
+  color: #909599;
 }
 
 .historylist {
@@ -151,9 +176,9 @@ page {
 .historyitem {
   padding: 0 30rpx;
   border-radius: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   line-height: 68rpx;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   color: #0074c8;
   margin-right: 30rpx;
   margin-top: 20rpx;
@@ -183,7 +208,7 @@ page {
   border-radius: 30rpx;
   font-size: 28rpx;
   line-height: 68rpx;
-  background-color:#F4F4F4;
+  background-color: #f4f4f4;
   color: #0074c8;
   margin-right: 30rpx;
   margin-top: 20rpx;
@@ -192,10 +217,29 @@ page {
 .hotsearchhitem {
   padding: 0 30rpx;
   border-radius: 30rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   line-height: 68rpx;
   background-color: #0074c8;
   color: #fff;
   margin-right: 30rpx;
   margin-top: 20rpx;
+}
+
+/*搜索无果样式*/
+
+.searchiconv {
+  text-align: center;
+}
+
+.searchtip {
+  text-align: center;
+  font-size: 28rpx;
+  color: #b2b2b2;
+  margin-top: 20rpx;
+}
+
+.searchtipv {
+  text-align: center;
+  font-size: 28rpx;
+  color: #b2b2b2;
 }

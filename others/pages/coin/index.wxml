@@ -10,7 +10,7 @@
   </view>
   <!--输入钱-->
   <view class='oinputv'>
-    <input type='number' class='otxtcss' value='{{omoney==0?"":omoney}}' bindblur='getomoney' bindconfirm='getomoney' focus='true'></input>
+    <input type='digit' class='otxtcss' value='{{omoney==0?"":omoney}}' bindinput='getomoney' focus='true'  placeholder='请输入' placeholder-class='tipcss'></input>
   </view>
 </view>
 
@@ -31,4 +31,9 @@
   <view class='ginputv'>
     <input type='number' value='{{gmoney==""?0:gmoney}}' disabled='true' class='gtxtcss'></input>
   </view>
+</view>
+
+<!--换算按钮-->
+<view class='btnv'>
+  <view class='changebtn' bindtap='exchange'>换算</view>
 </view>

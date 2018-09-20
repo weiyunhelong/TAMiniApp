@@ -1,15 +1,11 @@
 /**app.wxss**/
 
-/*组件样式*/
-@import '/styles/weui.wxss';
-/*icon样式*/
-@import '/styles/icon.wxss';
 /*引入字体*/
-@import '/styles/font.wxss';
+/*@import '/styles/font.wxss';*/
 
 /*背景样式*/
 page {
-  background-color: #f1f1f1;
+  background-color: #F5F5F5;
   font-family: "Montserrat";
 }
 
@@ -19,4 +15,61 @@ page {
   height: 0;
   color: transparent;
   display: none;
+}
+
+/*字体部分*/
+.font-t1{
+  font-size: 82rpx;
+}
+.font-t2{
+  font-size: 60rpx;
+}
+.font-t3{
+  font-size: 48rpx;
+}
+.font-t4{
+  font-size: 32rpx;
+}
+.font-t5{
+  font-size: 28rpx;
+}
+.font-t6{
+  font-size: 26rpx;
+}
+.font-t7{
+  font-size: 24rpx;
+}
+.font-t8{
+  font-size: 20rpx;
+}
+
+
+/*收藏心的点击动画*/
+.xinanimation {
+  animation: collect 0.5s ease-in-out;
+  -moz-animation: collect 0.5s ease-in-out; /* Firefox */
+  -webkit-animation: collect 0.5s ease-in-out; /* Safari 和 Chrome */
+  animation-delay: 0;
+}
+
+@keyframes collect {
+  0% {
+    transform: scale(1.0);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
 }

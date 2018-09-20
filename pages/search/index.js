@@ -6,21 +6,18 @@ Page({
    */
   data: {
     searchtxt: "", //搜索的值
-    issearchfocus:false,//是否聚焦
+    issearchfocus: false, //是否聚焦
     tablist: [], //菜单部分
     currentTab: 0, //预设当前项的值
     typename: '综合', //菜单名称
     scrollLeft: 0, //tab标题的滚动条位置
-    /*列表数据部分*/
-    gogallist: [], //目的地列表
-    scenelist: [], //景点列表
-    tourlist: [], //游记列表
-    yscrollLeft:0,
-    gonglvelist: [], //攻略列表
-    linelist: [], //线路列表
-    shoplist: [], //购物列表
-    foodlist: [], //美食列表
-    hotellist: [], //酒店列表
+    isshowcontent: false, //是否显示搜索结果
+    resultlist: [], //搜索结果列表
+    /*数据展示部分*/
+    historylist: [], //热门搜索列表
+    hotsearchlist: [], //历史记录
+    isshowhistory: true, //是否显示历史记录
+    isshownocontent: false, //搜索无果
   },
 
   /**
@@ -31,46 +28,42 @@ Page({
 
     //菜单部分
     that.getmenu();
-
-    //初始化目的地部分
-    that.initGogal();
-
+    //初始化历史记录部分
+    that.initHistory();
     //初始化景点地部分
-    that.initScene();
-
-    //初始化游记部分
-    that.initTour();
-
-    //初始化攻略部分
-    that.initGonglve();
-
-    //初始化线路部分
-    that.initLine();
-
-    //初始化购物部分
-    that.initLine();
-
-    //初始化美食部分
-    that.initFood();
-
-    //初始化酒店部分
-    that.initHotel();
+    that.initHotSearch();
   },
   //搜索框聚焦
-  searchfopt:function(){
+  searchfopt: function() {
     this.setData({
-      issearchfocus:true
+      issearchfocus: true
     })
   },
   //获取搜索框的值
-  getsearchtxt:function(e){
-     var that=this;
-     //参数部分
-     var txtval=e.detail.value;
+  getsearchtxt: function(e) {
+    var that = this;
+    //参数部分
+    var txtval = e.detail.value;
     this.setData({
-      searchtxt:txtval,
-      issearchfocus: false
+      searchtxt: txtval,
+      issearchfocus: true,
+      isshownocontent: true,
+      isshowclear: txtval.length > 0 ? true : false
     })
+    if (txtval != '') {
+      //搜索结果
+      //that.getsearchresult();
+    }
+  },//清除操作
+  clearsopt: function () {
+    var that = this;
+    that.setData({
+      searchtxt: "",
+      issearchfocus: true,
+      isshowclear: false
+    })
+    //搜索结果
+    that.getsearchresult();
   },
   //菜单部分
   getmenu: function() {
@@ -83,32 +76,26 @@ Page({
       },
       {
         id: 1,
-        name: '攻略',
+        name: '商品',
       },
       {
         id: 2,
-        name: '游记',
+        name: '酒店',
       },
       {
         id: 3,
-        name: '线路',
-      },
-      {
-        id: 4,
-        name: '购物',
-      },
-      {
-        id: 5,
         name: '美食',
       },
       {
-        id: 6,
-        name: '酒店',
-      },
+        id: 4,
+        name: '游玩指南',
+      }
     ];
     that.setData({
       tablist: tablist
     })
+    //搜索结果
+    that.getsearchresult();
   },
   // 点击标题切换当前页时改变样式
   switchNav: function(e) {
@@ -141,127 +128,172 @@ Page({
       })
     }
   },
-  //初始化目的地部分
-  initGogal: function() {
+  //初始化历史记录部分
+  initHistory: function() {
     var that = this;
-
-    //
-    var gogallist = [{
+    //历史记录列表
+    var historylist = [{
         id: 1,
-        imgpath: "/resources/tu1.jpg",
-        name: "悉尼"
+        name: '昆士兰'
       },
       {
         id: 2,
-        imgpath: "/resources/tu2.jpg",
-        name: "堪培拉"
+        name: '黄金海岸'
+      },
+    ];
+    //赋值部分
+    that.setData({
+      historylist: historylist
+    })
+  },
+  //初始化热门搜索部分
+  initHotSearch: function() {
+    var that = this;
+    //历史记录列表
+    var hotsearchlist = [{
+        id: 1,
+        name: '昆士兰',
+        ishot: false
+      },
+      {
+        id: 2,
+        name: '黄金海岸',
+        ishot: false
       },
       {
         id: 3,
-        imgpath: "/resources/tu3.jpg",
-        name: "达尔文"
+        name: '最好的酒店',
+        ishot: true
       },
       {
         id: 4,
-        imgpath: "/resources/tu4.jpg",
-        name: "布里斯班"
+        name: '去哪里冲浪',
+        ishot: true
+      },
+      {
+        id: 5,
+        name: '浮潜',
+        ishot: false
+      },
+      {
+        id: 5,
+        name: '不可错过的美食',
+        ishot: false
       },
     ];
+    //赋值部分
     that.setData({
-      gogallist: gogallist
+      hotsearchlist: hotsearchlist
     })
   },
-
-  //初始化景点地部分
-  initScene: function() {
-    var that=this;
-
-    //
-    var scenelist=[
-      {
-        id:1,
-        imgpath:"/resources/tu1.jpg",
-        name:"圣派崔克教堂圣派崔克教堂圣派崔克教堂"
-      },
-      {
-        id: 2,
-        imgpath: "/resources/tu2.jpg",
-        name: "悉尼水族馆"
-      },
-      {
-        id: 3,
-        imgpath: "/resources/tu3.jpg",
-        name: "皇家植物园"
-      },
-      {
-        id: 4,
-        imgpath: "/resources/tu4.jpg",
-        name: "黄金海岸"
-      },
-    ];
-
+  //清除事件部分
+  clearopt: function() {
+    var that = this;
     that.setData({
-      scenelist: scenelist
+      isshowhistory: false
     })
   },
-
-  //初始化游记部分
-  initTour: function() {
-    var that=this;
-
-    var tourlist=[
-      {
-        id:1,
-        imglist: ["/resources/tu1.jpg", "/resources/tu2.jpg", "/resources/tu3.jpg", "/resources/tu4.jpg", "/resources/tu5.jpg"],
-        name:"澳洲的冬天"
-      },
-      {
-        id: 2,
-        imglist: ["/resources/tu1.jpg", "/resources/tu2.jpg", "/resources/tu3.jpg", "/resources/tu4.jpg", "/resources/tu5.jpg"],
-        name: "悉尼的秋天"
-      }
-    ];
-
+  //点击热门搜索的值
+  gosearch: function(e) {
+    var that = this;
+    //参数的值
+    var searchtxt = e.currentTarget.dataset.name;
     that.setData({
-      tourlist: tourlist
+      searchtxt: searchtxt,
+      isshowclear: searchtxt.length>0?true:false
     })
+    //获取搜索结果
+    that.getsearchresult();
   },
+  //获取搜索结果
+  getsearchresult: function() {
+    var that = this;
+    //参数部分
+    var searchtxt = that.data.searchtxt,
+      isshowcontent = that.data.isshowcontent,
+      isshownocontent = that.data.isshowcontent;
 
-  //初始化攻略部分
-  initGonglve: function() {
+    if (searchtxt == '') {
+      that.setData({
+        isshowcontent: false,
+        isshownocontent: false
+      })
+    } else {
+      //获取搜索的列表值
+      var resultlist = {
+        datalist: [{
+            id: 1,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
+            cnname: "太平洋购物中心",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 2,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+            cnname: "海港城A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
+          {
+            id: 3,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
+            cnname: "购物中心A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 4,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%202.png",
+            cnname: "太平洋购物中心",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          }, {
+            id: 5,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap%209.png",
+            cnname: "太平洋购物中心A",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
+          {
+            id: 6,
+            imgpath: "http://zhuweis.com/index/shopping/Bitmap.png",
+            cnname: "太平洋购物中心B",
+            enname: "Pacific Fair",
+            distance: 1.5,
+            commentnum: 1221,
+            price: 281
+          },
+        ],
+        fontt1: 32,
+        fontt2: 24,
+        fontt3: 24,
+        showtype: 5, //显示类型
+        typename: "",//类型名称
+        typeval: "",//类型值
+      };
 
-  },
-
-  //初始化线路部分
-  initLine: function() {
-
-  },
-
-  //初始化购物部分
-  initLine: function() {
-
-  },
-
-  //初始化美食部分
-  initFood: function() {
-
-  },
-  //美食跳转
-  foodswitchNav:function(e){
-    var that=this;
-    var id=e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../../',
-    })
-  },
-  //初始化酒店部分
-  initHotel: function() {
+      //赋值部分
+      that.setData({
+        resultlist: resultlist,
+        isshowcontent: true,
+        isshownocontent: false,
+      })
+    }
 
   },
   //取消按钮
-  goback:function(){
+  goback: function() {
     wx.navigateBack({
-      delta:1
+      delta: 1
     })
   },
   /**

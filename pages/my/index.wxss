@@ -79,8 +79,13 @@ page {
 
 .tabmenuv {
   display: flex;
-  margin-top: -70rpx;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top:-90rpx;
+  background-color: #005DA0;
 }
 
 .fixtabmenuv {
@@ -122,6 +127,7 @@ page {
   opacity: 0.8;
   justify-content: center;
   display: flex;
+  background-color: #fff;
 }
 
 .fswitchv {
@@ -145,10 +151,12 @@ page {
   line-height: 60rpx;
   color: #fff;
   font-size: 24rpx;
+  position: relative;
+  z-index: 2;
 }
 
 .nochkswitchv {
-  width: 140rpx;
+  width: 170rpx;
   height: 60rpx;
   background: #f2f2f2;
   border-radius: 30rpx;
@@ -157,12 +165,13 @@ page {
   line-height: 60rpx;
   color: #909599;
   font-size: 24rpx;
+  position: relative;
+  z-index: 1;
 }
 
 .collectlistv {
   width: 100%;
-  height: 1200rpx;
-  overflow-y: auto;
+  margin-bottom: 20rpx;
 }
 
 .fcollectlist {
@@ -257,43 +266,43 @@ page {
 }
 
 .listtypev1 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ea9f10;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev2 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #53c078;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
 
 .listtypev3 {
-  width: 100rpx;
-  height: 40rpx;
+  width: 76rpx;
+  height: 34rpx;
   margin-top: -220rpx;
   font-size: 20rpx;
   color: #fff;
   background-color: #ff7b65;
   position: relative;
   text-align: center;
-  line-height: 40rpx;
+  line-height: 34rpx;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
@@ -473,6 +482,16 @@ page {
   padding-bottom: 20rpx;
 }
 
+.donghuaguidev {
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s;
+}
+
 .glistitemv {
   margin: 0;
   display: flex;
@@ -494,11 +513,6 @@ page {
   padding: 10px;
   line-height: 22px;
   margin-right: 0;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  margin-left: -90px;
 }
 
 .ndel {
@@ -509,12 +523,17 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  height: 200rpx;
-  margin-top: 30rpx;
+  margin-left: 40rpx;
+}
+
+.donghuascenicv {
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s;
 }
 
 .jdel {
@@ -525,12 +544,7 @@ page {
   align-items: center;
   justify-content: center;
   color: #fff;
-  -webkit-transform: translateX(90px);
-  transform: translateX(90px);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  height: 200rpx;
-  margin: 40rpx 0;
+  margin-left: 40rpx;
 }
 
 .lastgeduanv {
@@ -539,4 +553,110 @@ page {
   z-index: 1;
   width: 100%;
   height: 20rpx;
+}
+
+/*评价部分*/
+
+.donghuacommentv {
+  display: flex;
+  width: 125%;
+  overflow: hidden;
+  transform: translate(-90px, 0px);
+  transition-delay: 0.05s;
+  transition-duration: 1s;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+
+.commentv {
+  display: flex;
+  width: 120%;
+  overflow: hidden;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+}
+
+.commentbodyv {
+  width: 100%;
+  height: 100%;
+}
+
+.commenttopv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30rpx;
+}
+
+.commentdate {
+  font-size: 20rpx;
+  color: #909599;
+}
+
+.commentfen {
+  display: flex;
+}
+
+.csmxingico {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 4rpx;
+}
+
+.commentinfo {
+  margin: 20rpx 30rpx;
+  font-size: 24rpx;
+  padding-bottom: 18rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/*评价的对象*/
+
+.commentobjv {
+  display: flex;
+  margin: 0 30rpx;
+  background-color: #f2f2f2;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.commentobjimg {
+  width: 120rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  margin: 15rpx 20rpx;
+}
+
+.commentobjinfov {
+  margin: 15rpx 0;
+}
+
+.cobjcname {
+  font-size: 20rpx;
+  color: #000;
+}
+
+.cobjename {
+  font-size: 20rpx;
+  color: #000;
+}
+
+.cobjprice {
+  font-size: 20rpx;
+  color: #000;
+}
+
+/*删除*/
+
+.cdel {
+  background-color: orangered;
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-left: 40rpx;
 }
