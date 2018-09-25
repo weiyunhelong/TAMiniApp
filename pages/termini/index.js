@@ -97,19 +97,7 @@ Page({
         })
       }
     })
-    //获取定位
-    wx.getLocation({
-      success: function (res) {
-        console.log("获取定位的值:");
-        console.log(res);
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
-        //获取地图的其他值
-        that.GetMapData();
-      },
-    })
+    
 
   },
   //初始化热门搜索部分
@@ -224,9 +212,24 @@ Page({
   },
   //地图范围的改变
   mapregionopt:function(e){
-    var that = this;  
+    var that = this; 
+    //获取地图的范围
+    that.mapCtx.getRegion({
+      success: function (res) {
+        console.log("获取地图的范围");
+        console.log(res);
+        that.setData({
+          nlat: res.northeast.latitude,
+          nlng: res.northeast.longitude,
+          slat: res.southwest.latitude,
+          slng: res.southwest.longitude,
+        })
+        //获取地图列表
+        that.GetMapData();
+      }
+    }) 
   },
-  //定位操作
+  //地图icon点击
   mapcontroltap:function(){
     var that = this;
     //获取定位
@@ -578,7 +581,7 @@ Page({
   godetail:function(e){
     var id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../info/index?id='+id,
+      url: '../info/index?id=1'//+id,
     })
   },
   /**
@@ -593,6 +596,25 @@ Page({
    */
   onShow: function () {
     var that=this;
+    
+    //获取定位
+    wx.getLocation({
+      success: function (res) {
+        console.log("获取定位的值:");
+        console.log(res);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        //获取地图的其他值
+        that.GetMapData();
+      },
+      fail: function () {
+        console.log("取消地址AAA");
+        wx.openSetting({})
+      },
+    })
+
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('myMap');
     setTimeout(function () {

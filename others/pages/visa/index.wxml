@@ -1,2 +1,2 @@
 <!--others/pages/visa/index.wxml-->
-<text>others/pages/visa/index.wxml</text>
+<web-view src="https://baike.baidu.com/item/%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E7%AD%BE%E8%AF%81/3818946?fr=aladdin"> </web-view>

@@ -1,12 +1,12 @@
 <!--pages/article/index.wxml-->
 
 <!--顶部的标签内容部分-->
-<view class='topv' style='background-image: url("{{coverimg}}"); background-size: cover;'></view>
+<view class='topv' style='background-image: url("{{coverimg}}");'></view>
 
 <view class='topinfov'>
   <!--类型按钮-->
-  <view class='wenzhangybtn font-t7' wx:if="{{typeval==1}}">线路</view>
-  <view class='wenzhanggbtn font-t7' wx:if="{{typeval==2}}">游记</view>
+  <view class='wenzhanggbtn font-t7' wx:if="{{typeval==1}}">线路</view>
+  <view class='wenzhangybtn font-t7' wx:if="{{typeval==2}}">游记</view>
   <view class='wenzhangrbtn font-t7' wx:if="{{typeval==3}}">攻略</view>
 
   <!--收藏-->
@@ -28,5 +28,6 @@
   </view>
 <!--图文简介-->
 <view class='instrov font-t7'>
-  <rich-text nodes="{{info}}"></rich-text>
+  <!--<rich-text nodes="{{info}}"></rich-text>-->
+  <htmltowxml text="{{info}}" imghost="" bindWxmlTagATap="wxmlTagATap" />
 </view>

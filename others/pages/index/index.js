@@ -106,7 +106,7 @@ Page({
       }
     ], //底部的滑动列表
     hotsearchlist: [], //热门搜索
-    isshownoresult: false,//搜索无果
+    isshownoresult: false, //搜索无果
   },
 
   /**
@@ -118,47 +118,46 @@ Page({
     that.setData({
       chktabid: parseInt(options.id)
     })
-    //获取系统的数据
-    that.InitSysInfo();
+
     //初始化列表数据
     that.InitList();
     //初始化热门搜索部分
     that.initHotSearch();
   },
   //初始化热门搜索部分
-  initHotSearch: function () {
+  initHotSearch: function() {
     var that = this;
     //历史记录列表
     var hotsearchlist = [{
-      id: 1,
-      name: '昆士兰',
-      ishot: false
-    },
-    {
-      id: 2,
-      name: '黄金海岸',
-      ishot: false
-    },
-    {
-      id: 3,
-      name: '最好的酒店',
-      ishot: true
-    },
-    {
-      id: 4,
-      name: '去哪里冲浪',
-      ishot: true
-    },
-    {
-      id: 5,
-      name: '浮潜',
-      ishot: false
-    },
-    {
-      id: 5,
-      name: '不可错过的美食',
-      ishot: false
-    },
+        id: 1,
+        name: '昆士兰',
+        ishot: false
+      },
+      {
+        id: 2,
+        name: '黄金海岸',
+        ishot: false
+      },
+      {
+        id: 3,
+        name: '最好的酒店',
+        ishot: true
+      },
+      {
+        id: 4,
+        name: '去哪里冲浪',
+        ishot: true
+      },
+      {
+        id: 5,
+        name: '浮潜',
+        ishot: false
+      },
+      {
+        id: 5,
+        name: '不可错过的美食',
+        ishot: false
+      },
     ];
     //赋值部分
     that.setData({
@@ -264,24 +263,25 @@ Page({
     })
   },
   //地图范围的改变
-  mapregionopt: function(e) {
+  regionchange:function(){
     var that = this;
     //获取地图的范围
-    /*
-      that.mapCtx.getCenterLocation({
-        success: function (res) {
-          console.log("获取地图的范围改变");
-          console.log(res);
-          that.setData({
-            longitude: res.longitude, //经度
-            latitude: res.latitude, //纬度
-          })        
-          that.mapCtx.moveToLocation();
-        }
-      })
-    */
+    that.mapCtx.getRegion({
+      success: function (res) {
+        console.log("获取地图的范围");
+        console.log(res);
+        that.setData({
+          nlat: res.northeast.latitude,
+          nlng: res.northeast.longitude,
+          slat: res.southwest.latitude,
+          slng: res.southwest.longitude,
+        })
+        //获取地图列表
+        that.GetMapData();
+      }
+    })
   },
-  //地图范围的改变
+  //地图icon点击
   mapcontroltap: function() {
     var that = this;
     //获取定位
@@ -445,56 +445,56 @@ Page({
     that.setData({
       issearchfocus: true
     })
-  },//清除操作
-  clearsopt:function(){
+  }, //清除操作
+  clearsopt: function() {
     var that = this;
     that.setData({
-      searchtxt:"",
+      searchtxt: "",
       issearchfocus: true,
-      isshowclear:false
+      isshowclear: false
     })
     that.InitList();
   },
   //点击热门搜索
-  gosearch: function (e) {
+  gosearch: function(e) {
     var that = this;
     //参数部分
     var name = e.currentTarget.dataset.name;
     var id = e.currentTarget.dataset.id;
     //列表数据  
     var datalist = [{
-      id: 1,
-      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
-      cnname: "华纳电影世界",
-      enname: "Warner Bros. Movie World",
-      distance: "1.5km",
-      commentnum: 2331,
-      price: 281,
-      iscollect: true,
-      iscollectopt: false,
-    },
-    {
-      id: 2,
-      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
-      cnname: "可伦宾野生动物园",
-      enname: "Currumbin Wildlife Sanctuary Currumbin Wildlife Sanctuary",
-      distance: "1.8km",
-      commentnum: 1332,
-      price: 281,
-      iscollect: true,
-      iscollectopt: false,
-    },
-    {
-      id: 3,
-      imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
-      cnname: "春溪国家公园",
-      enname: "Warner Bros. Movie World",
-      distance: "2.0km",
-      commentnum: 1332,
-      price: 281,
-      iscollect: false,
-      iscollectopt: false,
-    },
+        id: 1,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+        cnname: "华纳电影世界",
+        enname: "Warner Bros. Movie World",
+        distance: "1.5km",
+        commentnum: 2331,
+        price: 281,
+        iscollect: true,
+        iscollectopt: false,
+      },
+      {
+        id: 2,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        cnname: "可伦宾野生动物园",
+        enname: "Currumbin Wildlife Sanctuary Currumbin Wildlife Sanctuary",
+        distance: "1.8km",
+        commentnum: 1332,
+        price: 281,
+        iscollect: true,
+        iscollectopt: false,
+      },
+      {
+        id: 3,
+        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        cnname: "春溪国家公园",
+        enname: "Warner Bros. Movie World",
+        distance: "2.0km",
+        commentnum: 1332,
+        price: 281,
+        iscollect: false,
+        iscollectopt: false,
+      },
     ];
 
     that.setData({
@@ -666,7 +666,7 @@ Page({
   godetail: function(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../../pages/info/index?id=' + id,
+      url: '../../../pages/info/index?id=1' // + id,
     })
   },
   /**
@@ -676,40 +676,40 @@ Page({
     var that = this;
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('myMap');
-    setTimeout(function() {
-      that.mapCtx.getCenterLocation({
-        success: function(res) {
-          console.log("地图中心点的值:");
-          console.log(res);
-          that.setData({
-            longitude: res.longitude, //经度
-            latitude: res.latitude, //纬度
-          })
-        }
-      })
-      //获取地图的范围
-      that.mapCtx.getRegion({
-        success: function(res) {
-          console.log("获取地图的范围");
-          console.log(res);
-          that.setData({
-            nlat: res.northeast.latitude,
-            nlng: res.northeast.longitude,
-            slat: res.southwest.latitude,
-            slng: res.southwest.longitude,
-          })
-          //获取地图列表
-          that.GetMapData();
-        }
-      })
-    }, 2000)
+
+    that.mapCtx.getCenterLocation({
+      success: function(res) {
+        console.log("地图中心点的值:");
+        console.log(res);
+        that.setData({
+          longitude: res.longitude, //经度
+          latitude: res.latitude, //纬度
+        })
+      }
+    })
+    //获取地图的范围
+    that.mapCtx.getRegion({
+      success: function(res) {
+        console.log("获取地图的范围");
+        console.log(res);
+        that.setData({
+          nlat: res.northeast.latitude,
+          nlng: res.northeast.longitude,
+          slat: res.southwest.latitude,
+          slng: res.southwest.longitude,
+        })
+       
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this;
+    //获取系统的数据
+    that.InitSysInfo();
   },
 
   /**

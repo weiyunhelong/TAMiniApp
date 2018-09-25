@@ -26,7 +26,7 @@ var datalist = [{
     id: 3,
     typeval: 3,
     typename: "攻略",
-    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
+    imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
     title: "火车环游，美到炸",
     instroduce: "",
     ismore: false,

@@ -8,7 +8,7 @@ Page({
    */
   data: {
     id: 0, //文章id
-    typeval: 1, //攻略，游记，线路
+    typeval: 1, //攻略(3)，游记(2)，线路(1)
     title: "", //标题
     coverimg: "", //顶部背景图
     iscollect: false, //是否收藏
@@ -51,9 +51,16 @@ Page({
 
     //请求获取详情
     wx.request({
-      url: requesturl + '/article/1/'+getApp().globalData.openid,
-      data: '',
-      method: 'GET',
+      url: requesturl + '/article/article',
+      data: {
+        id:7,//id,
+        openid: getApp().globalData.openid,
+        type:1
+      },
+      header:{
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      method: 'post',
       success: function(res) {
         console.log("获取到文章的详情:");
         console.log(res);
@@ -74,7 +81,6 @@ Page({
     var that = this;
     //参数部分
     var id = that.data.id; //文章id
-
     var iscollect = that.data.iscollect;
 
     //收藏个数的更新
@@ -102,7 +108,7 @@ Page({
     wx.request({
       url: requesturl + '/article/favorite/update',
       data: {
-        id: 1,
+        id: 7,//id,
         status: !iscollect ? 1 : 0,
         openid:getApp().globalData.openid
       },

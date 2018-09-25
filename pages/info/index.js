@@ -79,12 +79,16 @@ Page({
      var id=that.data.id;
 
      wx.request({
-       url: requesturl +'/address/address/'+id+"/"+getApp().globalData.openid,
-       data:'',
-       header: {
-         "Content-Type":"application/json"
+       url: requesturl +'/address/address',
+       data:{
+         id:1,
+         openid: getApp().globalData.openid,
+         type:1
        },
-       method: 'GET',
+       header: {
+         "Content-Type":"application/x-www-form-urlencoded"
+       },
+       method: 'POST',
        success: function(res) {
          console.log("获取地址详情:");
          console.log(res);
@@ -143,12 +147,13 @@ Page({
         "Content-Type": "application/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function (res) {   
         console.log("获取地址图库列表:");
-        console.log(res);
-
+        console.log(res);   
+        var tusku = that.data.tusku;
+        tusku = tusku.concat(res.data);      
         that.setData({
-          tusku:res.data
+          tusku: tusku
         })
       }
     })
@@ -169,9 +174,10 @@ Page({
       success: function (res) {
         console.log("获取地址评论列表:");
         console.log(res);
-
+        var commentlist = that.data.commentlist;
+        commentlist = commentlist.concat(res.data);
         that.setData({
-          commentlist:res.data
+          commentlist: commentlist
         })
       }
     })
@@ -213,12 +219,10 @@ Page({
   gomap: function() {
     //
     var that = this;
-    //打开地图显示信息
-    wx.openLocation({
-      latitude: that.data.lat,
-      longitude: that.data.lng,
-      name:'华纳电影世界'
-    })
+     
+    wx.switchTab({
+      url: '../termini/index',
+    }) 
   },
   //打电话
   makephonecall: function() {
@@ -304,8 +308,8 @@ Page({
 
     //打开地图
     wx.openLocation({
-      latitude: that.data.lat, //纬度
-      longitude: that.data.lng, //经度,
+      latitude: parseFloat(that.data.lat), //纬度
+      longitude: parseFloat(that.data.lng), //经度,
       name: "华纳电影世界"
     })
   },
@@ -391,7 +395,7 @@ Page({
    */
   onPullDownRefresh: function() {
     var that=this;
-
+    /*
     that.setData({
       cpageindex:1,
       ipageindex:1
@@ -400,6 +404,7 @@ Page({
     that.GetImgList();
     //获取评论列表
     that.GetCommentList()
+    */
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作
@@ -416,7 +421,7 @@ Page({
     var cpageindex = that.data.cpageindex;
     var ipageindex = that.data.ipageindex;
 
-    if (chktab){
+    if (!chktab){
       that.setData({
         cpageindex: cpageindex+1
       })

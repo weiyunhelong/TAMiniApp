@@ -2,70 +2,70 @@
 //获取应用实例
 const app = getApp()
 var guidetool = require('../../utils/guidedata.js');
-var timer="";//计时器
+var timer = ""; //计时器
 var requesturl = getApp().globalData.requesturl;
 
 Page({
   data: {
     geduanval: 30, //隔断的高度值
     swiperdata: {
-      imglist: [],//轮播图
-      cnname: "",//中文名称
-      enname: "",//英文名称
-      isshowname: true,//显示名称
-      issearch: true,//搜索按钮
-      isweather: true,//天气预报
-      fontt1: 0,//中文字
-      fontt2: 0,//英文字
-      fontt3: 0,//温度
-      fontt4: 0,//未来一周
-      cityname:"",//城市名称
-      searchtip:"",//搜索提示词
+      imglist: [], //轮播图
+      cnname: "", //中文名称
+      enname: "", //英文名称
+      isshowname: true, //显示名称
+      issearch: true, //搜索按钮
+      isweather: true, //天气预报
+      fontt1: 0, //中文字
+      fontt2: 0, //英文字
+      fontt3: 0, //温度
+      fontt4: 0, //未来一周
+      cityname: "", //城市名称
+      searchtip: "", //搜索提示词
     }, //轮播图
     /**菜单部分**/
     menudata: {}, //模块测试数据
     scenicdata: {
-      datalist: [],//数据列表
-      fontt1: 0,//标题
-      fontt2: 0,//查看全部
-      fontt3: 0,//小字
-      typename: "",//类型名称
-      typeval: "",//类型值
-      showtype: 0,//显示类型
+      datalist: [], //数据列表
+      fontt1: 0, //标题
+      fontt2: 0, //查看全部
+      fontt3: 0, //小字
+      typename: "", //类型名称
+      typeval: "", //类型值
+      showtype: 0, //显示类型
     }, //标志景点
     fooddata: {
-      datalist: [],//数据列表
-      fontt1: 0,//标题
-      fontt2: 0,//查看全部
-      fontt3: 0,//小字
-      typename: "",//类型名称
-      typeval: "",//类型值
-      showtype: 0,//显示类型
+      datalist: [], //数据列表
+      fontt1: 0, //标题
+      fontt2: 0, //查看全部
+      fontt3: 0, //小字
+      typename: "", //类型名称
+      typeval: "", //类型值
+      showtype: 0, //显示类型
     }, //美食推荐
     hoteldata: {
-      datalist: [],//数据列表
-      fontt1: 0,//标题
-      fontt2: 0,//查看全部
-      fontt3: 0,//小字
-      typename: "",//类型名称
-      typeval: "",//类型值
-      showtype: 0,//显示类型
+      datalist: [], //数据列表
+      fontt1: 0, //标题
+      fontt2: 0, //查看全部
+      fontt3: 0, //小字
+      typename: "", //类型名称
+      typeval: "", //类型值
+      showtype: 0, //显示类型
     }, //酒店推荐
     shoppingdata: {
-      datalist: [],//数据列表
-      fontt1: 0,//标题
-      fontt2: 0,//查看全部
-      fontt3: 0,//小字
-      typename: "",//类型名称
-      typeval: "",//类型值
-      showtype: 0,//显示类型
+      datalist: [], //数据列表
+      fontt1: 0, //标题
+      fontt2: 0, //查看全部
+      fontt3: 0, //小字
+      typename: "", //类型名称
+      typeval: "", //类型值
+      showtype: 0, //显示类型
     }, //购物推荐
     /**游玩指南**/
     iswenmenu: false, //是否显示游玩菜单
-    winheight:0,//屏幕的高度
-    guideheight:800,//游玩指南的高度
-    guidemenuTop:0,//游玩指南tab的位置
-    guipageindex: 1,//游玩指南页数
+    winheight: 0, //屏幕的高度
+    guideheight: 800, //游玩指南的高度
+    guidemenuTop: 0, //游玩指南tab的位置
+    guipageindex: 1, //游玩指南页数
     /***底部的tabbar***/
     tabbardata: {}, //底部的tabbar     
   },
@@ -102,34 +102,39 @@ Page({
   //获取标志景点部分
   initSenic: function() {
     var that = this;
-    //标志景点列表
-    var scenicdata = {
-      datalist: [{
-          id: 1,
-          name: "大堡礁",
-          pic: "http://zhuweis.com/index/Attractions/Bitmap%202.png"
-        },
-        {
-          id: 2,
-          name: "霍巴特",
-          pic: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
-        },
-        {
-          id: 3,
-          name: "心形岛",
-          pic: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+    //请求接口
+    wx.request({
+      url: requesturl + '/address/list',
+      data: {
+        page: 1,
+        limit: 10,
+        status_id: 1,
+        category_id: 1
+      },
+      header: {
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log("标志景点列表的值:");
+        console.log(res);
+        
+        //标志景点列表
+        var scenicdata = {
+          datalist: res.data.data,
+          fontt1: 32,
+          fontt2: 24,
+          fontt3: 24,
+          typename: "标志景点",
+          typeval: 0, //类型值
+          showtype: 1, //显示类型
         }
-      ],
-      fontt1: 32,
-      fontt2: 24,
-      fontt3: 24,
-      typename: "标志景点",
-      typeval: 0, //类型值
-      showtype: 1, //显示类型
-    }
-    that.setData({
-      scenicdata: scenicdata
+        that.setData({
+          scenicdata: scenicdata
+        })
+      }
     })
+   
   },
   //调整到标志景点的详情
   gosenic: function(e) {
@@ -141,46 +146,39 @@ Page({
   //获取购物推荐部分
   initShopping: function() {
     var that = this;
-    //标志景点列表
-    var shoppingdata = {
-      datalist: [{
-          id: 1,
-          name: "太平洋购物中心",
-          pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-        }, {
-          id: 2,
-          name: "海港城A",
-          pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-        },
-        {
-          id: 3,
-          name: "购物中心A",
-          pic: "http://zhuweis.com/index/shopping/Bitmap.png",
-        }, {
-          id: 4,
-          name: "太平洋购物中心",
-          pic: "http://zhuweis.com/index/shopping/Bitmap%202.png",
-        }, {
-          id: 5,
-          name: "海港城A",
-          pic: "http://zhuweis.com/index/shopping/Bitmap%209.png",
-        },
-        {
-          id: 6,
-          name: "购物中心A",
-          pic: "http://zhuweis.com/index/shopping/Bitmap.png",
-        },
-      ],
-      fontt1: 32,
-      fontt2: 24,
-      fontt3: 24,
-      typename: "购物推荐",
-      typeval: 2, //类型值
-      showtype: 4, //显示类型
-    };
-    that.setData({
-      shoppingdata: shoppingdata
+    //请求接口
+    wx.request({
+      url: requesturl + '/address/list',
+      data: {
+        page: 1,
+        limit: 10,
+        status_id: 1,
+        category_id: 2
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log("购物推荐列表的值:");
+        console.log(res);
+
+        //标志景点列表
+        var shoppingdata = {
+          datalist: res.data.data,
+          fontt1: 32,
+          fontt2: 24,
+          fontt3: 24,
+          typename: "购物推荐",
+          typeval: 0, //类型值
+          showtype:4, //显示类型
+        }
+        that.setData({
+          shoppingdata: shoppingdata
+        })
+      }
     })
+   
   },
   //调整到购物中心
   goshopping: function(e) {
@@ -192,35 +190,40 @@ Page({
   //获取推荐美食
   initFood: function() {
     var that = this;
-    //美食列表
-    var fooddata = {
-      datalist: [{
-          id: 1,
-          name: "GEORGE'S STEAK & SEAFOOD RESTAURANT",
-          pic: "http://zhuweis.com/index/Food/Bitmap%206.png"
-        },
-        {
-          id: 2,
-          name: "黄金酒家",
-          pic: "http://zhuweis.com/index/Food/Bitmap%206.png"
-        },
-        {
-          id: 3,
-          pic: "http://zhuweis.com/index/Food/Bitmap%206.png",
-          name: "潘帕斯雄鹰餐厅"
-        }
-      ],
-      fontt1: 32,
-      fontt2: 24,
-      fontt3: 24,
-      typename: "美食推荐",
-      typeval: 1, //类型值
-      showtype: 2, //显示类型
-    };
+    //请求接口
+    wx.request({
+      url: requesturl + '/address/list',
+      data: {
+        page: 1,
+        limit: 10,
+        status_id: 1,
+        category_id: 3
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log("美食列表列表的值:");
+        console.log(res);
 
-    that.setData({
-      fooddata: fooddata
+        //美食列表列表
+        var fooddata = {
+          datalist: res.data.data,
+          fontt1: 32,
+          fontt2: 24,
+          fontt3: 24,
+          typename: "美食推荐",
+          typeval: 0, //类型值
+          showtype: 2, //显示类型
+        }
+        that.setData({
+          fooddata: fooddata
+        })
+      }
     })
+
+   
   },
   //跳转到美食详情
   gofood: function(e) {
@@ -233,45 +236,38 @@ Page({
   //获取酒店推荐
   initHotel: function() {
     var that = this;
-    //酒店列表
-    var hoteldata = {
-      datalist: [{
-          id: 1,
-          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-          name: "派珀斯布罗德海滩度假村"
-        },
-        {
-          id: 2,
-          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-          name: "芒特拉圈卡维儿酒店"
-        },
-        {
-          id: 3,
-          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-          name: "大堡礁酒店"
-        },
-        {
-          id: 4,
-          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-          name: "派珀斯布罗德海滩度假村"
-        },
-        {
-          id: 5,
-          pic: "http://zhuweis.com/index/Hotels/Bitmap%207.png",
-          name: "芒特拉圈卡维儿酒店"
-        },
-      ],
-      fontt1: 32,
-      fontt2: 24,
-      fontt3: 24,
-      typename: "酒店推荐",
-      typeval: 3, //类型值
-      showtype: 3, //显示类型
-    };
+    //请求接口
+    wx.request({
+      url: requesturl + '/address/list',
+      data: {
+        page: 1,
+        limit: 10,
+        status_id: 1,
+        category_id: 4
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log("酒店列表的值:");
+        console.log(res);
 
-    that.setData({
-      hoteldata: hoteldata
-    })
+        //酒店列表
+        var hoteldata = {
+          datalist: res.data.data,
+          fontt1: 32,
+          fontt2: 24,
+          fontt3: 24,
+          typename: "酒店推荐",
+          typeval: 0, //类型值
+          showtype: 3, //显示类型
+        }
+        that.setData({
+          hoteldata: hoteldata
+        })
+      }
+    })    
   },
   //获取内容部分
   initWen: function() {
@@ -280,7 +276,7 @@ Page({
     var guidedata = {
       iswenmenu: that.data.iswenmenu, //是否到达顶部
       guideheight: that.data.guideheight, //分页的页码
-      guipageindex:1
+      guipageindex: 1
     };
     that.setData({
       guidedata: guidedata
@@ -368,12 +364,12 @@ Page({
   onReachBottom: function() {
     var that = this;
     console.log("底部加载...");
-    
+
     that.setData({
       guidedata: {
         iswenmenu: false,
         guideheight: that.data.winheight - 150,
-        guipageindex: that.data.guipageindex+1
+        guipageindex: that.data.guipageindex + 1
       },
     });
   },
@@ -409,12 +405,12 @@ Page({
     that.initguideh();
   },
   //获取游玩指南的高度
-  initguideh:function(){
-    var that=this;
+  initguideh: function() {
+    var that = this;
     //得到tab的位置
     var query = wx.createSelectorQuery()
     query.select('#guide').boundingClientRect()
-    query.exec(function (res) {
+    query.exec(function(res) {
       console.log("高度值:");
       console.log(res);
       that.setData({
@@ -423,10 +419,10 @@ Page({
     })
   },
   //初始化轮播图
-  initSwiper:function(){
-    var that=this;
+  initSwiper: function() {
+    var that = this;
 
-    var swiperdata={
+    var swiperdata = {
       imglist: [{
         id: 1,
         imgpath: "http://zhuweis.com/index/Header.png",
@@ -437,17 +433,17 @@ Page({
         id: 3,
         imgpath: "http://zhuweis.com/index/Header.png",
       }], //轮播图   
-      cityname:"黄金海岸",//城市名称
-      cnname: "黄金海岸",//中文名称
-      enname: "Gold Coast",//英文名称
-      isshowname: true,//显示名称
-      issearch: true,//搜索按钮
-      isweather: true,//天气预报
-      fontt1: 60,//中文字
-      fontt2: 28,//英文字
-      fontt3: 82,//温度
-      fontt4: 20,//未来一周
-      searchtip:"请搜索...",
+      cityname: "黄金海岸", //城市名称
+      cnname: "黄金海岸", //中文名称
+      enname: "Gold Coast", //英文名称
+      isshowname: true, //显示名称
+      issearch: true, //搜索按钮
+      isweather: true, //天气预报
+      fontt1: 60, //中文字
+      fontt2: 28, //英文字
+      fontt3: 82, //温度
+      fontt4: 20, //未来一周
+      searchtip: "请搜索...",
     };
 
     that.setData({

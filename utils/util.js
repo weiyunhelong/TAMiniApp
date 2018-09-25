@@ -1,3 +1,4 @@
+//日期时间格式化
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -9,6 +10,7 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+//记录时间
 function recordTime(date) {
 
   var month = date.getMonth() + 1
@@ -20,6 +22,7 @@ function recordTime(date) {
   return [month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
+//补0操作
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n

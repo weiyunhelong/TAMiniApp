@@ -98,8 +98,7 @@
 <view class='mapv' wx:if="{{isshowmap&&!isshownoresult}}" style='margin-top:195rpx;'>
 
   <!--地图部分-->
-  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" bindregionchange='mapregionopt'
-    show-location='true'></map>
+  <map id="myMap" class="mapcontainer" style='height:{{mapheight}}px;width:100%;margin-top:-18rpx;' scale="{{scale}}" controls='{{controls}}' markers="{{markers}}" longitude="{{longitude}}" latitude="{{latitude}}" bindmarkertap='getpro' bindcontroltap="mapcontroltap" show-location='true' bindregionchange='regionchange'></map>
 
 
   <!--底部的折叠-->
