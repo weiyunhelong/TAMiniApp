@@ -1,2 +1,8 @@
 <!--others/pages/airline/index.wxml-->
-<text>others/pages/airline/index.wxml</text>
+<view class='imagev'>
+  <image src='/resources/icon/nopage.svg' class='nopageicon'></image>
+</view>
+
+<view class='tiptitlev'>COMING SOOM…</view>
+
+<view class='tiptxtv'>This page is currently under construction.</view>

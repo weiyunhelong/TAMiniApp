@@ -32,4 +32,4 @@
 <!--分段结束-->
 
 <!--到达顶部-->
-<image src='/resources/icon/zhiding.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+<image src='/resources/icon/zhiding.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop" style='display:none;'></image>

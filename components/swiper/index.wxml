@@ -5,10 +5,10 @@
 
 
 <!--多张图片，轮播图-->
-<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" wx:if="{{isshowop}}">
+<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" wx:if="{{isshowop}}" circular="true">
   <block wx:for="{{imglist}}" wx:key="item">
     <swiper-item>
-      <image class="slide-image" src="{{item.imgpath}}"></image>
+      <image class="slide-image" src="{{item.imgpath}}" lazy-load='true'></image>
     </swiper-item>
   </block>
 </swiper>
@@ -32,7 +32,9 @@
         <view class='topwendu' style="font-size:{{fontt3}}rpx;">{{weatherdata.wendu}}°</view>
         <image src='{{weatherdata.icon}}' class='weatherico'></image>
       </view>
-      <view class='topweather' style="font-size:{{fontt4}}rpx;">未来一周的天气</view>
+      <view class='topweather' style="font-size:{{fontt4}}rpx;display:flex;">未来一周的天气
+      <image src='/resources/icon/smright.png' class="smrighticon"></image>
+      </view>
     </view>
   </view>
 </view>

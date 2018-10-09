@@ -48,8 +48,8 @@ Component({
     mode: "scaleToFill",
     indicatorDots: true,
     autoplay: true,
-    interval: 2000,
-    duration: 1000,
+    interval: 4000,
+    duration: 500,
     imglist: [],//轮播图
     isshowop:true,//一张图
     cnname: '',//中文名称

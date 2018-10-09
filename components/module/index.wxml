@@ -4,47 +4,57 @@
 <view class='contentv'>
   <view class='titlev'>
     <view class='titletxt' style='font-size:{{fontt1}}rpx;'>{{typename}}</view>
-    <view class="moretxt" style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看全部></view>
+    <!--
+    <view class="moretxt" style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看更多></view>
+    -->
   </view>
 
   <!--滑动部分-->
-  <scroll-view scroll-x="true" class="tab-contentv">
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showtype==1}}" style='height: 356rpx;'>
     <!--显示2个滑块-->
-    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==1}}">
-      <view class="taboneitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.image_path}}' class='tabonetucss'></image>
-        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title}}</view>
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
+      <view class="taboneitem" bindtap='godetail' data-id='{{item.id}}' style='height: 356rpx;'>
+        <image src='{{item.image_path}}' mode="aspectFill" class='tabonetucss' lazy-load='true'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title==''?item.title_en:item.title}}</view>
       </view>
     </block>
-    <view class="taboneitem" wx:if="{{showtype==1}}" style='width:10rpx;'></view> 
-
-    <!--显示3个滑块-->
-    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==2}}">
-      <view class="tabtwoitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.image_path}}' class='tabtwotucss'></image>
-        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title}}</view>
-      </view>
-    </block>
-    <view class="tabtwoitem" wx:if="{{showtype==2}}" style='width:10rpx;'></view> 
-
-    <!--显示4个滑块-->
-    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==3}}">
-      <view class="tabthreeitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.image_path}}' class='tabthreetucss'></image>
-        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title}}</view>
-      </view>
-    </block>
-    <view class="tabthreeitem" wx:if="{{showtype==3}}" style='width:10rpx;'></view> 
-
-    <!--显示5个滑块-->
-    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==4}}">
-      <view class="tabfouritem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.image_path}}' class='tabfourtucss'></image>
-        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title}}</view>
-      </view>
-    </block>
-    <view class="tabfouritem" wx:if="{{showtype==4}}" style='width:10rpx;'></view> 
-
   </scroll-view>
+  <view class="taboneitem" wx:if="{{showtype==1}}" style='width:10rpx;'></view>
+
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showtype==2}}" style='height: 266rpx;'>
+    <!--显示3个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
+      <view class="tabtwoitem" bindtap='godetail' data-id='{{item.id}}'  style='height: 266rpx;'>
+        <image src='{{item.image_path}}' mode="aspectFill" class='tabtwotucss' lazy-load='true'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title==''?item.title_en:item.title}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="tabtwoitem" wx:if="{{showtype==2}}" style='width:10rpx;'></view>
+
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showtype==3}}" style='height: 216rpx;'>
+    <!--显示4个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
+      <view class="tabthreeitem" bindtap='godetail' data-id='{{item.id}}'  style='height: 216rpx;'>
+        <image src='{{item.image_path}}' mode="aspectFill" class='tabthreetucss' lazy-load='true'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title==''?item.title_en:item.title}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="tabthreeitem" wx:if="{{showtype==3}}" style='width:10rpx;'></view>
+
+
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showtype==4}}" style='height: 156rpx;'>
+    <!--显示5个滑块-->
+    <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
+      <view class="tabfouritem" bindtap='godetail' data-id='{{item.id}}' style='height: 156rpx;'>
+        <image src='{{item.image_path}}' mode="aspectFill" class='tabfourtucss' lazy-load='true'></image>
+        <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.title==''?item.title_en:item.title}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="tabfouritem" wx:if="{{showtype==4}}" style='width:10rpx;'></view>
+
+
 
 </view>

@@ -10,9 +10,10 @@
 </view>
 <!--名称，信息部分-->
 <view class='introv'>
-  <view class='topinfo font-t3'>{{cnname}}</view>
+  <view class='topinfo font-t3'>{{cnname==''?enname:cnname}}</view>
   <view class='centerinfo'>
-    <view class='cnname font-t7'>{{enname}}</view>
+    <view class='cnname font-t7' wx:if="{{cnname!=''}}">{{enname}}</view>
+    <view class='cnname font-t7' wx:else></view>
     <view class='infoicov'>
       <image src='/resources/icon/phone.png' class='infoicon' bindtap='makephonecall'></image>
       <image src='/resources/icon/dingtu.png' class='infoicon' bindtap='gomap' style='margin-left:78rpx;'></image>

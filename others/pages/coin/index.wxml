@@ -1,39 +1,50 @@
 <!--others/pages/coin/index.wxml-->
-
-<!--源类型-->
-<view class='originv'>
-  <view class='originleftv' bindtap='changecoinopt' data-type='1'>
-    <image src='{{oflag}}' class='oflagtu'></image>
-    <view class='oqiancntxt'>{{ocountry}}</view>
-    <view class='oqianentxt'>{{oenname}}</view>
-    <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
-  </view>
-  <!--输入钱-->
-  <view class='oinputv'>
-    <input type='digit' class='otxtcss' value='{{omoney==0?"":omoney}}' bindinput='getomoney' focus='true'  placeholder='请输入' placeholder-class='tipcss'></input>
+<view class='bodyv'>
+  <!--源类型-->
+  <view class='originv'>
+    <view class='originleftv' bindtap='changecoinopt' data-type='1'>
+      <image src='{{oflag}}' class='oflagtu'></image>
+      <view class='countryv'>
+        <view class='oqiancntxt'>{{ocountry}}</view>
+        <view class='oqianentxt'>{{oenname}}</view>
+      </view>
+      <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
+    </view>
+    <!--输入钱-->
+    <view class='oinputv'>
+      <input type='digit' class='otxtcss' value='{{omoney}}' bindinput='getomoney' placeholder='{{omoneytip}}' placeholder-class='tipcss' auto-focus='true'></input>
+    </view>
   </view>
 </view>
 
 <!--互换-->
 <view class='changev'>
+  <!--
   <image src='/resources/icon/coinchange.png' class='changeicon' bindtap='changeopt'></image>
+  -->
 </view>
+
 
 <!--目标类型-->
-<view class='griginv'>
-  <view class='originleftv' bindtap='changecoinopt' data-type='2'>
-    <image src='{{gflag}}' class='gflagtu'></image>
-    <view class='gqiancntxt'>{{gcountry}}</view>
-    <view class='gqianentxt'>{{genname}}</view>
-    <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
-  </view>
-  <!--输入钱-->
-  <view class='ginputv'>
-    <input type='number' value='{{gmoney==""?0:gmoney}}' disabled='true' class='gtxtcss'></input>
+<view class='gbodyv'>
+  <view class='griginv'>
+    <view class='originleftv' bindtap='changecoinopt' data-type='2'>
+      <image src='{{gflag}}' class='gflagtu'></image>
+      <view class='countryv' style='margin-left:20rpx;'>
+        <view class='gqiancntxt'>{{gcountry}}</view>
+        <view class='gqianentxt'>{{genname}}</view>
+      </view>
+      <image src='/resources/icon/xiaicon.png' class='odownicon'></image>
+    </view>
+    <!--输入钱-->
+    <view class='ginputv'>
+      <input type='number' value='{{gmoney}}' bindinput='getgmoney' class='gtxtcss' placeholder='{{gmoneytip}}' placeholder-class='tipcss'></input>
+    </view>
   </view>
 </view>
-
 <!--换算按钮-->
+<!--
 <view class='btnv'>
   <view class='changebtn' bindtap='exchange'>换算</view>
 </view>
+-->

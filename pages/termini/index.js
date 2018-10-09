@@ -389,6 +389,12 @@ Page({
       datalist: txtarry
     })
   },
+  //点击搜索框,进入到搜索页面
+  gosearch:function(){
+    wx.navigateTo({
+      url: '../termini/search',
+    })
+  },
   //获取到搜索值
   getsearchtxt: function (e) {
     var that = this;

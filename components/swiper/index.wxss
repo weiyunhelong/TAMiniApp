@@ -170,3 +170,11 @@
   display: flex;
   margin: 0 30rpx;
 }
+
+/*小箭头*/
+.smrighticon{
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 12rpx;
+  margin-top: 6rpx;
+}

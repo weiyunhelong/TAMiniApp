@@ -109,22 +109,23 @@ Page({
         page: 1,
         limit: 10,
         status_id: 1,
-        category_id: 1
+        category_id: 1,
+        update_date: "desc"
       },
       header: {
-        "Content-Type":"application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
       success: function(res) {
         console.log("标志景点列表的值:");
         console.log(res);
-        
+
         //标志景点列表
         var scenicdata = {
           datalist: res.data.data,
           fontt1: 32,
           fontt2: 24,
-          fontt3: 24,
+          fontt3: 28,
           typename: "标志景点",
           typeval: 0, //类型值
           showtype: 1, //显示类型
@@ -134,7 +135,6 @@ Page({
         })
       }
     })
-   
   },
   //调整到标志景点的详情
   gosenic: function(e) {
@@ -153,13 +153,14 @@ Page({
         page: 1,
         limit: 10,
         status_id: 1,
-        category_id: 2
+        category_id: 2,
+        update_date: "desc"
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
-      success: function (res) {
+      success: function(res) {
         console.log("购物推荐列表的值:");
         console.log(res);
 
@@ -168,17 +169,17 @@ Page({
           datalist: res.data.data,
           fontt1: 32,
           fontt2: 24,
-          fontt3: 24,
+          fontt3: 28,
           typename: "购物推荐",
           typeval: 0, //类型值
-          showtype:4, //显示类型
+          showtype: 2, //显示类型
         }
         that.setData({
           shoppingdata: shoppingdata
         })
       }
     })
-   
+
   },
   //调整到购物中心
   goshopping: function(e) {
@@ -197,13 +198,14 @@ Page({
         page: 1,
         limit: 10,
         status_id: 1,
-        category_id: 3
+        category_id: 3,
+        update_date: "desc"
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
-      success: function (res) {
+      success: function(res) {
         console.log("美食列表列表的值:");
         console.log(res);
 
@@ -212,7 +214,7 @@ Page({
           datalist: res.data.data,
           fontt1: 32,
           fontt2: 24,
-          fontt3: 24,
+          fontt3: 28,
           typename: "美食推荐",
           typeval: 0, //类型值
           showtype: 2, //显示类型
@@ -223,7 +225,7 @@ Page({
       }
     })
 
-   
+
   },
   //跳转到美食详情
   gofood: function(e) {
@@ -243,13 +245,14 @@ Page({
         page: 1,
         limit: 10,
         status_id: 1,
-        category_id: 4
+        category_id: 4,
+        update_date: "desc"
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
-      success: function (res) {
+      success: function(res) {
         console.log("酒店列表的值:");
         console.log(res);
 
@@ -258,16 +261,16 @@ Page({
           datalist: res.data.data,
           fontt1: 32,
           fontt2: 24,
-          fontt3: 24,
+          fontt3: 28,
           typename: "酒店推荐",
           typeval: 0, //类型值
-          showtype: 3, //显示类型
+          showtype: 1, //显示类型
         }
         that.setData({
           hoteldata: hoteldata
         })
       }
-    })    
+    })
   },
   //获取内容部分
   initWen: function() {
@@ -425,13 +428,16 @@ Page({
     var swiperdata = {
       imglist: [{
         id: 1,
-        imgpath: "http://zhuweis.com/index/Header.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",
       }, {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Header.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132715.jpg",
       }, {
         id: 3,
-        imgpath: "http://zhuweis.com/index/Header.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132719.jpg",
+      }, {
+        id: 4,
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132722.jpg",
       }], //轮播图   
       cityname: "黄金海岸", //城市名称
       cnname: "黄金海岸", //中文名称

@@ -423,10 +423,15 @@ Page({
       datalist: txtarry
     })
   },
+  //点击搜索框
+  gosearchpage:function(){
+    wx.navigateTo({
+      url: '../../../pages/termini/search',
+    })
+  },
   //获取到搜索值
   getsearchtxt: function(e) {
     var that = this;
-
     var txtval = e.detail.value;
 
     that.setData({

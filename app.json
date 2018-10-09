@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/termini/index",
+    "pages/termini/search",
     "pages/chatbot/index",
     "pages/my/index",
     "pages/info/index",

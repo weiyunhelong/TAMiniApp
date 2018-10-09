@@ -14,13 +14,16 @@ Page({
     ocountry: "中国", //国家
     oenname: "CNY", //国家缩写
     omoney: "", //被兑换的钱
-
+    ofocus: true, //聚焦
+    omoneytip: "100", //提示文字
     /*兑换后的部分*/
     gid: 1, //目标货币类型
     gflag: "/resources/flag/yingguo.png", //国旗
     gcountry: "英国", //国家
     genname: "GBP", //国家缩写
-    gmoney: 0, //兑换后的钱
+    gmoney: "", //兑换后的钱
+    gfocus: false, //聚焦
+    gmoneytip: "",
   },
 
   /**
@@ -30,36 +33,12 @@ Page({
     wx.setNavigationBarTitle({
       title: '货币计算',
     })
-
+    
   },
-  //得到需兑换的钱
-  getomoney: function(e) {
+  //初始化提示的文字    
+  initTips: function() {
     var that = this;
-    var txtval = e.detail.value;
-    //参数部分
-    if (txtval != "") {
-      that.setData({
-        omoney: txtval
-      })
-      setTimeout(function() {        
-        that.exchange();
-      }, 500)
-    } else {
-      wx.showToast({
-        title: '请输入',
-        duration: 2000,
-        mask: true,
-        icon: "none"
-      })
-    }
-  },
-  //获取兑换的结果
-  exchange: function() {
-    var that = this;
-
-    //参数部分
-    var omoney = that.data.omoney; //被兑换的钱
-   
+    var omoney = that.data.omoneytip;
     //获取汇率
     wx.request({
       url: requesturl + '/currency/exchange/' + that.data.oenname + "/" + that.data.genname,
@@ -76,10 +55,128 @@ Page({
         console.log("获取汇率的值:");
         console.log(hlval);
 
-        var result = parseFloat(omoney * hlval).toFixed(4);
+        var result = parseFloat(omoney * hlval).toFixed(2);
         that.setData({
-          gmoney: result
-        })      
+          gmoneytip: result
+        })
+      }
+    })
+  },
+  //得到需兑换的钱
+  getomoney: function(e) {
+    var that = this;
+    var txtval = e.detail.value;
+    //参数部分
+    if (txtval != "") {
+      that.setData({
+        omoney: txtval,
+        ofocus: false
+      })
+      setTimeout(function() {
+        that.exchange();
+      }, 500)
+    } else {
+      that.setData({
+        omoney: '',
+        gmoney: '',
+        ofocus: true,
+        gfocus: false
+      })
+    }
+  },
+  //得到目标兑换的钱
+  getgmoney: function(e) {
+    var that = this;
+    var txtval = e.detail.value;
+    //参数部分
+    if (txtval != "") {
+      that.setData({
+        gmoney: txtval,
+        gfocus: false
+      })
+      setTimeout(function() {
+        that.oexchange();
+      }, 500)
+    } else {
+      that.setData({
+        omoney: '',
+        gmoney: '',
+        ofocus: false,
+        gfocus: true
+      })
+    }
+  },
+  //获取兑换的结果
+  exchange: function() {
+    var that = this;
+
+    //参数部分
+    var omoney = that.data.omoney; //被兑换的钱
+
+    //获取汇率
+    wx.request({
+      url: requesturl + '/currency/exchange/' + that.data.oenname + "/" + that.data.genname,
+      data: '',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'GET',
+      success: function(res) {
+        console.log("获取汇率的值:");
+        console.log(res);
+        var huilv = JSON.parse(res.data);
+        var hlval = huilv.result[0].exchange;
+        console.log("获取汇率的值:");
+        console.log(hlval);
+
+        var result = parseFloat(omoney * hlval).toFixed(2);
+        if (result == '0.00') {
+          that.setData({
+            omoney: "",
+            gmoney: ""
+          })
+        } else {
+          that.setData({
+            gmoney: result
+          })
+        }
+      }
+    })
+  },
+  //目标替换的钱
+  oexchange: function() {
+    var that = this;
+
+    //参数部分
+    var gmoney = that.data.gmoney; //兑换的钱
+
+    //获取汇率
+    wx.request({
+      url: requesturl + '/currency/exchange/' + that.data.genname + "/" + that.data.oenname,
+      data: '',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'GET',
+      success: function(res) {
+        console.log("获取汇率的值:");
+        console.log(res);
+        var huilv = JSON.parse(res.data);
+        var hlval = huilv.result[0].exchange;
+        console.log("获取汇率的值:");
+        console.log(hlval);
+
+        var result = parseFloat(gmoney * hlval).toFixed(2);
+        if (result == '0.00') {
+          that.setData({
+            omoney: "",
+            gmoney: ""
+          })
+        } else {
+          that.setData({
+            omoney: result
+          })
+        }
       }
     })
   },
@@ -139,6 +236,8 @@ Page({
 
     //获取货币类型值
     that.getcoindata();
+    //初始化提示的文字    
+    that.initTips();
   },
   //获取货币类型值
   getcoindata: function() {

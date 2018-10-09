@@ -22,71 +22,71 @@ Component({
   attached: function() {
     var that = this;
     //菜单数据
-    var onemenulist= [{
-        id: 0,
-        icon: '/resources/menu/jingdian.png',
-        name: '景点',
-        url: '../../others/pages/index/index?id=0'
-      },
-      {
-        id: 1,
-        icon: '/resources/menu/jiudian.png',
-        name: '酒店',
-        url: '../../others/pages/index/index?id=3'
-      },
-      {
-        id: 2,
-        icon: '/resources/menu/meishi.png',
-        name: '美食',
-        url: '../../others/pages/index/index?id=1'
-      },
-      {
-        id: 3,
-        icon: '/resources/menu/wenti.png',
-        name: '常见问题',
-        url: '../../others/pages/question/index'
-      },
-      {
-        id: 4,
-        icon: '/resources/menu/youwan.png',
-        name: '游玩指南',
-        url: '../../others/pages/guide/index'
-      },
+    var onemenulist = [{
+          id: 0,
+          icon: '/resources/menu/jingdianh.png',
+          name: '景点',
+          url: '../../others/pages/index/index?id=0'
+        },
+        {
+          id: 1,
+          icon: '/resources/menu/jiudianh.png',
+          name: '酒店',
+          url: '../../others/pages/index/index?id=3'
+        },
+        {
+          id: 2,
+          icon: '/resources/menu/meishih.png',
+          name: '美食',
+          url: '../../others/pages/index/index?id=1'
+        },
+        {
+          id: 3,
+          icon: '/resources/menu/wentih.png',
+          name: '常见问题',
+          url: '../../others/pages/question/index'
+        },
+        {
+          id: 4,
+          icon: '/resources/menu/youwanh.png',
+          name: '游玩指南',
+          url: '../../others/pages/guide/index'
+        },
       ], //第一行
-      twomenulist= [{
-        id: 5,
-        icon: '/resources/menu/qianzheng.png',
-        name: '签证',
-        url: '../../others/pages/visa/index'
-      },
-      {
-        id: 6,
-        icon: '/resources/menu/fanyi.png',
-        name: '翻译',
-        url: '../../others/pages/translate/index'
-      },
-      {
-        id: 7,
-        icon: '/resources/menu/duihuan.png',
-        name: '货币兑换',
-        url: '../../others/pages/coin/index'
-      },
-      {
-        id: 8,
-        icon: '/resources/menu/hangban.png',
-        name: '航班查询',
-        url: '../../others/pages/airline/index'
-      },
-      {
-        id: 9,
-        icon: '/resources/menu/phone.png',
-        name: '一键求助',
-        url: ''
-      }
+      twomenulist = [{
+          id: 5,
+          icon: '/resources/menu/qianzhengh.png',
+          name: '签证',
+          url: '../../others/pages/visa/index'
+        },
+        {
+          id: 6,
+          icon: '/resources/menu/fanyih.png',
+          name: '翻译',
+          url: '../../others/pages/translate/index'
+        },
+        {
+          id: 7,
+          icon: '/resources/menu/duihuanh.png',
+          name: '货币兑换',
+          url: '../../others/pages/coin/index'
+        },
+        {
+          id: 8,
+          icon: '/resources/menu/hangbanh.png',
+          name: '航班查询',
+          url: '../../others/pages/airline/index'
+        },
+        {
+          id: 9,
+          icon: '/resources/menu/phoneh.png',
+          name: '一键求助',
+          url: ''
+        }
       ], //第二行菜单
-      fontt= 24, //字体大小
-      phonelist= ["110", "120", "119", "114"]; //一键求助
-      
+      fontt = 24, //字体大小
+      phonelist = ["中国驻澳大利亚大使馆求助电话", "急求电话（报警、火警、急救)"]; //一键求助
+
 
     //赋值部分  
     that.setData({
@@ -147,9 +147,15 @@ Component({
         wx.showActionSheet({
           itemList: that.data.phonelist,
           itemColor: '#007aff',
-          success(res) {
+          success:function(res) {
             //拨打电话
-            var phonenum = that.data.phonelist[res.tapIndex];
+            var tapIndex = res.tapIndex;
+            var phonenum="";
+            if(tapIndex==0){
+              phonenum ="0061-7-32106509-206";
+            }else{
+              phonenum = "000";
+            }
             console.log("电话号码:" + phonenum);
 
             wx.makePhoneCall({

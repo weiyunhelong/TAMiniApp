@@ -47,18 +47,18 @@
     <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
       <!--图片部分-->
       <view class='dataimgv'>
-        <image src='{{item.imgpath}}' class='dataimg'></image>
+        <image src='{{item.image_path}}' class='dataimg'></image>
       </view>
       <!--简介部分-->
       <view class='datainfov'>
         <!--中文名称收藏-->
         <view class='namexinv'>
-          <view class='cnnamev' style='font-size:{{fontt1}}rpx;'>{{item.cnname}}</view>
+          <view class='cnnamev' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
           <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
           <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
-        <view class='ennamev'  style='font-size:{{fontt3}}rpx;'>{{item.enname}}</view>
+        <view class='ennamev'  style='font-size:{{fontt3}}rpx;'>{{item.title_en}}</view>
         <!--距离-->
         <view class='distancev'  style='font-size:{{fontt3}}rpx;'>
           <view class='distancetip'>距离您约</view>
@@ -73,7 +73,7 @@
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
             <image src='/resources/icon/smxingh.png' class='xingico'></image>
-            <view class='peoplenum'  style='font-size:{{fontt3}}rpx;'>{{item.commentnum}}人评论</view>
+            <view class='peoplenum'  style='font-size:{{fontt3}}rpx;'>{{item.comment_count}}人评论</view>
           </view>
           <view class='pricev'  style='font-size:{{fontt3}}rpx;'>￥{{item.price}}/人</view>
         </view>

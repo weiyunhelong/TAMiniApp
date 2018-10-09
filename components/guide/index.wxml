@@ -24,13 +24,13 @@
   <view class='leftv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
       <!--列表-->
-      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
+      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.category_id}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
-          <image src='{{item.imgpath}}' class='wenimg'></image>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true'></image>
         </view>
         <!--类型按钮-->
-        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.typename}}</view>
+        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
         <!--文字介绍-->
         <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
         <view class='weninfov'>
@@ -50,10 +50,10 @@
       <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
-          <image src='{{item.imgpath}}' class='wenimg'></image>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true'></image>
         </view>
         <!--类型按钮-->
-        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.typename}}</view>
+        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
         <!--文字介绍-->
         <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
         <view class='weninfov'>
@@ -73,10 +73,10 @@
     <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
       <!--图片部分-->
       <view class='wenzhangtuv'>
-        <image src='{{item.imgpath}}' class='wenzhangtu'></image>
+        <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true'></image>
       </view>
       <!--按钮类型-->
-      <view class='wenzhangbtn' style="background-color:{{item.backcolor}};">{{item.typename}}</view>
+      <view class='wenzhangbtn' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
       <!--文字标题-->
       <view class='wenzhangtitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
       <!--简介文字-->

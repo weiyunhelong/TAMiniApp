@@ -81,7 +81,7 @@ Page({
      wx.request({
        url: requesturl +'/address/address',
        data:{
-         id:1,
+         id:id,
          openid: getApp().globalData.openid,
          type:1
        },

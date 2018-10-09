@@ -29,28 +29,28 @@ Component({
     var that = this;
     //菜单数据
     var datalist = [{
-          id: 0,
+          id: 100,
           name: '推荐',
           fontcolor: "#007CCE",
           showtype: 1,
           pagesize: 4
         },
         {
-          id: 3,
+          id: 6,
           name: '攻略',
           fontcolor: "#E36E5B",
           showtype: 2,
           pagesize: 6
         },
         {
-          id: 2,
+          id: 7,
           name: '游记',
           fontcolor: "#EA9F10",
           showtype: 2,
           pagesize: 6
         },
         {
-          id: 1,
+          id: 8,
           name: '线路',
           fontcolor: "#53C078",
           showtype: 1,
@@ -176,15 +176,19 @@ Component({
       //查询数据
       var wenlist = [];
       if (pageindex == 1) {
-        wenlist = guidetool.getpagedata(pageindex, id, pagesize);
+        //wenlist = guidetool.getpagedata(pageindex, id, pagesize);
+       that.getarticle(1);
       } else {
-        var newwenlist = guidetool.getpagedata(pageindex, id, pagesize);
-        wenlist = wenlist.concat(newwenlist);
+        //var newwenlist = guidetool.getpagedata(pageindex, id, pagesize);
+        //wenlist = wenlist.concat(newwenlist);
+        that.getarticle(2);
       }
       //赋值数据
+      /*
       that.setData({
         wenlist: wenlist
       })
+      */
       wx.hideLoading();
     },
     //跳转到详情页面
@@ -201,6 +205,7 @@ Component({
     },
     //获取文章列表数据
     getarticle: function(typeval) {
+      var that=this;
       var result = [];
       //参数部分
       var id = that.data.chkmenuid;
@@ -210,13 +215,13 @@ Component({
       
       //请求接口获取数据
       wx.request({
-        url: getApp().globalData.url + '/article/list',
+        url: getApp().globalData.requesturl + '/article/list',
         data: {
           page: pageindex,
           limit: pagesize,
           status_id: 1,
-          category_id: chkmenuid,
-          resource_id:""
+          category_id: id,
+          update_date:"desc"
         },
         header: {
           "Content-Type": "application/x-www-form-urlencoded"

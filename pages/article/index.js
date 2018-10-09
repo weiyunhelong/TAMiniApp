@@ -18,6 +18,7 @@ Page({
     islangtxt: false, //是否是长标题
     datetime: '2018-08-20', //发布日期
     iscollectopt: false,
+    backcolor:"",//标签颜色
   },
 
   /**
@@ -53,7 +54,7 @@ Page({
     wx.request({
       url: requesturl + '/article/article',
       data: {
-        id:7,//id,
+        id:id,
         openid: getApp().globalData.openid,
         type:1
       },
@@ -72,6 +73,8 @@ Page({
           info: res.data.content, //内容简介部分
           datetime: res.data.create_date, //发布日期
           iscollect: res.data.favorite == 0 ? false : true,
+          backcolor: res.data.backcolor,//标签颜色
+          typename: res.data.category_name,//类型
         })
       }
     })
