@@ -51,9 +51,9 @@
 
 <!--预定部分-->
 <view class='bookview'>
-  <view class='booktitlev'>
-    <view class='booktitle font-t4'>选择票种</view>
+  <view class='booktitlev'>  
     <image src='/resources/icon/quan.png' class='quanicon'></image>
+    <view class='booktitle font-t4'>选择票种</view>
   </view>
   <!--列表部分-->
   <view class='booklist'>
@@ -91,10 +91,10 @@
   <block wx:for="{{tusku}}" wx:key="item" wx:for-index="x">
 
     <view class='tulistv' wx:if="{{x%3!=2}}" data-imgpath='{{item}}' bindtap='previewtu'>
-      <image src='{{item}}' class='tucss' lazy-load='true'></image>
+      <image src='{{item}}' class='tucss' lazy-load='true' mode='aspectFill'></image>
     </view>
     <view class='etulistv' wx:else data-imgpath='{{item}}' bindtap='previewtu'>
-      <image src='{{item}}' class='tucss' lazy-load='true'></image>
+      <image src='{{item}}' class='tucss' lazy-load='true' mode='aspectFill'></image>
     </view>
   </block>
 </view>

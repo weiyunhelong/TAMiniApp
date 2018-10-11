@@ -108,6 +108,10 @@ Page({
            iscollect: res.data.favorite==0?false:true,//是否收藏
            ticket: res.data.ticket,//门票           
          })
+
+         wx.setNavigationBarTitle({
+           title: res.data.title == '' ? res.data.title_en : res.data.title,
+         })
        }
      })
   },
@@ -116,7 +120,29 @@ Page({
     var that = this;
     //参数部分
     var id = that.data.id;
-
+    /*测试数据集*/
+    var ticketlist=[
+      {
+        product:{
+          title:"成人票",
+          price:120,
+          description:"开放时间:9:00am-18:00,周一到周五",
+          id:1
+        }
+      },
+      {
+        product: {
+          title: "儿童票",
+          price: 60,
+          description: "开放时间:9:00am-18:00,周一到周五",
+          id: 2
+        }
+      },
+    ];
+    that.setData({
+      ticketlist: ticketlist
+    })
+    /*正式数据
     wx.request({
       url: requesturl + '/address/product/' + id,
       data: '',
@@ -132,7 +158,8 @@ Page({
           ticketlist:res.data
         })
       }
-    })
+    })*/
+
   },
   //获取图库列表
   GetImgList: function () { 
@@ -140,6 +167,26 @@ Page({
     //参数部分
     var id = that.data.id;
 
+    /*测试版本*/
+    var tusku = [
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/2d4eeb05e579caebb423bb6270ee68b4.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/df9d563b50d1cf88f4dfa6b503aed1f8.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/8eebe7b55ff002c0cfa8093869f8dcaa.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/a696f35edb1488534484b2dcd34c8ac0.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/d18f5d3555045f640f728a45716400ab.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/2c985e0a955c8cd4af8756e201d7e0c6.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/4a51a0a05a98e4a73913f2991f3a3ef4.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/464090a37fc89bd045570370fa3c7410.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c310ec4f9a9b147a8d4b3a2e7751fe76.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/38a2851b298b3a243c0aade467d9d799.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/d908695704c35f00302882eb93e0bb8a.jpeg",
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",];
+
+    that.setData({
+      tusku: tusku
+    })
+
+    /*正式版本
     wx.request({
       url: requesturl + '/address/image/' + id + "/" + that.data.ipageindex + "/" + that.data.ipagesize,
       data: '',
@@ -157,6 +204,7 @@ Page({
         })
       }
     })
+    */
   },
   //获取评论列表
   GetCommentList: function () { 
@@ -296,8 +344,9 @@ Page({
     })
     //页面的跳转
     setTimeout(function(){
+      var name = that.data.cnname == '' ? that.data.enname : that.data.cnname;
       wx.navigateTo({
-        url: '../comment/index?id=' + that.data.id + "&type=" + that.data.typeval + "&title=华纳电影世界" + "&fen=" + index,
+        url: '../comment/index?id=' + that.data.id + "&type=" + that.data.typeval + "&title=" + that.data.name + "&fen=" + index,
       })
     },500)    
   },
@@ -305,12 +354,13 @@ Page({
   daohangopt: function() {
 
     var that = this;
-
+    var name = that.data.cnname == '' ? that.data.enname : that.data.cnname;
+    console.log("经纬度的值:" + parseFloat(that.data.lat) + "," + parseFloat(that.data.lng));
     //打开地图
     wx.openLocation({
       latitude: parseFloat(that.data.lat), //纬度
       longitude: parseFloat(that.data.lng), //经度,
-      name: "华纳电影世界"
+      name: name
     })
   },
   // 获取滚动条当前位置

@@ -23,11 +23,13 @@
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--购物推荐部分-->
+<!--
 <module receiveData='{{shoppingdata}}'/>
 <view class='geduanv' style='height:{{geduanval}}rpx;'></view>
+-->
 
 <!--游玩指南-->
-<guide receiveData='{{guidedata}}' id="guide"/>
+<guide receiveData='{{guidedata}}' id="guide" bindshowChange="showChange"/>
 
 <!--分段结束-->
 

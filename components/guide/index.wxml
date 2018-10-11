@@ -16,7 +16,6 @@
 </view>
 <view class="shadowv"></view>
 
-
 <!--列表部分-->
 <!--游玩指南瀑布布局部分-->
 <view class="recommentv" wx:if="{{showtype==1}}">
@@ -27,7 +26,7 @@
       <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.category_id}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
-          <image src='{{item.image_path}}' class='wenimg' lazy-load='true'></image>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
         </view>
         <!--类型按钮-->
         <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
@@ -50,7 +49,7 @@
       <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
-          <image src='{{item.image_path}}' class='wenimg' lazy-load='true'></image>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
         </view>
         <!--类型按钮-->
         <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
@@ -73,7 +72,7 @@
     <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
       <!--图片部分-->
       <view class='wenzhangtuv'>
-        <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true'></image>
+        <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true' mode='aspectFill'></image>
       </view>
       <!--按钮类型-->
       <view class='wenzhangbtn' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>

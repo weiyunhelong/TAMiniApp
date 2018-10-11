@@ -1,2 +1,10 @@
 <!--pages/weather/index.wxml-->
-<weathlist bgcolor="#0074C8" color="#ffffff" />
+<!--<weathlist bgcolor="#0074C8" color="#ffffff" appid="wx58334f7d6cc02969"/>-->
+
+<view class='imagev'>
+  <image src='/resources/icon/nopage.svg' class='nopageicon'></image>
+</view>
+
+<view class='tiptitlev'>COMING SOON…</view>
+
+<view class='tiptxtv'>This page is currently under construction.</view>

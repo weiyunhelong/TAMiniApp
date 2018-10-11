@@ -1,10 +1,11 @@
 /* others/pages/guide/index.wxss */
+
 page{
   background-color: #fff;
 }
 .topv {
   width: 100%;
-  height: auto;
+  height: 275rpx;
   background-color: #fff;
   padding-top: 25rpx;
   position: fixed;
@@ -44,6 +45,8 @@ page{
 
 .searchicon {
   margin: 18rpx 10rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .txtcss {

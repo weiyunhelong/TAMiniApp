@@ -63,7 +63,6 @@ Page({
     /**游玩指南**/
     iswenmenu: false, //是否显示游玩菜单
     winheight: 0, //屏幕的高度
-    guideheight: 800, //游玩指南的高度
     guidemenuTop: 0, //游玩指南tab的位置
     guipageindex: 1, //游玩指南页数
     /***底部的tabbar***/
@@ -127,7 +126,7 @@ Page({
           fontt2: 24,
           fontt3: 28,
           typename: "标志景点",
-          typeval: 0, //类型值
+          typeval: 1, //类型值
           showtype: 1, //显示类型
         }
         that.setData({
@@ -171,7 +170,7 @@ Page({
           fontt2: 24,
           fontt3: 28,
           typename: "购物推荐",
-          typeval: 0, //类型值
+          typeval: 2, //类型值
           showtype: 2, //显示类型
         }
         that.setData({
@@ -216,7 +215,7 @@ Page({
           fontt2: 24,
           fontt3: 28,
           typename: "美食推荐",
-          typeval: 0, //类型值
+          typeval: 3, //类型值
           showtype: 2, //显示类型
         }
         that.setData({
@@ -263,7 +262,7 @@ Page({
           fontt2: 24,
           fontt3: 28,
           typename: "酒店推荐",
-          typeval: 0, //类型值
+          typeval: 4, //类型值
           showtype: 1, //显示类型
         }
         that.setData({
@@ -344,19 +343,6 @@ Page({
    */
   onPullDownRefresh: function() {
     var that = this;
-    /*
-    that.setData({
-      guidedata: {
-        iswenmenu: false,
-        guideheight:that.data.winheight - 250,
-        guipageindex:1
-      },
-      guipageindex: 1,
-      iswenmenu:false
-    })
-    */
-    // 隐藏导航栏加载框
-    wx.hideNavigationBarLoading();
     // 停止下拉动作
     wx.stopPullDownRefresh();
   },
@@ -369,9 +355,9 @@ Page({
     console.log("底部加载...");
 
     that.setData({
+      guipageindex: that.data.guipageindex + 1,
       guidedata: {
         iswenmenu: false,
-        guideheight: that.data.winheight - 150,
         guipageindex: that.data.guipageindex + 1
       },
     });
@@ -419,6 +405,18 @@ Page({
       that.setData({
         guidemenuTop: res[0].top
       })
+    })
+  },
+  //轮播图的切换
+  showChange:function(){
+    var that=this;
+    console.log("切换文章列表AAA");
+    that.setData({
+      guipageindex: 1,
+      guidedata: {
+        iswenmenu: that.data.iswenmenu,
+        guipageindex: 1
+      },
     })
   },
   //初始化轮播图

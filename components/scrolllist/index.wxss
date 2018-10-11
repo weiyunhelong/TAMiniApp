@@ -129,6 +129,7 @@
   height: 44rpx;
   display: flex;
   justify-content: space-between;
+  padding-top: 30rpx;
 }
 
 .cnnamev {

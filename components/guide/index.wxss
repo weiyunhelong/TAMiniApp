@@ -45,7 +45,7 @@
 /*菜单*/
 
 .tabitem {
-  height: 100rpx;
+  height: 110rpx;
   display: inline-block;
   flex: none;  
 }
@@ -54,20 +54,20 @@
 
 .chktabitem {
   text-align: center;
-  height: 80rpx;
+  height: 95rpx;
   display: inline-block;
   font-weight: bold;
   box-sizing: content-box;
   font-size: 28rpx;
-  line-height: 80rpx;
+  line-height: 90rpx;
 }
 
 /*未选中的菜单*/
 
 .nochktabitem {
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   color: #16191c;
   display: inline-block;
   font-size: 28rpx;
@@ -89,7 +89,7 @@
 
 .recommentv {
   width: 100%;
-  height: 1100rpx;
+  height: auto;
   display: flex;
   justify-content: flex-start;
   background-color: #fff;
@@ -152,6 +152,9 @@
 .wentitle {
   margin: 50rpx 10rpx 10rpx 10rpx;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .weninfov {

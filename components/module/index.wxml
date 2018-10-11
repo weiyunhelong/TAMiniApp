@@ -4,9 +4,7 @@
 <view class='contentv'>
   <view class='titlev'>
     <view class='titletxt' style='font-size:{{fontt1}}rpx;'>{{typename}}</view>
-    <!--
-    <view class="moretxt" style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看更多></view>
-    -->
+    <view class="moretxt" style='font-size:{{fontt2}}rpx;' bindtap='gomore' data-id='{{typeval}}'>查看更多</view>
   </view>
 
   <!--滑动部分-->

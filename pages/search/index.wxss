@@ -47,6 +47,8 @@ page {
 
 .searchicon {
   margin: 15rpx 10rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .txtcss {

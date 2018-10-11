@@ -6,7 +6,7 @@
     <!--显示2个滑块-->
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==1}}">
       <view class="taboneitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.pic}}' class='tabonetucss'></image>
+        <image src='{{item.pic}}' class='tabonetucss' lazy-load='true' mode='aspectFill'></image>
         <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
       </view>
     </block>
@@ -15,7 +15,8 @@
     <!--显示3个滑块-->
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==2}}">
       <view class="tabtwoitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.pic}}' class='tabtwotucss'></image>
+        <image src='{{item.pic}}' class='tabonetucss' lazy-load='true' mode='aspectFill'></image>
+        <image src='{{item.pic}}' class='tabtwotucss' ></image>
         <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
       </view>
     </block>
@@ -24,7 +25,8 @@
     <!--显示4个滑块-->
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==3}}">
       <view class="tabthreeitem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.pic}}' class='tabthreetucss'></image>
+        <image src='{{item.pic}}' class='tabonetucss' lazy-load='true' mode='aspectFill'></image>
+        <image src='{{item.pic}}' class='tabthreetucss' ></image>
         <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
       </view>
     </block>
@@ -33,7 +35,8 @@
     <!--显示5个滑块-->
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:if="{{showtype==4}}">
       <view class="tabfouritem" bindtap='godetail' data-id='{{item.id}}'>
-        <image src='{{item.pic}}' class='tabfourtucss'></image>
+        <image src='{{item.pic}}' class='tabonetucss' lazy-load='true' mode='aspectFill'></image>
+        <image src='{{item.pic}}' class='tabfourtucss' ></image>
         <view class="tabtxt" style='font-size:{{fontt3}}rpx;'>{{item.name}}</view>
       </view>
     </block>
@@ -47,22 +50,22 @@
     <view class='datav' bindtap='godetail' data-id='{{item.id}}'>
       <!--图片部分-->
       <view class='dataimgv'>
-        <image src='{{item.image_path}}' class='dataimg'></image>
+        <image src='{{item.image_path}}' class='dataimg'  lazy-load='true' mode='aspectFill'></image>
       </view>
       <!--简介部分-->
       <view class='datainfov'>
         <!--中文名称收藏-->
         <view class='namexinv'>
-          <view class='cnnamev' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
+          <view class='cnnamev' style='font-size:{{fontt1}}rpx;'>{{item.title!=''?item.title:item.title_en}}</view>
           <image src='/resources/icon/hubxin.png' class='xinicon' wx:if="{{!item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
           <image src='/resources/icon/hubxinh.png' class='xinicon' wx:if="{{item.iscollect}}" catchtap='listcollectopt' data-id='{{item.id}}'></image>
         </view>
         <!--英文-->
-        <view class='ennamev'  style='font-size:{{fontt3}}rpx;'>{{item.title_en}}</view>
+        <!--<view class='ennamev'  style='font-size:{{fontt3}}rpx;'>{{item.title_en}}</view>-->
         <!--距离-->
         <view class='distancev'  style='font-size:{{fontt3}}rpx;'>
-          <view class='distancetip'>距离您约</view>
           <image src='/resources/icon/dituico.png' class='postionico'></image>
+          <view class='distancetip'>距离您约</view>        
           <view class='distancetxt'>{{item.distance}}km</view>
         </view>
         <!--评价价格-->

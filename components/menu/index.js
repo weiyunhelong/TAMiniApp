@@ -57,7 +57,7 @@ Component({
           id: 5,
           icon: '/resources/menu/qianzhengh.png',
           name: '签证',
-          url: '../../others/pages/visa/index'
+          url: '../../../pages/article/index?id=116' //url: '../../others/pages/visa/index'
         },
         {
           id: 6,
@@ -109,15 +109,15 @@ Component({
       /**类型判断**/
       if (id == 0) { //景点
         wx.navigateTo({
-          url: '../../others/pages/index/index?id=0',
+          url: '../../others/pages/index/index?id=1',
         })
       } else if (id == 1) { //酒店
         wx.navigateTo({
-          url: '../../others/pages/index/index?id=3',
+          url: '../../others/pages/index/index?id=4',
         })
       } else if (id == 2) { //美食
         wx.navigateTo({
-          url: '../../others/pages/index/index?id=1',
+          url: '../../others/pages/index/index?id=3',
         })
       } else if (id == 3) { //常见问题
         wx.navigateTo({
@@ -129,7 +129,7 @@ Component({
         })
       } else if (id == 5) { //签证
         wx.navigateTo({
-          url: '../../others/pages/visa/index',
+          url: './../../pages/article/index?id=116',
         })
       } else if (id == 6) { //翻译
         wx.navigateTo({
@@ -147,13 +147,13 @@ Component({
         wx.showActionSheet({
           itemList: that.data.phonelist,
           itemColor: '#007aff',
-          success:function(res) {
+          success: function(res) {
             //拨打电话
             var tapIndex = res.tapIndex;
-            var phonenum="";
-            if(tapIndex==0){
-              phonenum ="0061-7-32106509-206";
-            }else{
+            var phonenum = "";
+            if (tapIndex == 0) {
+              phonenum = "0061-7-32106509-206";
+            } else {
               phonenum = "000";
             }
             console.log("电话号码:" + phonenum);

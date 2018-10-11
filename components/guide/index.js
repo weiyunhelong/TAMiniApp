@@ -13,9 +13,8 @@ Component({
         console.log(newVal);
         //赋值
         this.setData({
+          pageindex: newVal.guipageindex, //页码
           iswenmenu: newVal.iswenmenu, //是否到达顶部
-          guideheight: newVal.guideheight, //内容的高度
-          pageindex: newVal.guipageindex
         })
         //初始化数据
         this.InitData();
@@ -33,28 +32,28 @@ Component({
           name: '推荐',
           fontcolor: "#007CCE",
           showtype: 1,
-          pagesize: 4
+          pagesize: 100
         },
         {
           id: 6,
           name: '攻略',
           fontcolor: "#E36E5B",
           showtype: 2,
-          pagesize: 6
+          pagesize: 100
         },
         {
           id: 7,
           name: '游记',
           fontcolor: "#EA9F10",
           showtype: 2,
-          pagesize: 6
+          pagesize: 100
         },
         {
           id: 8,
           name: '线路',
           fontcolor: "#53C078",
           showtype: 1,
-          pagesize: 4
+          pagesize: 100
         },
       ], //菜单列表数据
       fontt = 28, //字体大小
@@ -71,9 +70,9 @@ Component({
       showtype: showtype, //展示方式 1:瀑布类型 2:列表展示
       fontt1: fontt1, //标题字体大小
       fontt2: fontt2, //内容文字大小
-      chkmenuid: chkmenuid,//选中菜单id
+      chkmenuid: chkmenuid, //选中菜单id
     })
-     that.InitData();
+    that.InitData();
   },
   /**
    * 组件的初始数据
@@ -88,7 +87,7 @@ Component({
     wenlist: [], //列表部分
     showtype: 1, //展现形式 1->瀑布列表 2->横向列表
     pageindex: 1, //分页的页码
-    pagesize: 4, //分页的记录数
+    pagesize: 100, //分页的记录数
     fontt1: 32, //标题字体大小
     fontt2: 20, //内容文字大小
   },
@@ -97,12 +96,10 @@ Component({
    */
   methods: {
     //初始化菜单值
-    initMenu:function(menulist){
-      var that=this;
+    initMenu: function(menulist) {
+      var that = this;
       //菜单的值
       var datalist = menulist.datalist;
-      
-
       that.setData({
         datalist: datalist, //菜单列表数据
         iswenmenu: false, //是否到达顶部
@@ -110,7 +107,7 @@ Component({
         showtype: showtype, //展示方式 1:瀑布类型 2:列表展示
         fontt1: fontt1, //标题字体大小
         fontt2: fontt2, //内容文字大小
-        chkmenuid: chkmenuid,//选中菜单id
+        chkmenuid: chkmenuid, //选中菜单id
       })
 
       //初始化数据
@@ -136,6 +133,7 @@ Component({
           pageindex: 1,
           pagesize: parseInt(pagesize)
         })
+        that.triggerEvent('showChange', 'false');
         //初始化数据
         that.InitData();
         //滑动位置
@@ -167,28 +165,21 @@ Component({
       var pagesize = that.data.pagesize;
       console.log("参数的值:");
       console.log(that.data);
-      if (pagesize > 1) {
+      if (pageindex > 1) {
+        /*
         wx.showLoading({
           title: '数据加载中...',
           mask: true
         })
+        */
       }
       //查询数据
       var wenlist = [];
       if (pageindex == 1) {
-        //wenlist = guidetool.getpagedata(pageindex, id, pagesize);
-       that.getarticle(1);
+        that.getarticle(1);
       } else {
-        //var newwenlist = guidetool.getpagedata(pageindex, id, pagesize);
-        //wenlist = wenlist.concat(newwenlist);
         that.getarticle(2);
       }
-      //赋值数据
-      /*
-      that.setData({
-        wenlist: wenlist
-      })
-      */
       wx.hideLoading();
     },
     //跳转到详情页面
@@ -205,23 +196,24 @@ Component({
     },
     //获取文章列表数据
     getarticle: function(typeval) {
-      var that=this;
+      var that = this;
       var result = [];
       //参数部分
       var id = that.data.chkmenuid;
       var pageindex = that.data.pageindex;
       var pagesize = that.data.pagesize;
       var wenlist = that.data.wenlist;
-      
+
       //请求接口获取数据
       wx.request({
-        url: getApp().globalData.requesturl + '/article/list',
+        url: getApp().globalData.requesturl + '/article/mini/list',
         data: {
           page: pageindex,
           limit: pagesize,
-          status_id: 1,
-          category_id: id,
-          update_date:"desc"
+          status_id:1,
+          category_id: id == 100 ? 0 : id,
+          update_date: "desc",
+          recommend_status: id == 100 ? 1 : 0
         },
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -231,15 +223,9 @@ Component({
           console.log("获取文章列表的数据:");
           console.log(res);
 
-          var datalist = res.data.data;
-          if (typeval != 1) {
-            wenlist = wenlist.concat(datalist);
-          } else {
-            wenlist = datalist;
-          }
-
+          var datalist = res.data;
           that.setData({
-            wenlist: wenlist
+            wenlist: res.data
           })
         }
       })

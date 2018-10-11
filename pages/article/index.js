@@ -29,9 +29,7 @@ Page({
     //接受参数
     that.setData({
       id: parseInt(options.id),
-      typeval: parseInt(options.type),
-      title: options.title,
-      islangtxt: (options.title).length > 8 ? true : false
+      typeval: parseInt(options.type)
     })
 
     //设置顶部的文字
@@ -67,7 +65,7 @@ Page({
         console.log(res);
 
         that.setData({
-          coverimg: res.data.image.image_path,
+          coverimg: res.data.image_path,
           collectnum: res.data.favorite_count, //收藏个数
           viewnum: res.data.view_count, //浏览个数
           info: res.data.content, //内容简介部分
@@ -75,6 +73,8 @@ Page({
           iscollect: res.data.favorite == 0 ? false : true,
           backcolor: res.data.backcolor,//标签颜色
           typename: res.data.category_name,//类型
+          title: res.data.title,
+          islangtxt: (res.data.title).length > 8 ? true : false
         })
       }
     })
@@ -111,7 +111,7 @@ Page({
     wx.request({
       url: requesturl + '/article/favorite/update',
       data: {
-        id: 7,//id,
+        id: id,
         status: !iscollect ? 1 : 0,
         openid:getApp().globalData.openid
       },

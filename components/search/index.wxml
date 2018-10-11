@@ -4,7 +4,8 @@
 <view class='searchv' wx:if="{{showtype==1}}">
   <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
     <input type='text' placeholder='{{placeholder}}' placeholder-class='tipcss font-t6' class='txtcss font-t6' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt'></input>
-    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+    <image src='/resources/icon/searchb.png' wx:if="{{issearchfocus}}" class='searchicon'></image>
+    <image src='/resources/icon/searchhome.png' wx:if="{{!issearchfocus}}" class='searchicon'></image>
   </view>
   <view class='cleartxt' bindtap='changeshow' wx:if="{{!isshowicon}}">
     <image src='/resources/icon/dingtu.png' class='listicon'></image>
@@ -19,7 +20,8 @@
 <view class='searchv' wx:if="{{showtype==2}}">
   <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
     <input type='text' placeholder='{{placeholder}}' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
-    <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' />
+    <image src='/resources/icon/searchb.png' wx:if="{{issearchfocus}}" class='searchicon'></image>
+    <image src='/resources/icon/searchhome.png' wx:if="{{!issearchfocus}}" class='searchicon'></image>
   </view>
   <view class='cleartxt' bindtap='goback'>取消</view>
 </view>
@@ -28,12 +30,16 @@
 <view class='searchv' wx:if="{{showtype==3}}">
   <view class="searchviewv searchborder">
     <input type='text' placeholder='{{placeholder}}' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true'></input>
-    <icon type="search" size="20" color="#B2B2B2" class='searchicon' />
+
+    <image src='/resources/icon/searchb.png' wx:if="{{issearchfocus}}" class='searchicon'></image>
+    <image src='/resources/icon/searchhome.png' wx:if="{{!issearchfocus}}" class='searchicon'></image>
   </view>
 </view>
 
 <!--只搜索框固定位置-->
 <view class='searchpv' bindtap='getsearch' wx:if="{{showtype==4}}">
   <input type='text' placeholder='{{placeholder}}' placeholder-class='searchtip' class='searchtxt' disabled='true'></input>
-  <image src='/resources/icon/homesearch.png' class='searchico'></image>
+
+  <image src='/resources/icon/searchb.png' wx:if="{{issearchfocus}}" class='searchicon'></image>
+  <image src='/resources/icon/searchhome.png' wx:if="{{!issearchfocus}}" class='searchicon'></image>
 </view>

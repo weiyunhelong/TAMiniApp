@@ -3,8 +3,9 @@
   <!--搜索层-->
   <view class='searchv'>
     <view class="searchview {{issearchfocus?'searchhborder':'searchborder'}}">
+      <image src='/resources/icon/searchb.png' wx:if="{{issearchfocus&&!isshowclear}}" class='searchicon'></image>
+      <image src='/resources/icon/searchhome.png' wx:if="{{!issearchfocus&&!isshowclear}}" class='searchicon'></image>
       <input type='text' placeholder='搜索' placeholder-class='tipcss' class='txtcss' value='{{searchtxt}}' bindfocus='searchfopt' bindblur='getsearchtxt' bindconfirm='getsearchtxt' focus='true' maxlength='10'></input>
-      <icon type="search" size="20" color="{{issearchfocus?'#0074C8':'#B2B2B2'}}" class='searchicon' wx:if="{{!isshowclear}}" />
       <icon type="clear" size="20" color="#B2B2B2" class='searchicon' wx:if="{{isshowclear}}" bindtap='clearsopt' />
     </view>
     <view class='cleartxt' bindtap='goback'>取消</view>
