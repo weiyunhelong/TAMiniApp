@@ -1,13 +1,28 @@
 //app.js
-const utils = require('./utils/util.js')
+const utils = require('./utils/util.js');
+var ga = require('./utils/ga.js');
+var GoogleAnalytics = ga.GoogleAnalytics;
+
 App({
+  tracker: null,
+  getTracker: function () {
+    if (!this.tracker) {
+      // 初始化GoogleAnalytics Tracker
+      this.tracker = GoogleAnalytics.getInstance(this)
+        .setAppName('爱澳旅游')
+        .setAppVersion('2.3.0')
+        .newTracker('UA-128026065-1'); //用你的 Tracking ID 代替
+        //使用自己的合法域名做跟踪数据转发
+      this.tracker.setTrackerServer("https://ga-proxy.asaplus.com.cn");
+    }
+    return this.tracker;
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-    var that=this;
- 
+    var that=this;  
     // 登录
     wx.login({
       success: res => {
@@ -16,6 +31,7 @@ App({
         wx.request({
           url: that.globalData.requesturl+'/wechat/login',
           data: {
+            store_id: that.globalData.store_id,
             code:res.code
           },
           header: {
@@ -26,7 +42,8 @@ App({
             console.log("获取openid的值:");
             console.log(res);
 
-            that.globalData.openid = res.data.openid;            
+            that.globalData.openid = res.data.openid;  
+                
             //结束标识符B
           }
         }) 
@@ -38,6 +55,7 @@ App({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          /*
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
@@ -51,6 +69,7 @@ App({
               }
             }
           })
+          */
         }
       }
     })
@@ -89,6 +108,7 @@ App({
     userInfo: null,//用户信息
     openid:"",//OPENID
     unionId: "",//unionId
+    store_id:1,//项目id
     requesturl:"https://dev-api.connectplus.asaplus.com.cn",//后台API请求的url
     globalimgurl: "https://dev-api.connectplus.asaplus.com.cn/static/images/",//后台API请求的url
     ocoinid:0,//中国货币

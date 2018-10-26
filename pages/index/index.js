@@ -4,62 +4,12 @@ const app = getApp()
 var guidetool = require('../../utils/guidedata.js');
 var timer = ""; //计时器
 var requesturl = getApp().globalData.requesturl;
+var ga = require('../../utils/ga.js');
+var HitBuilders = ga.HitBuilders;
 
 Page({
   data: {
-    geduanval: 30, //隔断的高度值
-    swiperdata: {
-      imglist: [], //轮播图
-      cnname: "", //中文名称
-      enname: "", //英文名称
-      isshowname: true, //显示名称
-      issearch: true, //搜索按钮
-      isweather: true, //天气预报
-      fontt1: 0, //中文字
-      fontt2: 0, //英文字
-      fontt3: 0, //温度
-      fontt4: 0, //未来一周
-      cityname: "", //城市名称
-      searchtip: "", //搜索提示词
-    }, //轮播图
-    /**菜单部分**/
-    menudata: {}, //模块测试数据
-    scenicdata: {
-      datalist: [], //数据列表
-      fontt1: 0, //标题
-      fontt2: 0, //查看全部
-      fontt3: 0, //小字
-      typename: "", //类型名称
-      typeval: "", //类型值
-      showtype: 0, //显示类型
-    }, //标志景点
-    fooddata: {
-      datalist: [], //数据列表
-      fontt1: 0, //标题
-      fontt2: 0, //查看全部
-      fontt3: 0, //小字
-      typename: "", //类型名称
-      typeval: "", //类型值
-      showtype: 0, //显示类型
-    }, //美食推荐
-    hoteldata: {
-      datalist: [], //数据列表
-      fontt1: 0, //标题
-      fontt2: 0, //查看全部
-      fontt3: 0, //小字
-      typename: "", //类型名称
-      typeval: "", //类型值
-      showtype: 0, //显示类型
-    }, //酒店推荐
-    shoppingdata: {
-      datalist: [], //数据列表
-      fontt1: 0, //标题
-      fontt2: 0, //查看全部
-      fontt3: 0, //小字
-      typename: "", //类型名称
-      typeval: "", //类型值
-      showtype: 0, //显示类型
-    }, //购物推荐
+    datalist:[],//页面的数据
     /**游玩指南**/
     iswenmenu: false, //是否显示游玩菜单
     winheight: 0, //屏幕的高度
@@ -392,6 +342,11 @@ Page({
 
     //获取游玩指南的高度
     that.initguideh();
+
+    // 获取那个Tracker实例
+    var t = getApp().getTracker();
+    t.setScreenName('这是我的首页');
+    t.send(new HitBuilders.ScreenViewBuilder().build());
   },
   //获取游玩指南的高度
   initguideh: function() {
@@ -408,8 +363,8 @@ Page({
     })
   },
   //轮播图的切换
-  showChange:function(){
-    var that=this;
+  showChange: function() {
+    var that = this;
     console.log("切换文章列表AAA");
     that.setData({
       guipageindex: 1,
@@ -426,16 +381,16 @@ Page({
     var swiperdata = {
       imglist: [{
         id: 1,
-        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",
+        image_path: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",
       }, {
         id: 2,
-          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132715.jpg",
+        image_path: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132715.jpg",
       }, {
         id: 3,
-          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132719.jpg",
+        image_path: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132719.jpg",
       }, {
         id: 4,
-          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132722.jpg",
+        image_path: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132722.jpg",
       }], //轮播图   
       cityname: "黄金海岸", //城市名称
       cnname: "黄金海岸", //中文名称

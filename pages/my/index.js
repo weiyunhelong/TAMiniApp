@@ -279,7 +279,8 @@ Page({
       url: getApp().globalData.requesturl + '/wechat/user',
       data: {
         userInfo: JSON.stringify(userInfo),
-        openid: getApp().globalData.openid
+        openid: getApp().globalData.openid,
+        store_id: getApp().globalData.store_id,
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -290,6 +291,7 @@ Page({
         console.log(jieguo);
       }
     })
+    //结束标识符
   },
   //菜单的切换
   menuchkopt: function(e) {

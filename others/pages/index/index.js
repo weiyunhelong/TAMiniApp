@@ -473,7 +473,7 @@ Page({
   godetail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../../../pages/info/index?id='+id,
+      url: '../../../pages/info/index?id=' + id,
     })
   },
   /**

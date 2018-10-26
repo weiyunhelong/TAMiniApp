@@ -8,9 +8,9 @@ Page({
    */
   data: {
     id: 0, //id
-    typeval:1,//类型  
+    typeval: 1, //类型  
     iscollect: true, //是否收藏
-    iscollectopt:false,//是否进行收藏点击操作
+    iscollectopt: false, //是否进行收藏点击操作
     topimg: "", //顶部的图片
     cnname: "", //中文名称
     enname: "", //英文名称
@@ -18,7 +18,7 @@ Page({
     lat: 0, //纬度
     lng: 0, //经度
     concatnum: "", //联系电话
-    commentnum:"", //评论个数
+    commentnum: "", //评论个数
     introduce: "", //门票介绍
     moreintroduce: "", //门票
     datetime: "", //营业时间
@@ -26,21 +26,72 @@ Page({
     ticketlist: [], //门票列表
     chktab: true, //是否选中图库
     commentlist: [], //评论列表
-    cpageindex: 1,//评论列表
-    cpagesize: 3,//评论列表
+    cpageindex: 1, //评论列表
+    cpagesize: 3, //评论列表
     tusku: [], //图库
-    ipageindex: 1,//评论列表
-    ipagesize: 3,//评论列表
+    ipageindex: 1, //评论列表
+    ipagesize: 3, //评论列表
     xingnum: 0, //评价打分
     commentinfo: "", //评价的内容
     tulist: [], //评价的图片
-    floorstatus:false,//是否显示到达顶部
-    winheight:0,//屏幕的高度
-    isshowmenu:false,//是否将图库和评论置顶
-    showmore:"阅读更多",//基本信息显示更多
-    isshowmore:false,//是否显示更多
-    xinglist:[1,2,3,4,5],//星列表
-    fen:0,//评价打分
+    floorstatus: false, //是否显示到达顶部
+    winheight: 0, //屏幕的高度
+    isshowmenu: false, //是否将图库和评论置顶
+    showmore: "阅读更多", //基本信息显示更多
+    isshowmore: false, //是否显示更多
+    xinglist: [1, 2, 3, 4, 5], //星列表
+    fen: 0, //评价打分
+
+    /*测试数据部分*/
+    jingdianticketlist: [{
+        product: {
+          title: "【亲子票】1大1小全天票",
+          price: 365,
+          description: "最早可订明日",
+          id: 1
+        }
+      },
+      {
+        product: {
+          title: "【不限人群票】全天票",
+          price: 199,
+          description: "最早可订明日",
+          id: 2
+        }
+      },
+    ], //景点
+    jiudianticketlist: [{
+      product: {
+        title: "高级双床房",
+        price: 1200,
+        description: "不含早，双床，有窗",
+        id: 1
+      }
+    },
+      {
+        product: {
+          title: "高级大床房",
+          price: 899,
+          description: "29-36平米，有窗 1-5 层",
+          id: 2
+        }
+      },], //酒店
+    meishiticketlist: [{
+      product: {
+        title: "大厅",
+        price: 10,
+        description: "最早可订今天下午 2:00",
+        id: 1
+      }
+    },
+      {
+        product: {
+          title: "包间",
+          price: 20,
+          description: "最早可订今天下午 2:00",
+          id: 2
+        }
+      },], //酒店
   },
 
   /**
@@ -48,97 +99,94 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    console.log("接受参数:");
+    console.log(options);
     //接受参数
     that.setData({
       id: parseInt(options.id),
-      typeval:parseInt(options.typeval)
+      typeval: parseInt(options.type)
     })
     //初始化获取系统的高度
     that.GetSystemInfo();
 
     //获取地址详情
     that.GetAddressInfo();
-    //获取相关产品
-    that.GetAddressPro();
+    
   },
   //初始化获取系统的高度
-  GetSystemInfo:function(){
-    var that=this;
+  GetSystemInfo: function() {
+    var that = this;
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
-          winheight:res.screenHeight
+          winheight: res.screenHeight
         })
       },
     })
   },
   //获取地址详情
-  GetAddressInfo:function() {
-     var that=this;
-     //参数部分
-     var id=that.data.id;
-
-     wx.request({
-       url: requesturl +'/address/address',
-       data:{
-         id:id,
-         openid: getApp().globalData.openid,
-         type:1
-       },
-       header: {
-         "Content-Type":"application/x-www-form-urlencoded"
-       },
-       method: 'POST',
-       success: function(res) {
-         console.log("获取地址详情:");
-         console.log(res);
-
-         that.setData({
-           topimg:res.data.image.image_path, //顶部的图片
-           cnname: res.data.title, //中文名称
-           enname: res.data.title_en, //英文名称
-           address: res.data.address,//地址
-           lat: res.data.lat, //纬度
-           lng: res.data.lnt, //经度
-           concatnum: res.data.telephone, //联系电话
-           commentnum: res.data.comment_count, //评论个数
-           introduce: res.data.content, //门票介绍
-           moreintroduce: res.data.description, //门票
-           datetime: res.data.open_hour, //营业时间
-           iscollect: res.data.favorite==0?false:true,//是否收藏
-           ticket: res.data.ticket,//门票           
-         })
-
-         wx.setNavigationBarTitle({
-           title: res.data.title == '' ? res.data.title_en : res.data.title,
-         })
-       }
-     })
-  },
-  //获取相关产品
-  GetAddressPro: function () { 
+  GetAddressInfo: function() {
     var that = this;
     //参数部分
     var id = that.data.id;
+
+    wx.request({
+      url: requesturl + '/address/address',
+      data: {
+        id: id,
+        openid: getApp().globalData.openid,
+        type: 1
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log("获取地址详情:");
+        console.log(res);
+
+        that.setData({
+          topimg: res.data.image.image_path, //顶部的图片
+          cnname: res.data.title, //中文名称
+          enname: res.data.title_en, //英文名称
+          address: res.data.address, //地址
+          lat: res.data.lat, //纬度
+          lng: res.data.lnt, //经度
+          concatnum: res.data.telephone, //联系电话
+          commentnum: res.data.comment_count, //评论个数
+          introduce: res.data.content, //门票介绍
+          moreintroduce: res.data.description, //门票
+          datetime: res.data.open_hour, //营业时间
+          iscollect: res.data.favorite == 0 ? false : true, //是否收藏
+          ticket: res.data.ticket, //门票    
+          typeval: res.data.category_id,//类型的值       
+        })
+
+        wx.setNavigationBarTitle({
+          title: res.data.title == '' ? res.data.title_en : res.data.title,
+        })
+
+        //获取相关产品
+        that.GetAddressPro();
+      }
+    })
+  },
+  //获取相关产品
+  GetAddressPro: function() {
+    var that = this;
+    //参数部分
+    var id = that.data.id;
+    var typeval = that.data.typeval;
+    console.log("类型值:" + typeval);
+    var ticketlist = [];
     /*测试数据集*/
-    var ticketlist=[
-      {
-        product:{
-          title:"成人票",
-          price:120,
-          description:"开放时间:9:00am-18:00,周一到周五",
-          id:1
-        }
-      },
-      {
-        product: {
-          title: "儿童票",
-          price: 60,
-          description: "开放时间:9:00am-18:00,周一到周五",
-          id: 2
-        }
-      },
-    ];
+    if (typeval==1){
+      ticketlist=that.data.jingdianticketlist;
+    } else if (typeval == 3) {
+      ticketlist = that.data.meishiticketlist;
+    } else if (typeval == 4) {
+      ticketlist = that.data.jiudianticketlist;
+    }
     that.setData({
       ticketlist: ticketlist
     })
@@ -162,7 +210,7 @@ Page({
 
   },
   //获取图库列表
-  GetImgList: function () { 
+  GetImgList: function() {
     var that = this;
     //参数部分
     var id = that.data.id;
@@ -180,7 +228,8 @@ Page({
       "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c310ec4f9a9b147a8d4b3a2e7751fe76.jpeg",
       "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/38a2851b298b3a243c0aade467d9d799.jpeg",
       "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/d908695704c35f00302882eb93e0bb8a.jpeg",
-      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",];
+      "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/20181009132708.jpg",
+    ];
 
     that.setData({
       tusku: tusku
@@ -207,7 +256,7 @@ Page({
     */
   },
   //获取评论列表
-  GetCommentList: function () { 
+  GetCommentList: function() {
     var that = this;
     //参数部分
     var id = that.data.id;
@@ -219,7 +268,7 @@ Page({
         "Content-Type": "application/json"
       },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         console.log("获取地址评论列表:");
         console.log(res);
         var commentlist = that.data.commentlist;
@@ -233,16 +282,16 @@ Page({
   //收藏操作
   collectopt: function() {
     var that = this;
-    
+
     wx.request({
-      url: requesturl +'/address/favorite/update',
+      url: requesturl + '/address/favorite/update',
       data: {
-        id:that.data.id, 
-        status: !that.data.iscollect?1:0,
-        openid:getApp().globalData.openid
+        id: that.data.id,
+        status: !that.data.iscollect ? 1 : 0,
+        openid: getApp().globalData.openid
       },
       header: {
-        "Content-Type":"application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
       success: function(res) {
@@ -254,23 +303,23 @@ Page({
           iscollectopt: true
         })
 
-        setTimeout(function () {
+        setTimeout(function() {
           that.setData({
             iscollectopt: false
           })
         }, 500);
       }
     })
-    
+
   },
   //地图
   gomap: function() {
     //
     var that = this;
-     
+
     wx.switchTab({
       url: '../termini/index',
-    }) 
+    })
   },
   //打电话
   makephonecall: function() {
@@ -281,12 +330,12 @@ Page({
     })
   },
   //基本信息显示更多
-  showmoreinfo:function(){
-    var that=this;
+  showmoreinfo: function() {
+    var that = this;
     //显示更多基础信息
     that.setData({
       isshowmore: !that.data.isshowmore,
-      showmore: that.data.isshowmore?"阅读更多":"收起内容"
+      showmore: that.data.isshowmore ? "阅读更多" : "收起内容"
     })
   },
   //预定须知
@@ -308,9 +357,8 @@ Page({
     //参数部分
     var id = e.currentTarget.dataset.id;
 
-    wx.showToast({
-      title: '预定成功',
-      mask: true
+    wx.navigateTo({
+      url: '../../others/pages/airline/index',
     })
   },
   //切换tab
@@ -335,20 +383,20 @@ Page({
     })
   },
   //去评价
-  gocomment:function(e){
-    var that=this;
+  gocomment: function(e) {
+    var that = this;
     //参数部分
-    var index=e.currentTarget.dataset.index;
+    var index = e.currentTarget.dataset.index;
     that.setData({
-      fen:index
+      fen: index
     })
     //页面的跳转
-    setTimeout(function(){
+    setTimeout(function() {
       var name = that.data.cnname == '' ? that.data.enname : that.data.cnname;
       wx.navigateTo({
         url: '../comment/index?id=' + that.data.id + "&type=" + that.data.typeval + "&title=" + that.data.name + "&fen=" + index,
       })
-    },500)    
+    }, 500)
   },
   //导航去这儿
   daohangopt: function() {
@@ -364,7 +412,7 @@ Page({
     })
   },
   // 获取滚动条当前位置
-  onPageScroll: function (e) {
+  onPageScroll: function(e) {
     console.log(e);
     var that = this;
     var winheight = that.data.winheight;
@@ -391,7 +439,7 @@ Page({
     }
   },
   //回到顶部
-  goTop: function (e) { // 一键回到顶部
+  goTop: function(e) { // 一键回到顶部
     if (wx.pageScrollTo) {
       wx.pageScrollTo({
         scrollTop: 0
@@ -401,7 +449,7 @@ Page({
         title: '提示',
         content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
       })
-    }    
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -414,18 +462,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var that=this;
+    var that = this;
     //设置评价星为0
     that.setData({
-      fen:0
+      fen: 0
     })
-    
+
     //获取图库列表
     that.GetImgList();
     //获取评论列表
     that.GetCommentList()
   },
-  
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -444,7 +492,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    var that=this;
+    var that = this;
     /*
     that.setData({
       cpageindex:1,
@@ -465,26 +513,26 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    var that=this;
+    var that = this;
     //参数部分
     var chktab = that.data.chktab;
     var cpageindex = that.data.cpageindex;
     var ipageindex = that.data.ipageindex;
 
-    if (!chktab){
+    if (!chktab) {
       that.setData({
-        cpageindex: cpageindex+1
+        cpageindex: cpageindex + 1
       })
       //获取评论列表
       that.GetCommentList()
-    }else{
+    } else {
       that.setData({
         ipageindex: ipageindex + 1
       })
       //获取图库列表
       that.GetImgList();
     }
-  
+
   },
 
   /**

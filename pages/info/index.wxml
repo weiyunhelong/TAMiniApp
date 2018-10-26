@@ -34,7 +34,7 @@
 <view class='baseinfo font-t5'>
   <rich-text nodes="{{introduce}}" wx:if="{{!isshowmore}}"></rich-text>
   <rich-text nodes="{{moreintroduce}}" wx:if="{{isshowmore}}"></rich-text>
-  <view class='showmore' bindtap='showmoreinfo'>{{showmore}}</view>
+  <!--<view class='showmore' bindtap='showmoreinfo'>{{showmore}}</view>-->
 </view>
 <view class='hangv' style='margin-top:35rpx;'>
   <view class='titlev font-t4'>门票</view>
@@ -49,11 +49,14 @@
   <view class='infotxt font-t5'>{{address}}</view>
 </view>
 
-<!--预定部分-->
-<view class='bookview'>
+<view class='gexian' wx:if="{{typeval==2}}"></view>
+<!--景点预定部分-->
+<view class='bookview' wx:if="{{typeval==1||typeval==3||typeval==4}}">
   <view class='booktitlev'>  
-    <image src='/resources/icon/quan.png' class='quanicon'></image>
-    <view class='booktitle font-t4'>选择票种</view>
+    <!--<image src='/resources/icon/quan.png' class='quanicon'></image>-->
+    <view class='booktitle font-t4' wx:if="{{typeval==1}}">门票预订</view>    
+    <view class='booktitle font-t4' wx:if="{{typeval==3}}">订座</view>
+    <view class='booktitle font-t4' wx:if="{{typeval==4}}">预订房间</view>
   </view>
   <!--列表部分-->
   <view class='booklist'>
@@ -70,12 +73,16 @@
             <view class='bookinfotxt font-t8'>{{item.product.description}}</view>
             <view class='booktip font-t8' bindtap="showtip" data-tip='{{item.product.notice}}'>预订须知></view>
           </view>
-          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.product.id}}'>立即预订</view>
+          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.product.id}}' wx:if="{{typeval==1}}">立即预订</view>
+          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.product.id}}' wx:if="{{typeval==3}}">立即订座</view>
+          <view class='bookbtn font-t7' bindtap='bookopt' data-id='{{item.product.id}}' wx:if="{{typeval==4}}">立即预订</view>
         </view>
       </view>
     </block>
   </view>
 </view>
+
+
 
 <!--图库评价tab部分-->
 <view class="{{isshowmenu?'fixtabview':'tabview'}} font-t5">

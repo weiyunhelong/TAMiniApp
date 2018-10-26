@@ -1,19 +1,326 @@
 /* pages/test/index.wxss */
-.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
-     margin-bottom: 2rpx;
+
+.geduanv {
+  width: 100%;
+  background-color: #f7f7f7;
 }
-.swiper-box .wx-swiper-dot{
-    width:30rpx;
-    display: inline-flex;
-    height: 8rpx;
-    justify-content:space-between;
+
+.shadowv {
+  width: 100%;
+  height: 20rpx;
+  clear: both;
+  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
 }
-.swiper-box .wx-swiper-dot::before{
-    content: '';
-    flex-grow: 1; 
-    background: rgba(255,255,255,0.8);
-    border-radius: 8rpx
+
+.fixshadowv {
+  width: 100%;
+  height: 20rpx;
+  clear: both;
+  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
+  position: fixed;
+  top: 110rpx;
+  left: 0;
+  z-index: 2;
+  box-sizing: content-box;
 }
-.swiper-box .wx-swiper-dot-active::before{
-    background:rgba(244,0,0,0.8);   
+
+/*菜单部分*/
+
+.wmenuv {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  background: #fff;
+}
+
+.wmenuchk1 {
+  box-sizing: content-box;
+  color: #007cce;
+}
+
+.wmenuchk2 {
+  box-sizing: content-box;
+  color: #e36e5b;
+}
+
+.wmenuchk3 {
+  box-sizing: content-box;
+  color: #ea9f10;
+}
+
+.wmenuchk4 {
+  box-sizing: content-box;
+  color: #53c078;
+}
+
+.wmenunochk {
+  box-sizing: content-box;
+}
+
+/*线路部分的样式*/
+
+.recommentv {
+  width: 100%;
+  height: 1000rpx;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.leftv {
+  width: 355rpx;
+  height: auto;
+  margin: 20rpx;
+}
+
+.rightv {
+  width: 355rpx;
+  height: auto;
+  margin: 20rpx 20rpx 20rpx 0rpx;
+}
+
+.wenv {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding-bottom: 20rpx;
+  margin-top: 30rpx;
+  clear: both;
+}
+
+.wenimgv {
+  width: 100%;
+  height: 355rpx;
+  background-color: #000;
+  border-radius: 10rpx;
+}
+
+/*文章类型按钮*/
+
+.wenytype {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #ea9f10;
+}
+
+.wengtype {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #53c078;
+}
+
+.wenrtype {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #ff7b65;
+}
+
+.wenimg {
+  width: 100%;
+  height: 355rpx;
+  border-radius: 10rpx;
+}
+
+/*标题*/
+
+.wentitle {
+  margin: 50rpx 10rpx 10rpx 10rpx;
+  font-weight: bold;
+}
+
+.weninfov {
+  margin: 10rpx;
+  height: auto;
+}
+
+.weninfo {
+  color: #909599;
+  width: 100%;
+}
+
+/* 返回顶部 */
+
+.goTop {
+  height: 82rpx;
+  width: 82rpx;
+  position: fixed;
+  bottom: 230rpx;
+  right: 30rpx;
+  border-radius: 50%;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/*定位*/
+
+.fixpostion {
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 110rpx;
+  background: #fff;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  z-index: 2;
+  box-sizing: content-box;
+}
+
+.duanfix {
+  position: fixed;
+  margin-top: 30rpx;
+  top: 100rpx;
+  z-index: 1;
+}
+
+.wenzhangfix {
+  margin-top: 0rpx;
+}
+
+/*游记攻略部分*/
+
+.orecommentv {
+  width: 100%;
+  background-color: #fff;
+}
+
+.wenzhangv {
+  width: 700rpx;
+  margin: 20rpx 25rpx;
+}
+
+.wenzhangtuv {
+  width: 100%;
+  height: 400rpx;
+  background: #000;
+  border-radius: 10rpx;
+}
+
+.wenzhangtu {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+/*按钮部分*/
+
+.wenzhangrbtn {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #ff7b65;
+}
+
+.wenzhangybtn {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #ea9f10;
+}
+
+.wenzhanggbtn {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  background-color: #53c078;
+}
+
+.wenzhangtitle {
+  margin-top: 50rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wenzhangdesc {
+  color: #909599;
+}
+
+/*顶部轮播图样式*/
+
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 2rpx;
+}
+
+.swiper-box .wx-swiper-dot {
+  width: 20rpx;
+  display: inline-flex;
+  height: 6rpx;
+  justify-content: space-between;
+}
+
+.swiper-box .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3rpx;
+}
+
+.swiper-box .wx-swiper-dot-active::before {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 3rpx;
 }

@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/index",
+   
     "pages/termini/index",
     "pages/termini/search",
     "pages/chatbot/index",
@@ -9,13 +11,12 @@
     "pages/comment/index",
     "pages/search/index",
     "pages/article/index",
-    "pages/weather/index",
-    "pages/test/index"
+    "pages/weather/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "黄金海岸",
+    "navigationBarTitleText": "wechat",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

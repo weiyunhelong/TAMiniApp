@@ -1,5 +1,5 @@
 // components/homes/swiper/index.js
-var timer="";
+var timer = "";
 var requesturl = getApp().globalData.requesturl;
 
 Component({
@@ -17,8 +17,8 @@ Component({
         //赋值
         that.setData({
           imglist: newVal.imglist,//轮播图
-          isshowop: newVal.imglist.length==1?false:true,//是否显示一张图
-          cityname:newVal.cityname,//城市名称
+          isshowop: newVal.imglist.length == 1 ? false : true,//是否显示一张图
+          cityname: newVal.cityname,//城市名称
           cnname: newVal.cnname,//中文名称
           enname: newVal.enname,//英文名称
           isshowname: newVal.isshowname,//显示名称
@@ -29,14 +29,14 @@ Component({
           fontt3: newVal.fontt3,//温度
           fontt4: newVal.fontt4,//未来一周
           searchtip: newVal.searchtip,//搜索的提示文字
-        }) 
+        })
         //获取天气的值
-        that.GetWeather(); 
+        that.GetWeather();
 
         //一个小时获取新的天气
         timer = setInterval(function () {
           that.GetWeather();
-        }, 3600*1000);     
+        }, 3600 * 1000);
       }
     }
   },
@@ -51,10 +51,10 @@ Component({
     interval: 4000,
     duration: 500,
     imglist: [],//轮播图
-    isshowop:true,//一张图
+    isshowop: true,//一张图
     cnname: '',//中文名称
     enname: "",//英文名称
-    isshowname:false,//显示名称
+    isshowname: false,//显示名称
     issearch: true,//搜索按钮
     isweather: true,//天气预报
     weatherdata: {},//天气值
@@ -62,22 +62,22 @@ Component({
     fontt2: 0,
     fontt3: 0,
     fontt4: 0,
-    cityname:"黄金海岸",//城市名称
-    searchtip:"",//搜索的提示文字
+    cityname: "黄金海岸",//城市名称
+    searchtip: "",//搜索的提示文字
   },
   /**
    * 组件生命周期函数，在组件实例进入页面节点树时执行
    */
-  attached:function(){  
-    console.log("AAAAAA");  
+  attached: function () {
+    console.log("AAAAAA");
   },
   /**
    * 组件的方法列表
    */
   methods: {
     //获取天气的数据
-    GetWeather:function(){
-      var that=this;
+    GetWeather: function () {
+      var that = this;
       var cityname = that.data.cityname == "" ? "黄金海岸" : that.data.cityname;
       //请求天气的数据
       wx.request({
@@ -98,35 +98,35 @@ Component({
           console.log(nowweatherdata);
 
           that.setData({
-            weatherdata:{
+            weatherdata: {
               wendu: nowweatherdata.tmp,
-              icon: getApp().globalData.globalimgurl +"/weather/"+ nowweatherdata.cond_code + "_W.png",
+              icon: getApp().globalData.globalimgurl + "/weather/" + nowweatherdata.cond_code + "_W.png",
             }
           })
         }
       })
     },
     //搜索按钮的点击
-    getsearch:function(){
+    getsearch: function () {
       wx.navigateTo({
         url: '../../pages/search/index',
       })
     },
     //天气的点击
-    goweather:function(){
+    goweather: function () {
       wx.navigateTo({
         url: '../../pages/weather/index',
       })
     },
     //轮播图的点击
-    gointro:function(e){
-      var id=e.currentTarget.dataset.id;
+    gointro: function (e) {
+      var id = e.currentTarget.dataset.id;
       wx.navigateTo({
-        url: '../../pages/info/index?id='+id,
+        url: '../../pages/info/index?id=' + id,
       })
     },
     //清除计时器
-    detached:function(){
+    detached: function () {
       clearInterval(timer);
     }
     //结束标识符
