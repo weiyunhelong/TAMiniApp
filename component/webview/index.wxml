@@ -1,0 +1,3 @@
+<!--component/webview/index.wxml-->
+
+<web-view src="{{datalist}}"></web-view>

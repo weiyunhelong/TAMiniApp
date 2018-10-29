@@ -1,0 +1,2 @@
+<!--pages/testcom/index.wxml-->
+<menu  receiveData='{{datalist}}' />

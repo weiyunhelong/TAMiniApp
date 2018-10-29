@@ -1,0 +1,2 @@
+<!--pages/zhibo/index.wxml-->
+<webview receiveData="{{weburl}}" />

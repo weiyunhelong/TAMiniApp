@@ -1,22 +1,36 @@
 <!--pages/test/index.wxml-->
-<block wx:for="{{datalist}}" wx:key="item" wx:for-index="x">
 
-  <!--轮播图部分-->
-  <swiper style="height: 438rpx;" class="swiper-box" receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==1}}"/>
+<!--轮播图部分-->
+<swiper style="height: 438rpx;" class="swiper-box" receiveData='{{swiperdata}}'/>
 
-  <!--menu部分-->
-  <menu receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==1}}"/>
+<!--menu部分-->
+<menu />
+<!--隔断-->
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
-  <!--标志景点部分-->
-  <module receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==1}}"/>
+<!--标志景点部分-->
+<module receiveData='{{scenicdata}}'/>
+<!--隔断-->
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
-  <!--留白行-->
-  <view class='geduanv' style='height:{{item.detail.attr[0]}};' wx:if="{{x>0&&item.component_id==4}}"></view>
 
-  <!--游玩指南-->
-  <guide receiveData='{{item.detail}}' id="guide" bindshowChange="showChange" wx:if="{{x>0&&item.component_id==7}}"/>
+<!--美食推荐部分-->
+<module receiveData='{{fooddata}}'/>
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
-</block>
+<!--酒店推荐部分-->
+<module receiveData='{{hoteldata}}'/>
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
+
+<!--购物推荐部分-->
+<!--
+<module receiveData='{{shoppingdata}}'/>
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
+-->
+
+<!--游玩指南-->
+<guide receiveData='{{guidedata}}' id="guide" bindshowChange="showChange"/>
+
 <!--分段结束-->
 
 <!--到达顶部-->

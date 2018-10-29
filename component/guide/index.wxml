@@ -1,0 +1,88 @@
+<!--component/guide/index.wxml-->
+
+<!--游玩指南菜单部分-->
+<view class="wmenuv">
+  <!--tab层-->
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
+    <view class='menuv'>
+      <block wx:for="{{datalist}}" wx:key="item" wx:for-index="x">
+        <view class="tabitem" style="font-size:{{fontt}}rpx;">
+          <view wx:if="{{currentTab==x}}" class="chktabitem" style='color:{{item.fontcolor}};border-bottom:5rpx solid {{item.fontcolor}};' data-current="{{x}}">{{item.name}}</view>
+          <view wx:else class="nochktabitem" data-type='{{item.showtype}}' data-pagesize='{{item.pagesize}}' data-current="{{x}}" data-id="{{item.id}}" bindtap="switchNav">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class="shadowv"></view>
+
+<!--列表部分-->
+<!--游玩指南瀑布布局部分-->
+<view class="recommentv" wx:if="{{showtype==1}}">
+  <!--左侧瀑布流布局-->
+  <view class='leftv'>
+    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
+      <!--列表-->
+      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.category_id}}'>
+        <!--顶部的图片-->
+        <view class='wenimgv'>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
+        </view>
+        <!--类型按钮-->
+        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+        <!--文字介绍-->
+        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
+        <view class='weninfov'>
+          <view class='weninfo' style='font-size:{{fontt2}}rpx;'>
+            {{item.instroduce}}
+          </view>
+        </view>
+        <!--结束标识符-->
+      </view>
+    </block>
+  </view>
+
+  <!--右侧瀑布流布局-->
+  <view class='rightv'>
+    <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
+      <!--列表-->
+      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
+        <!--顶部的图片-->
+        <view class='wenimgv'>
+          <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
+        </view>
+        <!--类型按钮-->
+        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+        <!--文字介绍-->
+        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
+        <view class='weninfov'>
+          <view class='weninfo' style='font-size:{{fontt2}}rpx;'>
+            {{item.instroduce}}
+          </view>
+        </view>
+        <!--结束标识符-->
+      </view>
+    </block>
+  </view>
+</view>
+
+<!--游玩指南列表展示部分-->
+<view class="orecommentv" wx:if="{{showtype==2}}" style="height:{{guideheight}}px;">
+  <block wx:for="{{wenlist}}" wx:key="item">
+    <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
+      <!--图片部分-->
+      <view class='wenzhangtuv'>
+        <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true' mode='aspectFill'></image>
+      </view>
+      <!--按钮类型-->
+      <view class='wenzhangbtn' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+      <!--文字标题-->
+      <view class='wenzhangtitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
+      <!--简介文字-->
+      <view class='wenzhangdesc' style='font-size:{{fontt2}}rpx;'>
+        {{item.instroduce}}
+      </view>
+    </view>
+  </block>
+</view>
+

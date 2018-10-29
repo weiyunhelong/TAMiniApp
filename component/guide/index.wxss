@@ -1,0 +1,251 @@
+/* component/guide/index.wxss */
+
+/*定位到顶部*/
+
+.fixpostion {
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 110rpx;
+  background: #fff;
+  position: fixed;
+  top: 20rpx;
+  left: 0;
+  z-index: 2;
+  box-sizing: content-box;
+}
+
+.wmenuv {
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  background: #fff;
+  box-sizing: content-box;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/*菜单部分*/
+
+.tab-h {
+  height: 110rpx;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+.menuv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*菜单*/
+
+.tabitem {
+  height: 110rpx;
+  display: inline-block;
+  flex: none;  
+}
+
+/*选中的菜单*/
+
+.chktabitem {
+  text-align: center;
+  height: 95rpx;
+  display: inline-block;
+  font-weight: bold;
+  box-sizing: content-box;
+  font-size: 28rpx;
+  line-height: 90rpx;
+}
+
+/*未选中的菜单*/
+
+.nochktabitem {
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #16191c;
+  display: inline-block;
+  font-size: 28rpx;
+}
+
+/*阴影部分*/
+
+.shadowv {
+  width: 100%;
+  height: 20rpx;
+  clear: both;
+  background: linear-gradient(180deg, rgba(216, 216, 216, 1), rgba(238, 238, 238, 0));
+  margin-top: -10rpx;
+  position: sticky;
+  top: 100rpx;
+}
+
+/*线路部分的样式*/
+
+.recommentv {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+}
+
+.leftv {
+  width: 355rpx;
+  height: auto;
+  margin: 0 20rpx 20rpx 20rpx;
+}
+
+.rightv {
+  width: 355rpx;
+  height: auto;
+  margin: 0rpx 20rpx 20rpx 0rpx;
+}
+
+.wenv {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding-bottom: 20rpx;
+  margin-top: 30rpx;
+  clear: both;
+}
+
+.wenimgv {
+  width: 100%;
+  height: 355rpx;
+  background-color: #000;
+  border-radius: 10rpx;
+}
+
+/*文章类型按钮*/
+
+.wentype {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -245rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  font-size: 24rpx;
+}
+
+.wenimg {
+  width: 100%;
+  height: 355rpx;
+  border-radius: 10rpx;
+}
+
+/*标题*/
+
+.wentitle {
+  margin: 50rpx 10rpx 10rpx 10rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weninfov {
+  margin: 10rpx;
+  height: auto;
+}
+
+.weninfo {
+  color: #909599;
+  width: 100%;
+}
+
+/*定位*/
+
+.fixpostion {
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-around;
+  line-height: 110rpx;
+  background: #fff;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  z-index: 2;
+  box-sizing: content-box;
+}
+
+.duanfix {
+  position: fixed;
+  margin-top: 30rpx;
+  top: 100rpx;
+  z-index: 1;
+}
+
+.wenzhangfix {
+  margin-top: 0rpx;
+}
+
+/*游记攻略部分*/
+
+.orecommentv {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.wenzhangv {
+  width: 700rpx;
+  margin: 20rpx 25rpx;
+}
+
+.wenzhangtuv {
+  width: 100%;
+  height: 400rpx;
+  background: #000;
+  border-radius: 10rpx;
+}
+
+.wenzhangtu {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+/*按钮部分*/
+
+.wenzhangbtn {
+  width: 76rpx;
+  height: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 36rpx;
+  position: relative;
+  z-index: 1;
+  top: -290rpx;
+  left: 0rpx;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  margin-top: -80rpx;
+  font-size: 24rpx;
+}
+
+.wenzhangtitle {
+  margin-top: 50rpx;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wenzhangdesc {
+  color: #909599;
+}

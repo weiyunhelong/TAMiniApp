@@ -1,0 +1,55 @@
+/* component/text/index.wxss */
+
+/*行*/
+
+.txthang {
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+  padding: 0 25rpx;
+}
+
+/*居左*/
+
+.txthangvl {
+  font-size: 32rpx;
+  color: #16191c;
+  font-weight: bold;
+  width: 100%;
+}
+
+/*居中*/
+
+.txthangvc {
+  font-size: 32rpx;
+  color: #16191c;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+/*居右*/
+
+.txthangvr {
+  font-size: 32rpx;
+  color: #16191c;
+  font-weight: bold;
+ 
+  text-align: right;
+}
+
+/*查看更多*/
+
+.moretxt {
+  font-size: 24rpx;
+  color: #666;
+  text-align: right;
+  width: 15%;
+  float: right;
+  margin-top: -100rpx;
+}
+
+
+.clearv{
+  clear: both;
+}

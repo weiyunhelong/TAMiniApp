@@ -1,7 +1,7 @@
 <!--components/homes/menu/index.wxml-->
 
 <!--第一行-->
-<view class='onemenutabv'>
+<view class='onemenutabv' >
   <block wx:for="{{onemenulist}}" wx:key="item">
     <view class='menuv' bindtap='gomenu' data-id='{{item.id}}'>
       <image src='{{item.icon}}' class='menuico'></image>

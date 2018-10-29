@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/testcom/index",
+    "pages/zhibo/index",
     "pages/test/index",
-   
     "pages/termini/index",
     "pages/termini/search",
     "pages/chatbot/index",
@@ -16,7 +17,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "wechat",
+    "navigationBarTitleText": "黄金海岸",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

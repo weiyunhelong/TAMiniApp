@@ -1,0 +1,14 @@
+<!--component/text/index.wxml-->
+
+<view class='txthang'>
+  <!--居左文字行-->
+  <view class='txthangvl' wx:if="{{postion==3}}">{{name}}</view>
+  <!--居中文字行-->
+  <view class='txthangvc' wx:if="{{postion==4}}">{{name}}</view>
+  <!--居右文字行-->
+  <view class='txthangvr' wx:if="{{postion==5}}" style="padding-right:{{ismore?'18%':'0'}};">{{name}}</view>
+  <!--查看更多-->
+  <view class='moretxt' wx:if="{{ismore}}" bindtap='gourlopt'>{{moretxt}}</view>
+</view>
+
+<view class='clearv'></view>
