@@ -1,5 +1,11 @@
 {
   "usingComponents": {
-    "menu": "../../component/menu/index"
+    "swiper": "../../component/swiper/index",
+    "menu": "../../component/menu/index",
+    "guide": "../../component/guide/index",
+    "geduan": "../../component/geduan/index",
+    "search": "../../component/search/index",
+    "textc": "../../component/text/index",
+    "scroll": "../../component/scroll/index"
   }
 }

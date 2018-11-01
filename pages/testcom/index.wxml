@@ -1,2 +1,25 @@
 <!--pages/testcom/index.wxml-->
-<menu  receiveData='{{datalist}}' />
+
+<block wx:for="{{datalist}}" wx:key="item" wx:for-index="x">
+
+  <!--轮播图部分-->
+  <swiper style="height: 438rpx;" class="swiper-box" receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==1}}" />
+
+  <!--menu和横滑部分-->
+  <menu receiveData='{{item.detail}}' wx:if="{{x>0&&(item.component_id==3||item.component_id==6)}}" />
+
+  <!--隔断-->
+  <geduan receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==4}}" />
+
+  <!--文字标题部分-->
+  <textc receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==5}}" />
+
+
+</block>
+
+<!--游玩指南-->
+<!--guide receiveData='{{guidedata}}' id="guide" bindshowChange="showChange" />-->
+
+
+<!--到达顶部-->
+<image src='/resources/icon/zhiding.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop" style='display:none;'></image>

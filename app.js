@@ -109,8 +109,8 @@ App({
     openid:"",//OPENID
     unionId: "",//unionId
     store_id:1,//项目id
-    requesturl:"https://dev-api.connectplus.asaplus.com.cn",//后台API请求的url
-    globalimgurl: "https://dev-api.connectplus.asaplus.com.cn/static/images/",//后台API请求的url
+    requesturl:"https://uat-api.connectplus.asaplus.com.cn",//后台API请求的url
+    globalimgurl: "https://uat-api.connectplus.asaplus.com.cn/static/images/",//"https://dev-api.connectplus.asaplus.com.cn/static/images/",//后台API请求的url
     ocoinid:0,//中国货币
     gcoinid:1,//目标货币
     olangid: 7,//翻译来源语言

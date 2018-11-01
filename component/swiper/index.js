@@ -16,19 +16,19 @@ Component({
         var that = this;
         //赋值
         that.setData({
-          imglist: newVal.imglist,//轮播图
-          isshowop: newVal.imglist.length == 1 ? false : true,//是否显示一张图
+          imglist: newVal.data,//轮播图
+          isshowop: newVal.data.length == 1 ? false : true,//是否显示一张图
           cityname: newVal.cityname,//城市名称
-          cnname: newVal.cnname,//中文名称
-          enname: newVal.enname,//英文名称
-          isshowname: newVal.isshowname,//显示名称
-          issearch: newVal.issearch,//搜索按钮
-          isweather: newVal.isweather,//天气预报
-          fontt1: newVal.fontt1,//中文字
-          fontt2: newVal.fontt2,//英文字
-          fontt3: newVal.fontt3,//温度
-          fontt4: newVal.fontt4,//未来一周
-          searchtip: newVal.searchtip,//搜索的提示文字
+          cnname: "黄金海岸",//中文名称
+          enname: "Gold Coast",//英文名称
+          isshowname: true,//显示名称
+          issearch: true,//搜索按钮
+          isweather: true,//天气预报
+          fontt1:60,//中文字
+          fontt2: 32,//英文字
+          fontt3: 80,//温度
+          fontt4: 25,//未来一周
+          searchtip: "请搜索...",//搜索的提示文字
         })
         //获取天气的值
         that.GetWeather();

@@ -5,7 +5,7 @@
   <block wx:for="{{datalist}}" wx:key="item">
     <view class='menuv' style='width:{{100/showcount}}%;' bindtap='gomenu' data-url='{{item.url}}'>
       <image src='{{item.image_path}}' class='menuico'></image>
-      <view class='menutxt' style='font-size:24rpx;'>{{item.url_name}}</view>
+      <view class='menutxt' style='font-size:24rpx;'>{{item.url_name==''?item.url_name_en:item.url_name}}</view>
     </view>
   </block>
 </view>

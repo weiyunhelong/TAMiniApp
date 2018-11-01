@@ -1,80 +1,18 @@
 // pages/testcom/index.js
+var requesturl = getApp().globalData.requesturl;//接口地址
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    datalist: {
-      "component_id": 1,
-      "detail": {
-        "type_id": 1,
-        "type_name": "文本",
-        "data": [
-          {
-            "name": "",
-            "image_name": "",
-            "image_path": "/resources/menu/jingdianh.png",
-            "url_name": "景点",
-            "url_name_en": "",
-            "url": "../../others/pages/index/index?id=1"
-          },
-          {
-            "name": "",
-            "image_name": "",
-            "image_path": "/resources/menu/jiudianh.png",
-            "url_name": "酒店",
-            "url_name_en": "",
-            "url": "../../others/pages/index/index?id=3"
-          },
-          {
-            "name": "",
-            "image_name": "",
-            "image_path": "/resources/menu/meishih.png",
-            "url_name": "美食",
-            "url_name_en": "",
-            "url": "../../others/pages/index/index?id=2"
-          },
-          {
-            "name": "",
-            "image_name": "",
-            "image_path": "/resources/menu/wentih.png",
-            "url_name": "常见问题",
-            "url_name_en": "",
-            "url": "../../others/pages/question/index"
-          }, {
-            "name": "",
-            "image_name": "",
-            "image_path": "/resources/menu/youwanh.png",
-            "url_name": "游玩指南",
-            "url_name_en": "",
-            "url": "../../others/pages/guide/index"
-          }
-        ],
-        "attr": [
-          {
-            "style": ""
-          },
-          {
-            "count": "5"
-          },
-          {
-            "position": "横滑",
-            "position_id": 2
-          }
-        ]
-      },
-      "sort": 2,
-      "component_name": "固定图文导航",
-      "template_id": 1
-    }
+    datalist: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -88,9 +26,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that=this;
 
+    //获取页面的数据
+    that.InitaData();
   },
+  //获取页面的数据
+  InitaData:function(){
+    var that=this;
+    
+    //请求接口获取页面数据
+    wx.request({
+      url: requesturl +'/page/mini/detail',
+      data: {
+        page_id:1
+      },
+      header: {
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log("页面的数据:");
+        console.log(res);
 
+        that.setData({
+          datalist:res.data
+        })
+        //设置标题
+        wx.setNavigationBarTitle({
+          title: res.data[0].detail.data[0].name
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,2 +1,2 @@
 <!--component/geduan/index.wxml-->
-<view class='geduanv' style='height:{{datalist}};'></view>
+<view class='geduanv' style='height:{{datalist}}px;'></view>

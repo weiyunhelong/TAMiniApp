@@ -11,9 +11,9 @@ Component({
         console.log(newVal);
         //赋值
         this.setData({
-          datalist: newVal.detail.data, //菜单的值
-          showtype: newVal.detail.attr[2].position_id, //菜单显示
-          showcount: parseInt(newVal.detail.attr[1].count) , //菜单显示个数
+          datalist: newVal.data, //菜单的值
+          showtype: newVal.attr[2].position_id, //菜单显示
+          showcount: parseInt(newVal.attr[1].count) , //菜单显示个数
         })
       }
     }

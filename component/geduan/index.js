@@ -11,7 +11,7 @@ Component({
         console.log(newVal);
         //赋值
         this.setData({
-          datalist: newVal.detail.attr[0].style, //文字的值
+          datalist: newVal.attr[0].style, //文字的值
         })
       }
     }

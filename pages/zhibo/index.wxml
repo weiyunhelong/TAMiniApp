@@ -1,2 +1,4 @@
 <!--pages/zhibo/index.wxml-->
-<webview receiveData="{{weburl}}" />
+
+
+<web-view wx:if="{{webviewUrl}}" src="{{webviewUrl}}" />
