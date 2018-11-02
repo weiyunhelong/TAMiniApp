@@ -141,7 +141,7 @@ Component({
         })
       } else if (id == 8) { //航班查询
         wx.navigateTo({
-          url: '../../others/pages/airline/index',
+          url: '../../others/pages/airline/index'//'../zhibo/index',
         })
       } else if (id == 9) { //一键求助
         wx.showActionSheet({

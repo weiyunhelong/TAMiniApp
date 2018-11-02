@@ -5,7 +5,8 @@ page{
 /*菜单行*/
 .menutabv {
   margin: 40rpx 20rpx 0 20rpx;
-  height: 170rpx;
+  min-height: 170rpx;
+  height: auto;
   display: flex;
   flex-wrap:wrap;
 }

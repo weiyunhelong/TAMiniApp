@@ -14,7 +14,7 @@
 <view class='contentv' wx:if="{{showtype==2}}">
 
   <!--显示2个滑块-->
-  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==2}}" style='height: 356rpx;'>
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==1}}" style='height: 356rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
       <view class="taboneitem" bindtap='godetail' data-url='{{item.url}}' style='height: 356rpx;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabonetucss' lazy-load='true'></image>
@@ -22,10 +22,10 @@
       </view>
     </block>
   </scroll-view>
-  <view class="taboneitem" wx:if="{{showcount==2}}" style='width:10rpx;'></view>
+  <view class="taboneitem" wx:if="{{showcount==1}}" style='width:10rpx;'></view>
 
   <!--显示3个滑块-->
-  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==3}}" style='height: 266rpx;'>
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==2}}" style='height: 266rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
       <view class="tabtwoitem" bindtap='godetail' data-url='{{item.url}}' style='height: 266rpx;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabtwotucss' lazy-load='true'></image>
@@ -33,10 +33,10 @@
       </view>
     </block>
   </scroll-view>
-  <view class="tabtwoitem" wx:if="{{showcount==3}}" style='width:10rpx;'></view>
+  <view class="tabtwoitem" wx:if="{{showcount==2}}" style='width:10rpx;'></view>
 
   <!--显示4个滑块-->
-  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==4}}" style='height: 216rpx;'>
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==3}}" style='height: 216rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
       <view class="tabthreeitem" bindtap='godetail' data-url='{{item.url}}' style='height: 216rpx;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabthreetucss' lazy-load='true'></image>
@@ -44,10 +44,10 @@
       </view>
     </block>
   </scroll-view>
-  <view class="tabthreeitem" wx:if="{{showcount==4}}" style='width:10rpx;'></view>
+  <view class="tabthreeitem" wx:if="{{showcount==3}}" style='width:10rpx;'></view>
 
   <!--显示5个滑块-->
-  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==5}}" style='height: 156rpx;'>
+  <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==4}}" style='height: 156rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item">
       <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='height: 156rpx;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabfourtucss' lazy-load='true'></image>
@@ -55,6 +55,6 @@
       </view>
     </block>
   </scroll-view>
-  <view class="tabfouritem" wx:if="{{showcount==5}}" style='width:10rpx;'></view>
+  <view class="tabfouritem" wx:if="{{showcount==4}}" style='width:10rpx;'></view>
 
 </view>
