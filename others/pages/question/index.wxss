@@ -1,8 +1,4 @@
 /* others/pages/question/index.wxss */
-page{
-  background-color: #fff;
-}
-
 
 .questionv{
   margin-bottom: 50rpx;

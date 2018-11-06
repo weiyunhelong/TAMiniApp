@@ -1,14 +1,17 @@
 /* components/homes/menu/index.wxss */
 
-page {
+.bodycontentv {
   background-color: #fff;
+  width: 100%;
+  height: auto;
 }
 
 /*第一行菜单*/
 
 .onemenutabv {
-  margin: 40rpx 20rpx 0 20rpx;
-  height: 170rpx;
+  margin: 0 20rpx;
+  min-height: 170rpx;
+  height: auto;
   display: flex;
   justify-content: space-between;
 }
@@ -35,7 +38,7 @@ page {
 /*第二行菜单*/
 
 .twomenutabv {
-  margin: 30rpx 20rpx 40rpx 20rpx;
+  margin: 0rpx 20rpx;
   height: 190rpx;
   display: flex;
   justify-content: space-between;

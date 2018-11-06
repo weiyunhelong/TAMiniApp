@@ -6,6 +6,7 @@
     "geduan": "../../component/geduan/index",
     "search": "../../component/search/index",
     "textc": "../../component/text/index",
-    "scroll": "../../component/scroll/index"
+    "scroll": "../../component/scroll/index",
+    "content": "../../component/content/index"
   }
 }

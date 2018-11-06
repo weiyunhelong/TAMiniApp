@@ -1,9 +1,5 @@
 /* others/pages/coin/detail.wxss */
 
-page {
-  background-color: #fff;
-}
-
 /*当前选择*/
 .coinchkh {
   height: 100rpx;

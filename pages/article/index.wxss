@@ -1,8 +1,5 @@
 /* pages/article/index.wxss */
 
-page {
-  background-color: #fff;
-}
 
 /*顶层的部分*/
 

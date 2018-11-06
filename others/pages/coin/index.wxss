@@ -1,9 +1,5 @@
 /* others/pages/coin/index.wxss */
 
-page {
-  background-color: #f7f7f7;
-}
-
 .bodyv {
   background-color: #fff;
   padding: 61rpx 54rpx 66rpx 36rpx;

@@ -1,9 +1,5 @@
 /* pages/info/index.wxss */
 
-page {
-  background-color: #fff;
-}
-
 /*顶层的部分*/
 
 .topv {

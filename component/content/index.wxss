@@ -1,31 +1,4 @@
-/* component/menu/index.wxss */
-
-/*菜单行*/
-.menutabv {
-  margin: 40rpx 20rpx 0 20rpx;
-  min-height: 170rpx;
-  height: auto;
-  display: flex;
-  flex-wrap:wrap;
-}
-
-/*菜单部分*/
-
-.menuv {
-  height: 190rpx;
-  text-align: center;
-  display: table-column;
-  padding-top: 18rpx;
-}
-
-.menuico {
-  width: 110rpx;
-  height: 110rpx;
-}
-
-.menutxt {
-  width: 100%;
-}
+/* component/content/index.wxss */
 
 /*横滑内容部分*/
 
@@ -59,12 +32,20 @@
 
 /*文字部分*/
 
-.tabtxt {  
+.tabtxt { 
+  height: 174rpx;
+  line-height: 244rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; 
-  text-align: center;
-  width: 100%;
+  white-space: nowrap;
+  padding: 0 20rpx;
+  position: relative;
+  top: -174rpx;
+  left: 0;
+  color: #fff;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
 }
 
 /****3部分****/

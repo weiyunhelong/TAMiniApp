@@ -1,8 +1,5 @@
 /* others/pages/guide/index.wxss */
 
-page{
-  background-color: #fff;
-}
 .topv {
   width: 100%;
   height: 275rpx;

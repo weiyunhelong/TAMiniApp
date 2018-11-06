@@ -1,21 +1,23 @@
 <!--components/homes/menu/index.wxml-->
+<view class='bodycontentv'>
+  <!--第一行-->
+  <view class='onemenutabv'>
+    <block wx:for="{{onemenulist}}" wx:key="item">
+      <view class='menuv' bindtap='gomenu' data-id='{{item.id}}'>
+        <image src='{{item.icon}}' class='menuico'></image>
+        <view class='menutxt' style='font-size:{{fontt}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
 
-<!--第一行-->
-<view class='onemenutabv' >
-  <block wx:for="{{onemenulist}}" wx:key="item">
-    <view class='menuv' bindtap='gomenu' data-id='{{item.id}}'>
-      <image src='{{item.icon}}' class='menuico'></image>
-      <view class='menutxt' style='font-size:{{fontt}}rpx;'>{{item.name}}</view>
-    </view>
-  </block>
-</view>
+  <!--第二行-->
+  <view class='twomenutabv'>
+    <block wx:for="{{twomenulist}}" wx:key="item">
+      <view class='menuv' bindtap='gomenu' data-id='{{item.id}}'>
+        <image src='{{item.icon}}' class='menuico'></image>
+        <view class='menutxt' style='font-size:{{fontt}}rpx;'>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
 
-<!--第二行-->
-<view class='twomenutabv'>
-  <block wx:for="{{twomenulist}}" wx:key="item">
-    <view class='menuv' bindtap='gomenu' data-id='{{item.id}}'>
-      <image src='{{item.icon}}' class='menuico'></image>
-      <view class='menutxt' style='font-size:{{fontt}}rpx;'>{{item.name}}</view>
-    </view>
-  </block>
 </view>

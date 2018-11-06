@@ -1,9 +1,5 @@
 /* others/pages/filter/index.wxss */
 
-page {
-  background-color: #fff;
-}
-
 /*顶部行*/
 
 .topv {

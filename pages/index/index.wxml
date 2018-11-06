@@ -2,6 +2,8 @@
 
 <!--轮播图部分-->
 <swiper style="height: 438rpx;" class="swiper-box" receiveData='{{swiperdata}}'/>
+<!--隔断-->
+<view class='geduanv' style='height:{{geduanval}}rpx;'></view>
 
 <!--menu部分-->
 <menu />

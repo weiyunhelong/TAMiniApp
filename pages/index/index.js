@@ -16,7 +16,8 @@ Page({
     guidemenuTop: 0, //游玩指南tab的位置
     guipageindex: 1, //游玩指南页数
     /***底部的tabbar***/
-    tabbardata: {}, //底部的tabbar     
+    tabbardata: {}, //底部的tabbar 
+    geduanval:20//分隔行    
   },
   //事件处理函数
   bindViewTap: function() {
@@ -28,7 +29,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-
+wx.showShareMenu({
+})
   },
   //获取屏幕的高度
   initHight: function() {

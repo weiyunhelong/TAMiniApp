@@ -6,7 +6,7 @@
   <swiper style="height: 438rpx;" class="swiper-box" receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==1}}" />
 
   <!--menu和横滑部分-->
-  <menu receiveData='{{item.detail}}' wx:if="{{x>0&&(item.component_id==3||item.component_id==6)}}" />
+  <menu receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==3}}" />
 
   <!--隔断-->
   <geduan receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==4}}" />
@@ -14,7 +14,9 @@
   <!--文字标题部分-->
   <textc receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==5}}" />
 
-
+  <!--内容卡片的部分-->
+  <content receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==6}}"/>
+  
 </block>
 
 <!--游玩指南-->

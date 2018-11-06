@@ -79,10 +79,6 @@
   },
   "debug": false,
   "plugins": {
-    "myPlugin": {
-      "version": "1.0.8",
-      "provider": "wx60d306fd175fe556"
-    },
     "htmltowxml": {
       "version": "1.3.0",
       "provider": "wxa51b9c855ae38f3c"

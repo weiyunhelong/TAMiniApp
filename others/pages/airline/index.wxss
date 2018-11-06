@@ -1,9 +1,5 @@
 /* others/pages/airline/index.wxss */
 
-page {
-  background-color: #f7f7f7;
-}
-
 .imagev {
   text-align: center;
   padding: 53% 0 34rpx 0;

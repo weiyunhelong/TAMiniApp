@@ -1,8 +1,5 @@
 /* others/pages/translate/index.wxss */
 
-page {
-  background-color: #fff;
-}
 
 /*顶部*/
 

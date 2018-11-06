@@ -1,9 +1,5 @@
 /* pages/termini/search.wxss */
 
-page {
-  background-color: #fff;
-}
-
 /*顶部搜索部分*/
 
 .topv {

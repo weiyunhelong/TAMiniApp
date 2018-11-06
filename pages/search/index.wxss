@@ -1,9 +1,5 @@
 /* pages/search/index.wxss */
 
-page {
-  background-color: #fff;
-}
-
 /*顶部搜索部分*/
 
 .topv {

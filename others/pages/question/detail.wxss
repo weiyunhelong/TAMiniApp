@@ -1,7 +1,5 @@
 /* others/pages/question/detail.wxss */
-page{
-  background-color: #fff;
-}
+
 .bodyinfov{
    margin: 42rpx 40rpx 0rpx 40rpx; 
 }

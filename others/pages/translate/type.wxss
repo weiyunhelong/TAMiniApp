@@ -1,8 +1,5 @@
 /* others/pages/translate/type.wxss */
 
-page {
-  background-color: #fff;
-}
 
 /*当前选择*/
 .coinchkh {
