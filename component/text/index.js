@@ -14,8 +14,8 @@ Component({
           name: newVal.data[0].name, //文字的值
           postion: newVal.attr[2].position_id, //文字的位置
           ismore: newVal.data[0].url_name!=""? true : false, //第二个显示为更多的值
-          moretxt: newVal.data[0].url_name != "" ? newVal.data[0].url_name : "", //外链的名称
-          url: newVal.data[0].url_name != "" ? newVal.data[0].url:"", //外链的地址
+          moretxt: "查看更多", //外链的名称
+          url: newVal.data[0].url, //外链的地址
         })
       }
     }

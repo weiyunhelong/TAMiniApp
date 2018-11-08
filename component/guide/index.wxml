@@ -7,8 +7,8 @@
     <view class='menuv'>
       <block wx:for="{{datalist}}" wx:key="item" wx:for-index="x">
         <view class="tabitem" style="font-size:{{fontt}}rpx;">
-          <view wx:if="{{currentTab==x}}" class="chktabitem" style='color:{{item.fontcolor}};border-bottom:5rpx solid {{item.fontcolor}};' data-current="{{x}}">{{item.name}}</view>
-          <view wx:else class="nochktabitem" data-type='{{item.showtype}}' data-pagesize='{{item.pagesize}}' data-current="{{x}}" data-id="{{item.id}}" bindtap="switchNav">{{item.name}}</view>
+          <view wx:if="{{currentTab==x}}" class="chktabitem" data-current="{{x}}">{{item.name}}</view>
+          <view wx:else class="nochktabitem" data-current="{{x}}" data-id="{{item.id}}" bindtap="switchNav">{{item.name}}</view>
         </view>
       </block>
     </view>
@@ -16,9 +16,9 @@
 </view>
 <view class="shadowv"></view>
 
-<!--列表部分-->
+
 <!--游玩指南瀑布布局部分-->
-<view class="recommentv" wx:if="{{showtype==1}}">
+<view class="recommentv" wx:if="{{showtype==2}}">
   <!--左侧瀑布流布局-->
   <view class='leftv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
@@ -29,10 +29,12 @@
           <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
         </view>
         <!--类型按钮-->
-        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+        <view class='wentypes typecolor2' wx:if="{{item.url_type==6}}">攻略</view>
+        <view class='wentypes typecolor3' wx:if="{{item.url_type==7}}">游记</view>
+        <view class='wentypes typecolor4' wx:if="{{item.url_type==8}}">线路</view>
         <!--文字介绍-->
-        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
-        <view class='weninfov'>
+        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.url_name==""?item.url_name_en:item.url_name}}</view>
+        <view class='weninfov' wx:if="{{aaa}}">
           <view class='weninfo' style='font-size:{{fontt2}}rpx;'>
             {{item.instroduce}}
           </view>
@@ -52,10 +54,12 @@
           <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
         </view>
         <!--类型按钮-->
-        <view class='wentype' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+        <view class='wentypes typecolor2' wx:if="{{item.url_type==6}}">攻略</view>
+        <view class='wentypes typecolor3' wx:if="{{item.url_type==7}}">游记</view>
+        <view class='wentypes typecolor4' wx:if="{{item.url_type==8}}">线路</view>
         <!--文字介绍-->
-        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
-        <view class='weninfov'>
+        <view class='wentitle' style='font-size:{{fontt1}}rpx;'>{{item.url_name==""?item.url_name_en:item.url_name}}</view>
+        <view class='weninfov' wx:if="{{aaa}}">
           <view class='weninfo' style='font-size:{{fontt2}}rpx;'>
             {{item.instroduce}}
           </view>
@@ -67,7 +71,7 @@
 </view>
 
 <!--游玩指南列表展示部分-->
-<view class="orecommentv" wx:if="{{showtype==2}}" style="height:{{guideheight}}px;">
+<view class="orecommentv" wx:if="{{showtype==1}}">
   <block wx:for="{{wenlist}}" wx:key="item">
     <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
       <!--图片部分-->
@@ -75,14 +79,15 @@
         <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true' mode='aspectFill'></image>
       </view>
       <!--按钮类型-->
-      <view class='wenzhangbtn' style="background-color:{{item.backcolor}};">{{item.category_name}}</view>
+      <view class='wentype typecolor2' wx:if="{{item.url_type==6}}">攻略</view>
+      <view class='wentype typecolor3' wx:if="{{item.url_type==7}}">游记</view>
+      <view class='wentype typecolor4' wx:if="{{item.url_type==8}}">线路</view>
       <!--文字标题-->
-      <view class='wenzhangtitle' style='font-size:{{fontt1}}rpx;'>{{item.title}}</view>
+      <view class='wenzhangtitle' style='font-size:{{fontt1}}rpx;'>{{item.url_name==""?item.url_name_en:item.url_name}}</view>
       <!--简介文字-->
-      <view class='wenzhangdesc' style='font-size:{{fontt2}}rpx;'>
+      <view class='wenzhangdesc' style='font-size:{{fontt2}}rpx;' wx:if="{{aaa}}">
         {{item.instroduce}}
       </view>
     </view>
   </block>
 </view>
-

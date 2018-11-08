@@ -8,7 +8,7 @@
   <!--居右文字行-->
   <view class='txthangvr' wx:if="{{postion==5}}" style="padding-right:{{ismore?'18%':'0'}};">{{name}}</view>
   <!--查看更多-->
-  <view class='moretxt' wx:if="{{ismore}}" bindtap='gourlopt'>{{moretxt}}</view>
+  <view class='moretxt' wx:if="{{ismore}}" bindtap='gourlopt' data-url='{{url}}'>{{moretxt}}</view>
 </view>
 
 <view class='clearv'></view>

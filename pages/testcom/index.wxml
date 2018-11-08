@@ -15,12 +15,13 @@
   <textc receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==5}}" />
 
   <!--内容卡片的部分-->
-  <content receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==6}}"/>
-  
+  <content receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==6}}" />
+
+  <!--内容分组-->
+  <guide receiveData='{{item.detail}}' wx:if="{{x>0&&item.component_id==9}}"/>
 </block>
 
-<!--游玩指南-->
-<!--guide receiveData='{{guidedata}}' id="guide" bindshowChange="showChange" />-->
+
 
 
 <!--到达顶部-->
