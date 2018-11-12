@@ -57,13 +57,13 @@ Page({
       success: function(res) {
         console.log("页面的数据:");
         console.log(res);
-
+        var data = JSON.parse(res.data.detail);
         that.setData({
-          datalist: res.data
+          datalist: data
         })
         //设置标题
         wx.setNavigationBarTitle({
-          title: res.data[0].detail.data[0].name
+          title: data[0].detail.data[0].name
         })
       }
     })

@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/testcom/index",
-    "pages/zhibo/index",
     "pages/test/index",
     "pages/termini/index",
     "pages/termini/search",
@@ -12,6 +11,7 @@
     "pages/comment/index",
     "pages/search/index",
     "pages/article/index",
+    "pages/zhibo/index",
     "pages/weather/index"
   ],
   "window": {

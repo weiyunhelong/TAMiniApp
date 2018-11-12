@@ -7,9 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    webviewUrl: "https://live.vhall.com/webinar/inituser/785654111",
+    webviewUrl:"",
+    url: "https://live.vhall.com/webinar/inituser/",
     state: 0,
-    status: 0
+    status: 0,
+    webinar_id:""
   },
 
   /**
@@ -17,6 +19,10 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    that.setData({
+      webviewUrl: "https://live.vhall.com/webinar/inituser/"+options.id,
+      webinar_id: options.id
+    })
     that.getplayerstate(1);
     that.getplayerstate(2);
   },
@@ -35,17 +41,29 @@ Page({
     var that = this;
     var timer = setInterval(function() {
       console.log("5s钟刷新!!!");
-      that.updatestatus();
+      //that.updatestatus();
     }, 5000)
+    that.updatestatus();
   },
   //得到状态值
   getplayerstate: function(typeval) {
     var that = this;
 
     var timenow = (new Date()).getTime();
+    
+    var sign = MD5.hexMD5("cd09347f7780d594acbb3e8954a45a54app_key05616266e330a463d294bb693aa769d2auth_type2signed_at" + timenow + "webinar_id" + that.data.webinar_id+"cd09347f7780d594acbb3e8954a45a54");
 
-    var sign = MD5.hexMD5("cd09347f7780d594acbb3e8954a45a54app_key05616266e330a463d294bb693aa769d2auth_type2signed_at" + timenow + "webinar_id785654111cd09347f7780d594acbb3e8954a45a54");
+    var usersign = MD5.hexMD5("cd09347f7780d594acbb3e8954a45a54app_key05616266e330a463d294bb693aa769d2auth_type2signed_at" + timenow + "cd09347f7780d594acbb3e8954a45a54");
 
+    var livesign = MD5.hexMD5("cd09347f7780d594acbb3e8954a45a54app_key05616266e330a463d294bb693aa769d2auth_type2signed_at" + timenow + "status5cd09347f7780d594acbb3e8954a45a54");
+
+    var accountsign = MD5.hexMD5("cd09347f7780d594acbb3e8954a45a54app_key05616266e330a463d294bb693aa769d2auth_type2signed_at" + timenow +"time_span1webinar_id" + that.data.webinar_id + "cd09347f7780d594acbb3e8954a45a54");;
+
+    console.log("时间戳:" + timenow);
+    console.log("直播指定签名：" + sign);
+    console.log("用户MD5签名：" + usersign);
+    console.log("直播MD5签名：" + livesign);
+    console.log("直播统计MD5签名：" + accountsign);
     //请求接口获取状态值
     wx.request({
       url: 'https://e.vhall.com/api/vhallapi/v2/webinar/state',

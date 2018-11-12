@@ -2,7 +2,7 @@
 
 /*菜单行*/
 .menutabv {
-  margin: 40rpx 20rpx 0 20rpx;
+  margin: 0 20rpx;
   min-height: 170rpx;
   height: auto;
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 .tab-contentv {
-  width: 100%;  
+  margin-left:20rpx; 
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -45,7 +45,6 @@
 
 .taboneitem {
   width: 670rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -71,7 +70,6 @@
 
 .tabtwoitem {
   width: 320rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -87,7 +85,6 @@
 
 .tabthreeitem {
   width: 200rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -103,7 +100,6 @@
 
 .tabfouritem {
   width: 150rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }

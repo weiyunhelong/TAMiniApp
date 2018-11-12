@@ -40,6 +40,12 @@
 					"name": "测试",
 					"pathName": "pages/testcom/index",
 					"query": "id=1&store="
+				},
+				{
+					"id": 1,
+					"name": "直播测试",
+					"pathName": "pages/zhibo/index",
+					"query": "id=672514938"
 				}
 			]
 		}

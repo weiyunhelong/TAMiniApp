@@ -3,12 +3,11 @@
 /*横滑内容部分*/
 
 .contentv {
-  background-color: #fff;  
-  padding-top: 40rpx;
+  background-color: #fff;
 }
 
 .tab-contentv {
-  width: 100%;  
+  margin-left: 20rpx; 
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -18,7 +17,6 @@
 
 .taboneitem {
   width: 670rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -52,7 +50,6 @@
 
 .tabtwoitem {
   width: 320rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -68,7 +65,6 @@
 
 .tabthreeitem {
   width: 200rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }
@@ -84,7 +80,6 @@
 
 .tabfouritem {
   width: 150rpx;
-  margin-left: 20rpx;
   border-radius: 10rpx;
   display: inline-block;
 }

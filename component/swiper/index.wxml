@@ -10,6 +10,12 @@
     <navigator url='{{item.url}}' open-type="navigate">
       <swiper-item>
         <image class="slide-image" src="{{item.image_path}}" lazy-load='true'></image>
+        <view class='toptxtinfo' wx:if="{{!isshowname}}">
+          <view class='topleftv'>
+            <view class='topcnname' style="font-size:{{fontt1}}rpx;">{{item.url_name}}</view>
+            <view class='topenname' style="font-size:{{fontt2}}rpx;">{{item.url_name_en}}</view>
+          </view>
+        </view>
       </swiper-item>
     </navigator>
   </block>
@@ -23,10 +29,10 @@
     <input type='text' placeholder='{{searchtip}}' placeholder-class='searchtip' class='searchtxt' disabled='true'></input>
   </view>
   <!--底部的文字-->
-  <view class='toptxtinfo' style="top: 200rpx;">
-    <view class='topleftv'>
-      <view class='topcnname' style="font-size:{{fontt1}}rpx;" wx:if="{{isshowname}}">{{cnname}}</view>
-      <view class='topenname' style="font-size:{{fontt2}}rpx;" wx:if="{{isshowname}}">{{enname}}</view>
+  <view class='toptxtinfo' style="top:200rpx;">
+    <view class='topleftv'  wx:if="{{isshowname}}">
+      <view class='topcnname' style="font-size:{{fontt1}}rpx;">{{cnname}}</view>
+      <view class='topenname' style="font-size:{{fontt2}}rpx;">{{enname}}</view>
     </view>
     <view class='topleftv'></view>
     <view class='toprightv' bindtap='goweather' wx:if="{{isweather}}">

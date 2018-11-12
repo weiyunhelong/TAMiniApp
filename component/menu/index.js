@@ -14,6 +14,7 @@ Component({
           datalist: newVal.data, //菜单的值
           showtype: newVal.attr[2].position_id, //菜单显示
           showcount: parseInt(newVal.attr[1].count) , //菜单显示个数
+          style: newVal.attr[0].style,//间距值
         })
       }
     }
@@ -26,6 +27,7 @@ Component({
     datalist:[],//数据列表
     showtype:1,//显示方式
     showcount:0,//展示的个数
+    style:0
   },
 
   /**
