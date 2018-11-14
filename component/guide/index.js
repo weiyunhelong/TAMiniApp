@@ -80,12 +80,10 @@ Component({
     goarticle: function (e) {
       var that = this;
       //参数部分
-      var id = e.currentTarget.dataset.id;
-      var title = e.currentTarget.dataset.title;
-      var typeval = e.currentTarget.dataset.type;
+      var url = e.currentTarget.dataset.url;
       //页面的跳转
       wx.navigateTo({
-        url: '../../pages/article/index?id=' + id + "&title=" + title + "&type=" + typeval
+        url: url
       })
     }
     

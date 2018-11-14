@@ -7,10 +7,11 @@
 }
 
 .tab-contentv {
-  margin-left: 20rpx; 
+  padding-left: 2%; 
   overflow: hidden;
   white-space: nowrap;
   display: flex;
+  width: 98%;
 }
 
 /****2部分****/

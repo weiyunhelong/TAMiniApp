@@ -13,7 +13,7 @@ Page({
     menuTop: 0, //tab的高度
     orderlist: [{
         id: 1,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+      imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         status: 1,
         cnname: "12门徒岩",
         enname: "12 Apostles",
@@ -21,7 +21,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         status: 0,
         cnname: "悉尼歌剧院",
         enname: "Sydney Opera House",
@@ -31,7 +31,7 @@ Page({
     collecttab: 1, //收藏的类型；1->内容，2->地点
     guidelist: [{
         id: 1,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+      imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -41,7 +41,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 2,
         title: "七天就能环个洲，大小景点都玩遍",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -51,7 +51,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 3,
         title: "五天玩遍澳大利亚的秘密隆重揭晓",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -61,7 +61,7 @@ Page({
       },
       {
         id: 4,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -71,7 +71,7 @@ Page({
       },
       {
         id: 1,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%202.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -81,7 +81,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%203.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 2,
         title: "七天就能环个洲，大小景点都玩遍",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -91,7 +91,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap%204.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 3,
         title: "五天玩遍澳大利亚的秘密隆重揭晓",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -101,7 +101,7 @@ Page({
       },
       {
         id: 4,
-        imgpath: "http://zhuweis.com/index/Articles%20lazy%20loading/Bitmap.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         typeval: 1,
         title: "黄金海岸初体验，最热门的8个地方",
         instro: "如镜面一般冲浪者天堂的海滩，黄金海岸沙子又细又白又细又白又细又白",
@@ -112,7 +112,7 @@ Page({
     ], //收藏文字列表
     sceniclist: [{
         id: 1,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+      imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "华纳电影世界",
         enname: "Warner Bros. Movie World",
         distance: "1.5km",
@@ -122,7 +122,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "可伦宾野生动物园",
         enname: "Currumbin Wildlife Sanctuary",
         distance: "1.8km",
@@ -132,7 +132,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "春溪国家公园",
         enname: "Warner Bros. Movie World",
         distance: "2.0km",
@@ -142,7 +142,7 @@ Page({
       },
       {
         id: 1,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "华纳电影世界",
         enname: "Warner Bros. Movie World",
         distance: "1.5km",
@@ -152,7 +152,7 @@ Page({
       },
       {
         id: 2,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%203.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "可伦宾野生动物园",
         enname: "Currumbin Wildlife Sanctuary",
         distance: "1.8km",
@@ -162,7 +162,7 @@ Page({
       },
       {
         id: 3,
-        imgpath: "http://zhuweis.com/index/Attractions/Bitmap%204.png",
+        imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
         cnname: "春溪国家公园",
         enname: "Warner Bros. Movie World",
         distance: "2.0km",
@@ -177,7 +177,7 @@ Page({
         fen: 5,
         comment: "太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
         commentobj: {
-          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
           cnname: "春溪国家公园",
           enname: "Warner Bros. Movie World",
           attr: "￥281/人",
@@ -191,7 +191,7 @@ Page({
         fen: 4,
         comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
         commentobj: {
-          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
           cnname: "春溪国家公园",
           enname: "Warner Bros. Movie World",
           attr: "￥281/人",
@@ -205,7 +205,7 @@ Page({
         fen: 3,
         comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
         commentobj: {
-          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
           cnname: "春溪国家公园",
           enname: "Warner Bros. Movie World",
           attr: "￥281/人",
@@ -219,7 +219,7 @@ Page({
         fen: 5,
         comment: "动物们都好可爱，袋鼠宝宝自己凑上来讨吃的，炒鸡萌！",
         commentobj: {
-          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
           cnname: "春溪国家公园",
           enname: "Warner Bros. Movie World",
           attr: "￥281/人",
@@ -233,7 +233,7 @@ Page({
         fen: 5,
         comment: "太好玩了，根本不想离开，每一样设施都很有趣，很值得花一天时间过来，期待下次再来刷！",
         commentobj: {
-          imgpath: "http://zhuweis.com/index/Attractions/Bitmap%202.png",
+          imgpath: "https://dev-api.connectplus.asaplus.com.cn/static/images/201810/c6916737db6df66a32c4a9da3b403707.jpeg",
           cnname: "春溪国家公园",
           enname: "Warner Bros. Movie World",
           attr: "￥281/人",

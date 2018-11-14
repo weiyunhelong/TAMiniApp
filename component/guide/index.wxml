@@ -14,7 +14,7 @@
     </view>
   </scroll-view>
 </view>
-<view class="shadowv"></view>
+<view class="shadowv" style='display:none;'></view>
 
 
 <!--游玩指南瀑布布局部分-->
@@ -23,7 +23,7 @@
   <view class='leftv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
       <!--列表-->
-      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.category_id}}'>
+      <view class='wenv' wx:if="{{x%2==0}}" bindtap='goarticle' data-url='{{item.url}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
           <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
@@ -48,7 +48,7 @@
   <view class='rightv'>
     <block wx:for="{{wenlist}}" wx:key="item" wx:for-index="x">
       <!--列表-->
-      <view class='wenv' wx:if="{{x%2==1}}" bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
+      <view class='wenv' wx:if="{{x%2==1}}"  bindtap='goarticle' data-url='{{item.url}}'>
         <!--顶部的图片-->
         <view class='wenimgv'>
           <image src='{{item.image_path}}' class='wenimg' lazy-load='true' mode='aspectFill'></image>
@@ -73,7 +73,7 @@
 <!--游玩指南列表展示部分-->
 <view class="orecommentv" wx:if="{{showtype==1}}">
   <block wx:for="{{wenlist}}" wx:key="item">
-    <view class='wenzhangv' bindtap='goarticle' data-id='{{item.id}}' data-title='{{item.title}}' data-type='{{item.typeval}}'>
+    <view class='wenzhangv' bindtap='goarticle'  bindtap='goarticle' data-url='{{item.url}}'>
       <!--图片部分-->
       <view class='wenzhangtuv'>
         <image src='{{item.image_path}}' class='wenzhangtu' lazy-load='true' mode='aspectFill'></image>
