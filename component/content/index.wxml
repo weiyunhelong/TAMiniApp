@@ -7,7 +7,7 @@
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
       <view class="taboneitem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabonetucss' lazy-load='true'></image>
-        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{item.url_name_show==1}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
+        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{isshowname}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
       </view>
     </block>
   </scroll-view>
@@ -17,7 +17,7 @@
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
       <view class="tabtwoitem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabtwotucss' lazy-load='true'></image>
-        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{item.url_name_show==1}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
+        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{isshowname}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
       </view>
     </block>
   </scroll-view>
@@ -27,7 +27,7 @@
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
       <view class="tabthreeitem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabthreetucss' lazy-load='true'></image>
-       <view class="tabtxt" style='font-size:28rpx;' wx:if="{{item.url_name_show==1}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
+       <view class="tabtxt" style='font-size:28rpx;' wx:if="{{isshowname}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
       </view>
     </block>
   </scroll-view>
@@ -37,7 +37,7 @@
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
       <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabfourtucss' lazy-load='true'></image>
-        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{item.url_name_show==1}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
+        <view class="tabtxt" style='font-size:28rpx;' wx:if="{{isshowname}}">{{item.url_name==''?item.url_name_en:item.url_name}}</view>
       </view>
     </block>
   </scroll-view>
