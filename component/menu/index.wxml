@@ -38,7 +38,7 @@
   <!--显示4个滑块-->
   <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==3}}" style='height: 266rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
-      <view class="tabthreeitem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
+      <view class="tabthreeitem" bindtap='godetail' data-url='{{item.url}}' style='width:25%;margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabthreetucss' lazy-load='true'></image>
         <view class="tabtxt" style='font-size:28rpx;'>{{item.name}}</view>
       </view>
@@ -48,7 +48,7 @@
   <!--显示5个滑块-->
   <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==4}}" style='height: 206rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
-      <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
+      <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='width:20%;margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabfourtucss' lazy-load='true'></image>
         <view class="tabtxt" style='font-size:28rpx;'>{{item.name}}</view>
       </view>
@@ -58,7 +58,7 @@
   <!--显示5-5个滑块-->
   <scroll-view scroll-x="true" class="tab-contentv" wx:if="{{showcount==5}}" style='height: 206rpx;'>
     <block wx:for="{{datalist}}" wx:key="item" wx:for-item="item" wx:for-index="x">
-      <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='margin-right:{{x==datalist.length-1?style+20:style}}px;'>
+      <view class="tabfouritem" bindtap='godetail' data-url='{{item.url}}' style='width:20%;margin-right:{{x==datalist.length-1?style+20:style}}px;'>
         <image src='{{item.image_path}}' mode="aspectFill" class='tabfourtucss' lazy-load='true'></image>
         <view class="tabtxt" style='font-size:28rpx;'>{{item.name}}</view>
       </view>

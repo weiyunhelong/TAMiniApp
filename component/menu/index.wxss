@@ -32,6 +32,7 @@
 .contentv {
   background-color: #fff;  
   padding-top: 40rpx;
+  padding-bottom: 20rpx;
 }
 
 .tab-contentv {
